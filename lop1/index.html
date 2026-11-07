@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vui học lớp 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--co:#FF6B6B;--ye:#FFD93D;--gr:#6BCB77;--bl:#4D96FF;--pu:#9B59B6;--cr:#FFF6E5;--tx:#2d2a4a}
+*{box-sizing:border-box}body{margin:0;font-family:'Nunito','Be Vietnam Pro',sans-serif;background:var(--cr);color:var(--tx);font-size:22px;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:'Be Vietnam Pro',sans-serif;margin:.3em 0}
+.deco{position:fixed;z-index:0;pointer-events:none;opacity:.55;animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-18px)}}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:18px}
+.card{background:#fff;border-radius:28px;box-shadow:0 10px 28px rgba(80,60,120,.12);padding:22px;margin:16px 0}
+button{font-family:inherit;font-weight:800;font-size:22px;border:none;border-radius:20px;min-height:64px;min-width:64px;padding:10px 20px;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.15);transition:transform .1s}
+button:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.big{background:var(--co);color:#fff;font-size:28px;padding:14px 40px}
+.spk{background:var(--ye);min-width:56px;min-height:56px;padding:6px 10px;font-size:26px;border-radius:50%}
+input{font-family:inherit;font-size:28px;font-weight:800;border:4px solid #e3d9f5;border-radius:18px;padding:10px;text-align:center;min-height:64px}
+input:focus{outline:none;border-color:var(--bl)}
+.num{width:84px}.ok{border-color:var(--gr)!important;background:#eafbec}.bad{border-color:var(--co)!important;background:#ffecec}
+.login{max-width:480px;margin:6vh auto;text-align:center}
+.login input{width:100%;margin:14px 0}
+.msg{min-height:34px;font-weight:800;color:var(--co)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.lc{border-radius:30px;padding:20px;color:#fff;cursor:pointer;position:relative;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.lc h3{font-size:26px}.lc .spk{position:absolute;top:14px;right:14px}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.back{background:var(--bl);color:#fff}
+.prog{flex:1;height:22px;background:#eee;border-radius:12px;overflow:hidden;min-width:120px}.prog div{height:100%;background:linear-gradient(90deg,var(--gr),var(--ye));width:0;transition:width .4s}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.eq{font-size:30px;font-weight:900;background:#f6f1ff;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:8px}
+.chip{background:#fff;border:4px solid var(--bl);color:var(--tx);box-shadow:0 4px 0 #c9dcff}
+.chip.sel{background:var(--bl);color:#fff}.chip.done{background:var(--gr);border-color:var(--gr);color:#fff}
+.chip.wrong{background:var(--co);border-color:var(--co);color:#fff}
+.sec{border-left:10px solid var(--pu);padding-left:14px}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.match>div{display:flex;flex-direction:column;gap:12px}
+.pass span{cursor:pointer;border-radius:10px;padding:2px 4px;line-height:1.9}.pass span:hover{background:#fff3c4}.pass span.hl{background:var(--ye)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;padding:14px 28px;border-radius:30px;font-size:26px;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,.2);z-index:9;display:none}
+.pics{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.pics svg{width:46px;height:46px}
+.ill svg{width:90px;height:90px}
+.narr{display:inline-flex;align-items:center;gap:6px;color:var(--pu);font-size:28px}
+.narr i{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:36px;padding:0 10px;background:#eef3ff;border:2px solid var(--bl);border-radius:12px;font-style:normal;font-size:20px;color:var(--bl)}
+.celebrate{text-align:center}.celebrate .stars{font-size:70px;animation:fl 1.5s infinite}
+footer{text-align:center;font-size:16px;opacity:.6;padding:20px}
+.hide{display:none}
+@media(max-width:600px){body{font-size:20px}.eq{font-size:24px}.num{width:68px}}
+
+body{background:linear-gradient(180deg,#FFF6E5 0%,#FFE4C4 60%,#FFD3A8 100%);background-attachment:fixed}
+.hero{position:relative;border-radius:32px;overflow:hidden;box-shadow:0 16px 40px rgba(80,60,120,.16);margin:4px 0 8px}
+.hero img{width:100%;height:auto;display:block}
+.hero .spk{position:absolute;top:16px;right:16px;z-index:2}
+.lc.vis{padding:0;overflow:hidden;aspect-ratio:16/9;min-height:0;background:#fff;box-shadow:0 12px 28px rgba(80,60,120,.16)}
+.lc.vis img{width:100%;height:100%;object-fit:cover;display:block}
+.lc.vis .spk{z-index:2}
+.badge-ok{position:absolute;left:16px;bottom:16px;background:#fff;color:#2d9a42;border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;box-shadow:0 4px 0 rgba(0,0,0,.08)}
+
+.en-week{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.en-w{background:#fff;border-radius:24px;padding:18px;cursor:pointer;box-shadow:0 10px 24px rgba(80,60,120,.12);color:#2d2a4a;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.en-w b{font-size:22px}
+.en-letter{font-size:72px;font-weight:900;color:#5c6bc0;line-height:1}
+.en-words{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.en-word{background:#fff;border-radius:22px;padding:12px;text-align:center;box-shadow:0 8px 20px rgba(80,60,120,.1);cursor:pointer}
+.en-word img{width:132px;height:132px;object-fit:cover;border-radius:18px;display:block;margin:0 auto 8px}
+.en-word strong{font-size:24px}
+</style></head><body>
+<svg class="deco" style="top:6%;left:3%" width="130" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
+<svg class="deco" style="top:12%;right:4%;animation-delay:2s" width="70" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
+<svg class="deco" style="bottom:8%;left:5%;animation-delay:1s" width="110" viewBox="0 0 100 100"><path d="M70 10c20 10 25 40 10 60S30 95 15 75 10 25 30 12s30-8 40-2z" fill="#6BCB77"/></svg>
+<svg class="deco" style="bottom:14%;right:6%;animation-delay:3s" width="90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#4D96FF"/></svg>
+<svg class="deco" style="top:50%;left:45%;animation-delay:4s;opacity:.3" width="60" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#9B59B6"/></svg>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast"></div>
+<footer>Vui học lớp 1 · Thầy Nam Nè!</footer>
+<script>
+const HASHES=new Set(["970fef3c05362b90a3a92a6e5250fffd3b2dda15fb3bc7d11d9591ba95335163", "3c2a1830ea63dce0c5bf2216ad7ba9c06b56f98f55cc7836d90f203239447c74", "ada2e17bb814d86e7de4b82683bdee27270c912bcdab05a0ce2a364eec4a69f7", "11a7fb8d966edc9e3719af2ce620000bbfda1969702fa972c56eedf98a6ab359", "e67c5e6b6b692e08b1dc85c832bc262a2a139ff80a7d0f877e711db4d8de6516", "114f68cc6c4f95cddd3b27746763208bf5fb80e9392b137a19712d7a5938799a", "1c9069726c1ea4547a265de8f53da4a4fa247c467e99b1b6cd8fdd9a86f60ae3", "a2ef4d2dde4a69d2807c237285739c7a26358f5bb6ca0d4011a11b3b347d4079", "217aae49e9f9e9f2af5e10debf5f1ff56853bdd8dc7238a10b9e851730c340ff", "9a606f77c1aad69cad0962a6dbddd9419a7f940a242ee5e8d125998ff34fb605", "a33a6f8a6c58ce97237e6016cb1acc05f6debc72d58de7701b93764d385dd49a", "4d33291bd7301899f1a752c77e4f66f53efff346e6ac3257dc4f3f3f1815ff8a", "5c556a9d65918952e7653efd96fbce1f864b28db93487044bd11300c2b868a92", "dc4f752c730df34b40a14549b93101135941cd4d1a07600cac2137324f5aa941", "b881b17fcea113f339697a56e22abb59499a9339f3d3dd1001641c0c43bda07d", "5ae86ec5d3036d3211a20e18090bb18db7e0aae48c0219af36f9dbc48c946909", "9d3d9f0b6926d5e16f307d959529083de953f07f3140a45bb2ce81a06f1faa16", "a6f40f098528389b08b4f4bf0801a283e999ac004bcb4766c454b6862468d0ec", "bfe911ddea6e418ba92c6c2175ef21a5d0bd2e0f2ba6c659bedb37fb1954c317", "41b707482e9cf27929c8c29aa83a6653b97f705d835eb372380a6a19dca2253b", "bf8ea9123ae68362f822cd6924f9c2efb31b8fff0f856c0737adaea6d76450fb", "d37b3ec1db4f6e6d35c67ff00228151c305110fff8951b881e0d3ce2452f3137", "67002076c296d887bcc8d8283ea7fec0c62ed4f08c97e5a5c962e262494fa5f8", "f308e88b2f1eac0df39ccbeec9380b8e335ab71328ecd86c16644892bdedb5cb", "d1a50dfd87adeaf8a141df561f35fff2d57212c3c08512895f20bf035fc2001c", "1d069f7a1905e562f881c5b1c38eba2f48797c22439b12cd0e5d164a94a4ad6e", "071a68617654816bf6515d59d91abd778f5198b4ab21db8fc78c9cacdb92fa5a", "bb8a05a88e69e9c1ec1bf6ffb46fa54343b2b038e3815b14f3db9fabc6fdbb9b", "6331877fa9dec566cf571471ff16d27133bafd465ce35eb5d2f663e2badffaf0", "0dca221bf670d883cb3a234c1c474d8918237691602e2878d92485e93520105c", "c5ebac8f9f2fac99e76e2d8bfa818b074d80f0d012f4bfaa459c9c79fdbef907", "71a54ee54a0e0f5d5ddebd943c67be42087bb2bc95568a15b1c168f91bee5295", "41e65d0b05457a66c8e693d6dd4aecbb2c250647042bcfdfe7faedf08184edbe", "1a4ccb23e502054d3ca215114b2c97cc6ef5ee1d792ef894b63270d14dc48694", "742f8a5f83ddf2197f584f87caf1514ec87ea9ac4eeca224e64b4cf9b5afe514", "d0770e6fb99d9d13379969e470ad50f025ba17003c9f587b5c136b7c147ca55a", "a7cb0a59e630f44671dbf9b2dc3841c1d437c22e61eb16561c7415e8ddd7977a", "ab172850ee479e025c701f71eaf894b35903a9cf18ff30954517c56ccabdb501", "080044a210f1c9414d8cf64a1c41d787e96c8394481adcacefed9436cb1cfc1b", "79dfe3ec6b013e084d77d9ae8dfe0efa9b60001efb3688a754366def32bcb31f", "b999bec6afb3c2270d2b2fa283878014c0183622d3eff8164fa919e5d6197912", "94ed7cdb5d2e94690ce651fcd5267144c4c53884f27b1d3b895493ddd4df82e2", "8b4f5f745ab6d1c7c4a7f34ecdd70b597a6c05e017871369c79b168c76c58947", "e778d184da702e697fbc91c100062924363fb96b692907e58092adff74f1c778", "d515477a407d05743b726d0c7f895f9e75811d18a25a52999eec4e130952e4df", "613800aef6115f6d8ae5f921137997c7c6d01c31745c324ac5912b2111c03d8d", "6f4054d7d40a53318f9474de663a1f1715c0a1bcd902744cd03bde72ef503b6c", "98230a2b30c6cf428bfbc767130a4924c60af8ac2ca0cc7924ded65b86970a0e", "6accbeb2c68f8600114065b57de104235633e8e90e0b06742037ae8d514f8358", "2a50258a4d621e6769c8263118712a7d643577251cff342a2b1a69699f42c569"]);
+const LIMITED={"d556f87cff83061cdbaa47223e5427a4c036b7ff794a4831c960862a4e1a3c33":{ns:"vuihoc-lop1-gs",key:"d556f87cff83061c",max:100}};
+const EN_WEEKS=[{"week":1,"title":"In the school playground","letter":"Bb","sound":"/b/","words":["ball","bike","book"],"sentences":["Hi, I’m Bill.","Bye, Bill."],"rhyme":["Ball and bike, come out to play.","Book in my bag, hip hooray!"],"pronunciationTip":"Khép hai môi rồi bật nhẹ /b/. Nghe âm đầu trong ball; không thêm âm ơ.","quiz":[{"type":"hear-and-choose","answer":"ball","image":"en/ball.jpg","options":["bike","book","ball"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"bike","image":"en/bike.jpg","options":["book","ball","bike"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"book","image":"en/book.jpg","options":["ball","bike","book"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."}]},{"week":2,"title":"In the dining room","letter":"Cc","sound":"/k/","words":["cake","car","cat","cup"],"sentences":["I have a car."],"rhyme":["Cat by my cup, car by my cake.","Clap little hands; a smile we make!"],"pronunciationTip":"Bật luồng hơi ngắn ở phía sau lưỡi /k/. Chữ c trong các từ tuần này có âm /k/.","quiz":[{"type":"hear-and-choose","answer":"cake","image":"en/cake.jpg","options":["car","cat","cup","cake"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"car","image":"en/car.jpg","options":["cat","cup","cake","car"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"cat","image":"en/cat.jpg","options":["cup","cake","car","cat"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"cup","image":"en/cup.jpg","options":["cake","car","cat","cup"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":3,"title":"At the street market","letter":"Aa","sound":"/æ/","words":["apple","bag","can","hat"],"sentences":["This is my bag."],"rhyme":["Apple in a bag, hat on a cat.","Tap, tap, tap — imagine that!"],"pronunciationTip":"Mở miệng rộng, lưỡi thấp và hướng ra trước khi đọc /æ/. Nghe apple, bag, can, hat.","quiz":[{"type":"hear-and-choose","answer":"apple","image":"en/apple.jpg","options":["bag","can","hat","apple"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"bag","image":"en/bag.jpg","options":["can","hat","apple","bag"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"can","image":"en/can.jpg","options":["hat","apple","bag","can"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"hat","image":"en/hat.jpg","options":["apple","bag","can","hat"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":4,"title":"In the bedroom","letter":"Dd","sound":"/d/","words":["desk","dog","door","duck"],"sentences":["This is a dog."],"rhyme":["Dog by the door, duck on the floor.","Desk in the room — let’s learn some more!"],"pronunciationTip":"Đầu lưỡi chạm nhẹ phía sau răng trên rồi bật /d/. Giữ âm ngắn, không thêm âm ơ.","quiz":[{"type":"hear-and-choose","answer":"desk","image":"en/desk.jpg","options":["dog","door","duck","desk"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"dog","image":"en/dog.jpg","options":["door","duck","desk","dog"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"door","image":"en/door.jpg","options":["duck","desk","dog","door"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"duck","image":"en/duck.jpg","options":["desk","dog","door","duck"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":5,"title":"At the fish and chip shop","letter":"Ii","sound":"/ɪ/","words":["chicken","chips","fish","milk"],"sentences":["I like milk."],"rhyme":["Little fish, swish, swish, swish.","Milk and chips are on my wish list!"],"pronunciationTip":"Âm /ɪ/ ngắn và nhẹ, không kéo dài thành /iː/. Nghe âm ở giữa fish và milk.","quiz":[{"type":"hear-and-choose","answer":"chicken","image":"en/chicken.jpg","options":["chips","fish","milk","chicken"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"chips","image":"en/chips.jpg","options":["fish","milk","chicken","chips"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"fish","image":"en/fish.jpg","options":["milk","chicken","chips","fish"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"milk","image":"en/milk.jpg","options":["chicken","chips","fish","milk"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":6,"title":"In the classroom","letter":"Ee","sound":"/e/","words":["bell","pen","pencil","red"],"sentences":["It’s a red pen."],"rhyme":["Red pen, red pen, ready to go.","Bell rings softly; hello, hello!"],"pronunciationTip":"Mở miệng vừa phải, đọc /e/ ngắn. Nghe âm trong bell, pen và red.","quiz":[{"type":"hear-and-choose","answer":"bell","image":"en/bell.jpg","options":["pen","pencil","red","bell"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"pen","image":"en/pen.jpg","options":["pencil","red","bell","pen"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"pencil","image":"en/pencil.jpg","options":["red","bell","pen","pencil"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"red","image":"en/red.jpg","options":["bell","pen","pencil","red"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":7,"title":"In the garden","letter":"Gg","sound":"/g/","words":["garden","gate","girl","goat"],"sentences":["There’s a garden."],"rhyme":["Goat at the gate, girl says hi.","Garden flowers wave to the sky!"],"pronunciationTip":"Phía sau lưỡi nâng lên rồi bật /g/, có rung cổ. Âm đầu garden không phải tên chữ G.","quiz":[{"type":"hear-and-choose","answer":"garden","image":"en/garden.jpg","options":["gate","girl","goat","garden"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"gate","image":"en/gate.jpg","options":["girl","goat","garden","gate"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"girl","image":"en/girl.jpg","options":["goat","garden","gate","girl"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"goat","image":"en/goat.jpg","options":["garden","gate","girl","goat"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":8,"title":"In the park","letter":"Hh","sound":"/h/","words":["hair","hand","head","horse"],"sentences":["Touch your hair."],"rhyme":["Hand on my head, hair in the air.","Horse gives a nod — hello there!"],"pronunciationTip":"Thở nhẹ ra /h/, không gằn cổ. Nghe âm đầu hair, hand, head, horse.","quiz":[{"type":"hear-and-choose","answer":"hair","image":"en/hair.jpg","options":["hand","head","horse","hair"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"hand","image":"en/hand.jpg","options":["head","horse","hair","hand"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"head","image":"en/head.jpg","options":["horse","hair","hand","head"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"horse","image":"en/horse.jpg","options":["hair","hand","head","horse"],"prompt":"Nhìn hình và chọn từ đúng."}]},{"week":9,"title":"In the shop","letter":"Oo","sound":"/ɒ/","words":["clocks","locks","mops","pots"],"sentences":["How many clocks?","Two."],"rhyme":["Two clocks tick; two locks click.","Mops and pots — count them quick!"],"pronunciationTip":"Theo mẫu sách: /ɒ/ ngắn, miệng mở và môi tròn nhẹ. Giọng Mỹ có thể đọc gần /ɑː/; nghe rồi nhắc lại cả từ.","quiz":[{"type":"hear-and-choose","answer":"clocks","image":"en/clocks.jpg","options":["locks","mops","pots","clocks"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"locks","image":"en/locks.jpg","options":["mops","pots","clocks","locks"],"prompt":"Nhìn hình và chọn từ đúng."},{"type":"hear-and-choose","answer":"mops","image":"en/mops.jpg","options":["pots","clocks","locks","mops"],"prompt":"Bấm loa, nghe rồi chọn từ đúng."},{"type":"picture-to-word","answer":"pots","image":"en/pots.jpg","options":["clocks","locks","mops","pots"],"prompt":"Nhìn hình và chọn từ đúng."}]}];
+const S={
+apple:'<svg viewBox="0 0 60 60"><path d="M30 18c-8-6-22-3-22 13s10 25 16 25c3 0 4-2 6-2s3 2 6 2c6 0 16-9 16-25s-14-19-22-13z" fill="#FF6B6B"/><path d="M30 18c0-6 2-10 5-12" stroke="#7a4a1e" stroke-width="3" fill="none"/><ellipse cx="38" cy="10" rx="7" ry="4" fill="#6BCB77"/><ellipse cx="20" cy="28" rx="3" ry="5" fill="#fff" opacity=".5"/></svg>',
+orange:'<svg viewBox="0 0 60 60"><circle cx="30" cy="33" r="22" fill="#FFA62B"/><circle cx="30" cy="33" r="22" fill="none" stroke="#e8891a" stroke-width="2" stroke-dasharray="2 5"/><ellipse cx="34" cy="10" rx="8" ry="4" fill="#6BCB77"/><circle cx="22" cy="26" r="4" fill="#fff" opacity=".5"/></svg>',
+butterfly:'<svg viewBox="0 0 60 60"><ellipse cx="18" cy="22" rx="14" ry="12" fill="#9B59B6"/><ellipse cx="42" cy="22" rx="14" ry="12" fill="#9B59B6"/><ellipse cx="20" cy="42" rx="10" ry="9" fill="#FF6B6B"/><ellipse cx="40" cy="42" rx="10" ry="9" fill="#FF6B6B"/><rect x="27" y="14" width="6" height="36" rx="3" fill="#2d2a4a"/><path d="M28 14l-5-8M32 14l5-8" stroke="#2d2a4a" stroke-width="2"/></svg>',
+duck:'<svg viewBox="0 0 60 60"><ellipse cx="28" cy="40" rx="22" ry="14" fill="#FFD93D"/><circle cx="42" cy="22" r="11" fill="#FFD93D"/><path d="M51 22l9 3-9 3z" fill="#FF8C42"/><circle cx="45" cy="19" r="2" fill="#2d2a4a"/><path d="M14 38q10 8 22 0" stroke="#e8b800" stroke-width="3" fill="none"/></svg>',
+fish:'<svg viewBox="0 0 60 60"><ellipse cx="28" cy="30" rx="20" ry="13" fill="#4D96FF"/><path d="M46 30l13-11v22z" fill="#4D96FF"/><circle cx="17" cy="27" r="3" fill="#fff"/><circle cx="17" cy="27" r="1.5" fill="#2d2a4a"/><path d="M28 20q6 10 0 20" stroke="#fff" stroke-width="2" fill="none"/></svg>',
+plane:'<svg viewBox="0 0 60 60"><path d="M6 32 L50 26 Q58 26 58 30 Q58 34 50 34 L6 32z" fill="#4D96FF"/><path d="M26 30 L16 12 L24 12 L38 30z M26 32 L16 50 L24 50 L38 32z" fill="#9B59B6"/><path d="M8 32 L4 22 L10 22 L16 31z" fill="#FF6B6B"/><circle cx="44" cy="30" r="2" fill="#fff"/><circle cx="38" cy="30" r="2" fill="#fff"/></svg>',
+firefly:'<svg viewBox="0 0 60 60"><circle cx="30" cy="40" r="17" fill="#FFF59D" opacity=".7"/><ellipse cx="30" cy="40" rx="9" ry="11" fill="#FFEB3B"/><ellipse cx="30" cy="24" rx="8" ry="9" fill="#2d2a4a"/><ellipse cx="18" cy="26" rx="9" ry="6" fill="#cfe8ff" opacity=".9"/><ellipse cx="42" cy="26" rx="9" ry="6" fill="#cfe8ff" opacity=".9"/><path d="M27 16l-4-8M33 16l4-8" stroke="#2d2a4a" stroke-width="2"/><circle cx="27" cy="23" r="2" fill="#fff"/><circle cx="33" cy="23" r="2" fill="#fff"/></svg>',
+pillow:'<svg viewBox="0 0 60 60"><path d="M8 16q22-8 44 0q-4 14 0 28q-22 8-44 0q4-14 0-28z" fill="#FFB6C8" stroke="#FF8FAB" stroke-width="3"/><path d="M20 30q10-6 20 0" stroke="#fff" stroke-width="2" fill="none"/></svg>',
+lychee:'<svg viewBox="0 0 60 60"><path d="M30 4v14M30 10l-10 10M30 10l10 10" stroke="#7a4a1e" stroke-width="3" fill="none"/><ellipse cx="44" cy="12" rx="7" ry="3" fill="#6BCB77"/><circle cx="20" cy="30" r="10" fill="#D93B4A"/><circle cx="40" cy="30" r="10" fill="#D93B4A"/><circle cx="30" cy="46" r="10" fill="#E0465A"/><g fill="#ff9aa6"><circle cx="17" cy="27" r="1.5"/><circle cx="23" cy="33" r="1.5"/><circle cx="37" cy="27" r="1.5"/><circle cx="43" cy="33" r="1.5"/><circle cx="27" cy="44" r="1.5"/><circle cx="33" cy="49" r="1.5"/></g></svg>',
+shrimp:'<svg viewBox="0 0 60 60"><path d="M44 14q14 18-4 34q-14 8-26 0q12 2 20-8q6-10 0-22z" fill="#FF8C69"/><path d="M14 48l-8 6 4-10z" fill="#FF6B6B"/><circle cx="42" cy="18" r="2.5" fill="#2d2a4a"/><path d="M46 14q8-8 14-6M44 12q2-10 10-10" stroke="#FF6B6B" stroke-width="2" fill="none"/><path d="M34 26l6 4M30 36l7 2M24 42l5 4" stroke="#fff" stroke-width="2"/></svg>',
+sparrow:'<svg viewBox="0 0 60 60"><ellipse cx="28" cy="34" rx="18" ry="13" fill="#A0703F"/><circle cx="44" cy="24" r="10" fill="#8B5A2B"/><ellipse cx="30" cy="38" rx="10" ry="7" fill="#F2DFC2"/><path d="M53 24l7 2-7 3z" fill="#FFA62B"/><circle cx="46" cy="22" r="2" fill="#2d2a4a"/><path d="M12 30L2 24l4 12z" fill="#6b4423"/><path d="M26 46v8M32 46v8" stroke="#FFA62B" stroke-width="2"/></svg>',
+elephant:'<svg viewBox="0 0 60 60"><ellipse cx="30" cy="36" rx="20" ry="14" fill="#9AA5B8"/><circle cx="44" cy="26" r="11" fill="#9AA5B8"/><ellipse cx="38" cy="25" rx="7" ry="9" fill="#B9C2D2"/><path d="M53 28q6 10 0 20" stroke="#9AA5B8" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="47" cy="22" r="2" fill="#2d2a4a"/><rect x="14" y="44" width="7" height="12" rx="3" fill="#9AA5B8"/><rect x="34" y="44" width="7" height="12" rx="3" fill="#9AA5B8"/></svg>',
+cloud:'<svg viewBox="0 0 60 60"><path d="M14 44a10 10 0 0 1 2-20 14 14 0 0 1 27 2 9 9 0 0 1 4 18z" fill="#E6F0FF" stroke="#4D96FF" stroke-width="3"/></svg>',
+rect:'<svg viewBox="0 0 200 58" width="200"><rect x="4" y="4" width="192" height="50" fill="#6BCB77" stroke="#2d7a3a" stroke-width="4"/><line x1="100" y1="4" x2="100" y2="54" stroke="#2d7a3a" stroke-width="4"/></svg>',
+tri:'<svg viewBox="0 0 120 100" width="140"><path d="M60 6L114 94H6z" fill="#FFD93D" stroke="#b38f00" stroke-width="4"/><line x1="33" y1="50" x2="87" y2="50" stroke="#b38f00" stroke-width="4"/></svg>',
+book:'<svg viewBox="0 0 60 60"><path d="M6 14q12-6 24 2v36q-12-8-24-2z" fill="#fff"/><path d="M54 14q-12-6-24 2v36q12-8 24-2z" fill="#f3f0ff"/><path d="M30 16v36" stroke="#9B59B6" stroke-width="2"/></svg>',
+house:'<svg viewBox="0 0 60 60"><path d="M8 28L30 8l22 20" fill="#FF6B6B"/><rect x="14" y="28" width="32" height="24" fill="#FFF6E5"/><rect x="26" y="36" width="9" height="16" fill="#9B59B6"/><path d="M48 52V20" stroke="#6BCB77" stroke-width="4"/><circle cx="48" cy="16" r="6" fill="#6BCB77"/></svg>',
+mountain:'<svg viewBox="0 0 60 60"><path d="M2 52L22 18l12 18 8-10 16 26z" fill="#6BCB77"/><path d="M22 18l-6 10h12z" fill="#fff"/><path d="M8 18a6 6 0 0 1 6-8 8 8 0 0 1 14 2 5 5 0 0 1 0 8H10z" fill="#fff" opacity=".9"/></svg>'
+};
+const bear='<svg viewBox="0 0 120 120" width="120"><circle cx="30" cy="30" r="16" fill="#C68B59"/><circle cx="90" cy="30" r="16" fill="#C68B59"/><circle cx="30" cy="30" r="8" fill="#FFB6C8"/><circle cx="90" cy="30" r="8" fill="#FFB6C8"/><circle cx="60" cy="64" r="44" fill="#D9A273"/><ellipse cx="60" cy="80" rx="20" ry="15" fill="#F5DEC4"/><circle cx="44" cy="58" r="5" fill="#2d2a4a"/><circle cx="76" cy="58" r="5" fill="#2d2a4a"/><ellipse cx="60" cy="74" rx="7" ry="5" fill="#2d2a4a"/><path d="M52 84q8 7 16 0" stroke="#2d2a4a" stroke-width="3" fill="none"/><circle cx="34" cy="74" r="6" fill="#FFB6C8" opacity=".7"/><circle cx="86" cy="74" r="6" fill="#FFB6C8" opacity=".7"/></svg>';
+// speech
+let vvoice=null;let evoice=null;
+function pickVoice(){const vs=speechSynthesis.getVoices();vvoice=vs.find(v=>/^vi/i.test(v.lang))||null;evoice=vs.find(v=>/^en-US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}
+if('speechSynthesis'in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function say(t,rate,onend){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='vi-VN';if(vvoice)u.voice=vvoice;u.rate=rate||0.9;if(onend)u.onend=onend;speechSynthesis.speak(u)}
+function sayEn(t,rate,onend){if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';if(evoice)u.voice=evoice;u.rate=rate||0.75;if(onend)u.onend=onend;speechSynthesis.speak(u)}
+const spk=t=>`<button class="spk" data-say="${t.replace(/"/g,'&quot;')}" aria-label="Nghe">🔊</button>`;
+const spkEn=t=>`<button class="spk" data-say-en="${String(t).replace(/"/g,'&quot;')}" aria-label="Listen">🔊</button>`;
+document.addEventListener('click',e=>{const en=e.target.closest('[data-say-en]');if(en){e.stopPropagation();sayEn(en.getAttribute('data-say-en'));return}const b=e.target.closest('[data-say]');if(b){e.stopPropagation();say(b.dataset.say)}},true);
+function toast(t,c){const el=document.getElementById('toast');el.textContent=t;el.style.color=c;el.style.display='block';clearTimeout(el._t);el._t=setTimeout(()=>el.style.display='none',1600)}
+const GOOD=['Đúng rồi! Giỏi quá!','Tuyệt vời!','Hay lắm!'];
+const GOOD_EN=['Great job!','Well done!','Excellent!'];
+let speakEn=false;
+function good(){if(speakEn){const t=GOOD_EN[Math.floor(Math.random()*GOOD_EN.length)];toast('🌟 '+t,'#2d9a42');sayEn(t);return}const t=GOOD[Math.floor(Math.random()*3)];toast('🌟 '+t,'#2d9a42');say(t)}
+function bad(){if(speakEn){toast('Try again!','#e04848');sayEn('Try again!');return}toast('Sai rồi, thử lại nhé!','#e04848');say('Sai rồi, thử lại nhé')}
+const norm=s=>s.toLowerCase().replace(/\s+/g,' ').trim();
+const opMap={'+':'cộng','=':'bằng'};const readEq=s=>s.replace(/\+/g,' cộng ').replace(/=/g,' bằng ');
+const pics=(k,n)=>'<span class="pics">'+S[k].repeat(n)+'</span>';
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+const app=document.getElementById('app');
+// ---------- lessons ----------
+let total=0,done=0;
+function mark(){done++;const p=document.querySelector('.prog div');if(p)p.style.width=Math.min(100,done/total*100)+'%';if(done>=total)setTimeout(celebrate,900)}
+function numInput(ans,label){total++;return `<input class="num" inputmode="numeric" maxlength="2" data-ans="${ans}" aria-label="${label||'số'}">`}
+function choice(opts,ans,readPrefix){total++;const id='c'+Math.random().toString(36).slice(2);return `<span class="row" data-grp="${id}">`+opts.map(o=>`<button class="chip" data-ch="${id}" data-v="${o}" data-ok="${o===ans?1:0}" data-say2="${(readPrefix||'')+o}">${o}</button>`).join('')+'</span>'}
+function matchBlock(left,right,pairs,render){total+=left.length;const id='m'+Math.random().toString(36).slice(2);
+return `<div class="match" data-m="${id}" data-pairs='${JSON.stringify(pairs)}'><div>`+left.map(l=>`<button class="chip" data-ml="${l}">${render?render(l,'l'):l}</button>`).join('')+`</div><div>`+right.map(r=>`<button class="chip" data-mr="${r}">${render?render(r,'r'):r}</button>`).join('')+'</div></div><p style="font-size:17px;opacity:.7">Chạm một ô bên trái, rồi chạm ô đúng bên phải.</p>'}
+const SPEAKS={};
+const L=[
+{t:'Toán: Tính nhẩm',sub:'Phép cộng trong phạm vi 10',c:'var(--co)',tag:'Tuần 9',ic:S.apple,build(){
+let h=`<div class="card sec"><h2>1. Tính nhẩm ${spk('Tính nhẩm')}</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">`;
+[['2+3',5],['4+1',5],['5+2',7],['1+6',7],['3+3',6],['2+4',6],['4+3',7],['1+5',6]].forEach(([e,a])=>{h+=`<div class="eq">${spk(readEq(e)+' bằng mấy?')} ${e} = ${numInput(a)}</div>`});
+h+=`</div></div><div class="card sec"><h2>2. Nối phép tính với kết quả ${spk('Nối phép tính với kết quả đúng')}</h2>`+matchBlock(['3+4','2+3','4+2','1+3'],['5','7','4','6'],{'3+4':'7','2+3':'5','4+2':'6','1+3':'4'})+'</div>';
+h+=`<div class="card sec"><h2>3. Đúng ghi Đ, sai ghi S ${spk('Đúng ghi Đ, sai ghi S')}</h2>`;
+[['3+2=5','Đ'],['4+1=6','S'],['2+5=7','Đ'],['1+3=3','S']].forEach(([e,a])=>{h+=`<div class="row"><span class="eq">${spk(readEq(e)+'. Đúng hay sai?')} ${e}</span>${choice(['Đ','S'],a)}</div>`});
+h+=`</div><div class="card sec"><h2>4. Nhìn tranh, viết phép tính ${spk('Nhìn tranh, viết phép tính')}</h2>`;
+[['apple',3,2,'quả táo'],['orange',4,3,'quả cam'],['butterfly',3,3,'con bướm']].forEach(([k,a,b,n])=>{h+=`<div class="row" style="background:#fffaf0;border-radius:20px;padding:10px">${pics(k,a)}<b style="font-size:34px">+</b>${pics(k,b)}${spk(a+' '+n+' thêm '+b+' '+n+'. Tất cả là mấy '+n+'?')}</div><div class="row eq" style="display:inline-flex">${numInput(a)} + ${numInput(b)} = ${numInput(a+b)}</div>`});
+return h+'</div>'}},
+{t:'Toán: Đếm hình và tính',sub:'Hình chữ nhật, hình tam giác',c:'var(--bl)',tag:'Tuần 9',ic:S.tri,build(){
+let h=`<div class="card sec"><h2>1. Đố em: Đếm hình ${spk('Đố em, đếm hình')}</h2><div class="row">${S.rect}<span class="eq">${spk('Có bao nhiêu hình chữ nhật?')} Có ${numInput(3)} hình chữ nhật</span></div><div class="row">${S.tri}<span class="eq">${spk('Có bao nhiêu hình tam giác?')} Có ${numInput(2)} hình tam giác</span></div></div>`;
+h+=`<div class="card sec"><h2>2. Tính ${spk('Tính')}</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">`;
+[['4+2',6],['5+1',6],['2+5',7],['3+4',7],['3+3',6],['6+0',6],['0+7',7],['1+6',7]].forEach(([e,a])=>{h+=`<div class="eq">${spk(readEq(e)+' bằng mấy?')} ${e} = ${numInput(a)}</div>`});
+h+=`</div></div><div class="card sec"><h2>3. Đúng ghi Đ, sai ghi S ${spk('Nhìn tranh. Đúng ghi Đ, sai ghi S')}</h2>`;
+[['apple',3,3,'3+3=6','Đ'],['duck',4,0,'4+0=0','S'],['fish',2,5,'2+5=7','Đ'],['butterfly',5,1,'5+1=7','S']].forEach(([k,a,b,e,ans])=>{h+=`<div class="row" style="background:#f3f8ff;border-radius:20px;padding:10px">${pics(k,a)}<b style="font-size:30px">|</b>${b?pics(k,b):'<span style="opacity:.4">(không có)</span>'}<span class="eq">${spk(readEq(e)+'. Đúng hay sai?')} ${e}</span>${choice(['Đ','S'],ans)}</div>`});
+h+=`</div><div class="card sec"><h2>4. Số? ${spk('Điền số thích hợp')}</h2>`;
+[[2,3,1],[1,4,2],[0,5,1],[3,2,2],[4,0,3]].forEach(([a,b,c])=>{h+=`<div class="row eq" style="display:flex;width:fit-content;align-items:center;flex-wrap:wrap">${spk(a+' cộng '+b+' bằng mấy? rồi cộng '+c+' bằng mấy?')} <b style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#FFD93D;color:#2d2a4a">${a}</b> <span class="narr"><i>+${b}</i>→</span> ${numInput(a+b)} <span class="narr"><i>+${c}</i>→</span> ${numInput(a+b+c)}</div>`});
+return h+'</div>'}},
+{t:'Tiếng Việt: Về thăm quê nội',sub:'Đọc, nối câu, điền vần, nghe – viết',c:'var(--gr)',tag:'Tuần 9',ic:S.house,build(){
+const sents=['Nhà bà nội của Nhi ở quê.','Kề nhà bà có hai cây cau cao lắm.','Bà nội của Nhi là cô giáo đã nghỉ hưu.','Ngày ngày, bà đi chợ mua đồ về nấu ăn cho cả nhà.','Bà còn ân cần dạy cho Nhi làm bài.','Mỗi lần đưa Nhi đi dạo ven bờ hồ gần nhà, bà lại kể cho Nhi nghe về ngày xưa, về ngày bà còn đi dạy.'];
+let h=`<div class="card sec"><h2>Luyện đọc vần ${spk('Luyện đọc vần')}</h2><div class="row">`+['ui','ưi','ao','eo','au','âu','êu','iu','ưu'].map(v=>`<button class="chip" data-say="${v}">${v}</button>`).join('')+`</div><div class="row">`+['múi khế','thể thao','leo trèo','màu nâu','lều trại','nhỏ xíu'].map(v=>`<button class="chip" style="border-color:var(--gr)" data-say="${v}">${v}</button>`).join('')+`</div></div>`;
+h+=`<div class="card"><h2>📖 Về thăm quê nội ${spk('Về thăm quê nội. '+sents.join(' '))}</h2><p class="pass" id="pass3">`+sents.map(s=>`<span data-say="${s}">${s}</span>`).join(' ')+`</p><p style="font-size:17px;opacity:.7">Chạm vào câu để nghe.</p></div>`;
+h+=`<div class="card sec"><h2>1. Kề nhà bà có gì? ${spk('Kề nhà bà có gì?')}</h2><div class="row"><input id="q31" style="flex:1;min-width:220px;text-align:left" placeholder="Em viết câu trả lời..."><button class="big" style="background:var(--gr)" id="q31b">Kiểm tra</button></div><p>Hoặc chạm chọn:</p>${choice(['Hai cây cau cao','Một cây dừa','Ba cây bàng'],'Hai cây cau cao')}</div>`;
+h+=`<div class="card sec"><h2>2. Nối thành câu ${spk('Nối thành câu')}</h2>`+matchBlock(['Bà đã','Đàn chào mào','Nhi gửi thư'],['bay đi.','cho bố ở xa.','nghỉ hưu.'],{'Bà đã':'nghỉ hưu.','Đàn chào mào':'bay đi.','Nhi gửi thư':'cho bố ở xa.'})+'</div>';
+h+=`<div class="card sec"><h2>3. Điền vần: ai, ay hay ây? ${spk('Điền vần a i, a y, hay â y')}</h2>`;
+[['m… bay','ay','máy bay',S.plane],['quả v…','ai','quả vải',S.lychee],['nhảy d…','ây','nhảy dây','<svg viewBox="0 0 60 60"><path d="M10 46q20 20 40 0" stroke="#FF6B6B" stroke-width="4" fill="none"/><circle cx="30" cy="16" r="8" fill="#F5C99B"/><path d="M30 24v16M30 28l-14 14M30 28l14 14M30 40l-6 10M30 40l6 10" stroke="#4D96FF" stroke-width="4"/></svg>']].forEach(([w,a,full,ic])=>{h+=`<div class="row"><span class="ill">${ic}</span><span class="eq">${spk(full)} ${w}</span>${choice(['ai','ay','ây'],a)}</div>`});
+h+=`</div><div class="card sec"><h2>4. Nghe – viết ${spk('Nghe viết')}</h2><p>Em nghe cô đọc chậm từng câu rồi viết vào vở hoặc vào ô bên dưới.</p><p class="pass" id="nv">`+sents.slice(0,3).map(s=>`<span>${s}</span>`).join(' ')+`</p><div class="row"><button class="big" id="nvb" style="background:var(--pu)">▶ Nghe lại</button></div><textarea style="width:100%;min-height:120px;font-size:24px;font-family:inherit;border:4px solid #e3d9f5;border-radius:18px;padding:10px" placeholder="Em viết ở đây (không bắt buộc)"></textarea></div>`;
+return h},after(){
+const q=document.getElementById('q31'),b=document.getElementById('q31b');let did=false;
+b.onclick=()=>{const v=norm(q.value);if(/(hai|2) cây cau|cây cau cao/.test(v)){q.classList.add('ok');good();if(!did){did=true;}}else{q.classList.add('bad');bad();setTimeout(()=>q.classList.remove('bad'),900)}};
+q.onkeydown=e=>{if(e.key==='Enter')b.click()};
+document.getElementById('nvb').onclick=()=>{const sp=[...document.querySelectorAll('#nv span')];let i=0;const nx=()=>{sp.forEach(s=>s.classList.remove('hl'));if(i>=sp.length)return;sp[i].classList.add('hl');say(sp[i].textContent,0.7,()=>{i++;setTimeout(nx,1500)})};nx()};
+}},
+{t:'Tiếng Việt: Nhà Hà đi Tam Đảo',sub:'Phiếu 06/11/2026',c:'var(--pu)',tag:'Tuần 9',ic:S.mountain,build(){
+const sents=['Nghỉ hè, nhà Hà đi Tam Đảo.','Khi tán cây, ngọn cỏ còn thiu thiu ngủ, Hà đã dậy ngắm mây mù.','Đến trưa, trời như vào thu.','Mùa hè ở Tam đảo quả là dễ chịu.'];
+let h=`<div class="card"><h2>📖 Nhà Hà đi Tam Đảo ${spk(sents.join(' '))}</h2><p class="pass">`+sents.map(s=>`<span data-say="${s}">${s}</span>`).join(' ')+`</p></div>`;
+h+=`<div class="card sec"><h2>1. Nghỉ hè, nhà Hà đi đâu? ${spk('Nghỉ hè, nhà Hà đi đâu?')}</h2>`+['Cồn Sơn','Tam Đảo','Phố cổ'].map(o=>spk(o)).join(' ')+choice(['Cồn Sơn','Tam Đảo','Phố cổ'],'Tam Đảo')+'</div>';
+h+=`<div class="card sec"><h2>2. Mùa hè ở Tam Đảo như thế nào? ${spk('Mùa hè ở Tam Đảo như thế nào?')}</h2>`+['nóng bức','lạnh lẽo','dễ chịu'].map(o=>spk(o)).join(' ')+choice(['nóng bức','lạnh lẽo','dễ chịu'],'dễ chịu')+'</div>';
+const icm={'máy bay':'plane','đom đóm':'firefly','gối':'pillow','chùm vải':'lychee'};
+h+=`<div class="card sec"><h2>3. Nối hình với từ ${spk('Nối hình với từ')}</h2>`+matchBlock(['p:gối','p:máy bay','p:chùm vải','p:đom đóm'],['máy bay','đom đóm','gối','chùm vải'],{'p:máy bay':'máy bay','p:đom đóm':'đom đóm','p:gối':'gối','p:chùm vải':'chùm vải'},(x,s)=>s==='l'?`<span class="ill">${S[icm[x.slice(2)]]}</span>`:x)+'<div class="row">'+Object.keys(icm).map(w=>`<button class="chip" data-say="${w}">🔊 ${w}</button>`).join('')+'</div></div>';
+h+=`<div class="card sec"><h2>4. Điền vần ${spk('Chọn vần đúng')}</h2>`;
+[['shrimp','t…','ôm','ơm','tôm'],['sparrow','ch…','im','em','chim'],['elephant','v…','oi','ôi','voi'],['cloud','m…','ây','ay','mây']].forEach(([k,w,a,b,full])=>{h+=`<div class="row"><span class="ill">${S[k]}</span><span class="eq">${spk(full)} ${w}</span>${spk(a)}${spk(b)}${choice([a,b].sort(),a)}</div>`});
+return h+'</div>'}},
+{t:'Tiếng Việt: Chữ Ph, Qu, V, X, Y',sub:'Tuần 7 – Luyện đọc chữ',c:'#7c4dff',tag:'Tuần 7',ic:'<div style="font-size:64px;line-height:1;text-align:center">🔤</div>',build(){
+let h=`<div class="card sec"><h2>1. Luyện đọc chữ ${spk('Luyện đọc chữ. Phờ, quờ, vờ, xờ, i dài')}</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">`;
+[['Ph','phờ'],['ph','phờ'],['Qu','quờ'],['qu','quờ'],['V','vờ'],['v','vờ'],['X','xờ'],['x','xờ'],['Y','i dài'],['y','i dài']].forEach(([ch,name])=>{h+=`<div class="eq" style="text-align:center;font-size:42px">${spk(name+'. '+ch)} ${ch}</div>`});
+h+=`</div></div><div class="card sec"><h2>2. Nối chữ với từ ${spk('Nối chữ với từ')}</h2>`+matchBlock(['Ph','Qu','V','X','Y'],['phở','quả','vá','xe','y tá'],{'Ph':'phở','Qu':'quả','V':'vá','X':'xe','Y':'y tá'})+'</div>';
+h+=`<div class="card sec"><h2>3. Chọn chữ đúng ${spk('Chọn chữ đúng')}</h2>`;
+[['phở','Ph',['Ph','Qu','V']],['quả','Qu',['X','Qu','Y']],['vá','V',['V','Ph','X']],['xe','X',['Y','Qu','X']],['y tá','Y',['V','Y','Ph']]].forEach(([w,a,opts])=>{h+=`<div class="row"><span class="eq">${spk(w+'. Chữ nào?')} ${w}</span>${choice(opts,a)}</div>`});
+h+=`</div><div class="card sec"><h2>4. Đọc từ ${spk('Đọc từ')}</h2><div class="row">`+['phở','pha','phụ','quả','quê','qua','vá','về','vở','xe','xô','xa','y tá'].map(w=>`<button class="chip" data-say="${w}">🔊 ${w}</button>`).join('')+'</div></div>';
+return h}},
+{t:'Toán: Cộng trong phạm vi 6',sub:'Tuần 7 – Đếm và tính',c:'#ff9f43',tag:'Tuần 7',ic:'<div style="font-size:64px;line-height:1;text-align:center">➕</div>',build(){
+let h=`<div class="card sec"><h2>1. Tính nhẩm ${spk('Tính nhẩm')}</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">`;
+[['1+2',3],['2+2',4],['3+1',4],['4+2',6],['5+1',6],['3+2',5],['1+4',5],['2+3',5]].forEach(([e,a])=>{h+=`<div class="eq">${spk(readEq(e)+' bằng mấy?')} ${e} = ${numInput(a)}</div>`});
+h+=`</div></div><div class="card sec"><h2>2. Nối phép tính với kết quả ${spk('Nối phép tính với kết quả đúng')}</h2>`+matchBlock(['1+2','2+2','3+2','3+3'],['3','4','5','6'],{'1+2':'3','2+2':'4','3+2':'5','3+3':'6'})+'</div>';
+h+=`<div class="card sec"><h2>3. Đúng ghi Đ, sai ghi S ${spk('Đúng ghi Đ, sai ghi S')}</h2>`;
+[['2+2=4','Đ'],['3+2=6','S'],['1+4=5','Đ'],['4+3=6','S']].forEach(([e,a])=>{h+=`<div class="row"><span class="eq">${spk(readEq(e)+'. Đúng hay sai?')} ${e}</span>${choice(['Đ','S'],a)}</div>`});
+h+=`</div><div class="card sec"><h2>4. Nhìn tranh, viết phép tính ${spk('Nhìn tranh, viết phép tính')}</h2>`;
+[['apple',2,1,'quả táo'],['orange',3,2,'quả cam'],['butterfly',1,3,'con bướm']].forEach(([k,a,b,n])=>{h+=`<div class="row" style="background:#fffaf0;border-radius:20px;padding:10px">${pics(k,a)}<b style="font-size:34px">+</b>${pics(k,b)}${spk(a+' '+n+' thêm '+b+' '+n+'. Tất cả là mấy '+n+'?')}</div><div class="row eq" style="display:inline-flex">${numInput(a)} + ${numInput(b)} = ${numInput(a+b)}</div>`});
+return h+'</div>'}}];
+// ---------- screens ----------
+function login(){app.innerHTML=`<div class="card login">${bear}<h1 style="color:var(--co);font-size:42px">Vui học lớp 1</h1><p>Ôn tập <b style="color:var(--bl)">Toán</b> và <b style="color:var(--gr)">Tiếng Việt</b> 🌈</p><input id="pw" type="password" placeholder="Mật khẩu" autocomplete="off" aria-label="Mật khẩu"><div class="msg" id="msg"></div><button class="big" id="go">Vào học 🚀</button></div>`;
+const pw=document.getElementById('pw'),go=document.getElementById('go'),msg=document.getElementById('msg');
+const tryIt=async()=>{const v=pw.value.trim().toLowerCase();if(!v){msg.textContent='Em hãy nhập mật khẩu nhé!';return}
+if(HASHES.has(await sha(v))){sessionStorage.setItem('vh1','1');home();say('Chào mừng em đến với Vui học lớp 1!')}else{msg.textContent='Mật khẩu chưa đúng rồi, em kiểm tra lại nhé!';pw.classList.add('bad');setTimeout(()=>pw.classList.remove('bad'),900)}};
+go.onclick=tryIt;pw.onkeydown=e=>{if(e.key==='Enter')tryIt()};pw.focus()}
+function inferMon(l){return /^Toán/.test(l.t)?'toan':'tv'}
+function cardHTML(l,i){return `<div class="lc" style="background:${l.c}" data-go="${i}">${spk((l.tag||('Bài '+(i+1)))+'. '+l.t)}<span class="ill" style="background:rgba(255,255,255,.85);border-radius:24px;width:110px;padding:10px">${l.ic}</span><div><div style="opacity:.9">${l.tag||('Bài '+(i+1))}</div><h3>${l.t}</h3><div style="font-size:18px">${l.sub}</div></div></div>`}
+function home(){speakEn=false;location.hash='';
+const locked=sessionStorage.getItem('vh1en')!=='1';
+app.innerHTML=`<div class="hero"><img src="ui/hero.jpg" alt="Vui học lớp 1. Hiện có Tuần 7, Tuần 8 và Tuần 9.">${spk('Chào em! Hiện có Tuần 7, Tuần 8 và Tuần 9. Bé chọn môn Toán, Tiếng Việt, hoặc English Ms. Huyền nhé!')}</div>
+<div class="grid" style="margin-top:22px">
+<div class="lc vis" data-go="toan" role="button" aria-label="Toán. Ôn từng tuần, có hình và chạm để nghe">${spk('Toán')}<img src="ui/toan.jpg" alt=""></div>
+<div class="lc vis" data-go="tv" role="button" aria-label="Tiếng Việt. Luyện chữ, luyện vần và đọc bài">${spk('Tiếng Việt')}<img src="ui/tv.jpg" alt=""></div>
+<div class="lc vis" data-go="english" role="button" aria-label="English Ms. Huyền. ${locked?'Nhập mã để học':'Đã mở khóa'}">${spk('English Ms. Huyền'+(locked?'. Nhập mã để học':''))}<img src="ui/english.jpg" alt="">${locked?'':'<span class="badge-ok">Đã mở khóa</span>'}</div>
+</div>`;
+document.querySelectorAll('[data-go]').forEach(c=>c.onclick=()=>{const g=c.dataset.go;if(g==='english')englishOpen();else subject(g)})}
+function subject(mon){location.hash=mon;
+const title=mon==='toan'?'Toán':'Tiếng Việt';
+const items=L.map((l,i)=>({l,i})).filter(x=>inferMon(x.l)===mon);
+const w7=items.filter(x=>x.l.tag==='Tuần 7');
+const extra=items.filter(x=>x.l.tag==='Tuần 9');
+const w8=mon==='toan'?{t:'Số và phép cộng trong phạm vi 10',s:'Đếm, tính, so sánh và thử thách 10 câu'}:{t:'Vần an, ăn, ân đến am, ăm, âm',s:'Luyện vần, đọc từ, nghe chọn, điền từ'};
+const w8bg=mon==='toan'?'#ff9f43':'#7c4dff';
+app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Về nhà</button><h1 style="color:${mon==='toan'?'var(--co)':'var(--gr)'};margin:0">${title} ${spk(title)}</h1></div>
+<h2 style="margin:24px 0 12px;font-size:26px">📘 Tuần 7</h2><div class="grid">`+w7.map(x=>cardHTML(x.l,x.i)).join('')+`</div>
+<h2 style="margin:24px 0 12px;font-size:26px">📗 Tuần 8</h2><div class="grid"><div class="lc" style="background:${w8bg}" id="go8">${spk('Tuần 8. '+w8.t)}<span class="ill" style="background:rgba(255,255,255,.85);border-radius:24px;width:110px;padding:10px;display:flex;align-items:center;justify-content:center;font-size:64px">📗</span><div><div style="opacity:.9">Tuần 8</div><h3>${w8.t}</h3><div style="font-size:18px">${w8.s}</div></div></div></div>
+`+(extra.length?`<h2 style="margin:24px 0 12px;font-size:26px">📙 Tuần 9</h2><div class="grid">`+extra.map(x=>cardHTML(x.l,x.i)).join('')+`</div>`:'');
+document.getElementById('bk').onclick=home;
+document.querySelectorAll('[data-go]').forEach(c=>c.onclick=()=>lesson(+c.dataset.go));
+document.getElementById('go8').onclick=()=>location.href='tuan8.html?mon='+mon}
+function englishOpen(){location.hash='english';if(sessionStorage.getItem('vh1en')==='1')englishHome();else englishGate()}
+function englishGate(){app.innerHTML=`<div class="card login" style="position:relative">${bear}<h1 style="color:#5c6bc0;font-size:36px">English Ms. Huyền</h1><p>Nhập mã để học</p><input id="pw" type="password" placeholder="Nhập mã để học" autocomplete="off" aria-label="Mã truy cập"><div class="msg" id="msg"></div><button class="big" id="go" style="background:#5c6bc0">Mở khóa 🔑</button><div style="margin-top:16px"><button class="chip" id="bk2">⬅ Về nhà</button></div></div>`;
+const pw=document.getElementById('pw'),go=document.getElementById('go'),msg=document.getElementById('msg');
+const unlock=()=>{sessionStorage.setItem('vh1en','1');englishHome();say('Mã đúng rồi! Vào học English với Ms. Huyền nhé!')};
+const tryIt=async()=>{const v=pw.value.trim().toLowerCase();if(!v){msg.textContent='Em hãy nhập mã để học nhé!';return}
+const h=await sha(v);
+if(HASHES.has(h)){unlock();return}
+const lim=LIMITED[h];
+if(lim){try{const r=await fetch('https://abacus.jasoncameron.dev/hit/'+lim.ns+'/'+lim.key);const data=await r.json();if((data&&data.value)>lim.max){msg.textContent='Mã này đã hết lượt dùng rồi, em xin thầy mã khác nhé!';return}unlock()}catch(err){unlock()}return}
+msg.textContent='Mã chưa đúng rồi, em kiểm tra lại nhé!';pw.classList.add('bad');setTimeout(()=>pw.classList.remove('bad'),900)};
+go.onclick=tryIt;pw.onkeydown=e=>{if(e.key==='Enter')tryIt()};document.getElementById('bk2').onclick=home;pw.focus()}
+function englishHome(){speakEn=false;const cols=['#FF6B6B','#6BCB77','#5c6bc0','#FF9F43','#9B59B6','#4D96FF','#2d9a42','#e04848','#7c4dff'];
+app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Về nhà</button><h1 style="color:#5c6bc0;margin:0">English Ms. Huyền ${spk('English Ms. Huyền')}</h1></div>
+<p>Ôn tập theo sách Tiếng Anh 1 Global Success, tuần 1 đến tuần 9. Bé nghe, nhắc lại và làm bài nhỏ nhé!</p>
+<div class="en-week">`+EN_WEEKS.map((w,i)=>`<div class="en-w" data-ew="${w.week}" style="border-top:10px solid ${cols[i%cols.length]}"><div style="opacity:.8">Tuần ${w.week}</div><b>${w.title}</b><div>${w.letter} ${w.sound}</div></div>`).join('')+`</div>`;
+document.getElementById('bk').onclick=home;
+document.querySelectorAll('[data-ew]').forEach(c=>c.onclick=()=>englishWeek(+c.dataset.ew))}
+function englishWeek(n){const w=EN_WEEKS.find(x=>x.week===n);if(!w){englishHome();return}
+speakEn=true;total=0;done=0;
+const rhyme=(w.rhyme||[]).join(' ');
+const wordsHtml=w.words.map(word=>`<div class="en-word" data-say-en="${word}"><img src="en/${word}.jpg" alt="${word}" onerror="this.style.display='none'"><strong>${word}</strong></div>`).join('');
+const sentHtml=w.sentences.map(s=>`<div class="row"><button class="chip" data-say-en="${s.replace(/"/g,'&quot;')}">🔊 ${s}</button></div>`).join('');
+const quizHtml=w.quiz.map((q,i)=>{
+  total++;
+  const listen=q.type==='hear-and-choose'?`<button class="spk" data-say-en="${q.answer}" aria-label="Listen">🔊</button>`:'';
+  const pic=q.type==='picture-to-word'?`<img class="en-word" style="width:132px;height:132px;padding:0;box-shadow:none" src="${q.image}" alt="">`:'';
+  const opts=q.options.map(o=>`<button class="chip" data-ch="eq${i}" data-ok="${o===q.answer?1:0}">${o}</button>`).join('');
+  return `<div class="card" style="margin-top:12px"><p><b>Câu ${i+1}.</b> ${q.prompt} ${listen}</p>${pic}<div class="row" data-grp="eq${i}">${opts}</div></div>`;
+}).join('');
+app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Các tuần</button><div class="prog"><div></div></div></div>
+<h1 style="color:#5c6bc0;margin:8px 0 0">Tuần ${w.week}: ${w.title}</h1>
+<div class="card sec" style="margin-top:16px"><div class="en-letter">${w.letter}</div><p style="font-size:28px;margin:6px 0">${w.sound} ${spkEn(w.words[0])}</p><p>${w.pronunciationTip}</p></div>
+<div class="card"><h2>Từ mới ${spk('Từ mới')}</h2><div class="en-words">${wordsHtml}</div></div>
+<div class="card"><h2>Câu mẫu ${spk('Câu mẫu')}</h2>${sentHtml}</div>
+<div class="card"><h2>Vần vui ${spkEn(rhyme)}</h2><p style="font-size:24px;line-height:1.5">${(w.rhyme||[]).join('<br>')}</p></div>
+<h2 style="margin-top:18px">Thử thách nhỏ</h2>${quizHtml}`;
+document.getElementById('bk').onclick=englishHome;
+app.querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{const g=b.closest('[data-grp]');if(!g||g.dataset.d)return;if(b.dataset.ok==='1'){b.classList.add('done');g.dataset.d=1;good();mark()}else{b.classList.add('wrong');bad();setTimeout(()=>b.classList.remove('wrong'),900)}});
+scrollTo(0,0)}
+function route(){const h=location.hash.replace(/^#/,'');if(h==='toan'||h==='tv')subject(h);else if(h==='english')englishOpen();else home()}
+window.addEventListener('hashchange',route);
+function lesson(i){const l=L[i];total=0;done=0;const body=l.build();
+app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Về nhà</button><div class="prog"><div></div></div></div><h1 style="color:${l.c}">${l.tag||('Bài '+(i+1))}: ${l.t} ${spk(l.t)}</h1>`+body;scrollTo(0,0);
+document.getElementById('bk').onclick=()=>subject(inferMon(l));if(l.after)l.after();wire(i)}
+function wire(i){
+app.querySelectorAll('input.num').forEach(inp=>{const chk=()=>{if(inp.dataset.d)return;const v=inp.value.trim();if(!v)return;if(v===inp.dataset.ans){inp.classList.remove('bad');inp.classList.add('ok');inp.readOnly=true;inp.dataset.d=1;good();mark()}else{inp.classList.add('bad');bad();setTimeout(()=>{inp.classList.remove('bad');inp.value=''},900)}};
+inp.addEventListener('input',()=>{if(inp.value.length>=inp.dataset.ans.length)chk()});inp.addEventListener('keydown',e=>{if(e.key==='Enter')chk()})});
+app.querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{const g=b.closest('[data-grp]');if(g.dataset.d)return;if(b.dataset.ok==='1'){b.classList.add('done');g.dataset.d=1;good();mark()}else{b.classList.add('wrong');bad();setTimeout(()=>b.classList.remove('wrong'),900)}});
+app.querySelectorAll('[data-m]').forEach(m=>{const P=JSON.parse(m.dataset.pairs);let sel=null;
+m.querySelectorAll('[data-ml]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;m.querySelectorAll('[data-ml]').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b;const k=b.dataset.ml;say(k.startsWith('p:')?k.slice(2):readEq(k))});
+m.querySelectorAll('[data-mr]').forEach(b=>b.onclick=()=>{if(b.classList.contains('done'))return;if(!sel){say(b.dataset.mr);return}
+if(P[sel.dataset.ml]===b.dataset.mr){sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;good();mark()}else{b.classList.add('wrong');bad();setTimeout(()=>b.classList.remove('wrong'),900)}})});
+}
+function celebrate(){const d=document.createElement('div');d.className='card celebrate';if(speakEn){d.innerHTML=`<div class="stars">🌟🎉🌟</div><h1 style="color:var(--co)">Great job! You finished!</h1><button class="big" style="background:var(--gr)">Về các tuần 🏠</button>`;d.querySelector('button').onclick=englishHome;app.appendChild(d);d.scrollIntoView({behavior:'smooth'});sayEn('Great job! You finished the lesson. Well done!');return}d.innerHTML=`<div class="stars">🌟🎉🌟</div><h1 style="color:var(--co)">Hoan hô! Em đã hoàn thành bài!</h1><button class="big" style="background:var(--gr)">Về trang chủ 🏠</button>`;d.querySelector('button').onclick=home;app.appendChild(d);d.scrollIntoView({behavior:'smooth'});say('Hoan hô! Em đã hoàn thành bài học. Giỏi lắm!')}
+route();
+</script></body></html>

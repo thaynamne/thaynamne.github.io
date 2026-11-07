@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thầy Nam Nè — Vui học</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--co:#FF6B6B;--ye:#FFD93D;--gr:#6BCB77;--bl:#4D96FF;--pu:#9B59B6;--cr:#FFF6E5;--tx:#2d2a4a}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito','Be Vietnam Pro',sans-serif;background:var(--cr);color:var(--tx);font-size:22px;min-height:100vh;overflow-x:hidden}
+h1,h2{font-family:'Be Vietnam Pro',sans-serif;margin:.25em 0}
+.deco{position:fixed;z-index:0;pointer-events:none;opacity:.55;animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-18px)}}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:28px 18px 48px}
+.hero{text-align:center;margin:8px 0 28px}
+.hero .brand{display:inline-block;background:#fff;color:var(--co);font-weight:900;font-size:18px;letter-spacing:.04em;padding:8px 18px;border-radius:999px;box-shadow:0 6px 0 rgba(255,107,107,.25);margin-bottom:14px}
+.hero h1{font-size:clamp(36px,7vw,56px);line-height:1.15}
+.hero p{font-size:22px;font-weight:700;opacity:.8;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+a.lc{text-decoration:none;color:#fff;border-radius:30px;padding:22px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 10px 0 rgba(0,0,0,.12);transition:transform .12s}
+a.lc:active{transform:translateY(4px);box-shadow:0 6px 0 rgba(0,0,0,.12)}
+a.lc h2{font-size:32px;margin:0 0 6px}
+a.lc .sub{font-size:20px;font-weight:800;opacity:.95}
+a.lc .badge{align-self:flex-start;background:rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:16px;font-weight:900}
+.l1{background:linear-gradient(160deg,#FF6B6B,#ff8e8e)}
+.l2{background:linear-gradient(160deg,#F5C518,#FFD93D);color:#5a4300}
+.l3{background:linear-gradient(160deg,#3db85a,#6BCB77)}
+.l4{background:linear-gradient(160deg,#2f7de4,#4D96FF)}
+.l5{background:linear-gradient(160deg,#7d3c98,#9B59B6)}
+.soon{opacity:.92}
+footer{position:relative;z-index:1;text-align:center;padding:8px 16px 28px;font-weight:800;color:#8a7aa0}
+</style>
+</head>
+<body>
+<svg class="deco" style="top:6%;left:3%" width="130" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
+<svg class="deco" style="top:12%;right:4%;animation-delay:2s" width="70" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
+<svg class="deco" style="bottom:8%;left:5%;animation-delay:1s" width="110" viewBox="0 0 100 100"><path d="M70 10c20 10 25 40 10 60S30 95 15 75 10 25 30 12s30-8 40-2z" fill="#6BCB77"/></svg>
+<svg class="deco" style="bottom:14%;right:6%;animation-delay:3s" width="90" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#4D96FF"/></svg>
+<div class="wrap">
+  <div class="hero">
+    <div class="brand">THẦY NAM NÈ</div>
+    <h1>Vui học</h1>
+    <p>Chọn lớp của em để bắt đầu nhé!</p>
+  </div>
+  <div class="grid">
+    <a class="lc l1" href="lop1/">
+      <span class="badge">Đã có bài</span>
+      <div><h2>Lớp 1</h2><div class="sub">Toán · Tiếng Việt · English</div></div>
+    </a>
+    <a class="lc l2 soon" href="lop2/">
+      <span class="badge">Sắp có</span>
+      <div><h2>Lớp 2</h2><div class="sub">Đang chuẩn bị bài học</div></div>
+    </a>
+    <a class="lc l3 soon" href="lop3/">
+      <span class="badge">Sắp có</span>
+      <div><h2>Lớp 3</h2><div class="sub">Đang chuẩn bị bài học</div></div>
+    </a>
+    <a class="lc l4 soon" href="lop4/">
+      <span class="badge">Sắp có</span>
+      <div><h2>Lớp 4</h2><div class="sub">Đang chuẩn bị bài học</div></div>
+    </a>
+    <a class="lc l5 soon" href="lop5/">
+      <span class="badge">Sắp có</span>
+      <div><h2>Lớp 5</h2><div class="sub">Đang chuẩn bị bài học</div></div>
+    </a>
+  </div>
+</div>
+<footer>Thầy Nam Nè! · Vui học lớp 1 đến lớp 5</footer>
+</body>
+</html>
