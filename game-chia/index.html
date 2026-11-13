@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFF6E5">
+<title>Điền số vào phép chia đặt tính — Thầy Nam Nè!</title>
+<meta name="description" content="Game điền số vào phép chia đặt tính theo SGK Toán 3 Kết nối tri thức. Thầy Nam Nè!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --co:#FF6B6B;--ye:#FFD93D;--gr:#6BCB77;--bl:#4D96FF;--pu:#9B59B6;
+  --cr:#FFF6E5;--tx:#2d2a4a;--ink:#1c1840;
+  --paper:#fffef9;--grid:#cfc9e2;--given:#e8efff;
+  --ok:#c9f0d1;--okb:#2f9e4f;--bad:#ffd0d0;--badb:#e04545;
+  --sel:#ffe56b;--cell:56px;--radius:22px;
+  --pad-h:0px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;min-height:100%;background:var(--cr);color:var(--tx);
+  font-family:'Nunito','Be Vietnam Pro',system-ui,sans-serif;overflow-x:hidden}
+body{min-height:100dvh}
+h1,h2,h3{font-family:'Be Vietnam Pro',sans-serif;margin:0}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.deco{position:fixed;z-index:0;pointer-events:none;opacity:.45;animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-16px)}}
+.screen{position:relative;z-index:1;min-height:100dvh;display:none;flex-direction:column}
+.screen.on{display:flex}
+/* ===== HOME ===== */
+.home-wrap{max-width:760px;margin:0 auto;padding:22px 16px 36px;width:100%}
+.brand{display:inline-block;background:#fff;color:var(--co);font-weight:900;font-size:15px;
+  letter-spacing:.06em;padding:7px 16px;border-radius:999px;box-shadow:0 5px 0 rgba(255,107,107,.25)}
+.home-hero{text-align:center;margin:8px 0 18px}
+.home-hero h1{font-size:clamp(28px,7vw,44px);line-height:1.2;margin:12px 0 8px}
+.home-hero p{margin:0;font-weight:700;font-size:18px;opacity:.82;line-height:1.45}
+.mini-board{display:flex;justify-content:center;margin:16px 0 8px}
+.levels{display:grid;gap:12px;margin:18px 0}
+a.back-hub{display:inline-block;text-decoration:none;color:#246bd1;font-weight:900;margin:0 0 8px}
+.level-btn{display:flex;align-items:center;gap:14px;text-align:left;border-radius:24px;padding:16px 18px;
+  color:#fff;box-shadow:0 8px 0 rgba(0,0,0,.12);transition:transform .12s;width:100%}
+.level-btn:active{transform:translateY(4px);box-shadow:0 4px 0 rgba(0,0,0,.12)}
+.level-btn .num{width:54px;height:54px;border-radius:18px;background:rgba(255,255,255,.25);
+  display:grid;place-items:center;font-weight:900;font-size:26px;flex:none}
+.level-btn h2{font-size:22px;margin:0 0 2px}
+.level-btn p{margin:0;font-weight:700;font-size:15px;opacity:.95;line-height:1.35}
+.lv1{background:linear-gradient(160deg,#3db85a,#6BCB77)}
+.lv2{background:linear-gradient(160deg,#2f7de4,#4D96FF)}
+.lv3{background:linear-gradient(160deg,#7d3c98,#9B59B6)}
+.howto{background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 8px 24px rgba(80,60,120,.1);margin-top:8px}
+.howto h3{font-size:18px;margin-bottom:8px}
+.steps-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 10px}
+.pill{padding:7px 12px;border-radius:999px;font-weight:900;font-size:14px;color:#fff}
+.pill.chia{background:#4D96FF}.pill.nhan{background:#9B59B6}.pill.tru{background:#FF6B6B}.pill.ha{background:#2f9e4f}
+.howto p{margin:0;font-weight:700;font-size:15px;line-height:1.5;opacity:.85}
+.home-foot{text-align:center;margin-top:22px;font-weight:800;color:#8a7aa0;font-size:14px}
+/* ===== PLAY ===== */
+.topbar{display:flex;align-items:center;gap:8px;padding:8px 10px 8px 8px;
+  background:rgba(255,246,229,.92);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5}
+.icon-btn{width:44px;height:44px;border-radius:14px;background:#fff;box-shadow:0 3px 0 rgba(0,0,0,.08);
+  display:grid;place-items:center;font-size:20px;font-weight:900;flex:none}
+.top-meta{flex:1;min-width:0}
+.top-meta .lvname{font-weight:900;font-size:15px;color:#5a4e7a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stats{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.chip{background:#fff;border-radius:999px;padding:4px 10px;font-weight:900;font-size:14px;
+  box-shadow:0 2px 0 rgba(0,0,0,.06)}
+.stars{letter-spacing:1px;color:#e0b000;font-size:16px}
+.play-body{flex:1;display:flex;flex-direction:column;padding:0 12px 8px;max-width:880px;margin:0 auto;width:100%}
+.prompt{text-align:center;font-weight:900;font-size:clamp(20px,5vw,28px);margin:6px 0 4px}
+.prompt span{color:#2f7de4}
+.step-bar{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+.step-bar .pill{opacity:.4;transform:scale(.92);transition:.15s}
+.step-bar .pill.on{opacity:1;transform:scale(1);box-shadow:0 3px 0 rgba(0,0,0,.12)}
+.board-card{background:var(--paper);border-radius:28px;padding:16px 12px 18px;
+  box-shadow:0 10px 0 rgba(80,60,120,.08),0 0 0 3px #fff;margin:0 auto;width:100%;max-width:520px}
+.board-scroll{overflow:auto;display:flex;justify-content:center;padding:4px}
+.board{display:grid;gap:0;justify-content:center;
+  grid-template-columns:repeat(var(--left),var(--cell)) 8px repeat(var(--right),var(--cell));
+  grid-template-rows:repeat(var(--rows),var(--cell))}
+.cell{border:1.5px solid var(--grid);display:grid;place-items:center;
+  font-weight:900;font-size:calc(var(--cell) * .52);color:var(--ink);user-select:none;background:#faf9ff;
+  position:relative}
+.cell.given{background:var(--given);color:#24356b}
+.cell.empty{background:#f4f2fb}
+.cell.fill{background:#fff;cursor:pointer;box-shadow:inset 0 -3px 0 rgba(77,150,255,.12)}
+.cell.fill::after{content:'';position:absolute;left:18%;right:18%;bottom:7px;height:3px;border-radius:2px;background:#c9d8f7}
+.cell.ok{background:var(--ok);color:#135c2a;box-shadow:none;animation:pop .25s ease}
+.cell.ok::after{display:none}
+.cell.sel{background:var(--sel);box-shadow:0 0 0 3px #f5c518;z-index:2}
+.cell.sel::after{background:#c49200}
+.cell.bad,.cell.bad.sel{background:var(--bad);color:var(--badb);animation:shake .4s ease;box-shadow:0 0 0 3px var(--badb)}
+.cell.bad::after{display:none}
+.vbar{background:var(--ink);border-radius:3px;grid-row:1 / -1;margin:2px 2px}
+.cell.prodline{border-bottom:3px solid #2d2a4a}
+.cell.prodline::after{display:none}
+.div-line{pointer-events:none;z-index:3;border-bottom:4px solid var(--ink);margin:0 1px -1px 0}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@keyframes pop{0%{transform:scale(.7)}70%{transform:scale(1.12)}100%{transform:scale(1)}}
+.hint-box{min-height:58px;margin:10px auto 0;max-width:520px;width:100%;
+  background:#fff;border-radius:18px;padding:10px 12px;display:flex;align-items:flex-start;gap:10px;
+  box-shadow:0 6px 0 rgba(80,60,120,.06)}
+.mascot{flex:none;width:48px;height:48px}
+.hint-text{font-weight:800;font-size:16px;line-height:1.4;flex:1}
+.hint-text .ask{color:#5a4e7a}
+.hint-text strong{color:#2f7de4}
+.hint-btn{flex:none;background:var(--ye);color:#5a4300;font-weight:900;border-radius:14px;
+  padding:10px 12px;box-shadow:0 4px 0 #e0b000;font-size:15px}
+.hint-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #e0b000}
+.result-line{text-align:center;font-weight:900;font-size:20px;margin-top:10px;min-height:28px;color:#2f9e4f}
+.pad{margin:10px auto 0;max-width:420px;width:100%;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+.pad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pad-key{height:56px;border-radius:16px;background:#fff;font-weight:900;font-size:26px;
+  box-shadow:0 4px 0 rgba(80,60,120,.12);color:var(--ink)}
+.pad-key:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(80,60,120,.12)}
+.pad-key.del{background:#ffe3e3;color:#b02020;font-size:20px}
+.pad-key.wide{grid-column:span 1}
+.next-row{display:flex;justify-content:center;margin:8px 0 4px;min-height:52px}
+.next-btn{display:none;background:linear-gradient(160deg,#3db85a,#6BCB77);color:#fff;font-weight:900;
+  font-size:18px;padding:12px 22px;border-radius:18px;box-shadow:0 6px 0 rgba(47,158,79,.35)}
+.next-btn.on{display:inline-block;animation:pop .3s ease}
+.next-btn:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(47,158,79,.35)}
+/* ===== MODAL ===== */
+.overlay{position:fixed;inset:0;background:rgba(28,24,64,.45);z-index:20;display:none;align-items:center;justify-content:center;padding:18px}
+.overlay.on{display:flex}
+.modal{background:#fff;border-radius:32px;padding:26px 20px 22px;max-width:420px;width:100%;text-align:center;
+  box-shadow:0 16px 0 rgba(0,0,0,.12);position:relative;overflow:hidden}
+.modal h2{font-size:30px;margin:6px 0 8px}
+.modal .big-stars{font-size:36px;letter-spacing:4px;margin:6px 0 8px;color:#e0b000}
+.modal p{font-weight:700;font-size:18px;margin:0 0 16px;line-height:1.45}
+.modal .actions{display:flex;flex-direction:column;gap:10px}
+.modal .actions button,.modal .actions a{display:block;text-decoration:none;text-align:center;
+  font-weight:900;font-size:18px;padding:12px 16px;border-radius:16px;color:#fff}
+.btn-nextlv{background:linear-gradient(160deg,#2f7de4,#4D96FF);box-shadow:0 5px 0 #215bb3}
+.btn-again{background:linear-gradient(160deg,#3db85a,#6BCB77);box-shadow:0 5px 0 #2f9e4f}
+.btn-home{background:#8a7aa0;box-shadow:0 5px 0 #6c607c}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-10px;width:10px;height:16px;border-radius:2px;animation:fall 1.6s linear forwards}
+@keyframes fall{to{transform:translateY(460px) rotate(280deg);opacity:0}}
+/* mini static board on home */
+.mini .board{--cell:28px}
+.mini .cell{font-size:15px;border-radius:0}
+/* responsive */
+@media(max-width:420px){
+  :root{--cell:50px}
+  .pad-key{height:52px;font-size:24px}
+  .level-btn h2{font-size:20px}
+}
+@media(max-width:360px){
+  :root{--cell:44px}
+}
+@media(min-width:800px){
+  :root{--cell:64px}
+  .play-body{padding-bottom:16px}
+  .pad{max-width:460px}
+  .pad-key{height:60px}
+}
+@media(min-width:900px) and (min-height:700px){
+  .play-body.desktop-split{display:grid;grid-template-columns:1fr 300px;grid-template-rows:auto auto 1fr auto;gap:0 24px;align-items:start}
+  .play-body.desktop-split .prompt{grid-column:1}
+  .play-body.desktop-split .step-bar{grid-column:1}
+  .play-body.desktop-split .board-card{grid-column:1;grid-row:3}
+  .play-body.desktop-split .hint-box{grid-column:1;grid-row:4;max-width:none}
+  .play-body.desktop-split .side{grid-column:2;grid-row:3 / 5;display:flex;flex-direction:column;justify-content:flex-end}
+}
+
+</style>
+</head>
+<body>
+
+<svg class="deco" style="top:5%;left:3%" width="120" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
+<svg class="deco" style="top:10%;right:4%;animation-delay:2s" width="64" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
+<svg class="deco" style="bottom:10%;left:4%;animation-delay:1s" width="100" viewBox="0 0 100 100"><path d="M70 10c20 10 25 40 10 60S30 95 15 75 10 25 30 12s30-8 40-2z" fill="#6BCB77"/></svg>
+<svg class="deco" style="bottom:16%;right:6%;animation-delay:3s" width="80" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#4D96FF"/></svg>
+
+<section id="screen-home" class="screen on">
+  <div class="home-wrap">
+    <a class="back-hub" href="../">← Trang chọn lớp</a>
+    <div class="home-hero">
+      <div class="brand">THẦY NAM NÈ!</div>
+      <h1>Điền số vào phép chia đặt tính</h1>
+      <p>Toán 3 · Kết nối tri thức<br>Em điền từng chữ số theo 4 bước: Chia – Nhân – Trừ – Hạ.</p>
+    </div>
+    <div class="mini-board mini" id="mini-board"></div>
+    <div class="levels">
+      <button class="level-btn lv1" data-level="1" type="button">
+        <div class="num">1</div>
+        <div><h2>Mức 1 · Chia hết</h2><p>Số bị chia có 2 chữ số, chia hết (không dư).</p></div>
+      </button>
+      <button class="level-btn lv2" data-level="2" type="button">
+        <div class="num">2</div>
+        <div><h2>Mức 2 · Có dư</h2><p>Phép chia có số dư. Nhớ viết cả thương và số dư.</p></div>
+      </button>
+      <button class="level-btn lv3" data-level="3" type="button">
+        <div class="num">3</div>
+        <div><h2>Mức 3 · 3 chữ số</h2><p>Số bị chia có 3 chữ số, có lúc thương chứa số 0.</p></div>
+      </button>
+    </div>
+    <div class="howto">
+      <h3>Cách chơi</h3>
+      <div class="steps-row">
+        <span class="pill chia">1. Chia</span>
+        <span class="pill nhan">2. Nhân</span>
+        <span class="pill tru">3. Trừ</span>
+        <span class="pill ha">4. Hạ</span>
+      </div>
+      <p>Số bị chia viết bên trái, số chia bên phải vạch đứng. Thương viết dưới vạch ngang. Em bấm vào ô trống rồi điền số bằng bàn phím. Ô đúng sẽ xanh, ô sai sẽ đỏ và rung. Bấm <b>Gợi ý</b> nếu cần lời hướng dẫn.</p>
+    </div>
+    <div class="home-foot">Thầy Nam Nè! · Toán 3 · Kết nối tri thức</div>
+  </div>
+</section>
+
+<section id="screen-play" class="screen">
+  <div class="topbar">
+    <button class="icon-btn" id="btn-back" type="button" title="Về trang chọn mức">←</button>
+    <div class="top-meta">
+      <div class="lvname" id="lv-name">Mức 1</div>
+      <div class="stats">
+        <span class="chip" id="chip-progress">Bài 1 / 5</span>
+        <span class="chip stars" id="chip-stars">☆☆☆☆☆</span>
+        <span class="chip" id="chip-score">⭐ 0</span>
+      </div>
+    </div>
+    <button class="icon-btn" id="btn-mute" type="button" title="Bật/tắt âm thanh">🔊</button>
+  </div>
+  <div class="play-body" id="play-body">
+    <div class="prompt" id="prompt">Đặt tính: <span>84 : 4</span></div>
+    <div class="step-bar" id="step-bar">
+      <span class="pill chia" data-kind="chia">Chia</span>
+      <span class="pill nhan" data-kind="nhan">Nhân</span>
+      <span class="pill tru" data-kind="tru">Trừ</span>
+      <span class="pill ha" data-kind="ha">Hạ</span>
+    </div>
+    <div class="board-card">
+      <div class="board-scroll">
+        <div class="board" id="board" aria-label="Đặt tính phép chia"></div>
+      </div>
+      <div class="result-line" id="result-line"></div>
+    </div>
+    <div class="hint-box">
+      <div class="mascot" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="48" height="48">
+          <ellipse cx="32" cy="58" rx="16" ry="4" fill="#000" opacity=".12"/>
+          <rect x="22" y="8" width="20" height="40" rx="4" fill="#FFD93D" stroke="#c49200" stroke-width="1.5"/>
+          <polygon points="22,48 42,48 32,60" fill="#c0c6d0" stroke="#7a7f88" stroke-width="1.2"/>
+          <polygon points="28,56 36,56 32,60" fill="#ff8aa0"/>
+          <rect x="22" y="8" width="20" height="8" rx="3" fill="#FF6B6B"/>
+          <circle cx="28" cy="28" r="2.2" fill="#2d2a4a"/>
+          <circle cx="36" cy="28" r="2.2" fill="#2d2a4a"/>
+          <path d="M28 36c2 3 6 3 8 0" stroke="#2d2a4a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hint-text" id="hint-text"><span class="ask">Chọn một ô trống rồi điền số nhé!</span></div>
+      <button class="hint-btn" id="btn-hint" type="button">💡 Gợi ý</button>
+    </div>
+    <div class="side">
+      <div class="next-row"><button class="next-btn" id="btn-next" type="button">Bài tiếp theo →</button></div>
+      <div class="pad" id="pad">
+        <div class="pad-grid">
+          <button class="pad-key" data-k="1">1</button>
+          <button class="pad-key" data-k="2">2</button>
+          <button class="pad-key" data-k="3">3</button>
+          <button class="pad-key" data-k="4">4</button>
+          <button class="pad-key" data-k="5">5</button>
+          <button class="pad-key" data-k="6">6</button>
+          <button class="pad-key" data-k="7">7</button>
+          <button class="pad-key" data-k="8">8</button>
+          <button class="pad-key" data-k="9">9</button>
+          <button class="pad-key del" data-k="del">Xóa</button>
+          <button class="pad-key" data-k="0">0</button>
+          <button class="pad-key del" data-k="del" aria-label="Xóa">⌫</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="confetti" id="confetti"></div>
+    <div class="brand">THẦY NAM NÈ!</div>
+    <h2 id="win-title">Xuất sắc!</h2>
+    <div class="big-stars" id="win-stars">★★★</div>
+    <p id="win-text"></p>
+    <div class="actions" id="win-actions"></div>
+  </div>
+</div>
+
+<script>
+/* Vietnamese Grade 3 long-division tableau (SGK Kết nối tri thức style).
+   Dividend on the left, divisor on the right of a vertical bar,
+   quotient under a horizontal line. Work (product, remainder, bring-down)
+   sits under the dividend, aligned by place value.
+*/
+(function (root) {
+  'use strict';
+
+  function digitsOf(n) {
+    return String(n).split('').map(Number);
+  }
+
+  function buildTableau(dividend, divisor) {
+    dividend = Number(dividend);
+    divisor = Number(divisor);
+    if (!Number.isInteger(dividend) || !Number.isInteger(divisor) || divisor < 1 || dividend < 0) {
+      throw new Error('Invalid division');
+    }
+
+    const divDigits = digitsOf(dividend);
+    const n = divDigits.length;
+    const qDigits = [];
+    const steps = [];
+    let pos = 0;
+    let current = 0;
+    let begun = false;
+
+    while (pos < n) {
+      current = current * 10 + divDigits[pos];
+      const endIndex = pos;
+      pos += 1;
+      if (!begun && current < divisor && pos < n) {
+        continue;
+      }
+      begun = true;
+      const q = Math.floor(current / divisor);
+      const product = q * divisor;
+      const remainder = current - product;
+      const bringDown = pos < n ? divDigits[pos] : null;
+      const width = String(current).length;
+      const startIndex = endIndex - (width - 1);
+      qDigits.push(q);
+      steps.push({
+        partial: current,
+        startIndex: startIndex,
+        endIndex: endIndex,
+        q: q,
+        product: product,
+        remainder: remainder,
+        bringDown: bringDown
+      });
+      current = remainder;
+    }
+
+    const quotient = qDigits.reduce((a, d) => a * 10 + d, 0);
+    const remainder = steps.length ? steps[steps.length - 1].remainder : dividend;
+    const qLen = qDigits.length;
+    const colsLeft = n;
+    const colsRight = Math.max(qLen, 1);
+    const cols = colsLeft + colsRight;
+    const rows = 1 + 2 * steps.length;
+
+    // grid[r][c] = cell or null
+    const grid = Array.from({ length: rows }, () => Array.from({ length: cols }, () => null));
+
+    function place(r, c, rec) {
+      grid[r][c] = Object.assign({ r: r, c: c }, rec);
+    }
+
+    function placeNumber(r, value, endCol, role, stepIndex, hint, given) {
+      const ds = digitsOf(value);
+      const startCol = endCol - (ds.length - 1);
+      ds.forEach((d, i) => {
+        const c = startCol + i;
+        if (c < 0 || c >= colsLeft) return;
+        place(r, c, {
+          value: d,
+          role: role,
+          stepIndex: stepIndex,
+          hint: hint,
+          given: !!given,
+          fill: !given
+        });
+      });
+    }
+
+    // Row 0: dividend | divisor
+    divDigits.forEach((d, c) => {
+      place(0, c, {
+        value: d,
+        role: 'dividend',
+        given: true,
+        fill: false,
+        hint: ''
+      });
+    });
+    const dDigits = digitsOf(divisor);
+    dDigits.forEach((d, i) => {
+      place(0, colsLeft + i, {
+        value: d,
+        role: 'divisor',
+        given: true,
+        fill: false,
+        hint: ''
+      });
+    });
+
+    const order = []; // pedagogical fill order
+
+    steps.forEach((st, si) => {
+      const productRow = si === 0 ? 1 : 2 * si + 1;
+      const remRow = productRow + 1;
+      const qWord = 'vào thương';
+      let chiaHint = st.partial + ' chia ' + divisor + ' được ' + st.q + ', viết ' + st.q + ' ' + qWord + '.';
+      if (st.q === 0) {
+        chiaHint = st.partial + ' chia ' + divisor + ' được 0, viết 0 vào thương. Nhớ viết 0, không được bỏ qua nhé!';
+      }
+      const nhanHint = st.q + ' nhân ' + divisor + ' bằng ' + st.product + ', viết ' + st.product + '.';
+      const truHint = st.partial + ' trừ ' + st.product + ' bằng ' + st.remainder + ', viết ' + st.remainder + '.';
+      const haHint = st.bringDown != null ? ('Hạ ' + st.bringDown + ' xuống, viết ' + st.bringDown + '.') : '';
+
+      // Quotient digit: all on row 1, right side, left-aligned in the right block
+      // (so a 2-digit quotient occupies both right columns: [q0][q1])
+      // For 3-digit, [q0][q1][q2].
+      const qCol = colsLeft + si + (colsRight - qLen); // left-align if right side wider
+      place(1, qCol, {
+        value: st.q,
+        role: 'quotient',
+        stepIndex: si,
+        hint: chiaHint,
+        given: false,
+        fill: true,
+        kind: 'chia'
+      });
+      order.push({ r: 1, c: qCol, kind: 'chia' });
+
+      placeNumber(productRow, st.product, st.endIndex, 'product', si, nhanHint, false);
+      digitsOf(st.product).forEach((_, i) => {
+        const width = digitsOf(st.product).length;
+        const c = st.endIndex - (width - 1) + i;
+        if (grid[productRow][c]) {
+          grid[productRow][c].kind = 'nhan';
+          order.push({ r: productRow, c: c, kind: 'nhan' });
+        }
+      });
+
+      placeNumber(remRow, st.remainder, st.endIndex, 'remainder', si, truHint, false);
+      digitsOf(st.remainder).forEach((_, i) => {
+        const width = digitsOf(st.remainder).length;
+        const c = st.endIndex - (width - 1) + i;
+        if (grid[remRow][c]) {
+          grid[remRow][c].kind = 'tru';
+          order.push({ r: remRow, c: c, kind: 'tru' });
+        }
+      });
+
+      if (st.bringDown != null) {
+        const c = st.endIndex + 1;
+        place(remRow, c, {
+          value: st.bringDown,
+          role: 'bringdown',
+          stepIndex: si,
+          hint: haHint,
+          given: false,
+          fill: true,
+          kind: 'ha'
+        });
+        order.push({ r: remRow, c: c, kind: 'ha' });
+      }
+    });
+
+    const cells = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (grid[r][c]) cells.push(grid[r][c]);
+      }
+    }
+
+    return {
+      dividend: dividend,
+      divisor: divisor,
+      quotient: quotient,
+      remainder: remainder,
+      qDigits: qDigits,
+      steps: steps,
+      rows: rows,
+      cols: cols,
+      colsLeft: colsLeft,
+      colsRight: colsRight,
+      grid: grid,
+      cells: cells,
+      order: order,
+      exact: remainder === 0,
+      resultText: remainder === 0
+        ? (dividend + ' : ' + divisor + ' = ' + quotient)
+        : (dividend + ' : ' + divisor + ' = ' + quotient + ' dư ' + remainder)
+    };
+  }
+
+  function ascii(tab) {
+    const lines = [];
+    for (let r = 0; r < tab.rows; r++) {
+      let left = '';
+      let right = '';
+      for (let c = 0; c < tab.colsLeft; c++) {
+        left += tab.grid[r][c] == null ? ' ' : String(tab.grid[r][c].value);
+      }
+      for (let c = tab.colsLeft; c < tab.cols; c++) {
+        right += tab.grid[r][c] == null ? ' ' : String(tab.grid[r][c].value);
+      }
+      lines.push(left + '|' + right);
+    }
+    return lines.join('\n');
+  }
+
+
+  function randInt(a, b) {
+    return a + Math.floor(Math.random() * (b - a + 1));
+  }
+
+  function keyOf(dividend, divisor) {
+    return dividend + ':' + divisor;
+  }
+
+  function isValidForLevel(tab, level) {
+    if (!tab || tab.steps.length < 1) return false;
+    const d = tab.dividend, v = tab.divisor, q = tab.quotient, r = tab.remainder;
+    const qd = tab.qDigits;
+    const first = Number(String(d)[0]);
+    if (v < 2 || v > 9) return false;
+    if (level === 1) {
+      return d >= 10 && d <= 99 && qd.length === 2 && r === 0 && first >= v && !qd.includes(0);
+    }
+    if (level === 2) {
+      return d >= 10 && d <= 99 && qd.length === 2 && r > 0 && r < v && first >= v;
+    }
+    if (level === 3) {
+      return d >= 100 && d <= 999 && qd.length === 3 && first >= v && r < v;
+    }
+    return false;
+  }
+
+  function randomProblem(level, avoid) {
+    avoid = avoid || new Set();
+    for (let i = 0; i < 800; i++) {
+      const divisor = randInt(2, 9);
+      let dividend = 0;
+      if (level === 1) {
+        const preferClean = Math.random() < 0.75;
+        const cands = [];
+        for (let q = 11; q <= 49; q++) {
+          if (String(q).indexOf('0') !== -1) continue;
+          const d = q * divisor;
+          if (d < 10 || d > 99) continue;
+          const first = Math.floor(d / 10);
+          if (first < divisor) continue;
+          if (preferClean && first % divisor !== 0) continue;
+          cands.push(d);
+        }
+        if (!cands.length) continue;
+        dividend = cands[randInt(0, cands.length - 1)];
+      } else if (level === 2) {
+        const wantZero = Math.random() < 0.3;
+        const cands = [];
+        for (let q = 10; q <= 49; q++) {
+          const has0 = String(q).indexOf('0') !== -1;
+          if (wantZero && !has0) continue;
+          if (!wantZero && has0) continue;
+          for (let rem = 1; rem < divisor; rem++) {
+            const d = q * divisor + rem;
+            if (d < 10 || d > 99) continue;
+            const first = Math.floor(d / 10);
+            if (first < divisor) continue;
+            cands.push(d);
+          }
+        }
+        if (!cands.length) continue;
+        dividend = cands[randInt(0, cands.length - 1)];
+      } else {
+        const wantZero = Math.random() < 0.6;
+        const wantExact = Math.random() < 0.5;
+        const cands = [];
+        const qMax = Math.floor(999 / divisor);
+        for (let q = 101; q <= qMax; q++) {
+          if (q < 100) continue;
+          const has0 = String(q).indexOf('0') !== -1;
+          if (wantZero && !has0) continue;
+          if (!wantZero && has0) continue;
+          if (wantExact) {
+            const d = q * divisor;
+            if (d >= 100 && d <= 999 && Number(String(d)[0]) >= divisor) cands.push(d);
+          } else {
+            const rem = randInt(1, divisor - 1);
+            const d = q * divisor + rem;
+            if (d >= 100 && d <= 999 && Number(String(d)[0]) >= divisor) cands.push(d);
+          }
+        }
+        if (!cands.length) continue;
+        dividend = cands[randInt(0, cands.length - 1)];
+      }
+      const k = keyOf(dividend, divisor);
+      if (avoid.has(k)) continue;
+      const tab = buildTableau(dividend, divisor);
+      if (!isValidForLevel(tab, level)) continue;
+      return tab;
+    }
+    throw new Error('Could not generate a valid problem for level ' + level);
+  }
+
+  const CLASSICS = {
+    1: [[22, 2], [84, 4], [96, 3], [48, 2], [36, 3], [64, 4], [69, 3], [88, 4], [26, 2], [39, 3], [46, 2], [28, 2]],
+    2: [[45, 2], [83, 2], [41, 4], [33, 2], [57, 4], [91, 5], [47, 2], [65, 4], [38, 3], [71, 5], [29, 4], [53, 5]],
+    3: [[416, 4], [515, 5], [208, 2], [832, 4], [624, 3], [309, 3], [507, 5], [816, 4], [246, 2], [369, 3], [725, 5], [948, 4], [630, 5], [704, 2]]
+  };
+
+  function generateLevel(level, count) {
+    count = count || 5;
+    const avoid = new Set();
+    const out = [];
+    const classics = (CLASSICS[level] || []).slice();
+    // shuffle
+    for (let i = classics.length - 1; i > 0; i--) {
+      const j = randInt(0, i);
+      const tmp = classics[i];
+      classics[i] = classics[j];
+      classics[j] = tmp;
+    }
+    const classicCount = level === 3 ? 2 : 2;
+    for (const pair of classics) {
+      if (out.length >= classicCount) break;
+      const tab = buildTableau(pair[0], pair[1]);
+      if (!isValidForLevel(tab, level)) continue;
+      const k = keyOf(tab.dividend, tab.divisor);
+      if (avoid.has(k)) continue;
+      avoid.add(k);
+      out.push(tab);
+    }
+    // Mức 3: guarantee at least one 0-in-quotient problem
+    while (out.length < count) {
+      const tab = randomProblem(level, avoid);
+      if (level === 3 && out.filter(t => t.qDigits.includes(0)).length === 0 && out.length === count - 1 && !tab.qDigits.includes(0)) {
+        continue;
+      }
+      avoid.add(keyOf(tab.dividend, tab.divisor));
+      out.push(tab);
+    }
+    // reshuffle the set
+    for (let i = out.length - 1; i > 0; i--) {
+      const j = randInt(0, i);
+      const tmp = out[i];
+      out[i] = out[j];
+      out[j] = tmp;
+    }
+    return out;
+  }
+
+  root.ChiaTableau = { buildTableau: buildTableau, ascii: ascii, digitsOf: digitsOf, generateLevel: generateLevel, randomProblem: randomProblem, isValidForLevel: isValidForLevel };
+  if (typeof module !== 'undefined') module.exports = root.ChiaTableau;
+})(typeof window !== 'undefined' ? window : global);
+
+</script>
+<script>
+
+(function(){
+  'use strict';
+  const T = window.ChiaTableau;
+  const KIND_NAME = {chia:'Chia', nhan:'Nhân', tru:'Trừ', ha:'Hạ'};
+  const LEVEL_META = {
+    1: {name:'Mức 1 · Chia hết', short:'Mức 1', n:5},
+    2: {name:'Mức 2 · Có dư', short:'Mức 2', n:5},
+    3: {name:'Mức 3 · 3 chữ số', short:'Mức 3', n:5}
+  };
+
+  const state = {
+    screen:'home',
+    level:1,
+    problems:[],
+    index:0,
+    tab:null,
+    status:{}, // 'r,c' -> 'ok'|'bad'|''
+    values:{},
+    selected:null,
+    mistakes:0,
+    hintsUsed:0,
+    tried:{},
+    score:0,
+    stars:[],
+    muted:false,
+    doneProblem:false,
+    audio:null
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const cellKey = (r,c) => r + ',' + c;
+
+  function ensureAudio(){
+    if (!state.audio) {
+      try { state.audio = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){ state.audio = null; }
+    }
+    if (state.audio && state.audio.state === 'suspended') state.audio.resume();
+  }
+  function tone(freq, dur, type, gain){
+    if (state.muted || !state.audio) return;
+    const ctx = state.audio;
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.value = freq;
+    g.gain.value = gain || 0.07;
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(); o.stop(ctx.currentTime + dur);
+  }
+  function sndOk(){ tone(660, 0.12); setTimeout(()=>tone(880,0.14), 70); }
+  function sndBad(){ tone(180, 0.18, 'square', 0.05); }
+  function sndWin(){ [523,659,784,1046].forEach((f,i)=>setTimeout(()=>tone(f,0.2), i*120)); }
+
+  function showScreen(name){
+    state.screen = name;
+    $('screen-home').classList.toggle('on', name==='home');
+    $('screen-play').classList.toggle('on', name==='play');
+    if (name!=='play') $('overlay').classList.remove('on');
+  }
+
+  function currentFillable(){
+    if (!state.tab) return [];
+    return state.tab.order.map(o => state.tab.grid[o.r][o.c]).filter(Boolean);
+  }
+  function firstOpen(){
+    return currentFillable().find(c => state.status[cellKey(c.r,c.c)] !== 'ok') || null;
+  }
+  function select(r,c){
+    const cell = state.tab && state.tab.grid[r] && state.tab.grid[r][c];
+    if (!cell || !cell.fill || state.status[cellKey(r,c)]==='ok' || state.doneProblem) return;
+    state.selected = {r,c};
+    paintBoard();
+    updateHintPreview();
+  }
+  function selectFirstOpen(){
+    const c = firstOpen();
+    if (c) select(c.r, c.c);
+  }
+
+  function updateHintPreview(){
+    const el = $('hint-text');
+    const cur = state.selected && state.tab.grid[state.selected.r][state.selected.c];
+    const open = firstOpen();
+    const kind = (cur && cur.kind) || (open && open.kind);
+    document.querySelectorAll('#step-bar .pill').forEach(p=>{
+      p.classList.toggle('on', p.getAttribute('data-kind')===kind);
+    });
+    if (state.doneProblem){
+      el.innerHTML = '<strong>Giỏi lắm!</strong> ' + escapeHtml(state.tab.resultText);
+      return;
+    }
+    if (!cur){
+      el.innerHTML = '<span class="ask">Chọn một ô trống rồi điền số nhé!</span>';
+      return;
+    }
+    const labels = {chia:'Em đang làm bước <strong>Chia</strong>.', nhan:'Em đang làm bước <strong>Nhân</strong>.', tru:'Em đang làm bước <strong>Trừ</strong>.', ha:'Em đang làm bước <strong>Hạ</strong>.'};
+    el.innerHTML = '<span class="ask">' + (labels[cur.kind] || 'Điền số vào ô đang chọn.') + ' Bấm Gợi ý nếu cần lời hướng dẫn.</span>';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+
+  function showHint(){
+    const cur = state.selected && state.tab.grid[state.selected.r][state.selected.c];
+    const target = (cur && state.status[cellKey(cur.r,cur.c)]!=='ok') ? cur : firstOpen();
+    if (!target || state.doneProblem) return;
+    if (state.status[cellKey(target.r,target.c)]!=='ok') {
+      if (!target._hintCounted){ state.hintsUsed += 1; target._hintCounted = true; }
+    }
+    select(target.r, target.c);
+    $('hint-text').innerHTML = '<strong>' + escapeHtml(KIND_NAME[target.kind] || '') + ':</strong> ' + escapeHtml(target.hint);
+    document.querySelectorAll('#step-bar .pill').forEach(p=>{
+      p.classList.toggle('on', p.getAttribute('data-kind')===target.kind);
+    });
+  }
+
+  function inputDigit(d){
+    if (state.doneProblem || !state.tab) return;
+    if (!state.selected) selectFirstOpen();
+    const sel = state.selected;
+    if (!sel) return;
+    const cell = state.tab.grid[sel.r][sel.c];
+    if (!cell || !cell.fill || state.status[cellKey(sel.r,sel.c)]==='ok') return;
+    const k = cellKey(sel.r,sel.c);
+    if (Number(d) === Number(cell.value)){
+      state.status[k] = 'ok';
+      state.values[k] = String(cell.value);
+      if (!state.tried[k]) state.score += 10;
+      else state.score += 5;
+      sndOk();
+      const next = firstOpen();
+      if (next) state.selected = {r:next.r,c:next.c};
+      else state.selected = null;
+      paintBoard();
+      updateScore();
+      if (!next) completeProblem();
+      else updateHintPreview();
+    } else {
+      state.status[k] = 'bad';
+      state.values[k] = String(d);
+      state.tried[k] = true;
+      state.mistakes += 1;
+      sndBad();
+      paintBoard();
+      setTimeout(()=>{
+        if (state.status[k]==='bad'){
+          state.status[k] = '';
+          state.values[k] = '';
+          paintBoard();
+        }
+      }, 420);
+    }
+  }
+
+  function clearDigit(){
+    if (state.doneProblem || !state.selected) return;
+    const k = cellKey(state.selected.r, state.selected.c);
+    if (state.status[k]==='ok') return;
+    state.status[k] = '';
+    state.values[k] = '';
+    paintBoard();
+  }
+
+  function starsForProblem(){
+    if (state.mistakes===0 && state.hintsUsed===0) return 3;
+    if (state.mistakes<=2 && state.hintsUsed<=1) return 2;
+    return 1;
+  }
+
+  function completeProblem(){
+    state.doneProblem = true;
+    const s = starsForProblem();
+    state.stars[state.index] = s;
+    $('result-line').textContent = '★ ' + state.tab.resultText;
+    $('btn-next').classList.add('on');
+    $('btn-next').textContent = state.index + 1 >= state.problems.length ? 'Xem kết quả 🎉' : 'Bài tiếp theo →';
+    $('hint-text').innerHTML = '<strong>Giỏi lắm!</strong> ' + escapeHtml(state.tab.resultText);
+    updateScore();
+    sndWin();
+  }
+
+  function nextProblem(){
+    if (state.index + 1 >= state.problems.length){
+      finishLevel();
+      return;
+    }
+    loadProblem(state.index + 1);
+  }
+
+  function finishLevel(){
+    const totalStars = state.stars.reduce((a,b)=>a+b,0);
+    const maxStars = state.problems.length * 3;
+    const n = state.problems.length;
+    let title = 'Hoàn thành!';
+    if (totalStars >= maxStars - 1) title = 'Xuất sắc!';
+    else if (totalStars >= n * 2) title = 'Giỏi lắm!';
+    else title = 'Cố lên, em làm được!';
+    $('win-title').textContent = title;
+    $('win-stars').textContent = '★'.repeat(Math.max(1, Math.round(totalStars / n))) + '☆'.repeat(Math.max(0, 3 - Math.round(totalStars / n)));
+    $('win-text').textContent = 'Mức ' + state.level + ': ' + totalStars + ' / ' + maxStars + ' sao · Điểm ' + state.score + '. Em đã điền đúng ' + n + ' phép chia đặt tính!';
+    const actions = $('win-actions');
+    actions.innerHTML = '';
+    if (state.level < 3){
+      const b = document.createElement('button');
+      b.className = 'btn-nextlv';
+      b.type = 'button';
+      b.textContent = 'Chơi Mức ' + (state.level+1);
+      b.addEventListener('click', ()=>{ $('overlay').classList.remove('on'); startLevel(state.level+1); });
+      actions.appendChild(b);
+    }
+    const a = document.createElement('button');
+    a.className = 'btn-again'; a.type='button'; a.textContent='Chơi lại mức này';
+    a.addEventListener('click', ()=>{ $('overlay').classList.remove('on'); startLevel(state.level); });
+    actions.appendChild(a);
+    const h = document.createElement('button');
+    h.className='btn-home'; h.type='button'; h.textContent='Về trang chọn mức';
+    h.addEventListener('click', ()=>{ $('overlay').classList.remove('on'); showScreen('home'); });
+    actions.appendChild(h);
+    burstConfetti();
+    $('overlay').classList.add('on');
+    sndWin();
+  }
+
+  function burstConfetti(){
+    const box = $('confetti');
+    box.innerHTML = '';
+    const colors = ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#9B59B6','#ff8e8e'];
+    for (let i=0;i<36;i++){
+      const el = document.createElement('i');
+      el.style.left = (Math.random()*100)+'%';
+      el.style.background = colors[i%colors.length];
+      el.style.animationDelay = (Math.random()*0.4)+'s';
+      el.style.animationDuration = (1.2+Math.random()*0.8)+'s';
+      box.appendChild(el);
+    }
+  }
+
+  function paintBoard(){
+    const tab = state.tab;
+    const board = $('board');
+    board.style.setProperty('--left', tab.colsLeft);
+    board.style.setProperty('--right', tab.colsRight);
+    board.style.setProperty('--rows', tab.rows);
+    const parts = [];
+    for (let r=0;r<tab.rows;r++){
+      for (let c=0;c<tab.colsLeft;c++){
+        parts.push(cellHtml(tab,r,c));
+      }
+      if (r===0) parts.push('<div class="vbar" style="grid-row:1 / -1;grid-column:'+(tab.colsLeft+1)+'"></div>');
+      for (let c=tab.colsLeft;c<tab.cols;c++){
+        parts.push(cellHtml(tab,r,c));
+      }
+    }
+    parts.push('<div class="div-line" style="grid-row:1;grid-column:'+(tab.colsLeft+2)+' / -1"></div>');
+    board.innerHTML = parts.join('');
+    board.querySelectorAll('.cell.fill').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const r = +el.getAttribute('data-r');
+        const c = +el.getAttribute('data-c');
+        select(r,c);
+      });
+    });
+  }
+
+  function cellHtml(tab,r,c){
+    const cell = tab.grid[r][c];
+    const col = c < tab.colsLeft ? c+1 : c+2; // +1 for vbar column
+    const style = 'grid-row:'+(r+1)+';grid-column:'+col;
+    const k = cellKey(r,c);
+    const classes = ['cell'];
+    let text = '';
+    if (!cell){
+      classes.push('empty');
+    } else {
+      if (cell.given){ classes.push('given'); text = String(cell.value); }
+      else if (cell.fill){
+        classes.push('fill');
+        const st = state.status[k];
+        if (st==='ok'){ classes.push('ok'); text = String(cell.value); }
+        else if (st==='bad'){ classes.push('bad'); text = state.values[k] || ''; }
+        else { text = state.values[k] || ''; }
+        if (state.selected && state.selected.r===r && state.selected.c===c && st!=='ok') classes.push('sel');
+      }
+      if (cell.role==='product') classes.push('prodline');
+    }
+    const label = cell ? (cell.role + (cell.fill ? ' ' + cell.value : '')) : 'trống';
+    return '<div class="'+classes.join(' ')+'" style="'+style+'" data-r="'+r+'" data-c="'+c+'" data-role="'+(cell && cell.role || 'empty')+'" aria-label="'+escapeHtml(label)+'">'+escapeHtml(text)+'</div>';
+  }
+
+  function updateScore(){
+    const n = state.problems.length;
+    $('chip-progress').textContent = 'Bài ' + (state.index+1) + ' / ' + n;
+    let stars = '';
+    for (let i=0;i<n;i++){
+      if (state.stars[i]) stars += '★';
+      else stars += '☆';
+    }
+    $('chip-stars').textContent = stars;
+    $('chip-score').textContent = '⭐ ' + state.score;
+  }
+
+  function loadProblem(i){
+    state.index = i;
+    state.tab = state.problems[i];
+    state.status = {};
+    state.values = {};
+    state.selected = null;
+    state.mistakes = 0;
+    state.hintsUsed = 0;
+    state.tried = {};
+    state.doneProblem = false;
+    $('result-line').textContent = '';
+    $('btn-next').classList.remove('on');
+    $('prompt').innerHTML = 'Đặt tính: <span>' + state.tab.dividend + ' : ' + state.tab.divisor + '</span>';
+    $('lv-name').textContent = LEVEL_META[state.level].name;
+    paintBoard();
+    selectFirstOpen();
+    updateScore();
+    updateHintPreview();
+  }
+
+  function startLevel(level, forced){
+    ensureAudio();
+    state.level = Number(level);
+    state.score = 0;
+    state.stars = [];
+    const n = LEVEL_META[state.level].n;
+    if (forced && forced.length){
+      const rest = T.generateLevel(state.level, n);
+      const tabs = forced.map(p => T.buildTableau(p[0], p[1]));
+      const keys = new Set(tabs.map(t => t.dividend+':'+t.divisor));
+      for (const t of rest){
+        const k = t.dividend+':'+t.divisor;
+        if (keys.has(k)) continue;
+        tabs.push(t);
+        if (tabs.length>=n) break;
+      }
+      state.problems = tabs.slice(0, n);
+    } else {
+      state.problems = T.generateLevel(state.level, n);
+    }
+    showScreen('play');
+    loadProblem(0);
+  }
+
+  function renderMini(){
+    const tab = T.buildTableau(84,4);
+    const board = document.createElement('div');
+    board.className = 'board';
+    board.style.setProperty('--left', tab.colsLeft);
+    board.style.setProperty('--right', tab.colsRight);
+    board.style.setProperty('--rows', tab.rows);
+    let html = '';
+    for (let r=0;r<tab.rows;r++){
+      for (let c=0;c<tab.colsLeft;c++){
+        const cell = tab.grid[r][c];
+        const col = c+1;
+        const cls = ['cell'];
+        let text = '';
+        if (!cell) cls.push('empty');
+        else {
+          text = String(cell.value);
+          cls.push(cell.given ? 'given' : 'ok');
+          if (cell.role==='divisor' || (r===0 && c>=tab.colsLeft)) cls.push('hbar');
+          if (cell.role==='product') cls.push('prodline');
+        }
+        html += '<div class="'+cls.join(' ')+'" style="grid-row:'+(r+1)+';grid-column:'+col+'">'+text+'</div>';
+      }
+      if (r===0) html += '<div class="vbar" style="grid-row:1 / -1;grid-column:'+(tab.colsLeft+1)+'"></div>';
+      for (let c=tab.colsLeft;c<tab.cols;c++){
+        const cell = tab.grid[r][c];
+        const col = c+2;
+        const cls = ['cell'];
+        let text = '';
+        if (!cell){ cls.push('empty'); }
+        else {
+          text = String(cell.value);
+          cls.push(cell.given ? 'given' : 'ok');
+          if (cell.role==='product') cls.push('prodline');
+        }
+        html += '<div class="'+cls.join(' ')+'" style="grid-row:'+(r+1)+';grid-column:'+col+'">'+text+'</div>';
+      }
+    }
+    html += '<div class="div-line" style="grid-row:1;grid-column:'+(tab.colsLeft+2)+' / -1"></div>';
+    board.innerHTML = html;
+    const host = $('mini-board');
+    host.innerHTML = '';
+    host.appendChild(board);
+  }
+
+  function bind(){
+    document.querySelectorAll('.level-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=> startLevel(+btn.getAttribute('data-level')));
+    });
+    $('btn-back').addEventListener('click', ()=> showScreen('home'));
+    $('btn-hint').addEventListener('click', ()=>{ ensureAudio(); showHint(); });
+    $('btn-next').addEventListener('click', nextProblem);
+    $('btn-mute').addEventListener('click', ()=>{
+      state.muted = !state.muted;
+      $('btn-mute').textContent = state.muted ? '🔇' : '🔊';
+    });
+    document.querySelectorAll('#pad .pad-key').forEach(k=>{
+      k.addEventListener('click', ()=>{
+        ensureAudio();
+        const v = k.getAttribute('data-k');
+        if (v==='del') clearDigit();
+        else inputDigit(v);
+      });
+    });
+    document.addEventListener('keydown', ev=>{
+      if (state.screen!=='play') return;
+      if (ev.key>='0' && ev.key<='9'){ ev.preventDefault(); ensureAudio(); inputDigit(ev.key); }
+      else if (ev.key==='Backspace'){ ev.preventDefault(); clearDigit(); }
+      else if (ev.key==='Enter' && state.doneProblem){ ev.preventDefault(); nextProblem(); }
+    });
+  }
+
+  function parseQuery(){
+    const q = new URLSearchParams(location.search);
+    const muc = Number(q.get('muc') || '');
+    const only = q.get('only') || q.get('p') || '';
+    const forced = [];
+    if (only){
+      only.split(';').forEach(pair=>{
+        const parts = pair.split(/[,:/x]/).map(Number);
+        if (parts.length>=2 && parts[0]>0 && parts[1]>0) forced.push([parts[0], parts[1]]);
+      });
+    }
+    if (muc>=1 && muc<=3){
+      startLevel(muc, forced);
+    }
+  }
+
+  window.ChiaGame = {
+    startLevel, loadProblem, inputDigit, showHint, state,
+    buildTableau: T.buildTableau,
+    finishLevel
+  };
+
+  renderMini();
+  bind();
+  parseQuery();
+})();
+
+</script>
+</body>
+</html>

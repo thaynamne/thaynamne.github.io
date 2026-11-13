@@ -1,1 +1,33 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff6e5"><title>Vui học lớp 3 — Thầy Nam Nè</title><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/lesson.css"></head><body><main class="wrap" id="app"></main><script src="lessons.js"></script><script src="../assets/lesson.js"></script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff6e5">
+<title>Vui học lớp 3 — Thầy Nam Nè</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/lesson.css">
+<style>
+.game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#2f7de4,#3db85a);border-radius:22px;padding:16px 18px;margin:0 0 14px;box-shadow:0 6px 0 rgba(0,0,0,.12);font-family:'Nunito','Be Vietnam Pro',sans-serif}
+.game-card .gb{font-size:13px;font-weight:900;opacity:.95}
+.game-card h2{font-size:22px;margin:4px 0 2px;font-family:'Be Vietnam Pro',sans-serif}
+.game-card p{margin:0;font-weight:800;font-size:15px;opacity:.95}
+</style>
+</head>
+<body>
+<main class="wrap" id="app"></main>
+<script src="lessons.js"></script>
+<script src="../assets/lesson.js"></script>
+<script>
+(function(){
+  var hero=document.querySelector('.hero');
+  if(!hero || document.querySelector('.game-card')) return;
+  var a=document.createElement('a');
+  a.className='game-card';
+  a.href='../game-chia/';
+  a.innerHTML='<div class="gb">GAME MỚI · TOÁN 3</div><h2>Điền số vào phép chia đặt tính</h2><p>Luyện đặt tính theo 4 bước Chia – Nhân – Trừ – Hạ →</p>';
+  hero.after(a);
+})();
+</script>
+</body>
+</html>
