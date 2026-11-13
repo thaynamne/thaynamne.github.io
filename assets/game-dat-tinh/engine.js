@@ -467,8 +467,8 @@
     var botRaw = String(ib).split('');
     var prodRaw = String(prod).split('');
     // carries produced when multiplying ia * ib (ib is usually 1 digit for our game; if more, do single-row only when ib < 10)
-    if (ib >= 10 && ib < 100 && opts.allowTwoDigit) {
-      return buildMulTwoDigit(A, B, ia, ib, places, pretty);
+    if (ib >= 10) {
+      return buildMulLong(A, B, ia, ib, places, pretty);
     }
     // 1-digit multiplier (ib is 1..9 after stripping; 0,4 → 4)
     var m = ib;
@@ -683,7 +683,232 @@
     return s.split('');
   }
 
-  function buildMulTwoDigit() { throw new Error('two-digit mul not used'); }
+  function padLeft(arr, w) {
+    var a = arr.slice();
+    while (a.length < w) a.unshift('');
+    return a;
+  }
+  function countAddCarries(a, b) {
+    var n = 0, c = 0;
+    a = Math.abs(Number(a) || 0); b = Math.abs(Number(b) || 0);
+    do {
+      var t = (a % 10) + (b % 10) + c;
+      if (t >= 10) { n++; c = 1; } else c = 0;
+      a = Math.floor(a / 10); b = Math.floor(b / 10);
+    } while (a > 0 || b > 0 || c);
+    return n;
+  }
+  function countSubBorrows(a, b) {
+    var n = 0, borrow = 0;
+    a = Math.abs(Number(a) || 0); b = Math.abs(Number(b) || 0);
+    do {
+      var da = (a % 10) - borrow;
+      var db = b % 10;
+      if (da < db) { n++; borrow = 1; } else borrow = 0;
+      a = Math.floor(a / 10); b = Math.floor(b / 10);
+    } while (a > 0 || b > 0);
+    return n;
+  }
+  function countMulCarries(a, d) {
+    var n = 0, c = 0;
+    a = Math.abs(Number(a) || 0); d = Number(d) || 0;
+    while (a > 0) {
+      var s = (a % 10) * d + c;
+      c = Math.floor(s / 10);
+      if (c) n++;
+      a = Math.floor(a / 10);
+    }
+    return n;
+  }
+  function qWithZero(minLen, maxLen) {
+    var len = randInt(minLen, maxLen);
+    var s = String(randInt(1, 9));
+    for (var i = 1; i < len; i++) s += String(randInt(0, 9));
+    var pos = randInt(1, len - 1);
+    s = s.slice(0, pos) + '0' + s.slice(pos + 1);
+    if (s.charAt(0) === '0') s = String(randInt(1, 9)) + s.slice(1);
+    return Number(s);
+  }
+
+  function buildMulLong(A, B, ia, ib, places, pretty) {
+    var botDigits = String(ib).split('').map(Number);
+    var nBot = botDigits.length;
+    var partials = [];
+    var s, i, k;
+    for (s = 0; s < nBot; s++) {
+      var d = botDigits[nBot - 1 - s];
+      partials.push({ d: d, shift: s, val: ia * d, digits: String(ia * d).split('') });
+    }
+    var prod = ia * ib;
+    var prodDigits = String(prod).split('');
+    if (places > 0) {
+      while (prodDigits.length < places) prodDigits.unshift('0');
+      if (prodDigits.length === places) prodDigits.unshift('0');
+    }
+    function factorDigits(intVal, pl) {
+      var ds = String(intVal).split('');
+      if (pl > 0 && ds.length <= pl) {
+        while (ds.length < pl) ds.unshift('0');
+        ds.unshift('0');
+      }
+      return ds;
+    }
+    var intW = Math.max(String(ia).length, String(ib).length, prodDigits.length, factorDigits(ia, A.places).length, factorDigits(ib, B.places).length);
+    partials.forEach(function (p) { intW = Math.max(intW, p.digits.length + p.shift); });
+
+    var partInts = partials.map(function (p) {
+      var a = p.digits.slice();
+      for (i = 0; i < p.shift; i++) a.push('');
+      return padLeft(a, intW);
+    });
+    var prodInt = padLeft(prodDigits, intW);
+    var nPart = partials.length;
+    var rA = 0, rB = 1, rP0 = 2, rCarry = 2 + nPart, rRes = 3 + nPart;
+    var rowsN = rRes + 1;
+    var colsN = intW + 1;
+    var grid = emptyGrid(rowsN, colsN);
+
+    function placeFactor(r, intVal, pl, isBot) {
+      var ds = factorDigits(intVal, pl);
+      var start = intW - ds.length;
+      if (isBot) place(grid, r, 0, { value: '×', role: 'op', given: true, fill: false, hint: '' });
+      ds.forEach(function (ch, idx) {
+        var c = start + idx + 1;
+        var fromRight = ds.length - idx;
+        place(grid, r, c, {
+          value: Number(ch),
+          role: 'operand',
+          given: true,
+          fill: false,
+          hint: '',
+          commaBefore: pl > 0 && fromRight === pl
+        });
+      });
+    }
+    placeFactor(rA, ia, A.places, false);
+    placeFactor(rB, ib, B.places, true);
+
+    var order = [];
+    partials.forEach(function (p, pi) {
+      var r = rP0 + pi;
+      var arr = partInts[pi];
+      var hintBase = ia + ' nhân ' + p.d + ' bằng ' + p.val;
+      if (p.shift) hintBase += ', viết lệch sang trái ' + p.shift + ' cột';
+      arr.forEach(function (ch, idx) {
+        if (ch === '' || ch == null) return;
+        place(grid, r, idx + 1, {
+          value: Number(ch),
+          role: 'partial',
+          given: false,
+          fill: true,
+          hint: hintBase + ', viết ' + ch + '.',
+          kind: 'viet'
+        });
+      });
+      for (i = intW - 1; i >= 0; i--) {
+        if (arr[i] === '' || arr[i] == null) continue;
+        order.push({ r: r, c: i + 1, kind: 'viet' });
+      }
+    });
+
+    var addSteps = [];
+    var carryIn = 0;
+    for (i = intW - 1; i >= 0; i--) {
+      var sum = carryIn;
+      var parts = [];
+      partInts.forEach(function (arr) {
+        if (arr[i] !== '' && arr[i] != null) { sum += Number(arr[i]); parts.push(String(arr[i])); }
+      });
+      var write = sum % 10;
+      var nho = Math.floor(sum / 10);
+      addSteps.push({ i: i, write: write, nho: nho, carryIn: carryIn, parts: parts, sum: sum });
+      carryIn = nho;
+    }
+    var firstFracCol = places > 0 ? (intW - places + 1) : null;
+    for (i = 0; i < intW; i++) {
+      var ch = prodInt[i];
+      if (ch === '' || ch == null) continue;
+      var c = i + 1;
+      var st = null;
+      for (k = 0; k < addSteps.length; k++) if (addSteps[k].i === i) st = addSteps[k];
+      var isLeadZero = places > 0 && Number(ch) === 0 && firstFracCol && c < firstFracCol && pretty.indexOf('0,') === 0 && i === (function () {
+        for (var t = 0; t < intW; t++) if (prodInt[t] !== '' && prodInt[t] != null) return t;
+        return 0;
+      })();
+      var hint;
+      if (isLeadZero) {
+        hint = 'Phần nguyên chưa có chữ số nào nên viết 0 trước dấu phẩy.';
+      } else if (st) {
+        var expr = (st.parts.length ? st.parts.join(' + ') : '0') + (st.carryIn ? ' thêm nhớ ' + st.carryIn : '');
+        hint = expr + ' bằng ' + st.sum + ', viết ' + st.write + (st.nho ? ' nhớ ' + st.nho : '') + '.';
+      } else {
+        hint = 'Viết ' + ch + '.';
+      }
+      place(grid, rRes, c, {
+        value: Number(ch),
+        role: 'result',
+        given: false,
+        fill: true,
+        hint: hint,
+        kind: 'viet',
+        commaBefore: places > 0 && c === firstFracCol
+      });
+    }
+    addSteps.forEach(function (st) {
+      if (!st.nho) return;
+      var destI = st.i - 1;
+      if (destI < 0) return;
+      place(grid, rCarry, destI + 1, {
+        value: st.nho,
+        role: 'carry',
+        given: false,
+        fill: true,
+        small: true,
+        hint: 'Nhớ ' + st.nho + ', viết ' + st.nho + '.',
+        kind: 'nho'
+      });
+    });
+
+    var leadZeroOrd = null;
+    var digitOrders = [];
+    for (i = intW - 1; i >= 0; i--) {
+      if (!grid[rRes][i + 1]) continue;
+      var cellR = grid[rRes][i + 1];
+      var o = { r: rRes, c: i + 1, kind: 'viet' };
+      if (cellR.hint && cellR.hint.indexOf('Phần nguyên chưa có') === 0) leadZeroOrd = o;
+      else digitOrders.push(o);
+    }
+    digitOrders.forEach(function (o) {
+      order.push(o);
+      var L = o.c - 1;
+      if (L >= 1 && grid[rCarry][L] && grid[rCarry][L].fill) order.push({ r: rCarry, c: L, kind: 'nho' });
+    });
+    if (places > 0 && firstFracCol && grid[rRes][firstFracCol]) {
+      grid[rRes][firstFracCol].phayHint = ia + ' × ' + ib + ' = ' + prod + '. Đếm tất cả ' + places + ' chữ số ở phần thập phân của hai thừa số; từ phải sang trái, đặt dấu phẩy tách ' + places + ' chữ số.';
+      order.push({ r: rRes, c: firstFracCol, kind: 'phay', mark: 'phay' });
+    }
+    if (leadZeroOrd) order.push(leadZeroOrd);
+
+    // Drop the add-carry row when there is nothing to write there.
+    var carryUsed = false;
+    for (i = 0; i < colsN; i++) if (grid[rCarry][i]) carryUsed = true;
+    if (!carryUsed) {
+      grid.splice(rCarry, 1);
+      rowsN--;
+      order.forEach(function (o) { if (o.r > rCarry) o.r--; });
+      rRes--;
+    }
+    var resultText = prettyNum(A) + ' × ' + prettyNum(B) + ' = ' + pretty;
+    var note = ia + ' × ' + ib + ' = ' + prod + '. Đếm tất cả ' + places + ' chữ số ở phần thập phân của hai thừa số; từ phải sang trái, đặt dấu phẩy tách ' + places + ' chữ số' + (pretty.indexOf('0,') === 0 ? '. Phần nguyên chưa có chữ số nên viết 0 trước dấu phẩy' : '') + ': ' + pretty + '.';
+    var lastPartial = rP0 + nPart - 1;
+    if (!carryUsed && lastPartial >= rCarry) lastPartial--;
+    return finishColumn('mul', grid, rowsN, colsN, order, resultText, prettyNum(A) + ' × ' + prettyNum(B), {
+      maxInt: 0, maxFrac: places, note: note, places: places,
+      lineAfter: rB,
+      linesAfter: [rB, lastPartial]
+    });
+  }
+
 
   function finishColumn(kind, grid, rows, cols, order, resultText, prompt, extra) {
     extra = extra || {};
@@ -697,6 +922,7 @@
       grid: grid,
       order: order,
       lineAfter: extra.lineAfter != null ? extra.lineAfter : (extra.lineRow != null ? extra.lineRow - 1 : rows - 2),
+      linesAfter: extra.linesAfter || null,
       note: extra.note || '',
       marks: extra.marks || [],
       maxFrac: extra.maxFrac || 0,
@@ -1126,27 +1352,40 @@
   function pick(arr) { return arr[randInt(0, arr.length - 1)]; }
 
   function genAddG3(level, avoid) {
-    var a, b, tries = 0;
-    while (tries++ < 400) {
+    var a, b, tries = 0, loose = false;
+    while (tries++ < 800) {
+      if (tries > 300) loose = true;
       if (level === 1) {
         a = randInt(15, 89); b = randInt(15, 99 - Math.min(10, a));
         if (a + b > 99) continue;
-        // prefer nhớ
-        if (((a % 10) + (b % 10) < 10) && Math.random() < 0.7) continue;
+        if (!loose && ((a % 10) + (b % 10) < 10) && Math.random() < 0.7) continue;
       } else if (level === 2) {
         a = randInt(108, 799); b = randInt(16, 999 - a);
         if (a + b > 999) continue;
-        if (((a % 10) + (b % 10) < 10) && ((Math.floor(a / 10) % 10) + (Math.floor(b / 10) % 10) < 10) && Math.random() < 0.8) continue;
-      } else {
+        if (!loose && ((a % 10) + (b % 10) < 10) && ((Math.floor(a / 10) % 10) + (Math.floor(b / 10) % 10) < 10) && Math.random() < 0.8) continue;
+      } else if (level === 3) {
         a = randInt(1020, 7999); b = randInt(108, 10000 - a);
         if (a + b > 10000) continue;
-        if (((a % 10) + (b % 10) < 10) && Math.random() < 0.7) continue;
+        if (!loose && ((a % 10) + (b % 10) < 10) && Math.random() < 0.7) continue;
+      } else if (level === 4) {
+        if (Math.random() < 0.55) {
+          a = randInt(1024, 9876); b = randInt(1024, 100000 - a);
+          if (b < 1000) continue;
+        } else {
+          a = randInt(10000, 89999); b = randInt(1000, 100000 - a);
+        }
+        if (a + b > 100000) continue;
+        if (!loose && countAddCarries(a, b) < 2) continue;
+      } else {
+        a = randInt(12000, 89999); b = randInt(10000, 100000 - a);
+        if (a + b > 100000) continue;
+        if (!loose && countAddCarries(a, b) < 3) continue;
       }
       var tab = buildAdd([a, b]);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildAdd(level === 1 ? [47, 28] : level === 2 ? [478, 256] : [4708, 2567]);
+    return buildAdd(level === 1 ? [47, 28] : level === 2 ? [478, 256] : level === 3 ? [4708, 2567] : level === 4 ? [4708, 3567] : [87654, 12348]);
   }
 
   function hasSubNho(a, b) {
@@ -1158,16 +1397,17 @@
   }
 
   function genSubG3(level, avoid) {
-    var a, b, tries = 0;
-    while (tries++ < 500) {
+    var a, b, tries = 0, loose = false;
+    while (tries++ < 900) {
+      if (tries > 350) loose = true;
       if (level === 1) {
         a = randInt(20, 99); b = randInt(10, a - 1);
-        if (!hasSubNho(a, b) && Math.random() < 0.8) continue;
+        if (!loose && !hasSubNho(a, b) && Math.random() < 0.8) continue;
       } else if (level === 2) {
         a = randInt(130, 999); b = randInt(15, a - 1);
         if (b < 10) continue;
         if (!hasSubNho(a, b)) continue;
-      } else {
+      } else if (level === 3) {
         if (Math.random() < 0.35) {
           a = pick([1000, 2000, 3000, 4000, 5000, 2005, 1010, 3004, 10000]);
           b = randInt(108, Math.min(a - 1, 4876));
@@ -1176,32 +1416,62 @@
         }
         if (a > 10000 || a - b < 1) continue;
         if (!hasSubNho(a, b)) continue;
+      } else if (level === 4) {
+        if (Math.random() < 0.4) {
+          a = pick([10000, 20000, 30000, 40000, 50000, 10001, 20005, 10100, 30004, 11000, 10010, 20000]);
+          b = randInt(1234, Math.min(a - 1, 8765));
+        } else if (Math.random() < 0.5) {
+          a = randInt(2048, 9999); b = randInt(1024, a - 1);
+        } else {
+          a = randInt(10000, 99999); b = randInt(1234, a - 1);
+        }
+        if (a - b < 1) continue;
+        if (!loose && countSubBorrows(a, b) < 2) continue;
+      } else {
+        if (Math.random() < 0.55) {
+          a = pick([10000, 20000, 30000, 40000, 50000, 100000, 20000, 10100, 20005, 30004, 10001, 11000, 10010, 80000, 100000]);
+          b = randInt(1234, Math.min(a - 1, 45678));
+        } else {
+          a = randInt(10000, 99999); b = randInt(1024, a - 1);
+        }
+        if (a - b < 1) continue;
+        if (!loose && countSubBorrows(a, b) < 3) continue;
       }
       var tab = buildSub(a, b);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildSub(level === 1 ? [52, 18] : level === 2 ? [503, 278] : [1000, 457]);
+    return buildSub(level === 1 ? [52, 18] : level === 2 ? [503, 278] : level === 3 ? [1000, 457] : level === 4 ? [10000, 4567] : [10000, 4567]);
   }
 
   function genMulG3(level, avoid) {
-    var a, b, tries = 0;
-    while (tries++ < 400) {
+    var a, b, tries = 0, loose = false;
+    while (tries++ < 800) {
+      if (tries > 300) loose = true;
       if (level === 1) { a = randInt(12, 49); b = randInt(2, 5); }
       else if (level === 2) { a = randInt(16, 89); b = randInt(6, 9); }
-      else { a = randInt(108, 798); b = randInt(3, 9); }
-      // prefer carry
-      if ((a % 10) * b < 10 && Math.random() < 0.6) continue;
+      else if (level === 3) { a = randInt(108, 798); b = randInt(3, 9); }
+      else if (level === 4) {
+        a = Math.random() < 0.5 ? randInt(1024, 9876) : randInt(10235, 87654);
+        b = randInt(3, 9);
+        if (!loose && countMulCarries(a, b) < 2) continue;
+      } else {
+        a = randInt(10235, 98765);
+        b = randInt(6, 9);
+        if (!loose && countMulCarries(a, b) < 3) continue;
+      }
+      if (level <= 3 && (a % 10) * b < 10 && Math.random() < 0.6 && !loose) continue;
       var tab = buildMul(a, b);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildMul(level === 3 ? [246, 3] : [24, 3]);
+    return buildMul(level >= 5 ? [24680, 7] : level === 4 ? [2468, 7] : level === 3 ? [246, 3] : [24, 3]);
   }
 
   function genDivG3(level, avoid) {
-    var tries = 0;
-    while (tries++ < 500) {
+    var tries = 0, loose = false;
+    while (tries++ < 900) {
+      if (tries > 350) loose = true;
       var divisor, dividend, q, rem, takeTwo;
       divisor = randInt(2, 9);
       takeTwo = Math.random() < 0.4;
@@ -1211,7 +1481,7 @@
           q = randInt(4, 9);
           dividend = q * divisor;
           if (dividend < 10 || dividend > 99) continue;
-          if (Math.floor(dividend / 10) >= divisor) continue; // must take two digits
+          if (Math.floor(dividend / 10) >= divisor) continue;
         } else {
           q = randInt(11, 49);
           if (String(q).indexOf('0') !== -1) continue;
@@ -1233,10 +1503,9 @@
           if (dividend < 10 || dividend > 99) continue;
           if (Math.floor(dividend / 10) < divisor) continue;
         }
-      } else {
+      } else if (level === 3) {
         rem = Math.random() < 0.5 ? 0 : randInt(1, divisor - 1);
         if (takeTwo) {
-          // 3-digit dividend, 2-digit quotient (first digit < divisor)
           q = randInt(12, 99);
           dividend = q * divisor + rem;
           if (dividend < 100 || dividend > 999) continue;
@@ -1249,30 +1518,52 @@
           if (Number(String(dividend)[0]) < divisor) continue;
           if (Math.random() < 0.5 && String(q).indexOf('0') === -1) continue;
         }
+      } else if (level === 4) {
+        rem = Math.random() < 0.5 ? 0 : randInt(1, divisor - 1);
+        if (takeTwo) {
+          q = randInt(100, 999);
+          dividend = q * divisor + rem;
+          if (dividend < 1000 || dividend > 9999) continue;
+          if (Number(String(dividend)[0]) >= divisor) continue;
+        } else {
+          q = randInt(1000, Math.floor(9999 / divisor));
+          dividend = q * divisor + rem;
+          if (dividend < 1000 || dividend > 9999) continue;
+        }
+      } else {
+        rem = Math.random() < 0.45 ? 0 : randInt(1, divisor - 1);
+        q = qWithZero(Math.random() < 0.45 ? 3 : 4, Math.random() < 0.5 ? 4 : 5);
+        if (String(q).indexOf('0') < 0) continue;
+        dividend = q * divisor + rem;
+        if (dividend < 1000 || dividend > 99999) continue;
       }
       var tab = buildDivInt(dividend, divisor);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildDivInt(level === 3 ? 416 : level === 2 ? 45 : 84, level === 3 ? 4 : level === 2 ? 2 : 4);
+    return buildDivInt(level >= 5 ? 4104 : level === 4 ? 2016 : level === 3 ? 416 : level === 2 ? 45 : 84, level >= 5 ? 4 : level === 4 ? 8 : level === 3 ? 4 : level === 2 ? 2 : 4);
   }
 
   function dec(intPart, frac) { return parseVN(String(intPart) + ',' + frac); }
 
+  function fracStr(n, p) {
+    return String(n).padStart(p, '0');
+  }
+
   function genAddG5(level, avoid) {
-    var tries = 0, A, B;
-    while (tries++ < 500) {
+    var tries = 0, A, B, loose = false;
+    while (tries++ < 900) {
+      if (tries > 350) loose = true;
       if (level === 1) {
         A = parseVN(randInt(1, 8) + ',' + randInt(1, 9));
         B = parseVN(randInt(1, 8) + ',' + randInt(1, 9));
         if (A.value + B.value >= 20) continue;
-        if ((Number(A.fracPart) + Number(B.fracPart) < 10) && Math.random() < 0.7) continue;
+        if (!loose && (Number(A.fracPart) + Number(B.fracPart) < 10) && Math.random() < 0.7) continue;
       } else if (level === 2) {
-        // different places
         A = parseVN(randInt(2, 15) + ',' + randInt(1, 9));
         B = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
         if (A.value + B.value >= 30) continue;
-      } else {
+      } else if (level === 3) {
         if (Math.random() < 0.4) {
           A = parseVN(String(randInt(8, 25)));
           B = parseVN(randInt(1, 8) + ',' + randInt(10, 99));
@@ -1281,17 +1572,43 @@
           B = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
         }
         if (A.value + B.value >= 40) continue;
+      } else if (level === 4) {
+        var v = randInt(0, 3);
+        if (v === 0) {
+          A = parseVN(randInt(1, 20) + ',' + randInt(100, 999));
+          B = parseVN(randInt(1, 15) + ',' + randInt(1, 9));
+        } else if (v === 1) {
+          A = parseVN(randInt(2, 25) + ',' + randInt(1, 9) + '0');
+          B = parseVN(randInt(1, 12) + ',' + randInt(10, 99));
+        } else if (v === 2) {
+          A = parseVN(randInt(10, 40) + ',' + randInt(10, 99));
+          B = parseVN(randInt(1, 9) + ',' + randInt(100, 999));
+        } else {
+          A = parseVN(String(randInt(8, 30)));
+          B = parseVN(randInt(1, 9) + ',' + randInt(100, 999));
+        }
+        if (A.value + B.value >= 80) continue;
+      } else {
+        if (Math.random() < 0.5) {
+          A = parseVN(randInt(5, 40) + ',' + randInt(100, 9999));
+          B = parseVN(randInt(1, 20) + ',' + randInt(10, 99));
+        } else {
+          A = parseVN(randInt(10, 50) + ',' + randInt(100, 999));
+          B = parseVN(String(randInt(4, 25)));
+        }
+        if (A.value + B.value >= 120) continue;
       }
       var tab = buildAdd([A, B]);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildAdd(level === 1 ? ['2,7', '1,5'] : level === 2 ? ['5,8', '2,35'] : ['2,75', '1,48']);
+    return buildAdd(level === 1 ? ['2,7', '1,5'] : level === 2 ? ['5,8', '2,35'] : level === 3 ? ['2,75', '1,48'] : level === 4 ? ['12,8', '3,475'] : ['15,075', '8,6']);
   }
 
   function genSubG5(level, avoid) {
-    var tries = 0, A, B;
-    while (tries++ < 600) {
+    var tries = 0, A, B, loose = false;
+    while (tries++ < 900) {
+      if (tries > 350) loose = true;
       if (level === 1) {
         A = parseVN(randInt(3, 9) + ',' + randInt(2, 9));
         B = parseVN(randInt(1, 5) + ',' + randInt(1, 9));
@@ -1300,7 +1617,7 @@
         A = parseVN(randInt(4, 15) + ',' + randInt(1, 9));
         B = parseVN(randInt(1, 8) + ',' + randInt(10, 99));
         if (A.value <= B.value) continue;
-      } else {
+      } else if (level === 3) {
         if (Math.random() < 0.4) {
           A = parseVN(String(randInt(8, 25)));
           B = parseVN(randInt(1, 7) + ',' + randInt(10, 99));
@@ -1309,24 +1626,50 @@
           B = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
         }
         if (A.value <= B.value) continue;
+      } else if (level === 4) {
+        var v = randInt(0, 3);
+        if (v === 0) {
+          A = parseVN(randInt(8, 30) + ',' + randInt(1, 9));
+          B = parseVN(randInt(1, 7) + ',' + randInt(100, 999));
+        } else if (v === 1) {
+          A = parseVN(String(randInt(10, 40)));
+          B = parseVN(randInt(1, 9) + ',' + randInt(100, 999));
+        } else if (v === 2) {
+          A = parseVN(randInt(8, 25) + ',' + randInt(1, 9) + '0');
+          B = parseVN(randInt(1, 7) + ',' + randInt(10, 99));
+        } else {
+          A = parseVN(randInt(10, 35) + ',' + randInt(100, 999));
+          B = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
+        }
+        if (A.value <= B.value) continue;
+      } else {
+        if (Math.random() < 0.45) {
+          A = parseVN(pick(['10', '20', '30', '15', '25', '12', '18', '40']));
+          B = parseVN(randInt(1, 9) + ',' + randInt(100, 9999));
+        } else {
+          A = parseVN(randInt(10, 40) + ',' + fracStr(randInt(0, 99), 2) + '0');
+          B = parseVN(randInt(1, 9) + ',' + randInt(100, 999));
+        }
+        if (A.value <= B.value) continue;
       }
       var tab = buildSub(A, B);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildSub(level === 1 ? ['5,3', '2,8'] : level === 2 ? ['5,8', '2,35'] : ['15', '4,72']);
+    return buildSub(level === 1 ? ['5,3', '2,8'] : level === 2 ? ['5,8', '2,35'] : level === 3 ? ['15', '4,72'] : level === 4 ? ['20', '6,375'] : ['10', '3,456']);
   }
 
   function genMulG5(level, avoid) {
-    var tries = 0, A, B;
-    while (tries++ < 400) {
+    var tries = 0, A, B, loose = false;
+    while (tries++ < 900) {
+      if (tries > 350) loose = true;
       if (level === 1) {
         A = parseVN(randInt(1, 9) + ',' + randInt(1, 9));
         B = parseVN(String(randInt(2, 9)));
       } else if (level === 2) {
         A = parseVN(randInt(1, 8) + ',' + randInt(1, 9));
         B = parseVN('0,' + randInt(2, 9));
-      } else {
+      } else if (level === 3) {
         if (Math.random() < 0.5) {
           A = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
           B = parseVN(String(randInt(2, 8)));
@@ -1334,17 +1677,47 @@
           A = parseVN(randInt(1, 8) + ',' + randInt(10, 99));
           B = parseVN('0,' + randInt(2, 8));
         }
+      } else if (level === 4) {
+        if (Math.random() < 0.5) {
+          A = parseVN(randInt(1, 20) + ',' + randInt(100, 999));
+          B = parseVN(String(randInt(2, 9)));
+        } else {
+          A = parseVN(randInt(2, 15) + ',' + randInt(100, 999));
+          B = parseVN('0,' + randInt(2, 9));
+        }
+      } else {
+        // Two decimals, second factor has 2+ significant digits after stripping the comma
+        if (Math.random() < 0.5) {
+          A = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
+          B = parseVN(randInt(1, 9) + ',' + randInt(1, 9));
+        } else {
+          A = parseVN(randInt(1, 9) + ',' + randInt(10, 99));
+          B = parseVN('0,' + randInt(12, 98));
+        }
+        var ib = Number(String(B.intPart) + B.fracPart);
+        if (ib < 10 || ib > 99) continue;
       }
       var tab = buildMul(A, B);
       if (avoid && avoid.has(tab.prompt)) continue;
       return tab;
     }
-    return buildMul(level === 1 ? '1,2' : level === 2 ? '1,2' : '1,25', level === 1 ? 4 : level === 2 ? '0,4' : '0,4');
+    return buildMul(level === 1 ? '1,2' : level === 2 ? '1,2' : level === 3 ? '1,25' : level === 4 ? '3,125' : '3,25', level === 1 ? 4 : level === 5 ? '0,48' : '0,4');
+  }
+
+  function exactDivDec(qText, dText) {
+    var Q = parseVN(qText);
+    var D = parseVN(dText);
+    var qu = Number(Q.intPart + Q.fracPart);
+    var du = Number(D.intPart + D.fracPart);
+    var dendU = qu * du;
+    var pl = (Q.places || 0) + (D.places || 0);
+    var dend = fromValue(dendU / Math.pow(10, pl), pl);
+    return buildDivDec(dend, D);
   }
 
   function genDivG5(level, avoid) {
     var tries = 0;
-    while (tries++ < 500) {
+    while (tries++ < 900) {
       var tab;
       if (level === 1) {
         var N = pick([2, 3, 4, 5, 6, 8]);
@@ -1359,57 +1732,110 @@
         if (String(dend.intPart) === 'NaN' || dend.places !== places) continue;
         tab = buildDivDec(dend, parseVN(String(N)));
       } else if (level === 2) {
-        // natural : natural, decimal quotient
         var N2 = pick([2, 4, 5, 6, 8]);
-        var q2 = pick(['0,5', '0,25', '0,2', '1,5', '2,5', '1,25', '0,4', '2,25', '3,5', '0,8', '1,2']);
+        var q2 = pick(['0,5', '0,25', '0,2', '1,5', '2,5', '1,25', '0,4', '2,25', '3,5', '0,8', '1,2', '0,75', '1,75', '3,25', '4,5', '0,125', '2,4', '1,8', '0,6', '5,5', '6,25', '7,5']);
         var Q = parseVN(q2);
-        var dend2 = Math.round(Q.value * N2);
-        if (dend2 < 1 || dend2 > 40) continue;
+        var dend2 = Math.round(Q.value * N2 * 1000) / 1000;
+        if (Math.abs(dend2 - Math.round(dend2)) > 1e-9 && String(dend2).length > 6) continue;
+        if (dend2 < 1 || dend2 > 80) continue;
         if (Math.abs(dend2 / N2 - Q.value) > 1e-9) continue;
-        tab = buildDivDec(parseVN(String(dend2)), parseVN(String(N2)));
+        // keep dividend looking like a natural when it's an integer
+        var dendObj = Math.abs(dend2 - Math.round(dend2)) < 1e-9 ? parseVN(String(Math.round(dend2))) : fromValue(dend2, 3);
+        tab = buildDivDec(dendObj, parseVN(String(N2)));
+      } else if (level === 3) {
+        var d3 = pick(['0,2', '0,4', '0,5', '0,8', '0,6', '1,5', '1,2', '0,3', '2,5', '1,6', '0,25', '0,15']);
+        var q3 = pick(['2', '3', '4', '5', '6', '8', '9', '10', '12', '15', '16', '18', '20', '24', '25', '1', '7', '1,5', '2,5', '1,2', '0,8']);
+        tab = exactDivDec(q3, d3);
+      } else if (level === 4) {
+        if (Math.random() < 0.55) {
+          var N4 = pick([2, 3, 4, 5, 6, 8]);
+          var pl4 = pick([2, 3]);
+          var qI = randInt(1, 12);
+          var qF = pl4 === 2 ? randInt(10, 99) : randInt(100, 999);
+          if (qF % 10 === 0) continue;
+          var qU = qI * Math.pow(10, pl4) + qF;
+          var dU = qU * N4;
+          var dend4 = fromValue(dU / Math.pow(10, pl4), pl4);
+          tab = buildDivDec(dend4, parseVN(String(N4)));
+        } else {
+          var d4 = pick(['0,4', '0,5', '0,8', '0,25', '1,5', '0,6', '1,25']);
+          var q4 = pick(['3', '4', '5', '6', '8', '12', '1,5', '2,4', '3,2', '1,25', '6,4', '2,5']);
+          tab = exactDivDec(q4, d4);
+        }
       } else {
-        // divide by a decimal
-        var pairs = [
-          ['18', '0,6'], ['15', '0,5'], ['12', '0,4'], ['7,5', '0,25'], ['9', '0,3'],
-          ['2,4', '0,6'], ['3,6', '0,4'], ['1,8', '0,3'], ['24', '0,8'], ['4,5', '1,5'],
-          ['6,4', '0,8'], ['2,5', '0,5']
-        ];
-        var pr = pick(pairs);
-        tab = buildDivDec(pr[0], pr[1]);
+        // Thử thách: extra 0s in the quotient, or divide by a 2-decimal-place number
+        if (Math.random() < 0.5) {
+          var extra = pick([
+            ['5', '8'], ['1', '8'], ['7', '8'], ['3', '8'], ['9', '8'],
+            ['13', '8'], ['11', '8'], ['15', '8'], ['21', '8'], ['23', '8'],
+            ['1', '4'], ['3', '4'], ['5', '4'], ['7', '4'], ['9', '4'],
+            ['1', '16'], ['3', '16'], ['5', '16'], ['7', '16'], ['9', '16'],
+            ['11', '16'], ['13', '16'], ['15', '16'],
+            ['1', '5'], ['2', '5'], ['3', '5'], ['7', '5'], ['9', '5'],
+            ['1', '25'], ['3', '25'], ['7', '25'], ['9', '25'],
+            ['7', '20'], ['9', '20'], ['11', '20'], ['13', '20'], ['17', '20'], ['19', '20'],
+            ['1', '40'], ['3', '40'], ['7', '40'],
+            ['3', '2'], ['5', '2'], ['7', '2'], ['9', '2'], ['11', '2'],
+            ['5', '16'], ['19', '8'], ['27', '8'], ['29', '8'], ['31', '8']
+          ]);
+          tab = buildDivDec(extra[0], extra[1]);
+        } else {
+          var d5 = pick(['0,35', '0,25', '0,15', '0,12', '0,16', '0,24', '0,45', '0,75', '1,25', '0,05', '0,08', '0,32']);
+          var q5 = pick(['2', '3', '4', '5', '6', '7', '8', '9', '10', '12', '14', '15', '16', '18', '20', '21', '24', '25', '1,5', '2,5']);
+          tab = exactDivDec(q5, d5);
+        }
       }
       if (!tab || (avoid && avoid.has(tab.prompt))) continue;
       return tab;
     }
     if (level === 1) return buildDivDec('14,4', '6');
     if (level === 2) return buildDivDec('5', '2');
-    return buildDivDec('18', '0,6');
+    if (level === 3) return buildDivDec('18', '0,6');
+    if (level === 4) return buildDivDec('12,375', '5');
+    return buildDivDec('7,35', '0,35');
   }
 
   var CLASSICS = {
-    '3-add-1': [[47, 28], [36, 18], [59, 27]],
-    '3-add-2': [[478, 256], [509, 187], [367, 245]],
-    '3-add-3': [[4708, 2567], [5809, 1728], [3064, 2598]],
-    '3-sub-1': [[52, 18], [70, 34], [63, 27]],
-    '3-sub-2': [[503, 278], [640, 275], [812, 456]],
-    '3-sub-3': [[1000, 457], [2005, 378], [5010, 2638]],
-    '3-mul-1': [[24, 3], [16, 4], [35, 2]],
-    '3-mul-2': [[28, 6], [47, 8], [36, 7]],
-    '3-mul-3': [[246, 3], [158, 6], [407, 5]],
-    '3-div-1': [[84, 4], [22, 2], [96, 3], [16, 2], [24, 3], [28, 4]],
-    '3-div-2': [[45, 2], [41, 4], [33, 2], [13, 2], [17, 3], [19, 4]],
-    '3-div-3': [[416, 4], [515, 5], [156, 3], [128, 4], [208, 2], [217, 5]],
-    '5-add-1': [['2,7', '1,5'], ['3,6', '2,8'], ['4,5', '3,7']],
-    '5-add-2': [['5,8', '2,35'], ['4,6', '1,25'], ['7,4', '3,18']],
-    '5-add-3': [['2,75', '1,48'], ['15', '4,72'], ['8,6', '3,75']],
-    '5-sub-1': [['5,3', '2,8'], ['6,2', '3,7'], ['8,1', '4,5']],
-    '5-sub-2': [['5,8', '2,35'], ['7,4', '3,16'], ['9,2', '4,58']],
-    '5-sub-3': [['15', '4,72'], ['20', '6,38'], ['8,05', '3,67']],
-    '5-mul-1': [['1,2', '4'], ['2,5', '3'], ['3,6', '2']],
-    '5-mul-2': [['1,2', '0,4'], ['2,5', '0,3'], ['1,6', '0,5']],
-    '5-mul-3': [['1,25', '0,4'], ['2,15', '6'], ['3,25', '0,8']],
-    '5-div-1': [['14,4', '6'], ['2,08', '8'], ['4,04', '4'], ['12,6', '6']],
-    '5-div-2': [['5', '2'], ['1', '4'], ['9', '6'], ['3', '4'], ['15', '4']],
-    '5-div-3': [['18', '0,6'], ['7,5', '0,25'], ['15', '0,5'], ['2,4', '0,6']]
+    '3-add-1': [[47, 28], [36, 18], [59, 27], [48, 35], [67, 28], [19, 47]],
+    '3-add-2': [[478, 256], [509, 187], [367, 245], [628, 197], [456, 389]],
+    '3-add-3': [[4708, 2567], [5809, 1728], [3064, 2598], [1678, 2459], [4097, 2506]],
+    '3-add-4': [[4708, 3567], [8907, 1568], [12345, 6789], [25008, 1796], [45678, 3219]],
+    '3-add-5': [[87654, 12348], [56789, 43210], [90807, 916], [65432, 17890], [34567, 65432]],
+    '3-sub-1': [[52, 18], [70, 34], [63, 27], [81, 46], [90, 27]],
+    '3-sub-2': [[503, 278], [640, 275], [812, 456], [701, 328], [930, 475]],
+    '3-sub-3': [[1000, 457], [2005, 378], [5010, 2638], [3004, 1578], [1010, 246]],
+    '3-sub-4': [[10000, 4567], [20000, 3456], [10001, 2345], [40500, 1786], [8765, 4098]],
+    '3-sub-5': [[10000, 4567], [100000, 2468], [20005, 3789], [10100, 2567], [80000, 45678]],
+    '3-mul-1': [[24, 3], [16, 4], [35, 2], [28, 3], [47, 2]],
+    '3-mul-2': [[28, 6], [47, 8], [36, 7], [54, 9], [69, 6]],
+    '3-mul-3': [[246, 3], [158, 6], [407, 5], [329, 7], [518, 4]],
+    '3-mul-4': [[2468, 7], [1357, 6], [4096, 8], [25789, 4], [3084, 9]],
+    '3-mul-5': [[24680, 7], [13579, 8], [40816, 9], [35791, 6], [52047, 8]],
+    '3-div-1': [[84, 4], [22, 2], [96, 3], [16, 2], [24, 3], [28, 4], [36, 3], [48, 4]],
+    '3-div-2': [[45, 2], [41, 4], [33, 2], [13, 2], [17, 3], [19, 4], [29, 3], [37, 5]],
+    '3-div-3': [[416, 4], [515, 5], [156, 3], [128, 4], [208, 2], [217, 5], [309, 3], [248, 4]],
+    '3-div-4': [[2016, 8], [4104, 4], [1232, 4], [3072, 6], [2505, 5], [1836, 6], [1408, 4], [2916, 9]],
+    '3-div-5': [[4104, 4], [8016, 8], [5005, 5], [1205, 5], [2004, 4], [3006, 3], [1015, 5], [1608, 4], [7209, 9], [4056, 8]],
+    '5-add-1': [['2,7', '1,5'], ['3,6', '2,8'], ['4,5', '3,7'], ['6,4', '1,8'], ['5,9', '2,3']],
+    '5-add-2': [['5,8', '2,35'], ['4,6', '1,25'], ['7,4', '3,18'], ['9,2', '0,75'], ['3,5', '2,08']],
+    '5-add-3': [['2,75', '1,48'], ['15', '4,72'], ['8,6', '3,75'], ['12', '5,38'], ['6,09', '2,47']],
+    '5-add-4': [['12,8', '3,475'], ['5,80', '2,35'], ['20', '6,375'], ['7,4', '3,185'], ['15,6', '0,075']],
+    '5-add-5': [['15,075', '8,6'], ['20,05', '8,367'], ['9,008', '3,75'], ['30', '12,456'], ['18,7', '5,089']],
+    '5-sub-1': [['5,3', '2,8'], ['6,2', '3,7'], ['8,1', '4,5'], ['9,4', '2,8'], ['7,1', '3,6']],
+    '5-sub-2': [['5,8', '2,35'], ['7,4', '3,16'], ['9,2', '4,58'], ['8,5', '2,07'], ['6,3', '1,48']],
+    '5-sub-3': [['15', '4,72'], ['20', '6,38'], ['8,05', '3,67'], ['12', '5,29'], ['18', '7,45']],
+    '5-sub-4': [['20', '6,375'], ['8,5', '3,275'], ['15,80', '4,67'], ['12', '3,085'], ['9,4', '2,175']],
+    '5-sub-5': [['10', '3,456'], ['20,05', '8,367'], ['15', '7,089'], ['30', '12,456'], ['18,7', '9,082']],
+    '5-mul-1': [['1,2', '4'], ['2,5', '3'], ['3,6', '2'], ['4,8', '5'], ['1,7', '6']],
+    '5-mul-2': [['1,2', '0,4'], ['2,5', '0,3'], ['1,6', '0,5'], ['3,2', '0,6'], ['2,4', '0,8']],
+    '5-mul-3': [['1,25', '0,4'], ['2,15', '6'], ['3,25', '0,8'], ['1,75', '4'], ['4,08', '5']],
+    '5-mul-4': [['3,125', '0,4'], ['12,375', '8'], ['2,456', '7'], ['5,075', '0,6'], ['1,208', '9']],
+    '5-mul-5': [['3,25', '0,48'], ['2,15', '1,4'], ['1,25', '0,16'], ['7,5', '1,2'], ['4,25', '0,36']],
+    '5-div-1': [['14,4', '6'], ['2,08', '8'], ['4,04', '4'], ['12,6', '6'], ['3,15', '5'], ['9,6', '3']],
+    '5-div-2': [['5', '2'], ['1', '4'], ['9', '6'], ['3', '4'], ['15', '4'], ['7', '2'], ['11', '4'], ['1', '8']],
+    '5-div-3': [['18', '0,6'], ['7,5', '0,25'], ['15', '0,5'], ['2,4', '0,6'], ['12', '0,4'], ['9', '0,3'], ['3,6', '0,4']],
+    '5-div-4': [['12,375', '5'], ['4,056', '8'], ['18,75', '5'], ['2,4', '0,16'], ['6,25', '0,5'], ['9,375', '3']],
+    '5-div-5': [['7,35', '0,35'], ['5', '8'], ['1', '8'], ['7,5', '0,25'], ['8,4', '0,12'], ['2,25', '0,15'], ['6,25', '0,25'], ['1', '16']]
   };
 
   var BUILDERS = {
@@ -1422,7 +1848,7 @@
   };
 
   function generateLevel(grade, op, level, count) {
-    count = count || 5;
+    count = count || 35;
     grade = String(grade);
     var avoid = new Set();
     var out = [];
@@ -1433,7 +1859,7 @@
       var tmp = classics[i]; classics[i] = classics[j]; classics[j] = tmp;
     }
     var builder = BUILDERS[grade][op];
-    for (var c = 0; c < classics.length && out.length < 2; c++) {
+    for (var c = 0; c < classics.length && out.length < count; c++) {
       try {
         var tab = builder(classics[c]);
         if (avoid.has(tab.prompt)) continue;
@@ -1443,7 +1869,7 @@
     }
     var gen = GENS[grade][op];
     var guard = 0;
-    while (out.length < count && guard++ < 200) {
+    while (out.length < count && guard++ < 4000) {
       var t = gen(level, avoid);
       if (!t || avoid.has(t.prompt)) continue;
       avoid.add(t.prompt);
@@ -1535,11 +1961,19 @@
           h
         ];
       } else if (k === 'phay') {
-        cell.hints = [
-          'Đến lúc viết dấu phẩy ở đâu?',
-          'Viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.',
-          h || 'Viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.'
-        ];
+        if (tab.kind === 'mul') {
+          cell.hints = [
+            'Đếm tất cả các chữ số ở phần thập phân của hai thừa số. Đặt dấu phẩy tách bao nhiêu chữ số, từ phải sang trái?',
+            h || 'Từ phải sang trái, đặt dấu phẩy theo tổng số chữ số thập phân.',
+            h
+          ];
+        } else {
+          cell.hints = [
+            'Đến lúc viết dấu phẩy ở đâu?',
+            'Viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.',
+            h || 'Viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.'
+          ];
+        }
       } else if (k === 'viet') {
         // cộng / trừ / nhân result digit
         var m1 = h.match(/^(.*?) bằng (\d+), viết (\d+)(?: nhớ (\d+))?/);
@@ -1556,7 +1990,17 @@
     }
     if (tab.grid) {
       for (var r = 0; r < tab.rows; r++) {
-        for (var c = 0; c < tab.cols; c++) setHints(tab.grid[r][c]);
+        for (var c = 0; c < tab.cols; c++) {
+          setHints(tab.grid[r][c]);
+          var cellP = tab.grid[r][c];
+          if (cellP && cellP.phayHint) {
+            cellP.phayHints = [
+              'Đếm tất cả các chữ số ở phần thập phân của hai thừa số. Đặt dấu phẩy tách bao nhiêu chữ số, từ phải sang trái?',
+              cellP.phayHint,
+              cellP.phayHint
+            ];
+          }
+        }
       }
     }
     if (tab.kind === 'div') {
@@ -1592,7 +2036,10 @@
     }
     if (k === 'ha') return 'Hạ đúng chữ số thẳng cột với chữ số của số bị chia.';
     if (k === 'nho') return 'Khi tổng từ 10 trở lên (hoặc không trừ được), ta nhớ 1 sang hàng bên trái.';
-    if (k === 'phay') return 'Hãy đặt dấu phẩy đúng chỗ — với phép chia, viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.';
+    if (k === 'phay') {
+      if (tab.kind === 'mul') return 'Đếm tổng số chữ số ở phần thập phân của hai thừa số, rồi đặt dấu phẩy từ phải sang trái.';
+      return 'Hãy đặt dấu phẩy đúng chỗ — với phép chia, viết dấu phẩy ở thương trước khi hạ chữ số thập phân đầu tiên.';
+    }
     if (k === 'viet') return 'Em tính lại cột này từ phải sang trái nhé.';
     return 'Em thử lại nhé.';
   }
@@ -1614,7 +2061,8 @@
     explainWrong: explainWrong,
     ascii: ascii,
     fmtInt: fmtInt,
-    prettyNum: prettyNum
+    prettyNum: prettyNum,
+    PROBLEMS_PER_LEVEL: 35
   };
   if (typeof module !== 'undefined') module.exports = root.DatTinh;
 })(typeof window !== 'undefined' ? window : global);

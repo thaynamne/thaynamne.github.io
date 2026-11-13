@@ -24,44 +24,60 @@
       add: {
         1: { name: 'Mức 1', desc: 'Số có 2 chữ số, có nhớ (trong phạm vi 100).' },
         2: { name: 'Mức 2', desc: 'Số có 3 chữ số, có nhớ (trong phạm vi 1 000).' },
-        3: { name: 'Mức 3', desc: 'Trong phạm vi 10 000, có nhớ.' }
+        3: { name: 'Mức 3', desc: 'Trong phạm vi 10 000, có nhớ.' },
+        4: { name: 'Mức 4', desc: 'Số có 4–5 chữ số, nhiều lần nhớ (trong phạm vi 100 000).' },
+        5: { name: 'Thử thách', desc: 'Cộng số có 5 chữ số, nhớ nhiều lần liên tiếp.' }
       },
       sub: {
         1: { name: 'Mức 1', desc: 'Số có 2 chữ số, có nhớ. Nhớ 1 cộng vào số trừ ở hàng bên trái.' },
         2: { name: 'Mức 2', desc: 'Số có 3 chữ số, có nhớ (trong phạm vi 1 000).' },
-        3: { name: 'Mức 3', desc: 'Trong phạm vi 10 000, có nhớ (kể cả qua số 0).' }
+        3: { name: 'Mức 3', desc: 'Trong phạm vi 10 000, có nhớ (kể cả qua số 0).' },
+        4: { name: 'Mức 4', desc: 'Số có 4–5 chữ số, nhiều lần nhớ (kể cả 10 000 − 4 567).' },
+        5: { name: 'Thử thách', desc: 'Trừ số có 5 chữ số, nhớ qua nhiều số 0.' }
       },
       mul: {
         1: { name: 'Mức 1', desc: 'Số có 2 chữ số nhân với số có 1 chữ số.' },
         2: { name: 'Mức 2', desc: 'Số có 2 chữ số nhân với 6, 7, 8, 9 (có nhớ).' },
-        3: { name: 'Mức 3', desc: 'Số có 3 chữ số nhân với số có 1 chữ số, có nhớ.' }
+        3: { name: 'Mức 3', desc: 'Số có 3 chữ số nhân với số có 1 chữ số, có nhớ.' },
+        4: { name: 'Mức 4', desc: 'Số có 4–5 chữ số nhân với số có 1 chữ số, nhớ nhiều lần.' },
+        5: { name: 'Thử thách', desc: 'Số có 5 chữ số nhân với 6, 7, 8, 9, nhớ nhiều lần.' }
       },
       div: {
         1: { name: 'Mức 1', desc: 'Chia hết, số bị chia có 2 chữ số (có dạng lấy 2 chữ số đầu).' },
         2: { name: 'Mức 2', desc: 'Phép chia có dư, kể cả dạng lấy 2 chữ số đầu.' },
-        3: { name: 'Mức 3', desc: 'Số bị chia có 3 chữ số, có số 0 trong thương hoặc lấy 2 chữ số đầu.' }
+        3: { name: 'Mức 3', desc: 'Số bị chia có 3 chữ số, có số 0 trong thương hoặc lấy 2 chữ số đầu.' },
+        4: { name: 'Mức 4', desc: 'Số bị chia có 4 chữ số chia cho số có 1 chữ số.' },
+        5: { name: 'Thử thách', desc: 'Số bị chia có 4–5 chữ số, có số 0 trong thương và có dư.' }
       }
     },
     5: {
       add: {
         1: { name: 'Mức 1', desc: 'Cộng số thập phân cùng số chữ số ở phần thập phân, có nhớ.' },
         2: { name: 'Mức 2', desc: 'Khác số chữ số ở phần thập phân — viết thêm 0 cho thẳng cột dấu phẩy.' },
-        3: { name: 'Mức 3', desc: 'Có nhớ qua dấu phẩy, số hạng có thể là số tự nhiên.' }
+        3: { name: 'Mức 3', desc: 'Có nhớ qua dấu phẩy, số hạng có thể là số tự nhiên.' },
+        4: { name: 'Mức 4', desc: 'Nhiều chữ số thập phân, khác độ dài — viết thêm 0 cho thẳng cột.' },
+        5: { name: 'Thử thách', desc: 'Số thập phân dài, nhớ nhiều lần qua dấu phẩy.' }
       },
       sub: {
         1: { name: 'Mức 1', desc: 'Trừ số thập phân cùng số chữ số ở phần thập phân, có nhớ.' },
         2: { name: 'Mức 2', desc: 'Khác số chữ số ở phần thập phân — viết thêm 0 cho thẳng cột dấu phẩy.' },
-        3: { name: 'Mức 3', desc: 'Có nhớ qua dấu phẩy (ví dụ 15 − 4,72).' }
+        3: { name: 'Mức 3', desc: 'Có nhớ qua dấu phẩy (ví dụ 15 − 4,72).' },
+        4: { name: 'Mức 4', desc: 'Nhiều chữ số thập phân, khác độ dài — viết thêm 0 cho thẳng cột.' },
+        5: { name: 'Thử thách', desc: 'Trừ số thập phân dài, nhớ qua nhiều số 0 và dấu phẩy.' }
       },
       mul: {
         1: { name: 'Mức 1', desc: 'Số thập phân nhân số tự nhiên có 1 chữ số.' },
         2: { name: 'Mức 2', desc: 'Nhân hai số thập phân (1 chữ số ở phần thập phân).' },
-        3: { name: 'Mức 3', desc: 'Nhiều chữ số ở phần thập phân; đặt dấu phẩy theo tổng số chữ số.' }
+        3: { name: 'Mức 3', desc: 'Nhiều chữ số ở phần thập phân; đặt dấu phẩy theo tổng số chữ số.' },
+        4: { name: 'Mức 4', desc: 'Số thập phân có nhiều chữ số nhân với số có 1 chữ số, rồi đặt dấu phẩy.' },
+        5: { name: 'Thử thách', desc: 'Nhân hai số thập phân có nhiều chữ số (đặt tính như số tự nhiên, rồi đặt dấu phẩy).' }
       },
       div: {
         1: { name: 'Mức 1', desc: 'Số thập phân : số tự nhiên. Viết dấu phẩy ở thương trước khi hạ.' },
         2: { name: 'Mức 2', desc: 'Số tự nhiên : số tự nhiên, thương là số thập phân.' },
-        3: { name: 'Mức 3', desc: 'Chia cho số thập phân (đổi phép rồi đặt tính).' }
+        3: { name: 'Mức 3', desc: 'Chia cho số thập phân (đổi phép rồi đặt tính).' },
+        4: { name: 'Mức 4', desc: 'Số thập phân dài hơn; có thể phải đổi phép hoặc hạ thêm 0.' },
+        5: { name: 'Thử thách', desc: 'Chia phải hạ thêm 0, hoặc chia cho số thập phân có 2 chữ số (ví dụ 7,35 : 0,35).' }
       }
     }
   };
@@ -130,7 +146,9 @@
 
   function isCurrent(o, r, c, mark) {
     if (!o) return false;
-    return o.r === r && o.c === c && (!!o.mark === !!mark);
+    var om = o.mark || '';
+    var mm = mark === true ? 'nho' : (mark || '');
+    return o.r === r && o.c === c && om === mm;
   }
 
   function selectCurrent() {
@@ -179,7 +197,9 @@
     var open = firstOpen();
     if (!open) return;
     var cell = state.tab.grid[open.r][open.c];
-    var hints = (cell && cell.hints) || [cell && cell.hint];
+    var hints;
+    if (open.mark === 'phay') hints = (cell && cell.phayHints) || [cell && cell.phayHint];
+    else hints = (cell && cell.hints) || [cell && cell.hint];
     state.hintTier = Math.min(3, (state.hintTier || 0) + 1);
     if (state.hintTier > state.maxHintTier) state.maxHintTier = state.hintTier;
     var text = hints[state.hintTier - 1] || hints[hints.length - 1] || cell.hint;
@@ -192,6 +212,7 @@
 
   function expectedValue(o) {
     var cell = state.tab.grid[o.r][o.c];
+    if (o.mark === 'phay' || o.kind === 'phay') return ',';
     if (o.mark) return 1;
     return cell.value;
   }
@@ -228,7 +249,8 @@
       state.mistakes += 1;
       state.waitingWrong = true;
       sndBad();
-      var msg = T.explainWrong ? T.explainWrong(state.tab, open.mark ? { kind: 'nho', value: 1 } : cell, d) : 'Chưa đúng, em thử lại nhé.';
+      var wrongCell = open.mark === 'phay' ? { kind: 'phay', value: ',' } : (open.mark ? { kind: 'nho', value: 1 } : cell);
+      var msg = T.explainWrong ? T.explainWrong(state.tab, wrongCell, d) : 'Chưa đúng, em thử lại nhé.';
       $('hint-text').innerHTML = '<strong>Chưa đúng:</strong> ' + escapeHtml(msg);
       paintBoard();
       setTimeout(function () {
@@ -286,6 +308,8 @@
     $('hint-text').innerHTML = '<strong>Giỏi lắm!</strong> ' + escapeHtml(state.tab.resultText) + check;
     updateScore();
     sndWin();
+    var rl = $('result-line') || $('hint-text');
+    if (rl) rl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     var next = $('btn-next');
     if (next) next.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
   }
@@ -321,8 +345,9 @@
       b.addEventListener('click', fn);
       actions.appendChild(b);
     }
-    if (state.level < 3) {
-      addBtn('btn-nextlv', 'Chơi Mức ' + (state.level + 1), function () {
+    if (state.level < 5) {
+      var nxt = LEVEL_TEXT[cfg.grade][state.op][state.level + 1];
+      addBtn('btn-nextlv', 'Chơi ' + ((nxt && nxt.name) || ('Mức ' + (state.level + 1))), function () {
         $('overlay').classList.remove('on'); startLevel(state.op, state.level + 1);
       });
     }
@@ -376,8 +401,11 @@
   function paintBoard() {
     var tab = state.tab;
     var board = $('board');
-    var tight = (tab.cols >= 6 || tab.rows >= 7 || (tab.colsLeft && tab.colsLeft + tab.colsRight >= 6));
-    $('screen-play').classList.toggle('tight', tight);
+    var span = (tab.colsLeft && tab.colsRight) ? (tab.colsLeft + tab.colsRight) : (tab.cols || 0);
+    var tight = (tab.cols >= 6 || tab.rows >= 7 || span >= 6);
+    var tight2 = (tab.cols >= 8 || tab.rows >= 9 || span >= 8);
+    $('screen-play').classList.toggle('tight', tight || tight2);
+    $('screen-play').classList.toggle('tight2', tight2);
     var open = firstOpen();
     var html = '';
     if (tab.layout === 'div') {
@@ -402,12 +430,13 @@
       board.style.removeProperty('--left');
       board.style.removeProperty('--right');
       var lineAfter = tab.lineAfter != null ? tab.lineAfter : tab.rows - 2;
+      var lines = tab.linesAfter && tab.linesAfter.length ? tab.linesAfter : [lineAfter];
       for (r = 0; r < tab.rows; r++) {
         for (c = 0; c < tab.cols; c++) {
           if (!tab.grid[r][c]) continue;
           html += cellHtml(tab, r, c, open, c + 1);
         }
-        if (r === lineAfter) {
+        if (lines.indexOf(r) >= 0) {
           html += '<div class="hline" style="grid-row:' + (r + 1) + ';grid-column:1 / -1;align-self:end;margin-bottom:-2px"></div>';
         }
       }
@@ -470,6 +499,26 @@
       else if (mst === 'bad') { mcls += ' bad'; mtxt = state.values[mk] || ''; }
       else if (mCur) { mcls += ' sel'; }
       extra = '<span class="' + mcls + '" data-mark="nho" data-r="' + r + '" data-c="' + c + '">' + escapeHtml(mtxt) + '</span>';
+    }
+    if (cell.commaBefore && cell.given) {
+      extra += '<span class="comma-float" aria-hidden="true">,</span>';
+    }
+    var hasPhay = false;
+    if (tab.order) {
+      for (var pi = 0; pi < tab.order.length; pi++) {
+        if (tab.order[pi].r === r && tab.order[pi].c === c && tab.order[pi].mark === 'phay') { hasPhay = true; break; }
+      }
+    }
+    if (hasPhay) {
+      var pk = k + ':phay';
+      var pst = state.status[pk];
+      var pcls = 'phay-mark';
+      var ptxt = '';
+      var pCur = open && isCurrent(open, r, c, 'phay');
+      if (pst === 'ok') { pcls += ' ok'; ptxt = ','; }
+      else if (pst === 'bad') { pcls += ' bad'; ptxt = state.values[pk] || ''; }
+      else if (pCur) { pcls += ' sel'; }
+      extra += '<span class="' + pcls + '" data-mark="phay" data-r="' + r + '" data-c="' + c + '">' + escapeHtml(ptxt) + '</span>';
     }
     var label = cell.role + (cell.fill ? '' : '');
     return '<div class="' + classes.join(' ') + '" style="' + style + '" data-r="' + r + '" data-c="' + c + '" data-role="' + (cell.role || '') + '" aria-label="' + escapeHtml(label) + '">' + escapeHtml(text) + extra + '</div>';
@@ -534,7 +583,7 @@
     state.level = Number(level);
     state.score = 0;
     state.stars = [];
-    var n = 5;
+    var n = state.wantedCount || 35;
     if (forced && forced.length) {
       var rest = T.generateLevel(cfg.grade, op, state.level, n);
       var tabs = forced.map(function (p) {
@@ -580,7 +629,16 @@
     var box = $('levels-list');
     var texts = LEVEL_TEXT[cfg.grade][op];
     $('levels-title').textContent = OP_META[op].name;
-    box.innerHTML = [1, 2, 3].map(function (lv) {
+    var note = $('levels-note');
+    if (!note) {
+      note = document.createElement('p');
+      note.id = 'levels-note';
+      note.className = 'levels-note';
+      box.parentNode.insertBefore(note, box);
+    }
+    note.textContent = 'Mỗi mức có 35 bài. Em chọn mức nào cũng được — không cần mở khóa.';
+    var levels = Object.keys(texts).map(Number).sort(function (a, b) { return a - b; });
+    box.innerHTML = levels.map(function (lv) {
       var t = texts[lv];
       return '<button class="level-btn lv' + lv + '" data-level="' + lv + '" type="button"><div class="num">' + lv + '</div><div><h2>' + t.name + '</h2><p>' + t.desc + '</p></div></button>';
     }).join('');
@@ -627,6 +685,8 @@
   function parseQuery() {
     var q = new URLSearchParams(location.search);
     var muc = Number(q.get('muc') || '');
+    var nQ = Number(q.get('n') || q.get('so') || '');
+    state.wantedCount = (nQ >= 1 && nQ <= 35) ? nQ : 35;
     var op = q.get('op') || cfg.onlyOp || '';
     var only = q.get('only') || q.get('p') || '';
     var forced = [];
@@ -649,8 +709,8 @@
         }
       });
     }
-    if (op && muc >= 1 && muc <= 3) startLevel(op, muc, forced);
-    else if (cfg.onlyOp && muc >= 1 && muc <= 3) startLevel(cfg.onlyOp, muc, forced);
+    if (op && muc >= 1 && muc <= 5) startLevel(op, muc, forced);
+    else if (cfg.onlyOp && muc >= 1 && muc <= 5) startLevel(cfg.onlyOp, muc, forced);
     else if (cfg.onlyOp) renderLevels(cfg.onlyOp);
   }
 

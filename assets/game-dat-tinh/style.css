@@ -38,6 +38,9 @@ a.back-hub{display:inline-block;text-decoration:none;color:#246bd1;font-weight:9
 .lv1{background:linear-gradient(160deg,#3db85a,#6BCB77)}
 .lv2{background:linear-gradient(160deg,#2f7de4,#4D96FF)}
 .lv3{background:linear-gradient(160deg,#7d3c98,#9B59B6)}
+.lv4{background:linear-gradient(160deg,#e0674a,#FF6B6B)}
+.lv5{background:linear-gradient(160deg,#c49200,#FFD93D);color:#5a4300}
+.levels-note{margin:0 0 8px;font-weight:800;font-size:15px;color:#5a4e7a}
 .howto{background:#fff;border-radius:24px;padding:16px 18px;box-shadow:0 8px 24px rgba(80,60,120,.1);margin-top:8px}
 .howto h3{font-size:18px;margin-bottom:8px}
 .steps-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 10px}
@@ -223,6 +226,16 @@ a.back-hub{display:inline-block;text-decoration:none;color:#246bd1;font-weight:9
 #screen-play.tight .board-card{padding:10px 8px 12px}
 #screen-play.tight .prompt{font-size:20px;margin:4px 0}
 #screen-play.tight .hint-box{min-height:52px;padding:8px 10px}
+#screen-play.tight2{--cell:30px}
+#screen-play.tight2 .pad-key{height:42px;font-size:20px}
+#screen-play.tight2 .board-card{padding:8px 6px 10px}
+#screen-play.tight2 .prompt{font-size:18px;margin:2px 0}
+#screen-play.tight2 .hint-box{min-height:48px;padding:6px 8px;font-size:14px}
+.comma-float{position:absolute;left:-.32em;bottom:8%;font-weight:900;font-size:calc(var(--cell)*0.42);color:var(--ink);pointer-events:none;line-height:1}
+.phay-mark{position:absolute;left:-.62em;top:50%;transform:translateY(-50%);min-width:calc(var(--cell)*0.36);height:calc(var(--cell)*0.52);padding:0 2px;border-radius:8px;display:grid;place-items:center;font-weight:900;font-size:calc(var(--cell)*0.42);z-index:4;cursor:pointer;line-height:1;color:var(--ink)}
+.phay-mark.sel{background:var(--sel);box-shadow:0 0 0 3px #f5c518}
+.phay-mark.ok{color:#135c2a}
+.phay-mark.bad{background:var(--bad);color:var(--badb);box-shadow:0 0 0 3px var(--badb)}
 .rules{background:#fff;border-radius:20px;padding:12px 16px;margin-top:10px;font-weight:700;font-size:14px;line-height:1.5;color:#5a4e7a;box-shadow:0 6px 0 rgba(80,60,120,.06)}
 .rules b{color:var(--tx)}
 #screen-levels .home-wrap{max-width:760px}
