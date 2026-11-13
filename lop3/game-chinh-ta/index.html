@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi" data-game="chinh-ta" data-art-base="../../assets/game-art/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFF6E5">
+<title>Game chính tả lớp 3 — Thầy Nam Nè!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/game-chinh-ta/style.css">
+<link rel="stylesheet" href="../../assets/game-art/game-art.css">
+</head>
+<body class="has-art">
+
+<svg class="deco" style="top:5%;left:3%" width="120" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
+<svg class="deco" style="top:10%;right:4%;animation-delay:2s" width="64" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
+<svg class="deco" style="bottom:10%;left:4%;animation-delay:1s" width="100" viewBox="0 0 100 100"><path d="M70 10c20 10 25 40 10 60S30 95 15 75 10 25 30 12s30-8 40-2z" fill="#6BCB77"/></svg>
+<svg class="deco" style="bottom:16%;right:6%;animation-delay:3s" width="80" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#4D96FF"/></svg>
+
+<section id="screen-home" class="screen on">
+  <div class="home-wrap">
+    <a class="back-hub" href="../">← Về trang lớp 3</a>
+    <div class="home-hero has-banner">
+      <img class="hero-banner" src="../../assets/game-art/banner-chinh-ta.webp" alt="Chính tả lớp 3 — Thầy Nam Nè!" width="1280" height="720">
+      <div class="sr-only"><div class="brand brand-text">THẦY NAM NÈ!</div>
+      <h1 id="home-title">Chính tả lớp 3</h1>
+      <p id="home-sub">Tiếng Việt 3 · Kết nối tri thức<br>Điền chữ, điền từ, điền dấu — luyện chính tả vui vẻ.</p></div>
+    </div>
+    <div id="modes-wrap">
+      <div class="modes" id="modes"></div>
+      <div class="howto">
+        <h3>Cách chơi</h3>
+        <p>Em đọc kỹ câu gợi ý, rồi chọn đáp án đúng. Sai sẽ được giải thích ngắn. Gợi ý có 3 tầng: hỏi gợi mở, rồi cách viết, rồi mới nói đáp án.</p>
+        <div class="rules"><b>Luật sao:</b> mỗi bài 3 sao. Sai 1–2 lần mất 1 sao, sai từ 3 lần mất 2 sao. Gợi ý tầng 2 mất 1 sao, tầng 3 (đáp án) mất 2 sao. Làm hoàn hảo (không sai, không xem đáp án) được đủ sao và “Xuất sắc!”.</div>
+      </div>
+    </div>
+    <div class="home-foot">Thầy Nam Nè! · Vui học</div>
+  </div>
+</section>
+
+<section id="screen-levels" class="screen">
+  <div class="home-wrap">
+    <button class="back-hub" id="btn-back-levels" type="button">← Chọn dạng bài</button>
+    <div class="home-hero has-banner">
+      <img class="levels-art" src="../../assets/game-art/levels.webp" alt="Chọn mức">
+      <div class="sr-only"><div class="brand brand-text">THẦY NAM NÈ!</div>
+      <h1 id="levels-title">Chọn mức</h1></div>
+    </div>
+    <div class="levels" id="levels-list"></div>
+    <div class="rules"><b>Luật sao:</b> mỗi bài 3 sao. Càng ít sai, càng nhiều sao. Gợi ý tầng 1 (hỏi gợi mở) không mất sao. Mỗi mức có 35 bài, không cần mở khóa.</div>
+  </div>
+</section>
+
+<section id="screen-play" class="screen">
+  <div class="topbar">
+    <button class="icon-btn" id="btn-back" type="button" title="Quay lại">←</button>
+    <div class="top-meta">
+      <div class="lvname" id="lv-name">Mức 1</div>
+      <div class="stats">
+        <span class="chip" id="chip-progress">Bài 1 / 35</span>
+        <span class="chip" id="chip-score">⭐ 0</span>
+      </div>
+    </div>
+    <button class="icon-btn" id="btn-mute" type="button" title="Bật/tắt âm thanh">🔊</button>
+  </div>
+  <div class="play-body" id="play-body">
+    <div class="prompt" id="prompt">Chính tả</div>
+    <div class="kind-bar" id="kind-bar"></div>
+    <div class="board-card spell">
+      <div class="tag-pill" id="tag-pill"></div>
+      <div class="clue" id="clue"></div>
+      <div class="word-line" id="word-line"></div>
+      <div class="result-line" id="result-line"></div>
+    </div>
+    <div class="hint-box">
+      <div class="mascot" aria-hidden="true"><img src="../../assets/game-art/mascot.webp" alt="" width="52" height="91"></div>
+      <div class="hint-text" id="hint-text"><span class="ask">Đọc câu gợi ý rồi chọn đáp án đúng nhé!</span></div>
+      <button class="hint-btn" id="btn-hint" type="button">💡 Gợi ý</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="next-row"><button class="next-btn" id="btn-next" type="button">Bài tiếp theo →</button></div>
+    <div class="choices" id="choices"></div>
+  </div>
+</section>
+
+<img id="ok-stamp" class="ok-stamp" alt="Giỏi lắm!" src="../../assets/game-art/celebrate-ok.webp">
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="confetti" id="confetti"></div>
+    <img id="win-art" class="win-art" alt="">
+    <div class="brand brand-text">THẦY NAM NÈ!</div>
+    <h2 id="win-title">Xuất sắc!</h2>
+    <div class="big-stars" id="win-stars">★★★</div>
+    <p id="win-text"></p>
+    <div class="actions" id="win-actions"></div>
+  </div>
+</div>
+
+<script src="../../assets/game-chinh-ta/content.js"></script>
+<script src="../../assets/game-chinh-ta/game.js"></script>
+<script>ChinhTaGame.boot({back:'../', backLabel:'← Về trang lớp 3'});</script>
+<script src="../../assets/game-art/game-art.js"></script>
+</body>
+</html>

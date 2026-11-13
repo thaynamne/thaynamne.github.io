@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-game="dat-tinh-lop5" data-art-base="../../assets/game-art/">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -9,8 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/game-dat-tinh/style.css">
+<link rel="stylesheet" href="../../assets/game-art/game-art.css">
 </head>
-<body>
+<body class="has-art">
 
 <svg class="deco" style="top:5%;left:3%" width="120" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
 <svg class="deco" style="top:10%;right:4%;animation-delay:2s" width="64" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
@@ -20,10 +21,11 @@
 <section id="screen-home" class="screen on">
   <div class="home-wrap">
     <a class="back-hub" href="../">← Về trang lớp</a>
-    <div class="home-hero">
-      <div class="brand brand-text">THẦY NAM NÈ!</div>
+    <div class="home-hero has-banner">
+      <img class="hero-banner" src="../../assets/game-art/banner-dat-tinh-lop5.webp" alt="Đặt tính lớp 5 — Thầy Nam Nè!" width="1280" height="720">
+      <div class="sr-only"><div class="brand brand-text">THẦY NAM NÈ!</div>
       <h1 id="home-title">Điền số vào phép tính đặt tính</h1>
-      <p id="home-sub">Kết nối tri thức</p>
+      <p id="home-sub">Kết nối tri thức</p></div>
     </div>
     <div id="modes-wrap">
       <div class="modes" id="modes"></div>
@@ -40,9 +42,10 @@
 <section id="screen-levels" class="screen">
   <div class="home-wrap">
     <button class="back-hub" id="btn-back-levels" type="button">← Chọn phép tính</button>
-    <div class="home-hero">
-      <div class="brand brand-text">THẦY NAM NÈ!</div>
-      <h1 id="levels-title">Chọn mức</h1>
+    <div class="home-hero has-banner">
+      <img class="levels-art" src="../../assets/game-art/levels.webp" alt="Chọn mức">
+      <div class="sr-only"><div class="brand brand-text">THẦY NAM NÈ!</div>
+      <h1 id="levels-title">Chọn mức</h1></div>
     </div>
     <div class="levels" id="levels-list"></div>
     <div class="rules"><b>Luật sao:</b> mỗi bài 3 sao. Càng ít sai, càng nhiều sao. Gợi ý tầng 1 (hỏi gợi mở) không mất sao.</div>
@@ -73,18 +76,7 @@
       <div class="note-under" id="note-under" style="display:none"></div>
     </div>
     <div class="hint-box">
-      <div class="mascot" aria-hidden="true">
-        <svg viewBox="0 0 64 64" width="48" height="48">
-          <ellipse cx="32" cy="58" rx="16" ry="4" fill="#000" opacity=".12"/>
-          <rect x="22" y="8" width="20" height="40" rx="4" fill="#FFD93D" stroke="#c49200" stroke-width="1.5"/>
-          <polygon points="22,48 42,48 32,60" fill="#c0c6d0" stroke="#7a7f88" stroke-width="1.2"/>
-          <polygon points="28,56 36,56 32,60" fill="#ff8aa0"/>
-          <rect x="22" y="8" width="20" height="8" rx="3" fill="#FF6B6B"/>
-          <circle cx="28" cy="28" r="2.2" fill="#2d2a4a"/>
-          <circle cx="36" cy="28" r="2.2" fill="#2d2a4a"/>
-          <path d="M28 36c2 3 6 3 8 0" stroke="#2d2a4a" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
+      <div class="mascot" aria-hidden="true"><img src="../../assets/game-art/mascot.webp" alt="" width="52" height="91"></div>
       <div class="hint-text" id="hint-text"><span class="ask">Điền số vào ô đang sáng nhé!</span></div>
       <button class="hint-btn" id="btn-hint" type="button">💡 Gợi ý</button>
     </div>
@@ -110,9 +102,11 @@
   </div>
 </section>
 
+<img id="ok-stamp" class="ok-stamp" alt="Giỏi lắm!" src="../../assets/game-art/celebrate-ok.webp">
 <div class="overlay" id="overlay">
   <div class="modal" id="modal">
     <div class="confetti" id="confetti"></div>
+    <img id="win-art" class="win-art" alt="">
     <div class="brand brand-text">THẦY NAM NÈ!</div>
     <h2 id="win-title">Xuất sắc!</h2>
     <div class="big-stars" id="win-stars">★★★</div>
@@ -124,5 +118,6 @@
 <script src="../../assets/game-dat-tinh/engine.js"></script>
 <script src="../../assets/game-dat-tinh/game.js"></script>
 <script>DatTinhGame.boot({grade:5, title:'Đặt tính số thập phân', subtitle:'Toán 5 · Kết nối tri thức<br>Cộng, trừ, nhân, chia số thập phân — thẳng cột dấu phẩy, nhớ đúng quy tắc SGK.', back:'../', backLabel:'← Về trang lớp 5'});</script>
+<script src="../../assets/game-art/game-art.js"></script>
 </body>
 </html>

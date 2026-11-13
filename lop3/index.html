@@ -7,6 +7,7 @@
 <title>Vui học lớp 3 — Thầy Nam Nè</title>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/lesson.css">
+<link rel="stylesheet" href="../assets/game-art/game-art.css">
 <style>
 .game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#2f7de4,#3db85a);border-radius:22px;padding:16px 18px;margin:0 0 14px;box-shadow:0 6px 0 rgba(0,0,0,.12);font-family:'Nunito','Be Vietnam Pro',sans-serif}
 .game-card .gb{font-size:13px;font-weight:900;opacity:.95}
@@ -21,12 +22,22 @@
 <script>
 (function(){
   var hero=document.querySelector('.hero');
-  if(!hero || document.querySelector('.game-card')) return;
-  var a=document.createElement('a');
-  a.className='game-card';
-  a.href='game-dat-tinh/';
-  a.innerHTML='<div class="gb">GAME · TOÁN 3</div><h2>Đặt tính cộng, trừ, nhân, chia</h2><p>Điền số vào đặt tính theo SGK · Cộng, trừ, nhân và chia →</p>';
-  hero.after(a);
+  if(!hero) return;
+  document.querySelectorAll('.game-card').forEach(function(el){ el.remove(); });
+  var cards=[
+    {href:'game-dat-tinh/', img:'../assets/game-art/banner-dat-tinh-lop3.webp', gb:'GAME · TOÁN 3', h:'Đặt tính cộng, trừ, nhân, chia', p:'Điền số vào đặt tính theo SGK Kết nối tri thức →'},
+    {href:'game-chia/', img:'../assets/game-art/banner-chia.webp', gb:'GAME · PHÉP CHIA', h:'Điền số vào phép chia đặt tính', p:'Chia – Nhân – Trừ – Hạ, từng chữ số một →'},
+    {href:'game-chinh-ta/', img:'../assets/game-art/banner-chinh-ta.webp', gb:'GAME · CHÍNH TẢ', h:'Chính tả lớp 3', p:'Điền chữ, điền từ, điền dấu — luyện chính tả vui vẻ →'}
+  ];
+  var last=hero;
+  cards.forEach(function(c){
+    var a=document.createElement('a');
+    a.className='game-card art';
+    a.href=c.href;
+    a.innerHTML='<img src="'+c.img+'" alt="'+c.h+' — Thầy Nam Nè!" width="1280" height="720"><div class="cap"><div class="gb">'+c.gb+'</div><h2>'+c.h+'</h2><p>'+c.p+'</p></div>';
+    last.after(a);
+    last=a;
+  });
 })();
 </script>
 </body>

@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff6e5"><title>Vui học lớp 5 — Thầy Nam Nè</title><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/lesson.css"><style>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff6e5"><title>Vui học lớp 5 — Thầy Nam Nè</title><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/lesson.css"><link rel="stylesheet" href="../assets/game-art/game-art.css"><style>
 .game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#7d3c98,#4D96FF);border-radius:22px;padding:16px 18px;margin:0 0 14px;box-shadow:0 6px 0 rgba(0,0,0,.12);font-family:'Nunito','Be Vietnam Pro',sans-serif}
 .game-card .gb{font-size:13px;font-weight:900;opacity:.95}
 .game-card h2{font-size:22px;margin:4px 0 2px;font-family:'Be Vietnam Pro',sans-serif}
@@ -10,9 +10,9 @@
   var hero=document.querySelector('.hero');
   if(!hero || document.querySelector('.game-card')) return;
   var a=document.createElement('a');
-  a.className='game-card';
+  a.className='game-card art';
   a.href='game-dat-tinh/';
-  a.innerHTML='<div class="gb">GAME · TOÁN 5</div><h2>Đặt tính số thập phân</h2><p>Cộng, trừ, nhân, chia — thẳng cột dấu phẩy theo SGK →</p>';
+  a.innerHTML='<img src="../assets/game-art/banner-dat-tinh-lop5.webp" alt="Đặt tính lớp 5 — Thầy Nam Nè!" width="1280" height="720"><div class="cap"><div class="gb">GAME · TOÁN 5</div><h2>Đặt tính số thập phân</h2><p>Cộng, trừ, nhân, chia — thẳng cột dấu phẩy theo SGK →</p></div>';
   hero.after(a);
 })();
 </script>

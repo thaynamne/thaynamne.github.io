@@ -308,6 +308,7 @@
     $('hint-text').innerHTML = '<strong>Giỏi lắm!</strong> ' + escapeHtml(state.tab.resultText) + check;
     updateScore();
     sndWin();
+    if (window.GameArt) GameArt.flashOk();
     var rl = $('result-line') || $('hint-text');
     if (rl) rl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     var next = $('btn-next');
@@ -360,6 +361,7 @@
       if (cfg.onlyOp) renderLevels(cfg.onlyOp);
     });
     burstConfetti();
+    if (window.GameArt) GameArt.showWin(title === 'Xuất sắc!');
     $('overlay').classList.add('on');
     sndWin();
   }
