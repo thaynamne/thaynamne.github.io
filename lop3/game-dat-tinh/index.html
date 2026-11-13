@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFF6E5">
+<title>Game đặt tính Toán 3 — Thầy Nam Nè!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/game-dat-tinh/style.css">
+</head>
+<body>
+
+<svg class="deco" style="top:5%;left:3%" width="120" viewBox="0 0 100 60"><path d="M25 50a18 18 0 0 1 2-36 22 22 0 0 1 42 4 15 15 0 0 1 6 32z" fill="#fff"/></svg>
+<svg class="deco" style="top:10%;right:4%;animation-delay:2s" width="64" viewBox="0 0 100 100"><path d="M50 5l13 30 32 3-24 21 7 32-28-17-28 17 7-32L5 38l32-3z" fill="#FFD93D"/></svg>
+<svg class="deco" style="bottom:10%;left:4%;animation-delay:1s" width="100" viewBox="0 0 100 100"><path d="M70 10c20 10 25 40 10 60S30 95 15 75 10 25 30 12s30-8 40-2z" fill="#6BCB77"/></svg>
+<svg class="deco" style="bottom:16%;right:6%;animation-delay:3s" width="80" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="#4D96FF"/></svg>
+
+<section id="screen-home" class="screen on">
+  <div class="home-wrap">
+    <a class="back-hub" href="../">← Về trang lớp</a>
+    <div class="home-hero">
+      <div class="brand brand-text">THẦY NAM NÈ!</div>
+      <h1 id="home-title">Đặt tính cộng, trừ, nhân, chia</h1>
+      <p id="home-sub">Kết nối tri thức</p>
+    </div>
+    <div id="modes-wrap">
+      <div class="modes" id="modes"></div>
+      <div class="howto">
+        <h3>Cách chơi</h3>
+        <p>Em điền từng chữ số theo đúng thứ tự các bước. Ô đang làm sẽ sáng lên; chưa tới lượt thì chưa điền được. Sai sẽ có lời giải thích. Gợi ý có 3 tầng: hỏi gợi mở, rồi phép tính, rồi mới nói đáp án.</p>
+        <div class="rules"><b>Luật sao:</b> mỗi bài 3 sao. Sai 1–2 lần mất 1 sao, sai từ 3 lần mất 2 sao. Gợi ý tầng 2 mất 1 sao, tầng 3 (đáp án) mất 2 sao. Làm hoàn hảo (không sai, không xem đáp án) được đủ sao và “Xuất sắc!”.</div>
+      </div>
+    </div>
+    <div class="home-foot">Thầy Nam Nè! · Vui học</div>
+  </div>
+</section>
+
+<section id="screen-levels" class="screen">
+  <div class="home-wrap">
+    <button class="back-hub" id="btn-back-levels" type="button">← Chọn phép tính</button>
+    <div class="home-hero">
+      <div class="brand brand-text">THẦY NAM NÈ!</div>
+      <h1 id="levels-title">Chọn mức</h1>
+    </div>
+    <div class="levels" id="levels-list"></div>
+    <div class="rules"><b>Luật sao:</b> mỗi bài 3 sao. Càng ít sai, càng nhiều sao. Gợi ý tầng 1 (hỏi gợi mở) không mất sao.</div>
+  </div>
+</section>
+
+<section id="screen-play" class="screen">
+  <div class="topbar">
+    <button class="icon-btn" id="btn-back" type="button" title="Quay lại">←</button>
+    <div class="top-meta">
+      <div class="lvname" id="lv-name">Mức 1</div>
+      <div class="stats">
+        <span class="chip" id="chip-progress">Bài 1 / 5</span>
+        <span class="chip" id="chip-score">⭐ 0</span>
+      </div>
+    </div>
+    <button class="icon-btn" id="btn-mute" type="button" title="Bật/tắt âm thanh">🔊</button>
+  </div>
+  <div class="play-body" id="play-body">
+    <div class="prompt" id="prompt">Đặt tính</div>
+    <div class="step-bar" id="step-bar"></div>
+    <div class="rewrite" id="rewrite" style="display:none"></div>
+    <div class="board-card">
+      <div class="board-scroll">
+        <div class="board" id="board" aria-label="Đặt tính"></div>
+      </div>
+      <div class="result-line" id="result-line"></div>
+      <div class="note-under" id="note-under" style="display:none"></div>
+    </div>
+    <div class="hint-box">
+      <div class="mascot" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="48" height="48">
+          <ellipse cx="32" cy="58" rx="16" ry="4" fill="#000" opacity=".12"/>
+          <rect x="22" y="8" width="20" height="40" rx="4" fill="#FFD93D" stroke="#c49200" stroke-width="1.5"/>
+          <polygon points="22,48 42,48 32,60" fill="#c0c6d0" stroke="#7a7f88" stroke-width="1.2"/>
+          <polygon points="28,56 36,56 32,60" fill="#ff8aa0"/>
+          <rect x="22" y="8" width="20" height="8" rx="3" fill="#FF6B6B"/>
+          <circle cx="28" cy="28" r="2.2" fill="#2d2a4a"/>
+          <circle cx="36" cy="28" r="2.2" fill="#2d2a4a"/>
+          <path d="M28 36c2 3 6 3 8 0" stroke="#2d2a4a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hint-text" id="hint-text"><span class="ask">Điền số vào ô đang sáng nhé!</span></div>
+      <button class="hint-btn" id="btn-hint" type="button">💡 Gợi ý</button>
+    </div>
+    <div class="side">
+      <div class="next-row"><button class="next-btn" id="btn-next" type="button">Bài tiếp theo →</button></div>
+      <div class="pad" id="pad">
+        <div class="pad-grid">
+          <button class="pad-key" data-k="1">1</button>
+          <button class="pad-key" data-k="2">2</button>
+          <button class="pad-key" data-k="3">3</button>
+          <button class="pad-key" data-k="4">4</button>
+          <button class="pad-key" data-k="5">5</button>
+          <button class="pad-key" data-k="6">6</button>
+          <button class="pad-key" data-k="7">7</button>
+          <button class="pad-key" data-k="8">8</button>
+          <button class="pad-key" data-k="9">9</button>
+          <button class="pad-key comma" id="pad-comma" data-k="," style="display:none">,</button>
+          <button class="pad-key" data-k="0">0</button>
+          <button class="pad-key del" data-k="del" aria-label="Xóa">⌫</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="confetti" id="confetti"></div>
+    <div class="brand brand-text">THẦY NAM NÈ!</div>
+    <h2 id="win-title">Xuất sắc!</h2>
+    <div class="big-stars" id="win-stars">★★★</div>
+    <p id="win-text"></p>
+    <div class="actions" id="win-actions"></div>
+  </div>
+</div>
+
+<script src="../../assets/game-dat-tinh/engine.js"></script>
+<script src="../../assets/game-dat-tinh/game.js"></script>
+<script>DatTinhGame.boot({grade:3, title:'Đặt tính cộng, trừ, nhân, chia', subtitle:'Toán 3 · Kết nối tri thức<br>Cộng, trừ, nhân, chia — điền từng chữ số theo đúng bước.', back:'../', backLabel:'← Về trang lớp 3'});</script>
+</body>
+</html>
