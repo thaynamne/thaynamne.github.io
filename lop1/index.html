@@ -92,6 +92,9 @@ rect:'<svg viewBox="0 0 200 58" width="200"><rect x="4" y="4" width="192" height
 tri:'<svg viewBox="0 0 120 100" width="140"><path d="M60 6L114 94H6z" fill="#FFD93D" stroke="#b38f00" stroke-width="4"/><line x1="33" y1="50" x2="87" y2="50" stroke="#b38f00" stroke-width="4"/></svg>',
 book:'<svg viewBox="0 0 60 60"><path d="M6 14q12-6 24 2v36q-12-8-24-2z" fill="#fff"/><path d="M54 14q-12-6-24 2v36q12-8 24-2z" fill="#f3f0ff"/><path d="M30 16v36" stroke="#9B59B6" stroke-width="2"/></svg>',
 house:'<svg viewBox="0 0 60 60"><path d="M8 28L30 8l22 20" fill="#FF6B6B"/><rect x="14" y="28" width="32" height="24" fill="#FFF6E5"/><rect x="26" y="36" width="9" height="16" fill="#9B59B6"/><path d="M48 52V20" stroke="#6BCB77" stroke-width="4"/><circle cx="48" cy="16" r="6" fill="#6BCB77"/></svg>',
+gac:'<svg viewBox="0 0 60 60"><path d="M30 12c-4-6 2-10 6-8" stroke="#7a4a1e" stroke-width="3" fill="none"/><ellipse cx="40" cy="8" rx="8" ry="4" fill="#6BCB77"/><ellipse cx="30" cy="35" rx="17" ry="22" fill="#E8412C"/><g fill="#B8261A"><circle cx="22" cy="24" r="2.2"/><circle cx="32" cy="20" r="2.2"/><circle cx="38" cy="30" r="2.2"/><circle cx="24" cy="36" r="2.2"/><circle cx="34" cy="42" r="2.2"/><circle cx="26" cy="49" r="2.2"/><circle cx="40" cy="44" r="2"/><circle cx="20" cy="45" r="2"/></g><ellipse cx="23" cy="28" rx="3" ry="6" fill="#fff" opacity=".35"/></svg>',
+inkpot:'<svg viewBox="0 0 60 60"><rect x="22" y="10" width="16" height="8" rx="2" fill="#2d2a4a"/><path d="M14 22q0-4 4-4h24q4 0 4 4v26q0 6-6 6H20q-6 0-6-6z" fill="#cfe8ff" stroke="#4D96FF" stroke-width="3"/><path d="M17 32h26v16q0 3-3 3H20q-3 0-3-3z" fill="#2B3A9C"/><path d="M46 6l-14 30" stroke="#9B59B6" stroke-width="3"/><path d="M32 36l-2 5 4-3z" fill="#2d2a4a"/></svg>',
+digger:'<svg viewBox="0 0 60 60"><rect x="6" y="44" width="34" height="9" rx="4.5" fill="#2d2a4a"/><circle cx="12" cy="48.5" r="3" fill="#888"/><circle cx="23" cy="48.5" r="3" fill="#888"/><circle cx="34" cy="48.5" r="3" fill="#888"/><rect x="8" y="30" width="28" height="13" rx="3" fill="#FFB020"/><rect x="12" y="20" width="13" height="11" rx="2" fill="#FFB020"/><rect x="15" y="22" width="8" height="7" fill="#cfe8ff"/><path d="M34 32L46 14l8 12" stroke="#E89400" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 26l8 2-3 10-9-4z" fill="#7a5a2e"/></svg>',
 mountain:'<svg viewBox="0 0 60 60"><path d="M2 52L22 18l12 18 8-10 16 26z" fill="#6BCB77"/><path d="M22 18l-6 10h12z" fill="#fff"/><path d="M8 18a6 6 0 0 1 6-8 8 8 0 0 1 14 2 5 5 0 0 1 0 8H10z" fill="#fff" opacity=".9"/></svg>'
 };
 const bear='<svg viewBox="0 0 120 120" width="120"><circle cx="30" cy="30" r="16" fill="#C68B59"/><circle cx="90" cy="30" r="16" fill="#C68B59"/><circle cx="30" cy="30" r="8" fill="#FFB6C8"/><circle cx="90" cy="30" r="8" fill="#FFB6C8"/><circle cx="60" cy="64" r="44" fill="#D9A273"/><ellipse cx="60" cy="80" rx="20" ry="15" fill="#F5DEC4"/><circle cx="44" cy="58" r="5" fill="#2d2a4a"/><circle cx="76" cy="58" r="5" fill="#2d2a4a"/><ellipse cx="60" cy="74" rx="7" ry="5" fill="#2d2a4a"/><path d="M52 84q8 7 16 0" stroke="#2d2a4a" stroke-width="3" fill="none"/><circle cx="34" cy="74" r="6" fill="#FFB6C8" opacity=".7"/><circle cx="86" cy="74" r="6" fill="#FFB6C8" opacity=".7"/></svg>';
@@ -167,6 +170,26 @@ h+=`<div class="card sec"><h2>3. Nối hình với từ ${spk('Nối hình với
 h+=`<div class="card sec"><h2>4. Điền vần ${spk('Chọn vần đúng')}</h2>`;
 [['shrimp','t…','ôm','ơm','tôm'],['sparrow','ch…','im','em','chim'],['elephant','v…','oi','ôi','voi'],['cloud','m…','ây','ay','mây']].forEach(([k,w,a,b,full])=>{h+=`<div class="row"><span class="ill">${S[k]}</span><span class="eq">${spk(full)} ${w}</span>${spk(a)}${spk(b)}${choice([a,b].sort(),a)}</div>`});
 return h+'</div>'}},
+{t:'Tiếng Việt: Cây gấc đỏ',sub:'Đọc vần, đọc bài, nối, chính tả, nghe – viết',c:'#e04848',tag:'Tuần 10',id:'cay-gac-do',ic:S.gac,build(){
+const sents=['Nhà Cúc có cây gấc quả đỏ ối.','Mỗi khi tới mùa gấc, mẹ Cúc hay nấu xôi gấc cho cả nhà.','Trẻ con hay qua nhà chỉ trỏ lên cây gấc.','Thế là Cúc nhờ bố hái cho mỗi đứa vài quả gấc đem về.','Bọn trẻ con rất vui vì có quà là quả gấc.'];
+let h=`<div class="card sec"><h2>Luyện đọc vần ${spk('Luyện đọc vần')}</h2><div class="row">`+['ac','ăc','âc','oc','ôc','uc','ưc','at','ăt','ât','ot','ôt','ơt'].map(v=>`<button class="chip" data-say="${v}">${v}</button>`).join('')+`</div><h2 style="font-size:24px;margin-top:14px">Đọc từ ${spk('Đọc từ. Nắn nót. Sữa bột. Tắc kè. Nhắc nhở. Gốc cây. Vất vả.')}</h2><div class="row">`+['nắn nót','sữa bột','tắc kè','nhắc nhở','gốc cây','vất vả'].map(v=>`<button class="chip" style="border-color:var(--gr)" data-say="${v}">${v}</button>`).join('')+`</div><p style="font-size:17px;opacity:.7">Chạm vào vần, vào từ để nghe.</p></div>`;
+h+=`<div class="card"><h2>📖 Cây gấc đỏ ${spk('Cây gấc đỏ. '+sents.join(' '))}</h2><p class="pass">`+sents.map(s=>`<span data-say="${s}">${s}</span>`).join(' ')+`</p><p style="font-size:17px;opacity:.7">Chạm vào câu để nghe.</p></div>`;
+h+=`<div class="card sec"><h2>1. Nối ${spk('Nối cho đúng với bài đọc')}</h2>`+matchBlock(['bố','mẹ Cúc','cây gấc'],['quả đỏ ối.','hái cho mỗi đứa vài quả gấc.','hay nấu xôi gấc cho cả nhà.'],{'bố':'hái cho mỗi đứa vài quả gấc.','mẹ Cúc':'hay nấu xôi gấc cho cả nhà.','cây gấc':'quả đỏ ối.'})+'</div>';
+h+=`<div class="card sec"><h2>2. Mẹ Cúc nấu gì? ${spk('Mẹ Cúc nấu gì?')}</h2><div class="row"><input id="gq2" style="flex:1;min-width:220px;text-align:left" placeholder="Em viết câu trả lời..."><button class="big" style="background:var(--gr)" id="gq2b">Kiểm tra</button></div><p>Hoặc chạm chọn:</p><div id="gq2c">`+['canh cá','xôi gấc','chè đỗ'].map(o=>spk(o)).join(' ')+choice(['canh cá','xôi gấc','chè đỗ'],'xôi gấc')+`</div></div>`;
+h+=`<div class="card sec"><h2>3. Chọn từ viết đúng chính tả ${spk('Nhìn tranh, chọn từ viết đúng chính tả')}</h2>`;
+const emo=e=>`<span style="font-size:72px;line-height:1">${e}</span>`;
+[[emo('🏋️'),['lực sĩ','nực sĩ'],'lực sĩ'],[emo('🤸'),['thế dục','thể dục'],'thể dục'],[S.inkpot,['lọ mực','lọ múc'],'lọ mực'],[S.digger,['máy xú','máy xúc'],'máy xúc']].forEach(([ic,opts,a])=>{h+=`<div class="row" style="background:#fff5f3;border-radius:20px;padding:10px"><span class="ill" style="width:100px;display:inline-flex;justify-content:center">${ic}</span>${spk(a)}${choice(opts,a)}</div>`});
+const nv=['Cây gấc đỏ.','Nhà Cúc có cây gấc','quả đỏ ối.','Mỗi khi tới mùa gấc,','mẹ Cúc hay nấu xôi gấc','cho cả nhà.','Trẻ con hay qua nhà','chỉ trỏ lên cây gấc.'];
+h+=`</div><div class="card sec"><h2>4. Nghe – viết ${spk('Nghe viết')}</h2><p>Phụ huynh đọc cho bé viết vào vở tựa bài <b>“Cây gấc đỏ”</b> và đoạn từ đầu đến <b>“chỉ trỏ lên cây gấc.”</b> Hoặc bấm nút để máy đọc chậm từng cụm từ.</p><p class="pass" id="gnv">`+nv.map(s=>`<span>${s}</span>`).join(' ')+`</p><div class="row"><button class="big" id="gnvb" style="background:var(--pu)">▶ Nghe đọc chậm</button><button class="chip" id="gnvs">⏹ Dừng</button></div><textarea style="width:100%;min-height:120px;font-size:24px;font-family:inherit;border:4px solid #e3d9f5;border-radius:18px;padding:10px" placeholder="Em viết ở đây (không bắt buộc), nhớ viết vào vở nhé!"></textarea></div>`;
+return h},after(){
+const q=document.getElementById('gq2'),b=document.getElementById('gq2b');
+const flat=v=>norm(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
+b.onclick=()=>{const v=flat(q.value);if(/xoi\s*gac/.test(v)){q.classList.remove('bad');q.classList.add('ok');const g=document.querySelector('#gq2c [data-grp]');if(g&&!g.dataset.d){g.dataset.d=1;const ok=g.querySelector('[data-ok="1"]');if(ok)ok.classList.add('done');good();mark()}else good()}else{q.classList.add('bad');bad();setTimeout(()=>q.classList.remove('bad'),900)}};
+q.onkeydown=e=>{if(e.key==='Enter')b.click()};
+let run=0;
+document.getElementById('gnvs').onclick=()=>{run++;if('speechSynthesis'in window)speechSynthesis.cancel();document.querySelectorAll('#gnv span').forEach(s=>s.classList.remove('hl'))};
+document.getElementById('gnvb').onclick=()=>{const my=++run;const sp=[...document.querySelectorAll('#gnv span')];let i=0;const nx=()=>{if(my!==run)return;sp.forEach(s=>s.classList.remove('hl'));if(i>=sp.length)return;sp[i].classList.add('hl');say(sp[i].textContent,0.6,()=>{i++;setTimeout(nx,2500)})};nx()};
+}},
 {t:'Tiếng Việt: Chữ Ph, Qu, V, X, Y',sub:'Tuần 7 – Luyện đọc chữ',c:'#7c4dff',tag:'Tuần 7',ic:'<div style="font-size:64px;line-height:1;text-align:center">🔤</div>',build(){
 let h=`<div class="card sec"><h2>1. Luyện đọc chữ ${spk('Luyện đọc chữ. Phờ, quờ, vờ, xờ, i dài')}</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr))">`;
 [['Ph','phờ'],['ph','phờ'],['Qu','quờ'],['qu','quờ'],['V','vờ'],['v','vờ'],['X','xờ'],['x','xờ'],['Y','i dài'],['y','i dài']].forEach(([ch,name])=>{h+=`<div class="eq" style="text-align:center;font-size:42px">${spk(name+'. '+ch)} ${ch}</div>`});
@@ -194,7 +217,7 @@ function inferMon(l){return /^Toán/.test(l.t)?'toan':'tv'}
 function cardHTML(l,i){return `<div class="lc" style="background:${l.c}" data-go="${i}">${spk((l.tag||('Bài '+(i+1)))+'. '+l.t)}<span class="ill" style="background:rgba(255,255,255,.85);border-radius:24px;width:110px;padding:10px">${l.ic}</span><div><div style="opacity:.9">${l.tag||('Bài '+(i+1))}</div><h3>${l.t}</h3><div style="font-size:18px">${l.sub}</div></div></div>`}
 function home(){speakEn=false;location.hash='';
 const locked=sessionStorage.getItem('vh1en')!=='1';
-app.innerHTML=`<div class="hero"><img src="ui/hero.jpg" alt="Vui học lớp 1. Hiện có Tuần 7, Tuần 8 và Tuần 9.">${spk('Chào em! Hiện có Tuần 7, Tuần 8 và Tuần 9. Bé chọn môn Toán, Tiếng Việt, hoặc English Ms. Huyền nhé!')}</div>
+app.innerHTML=`<div class="hero"><img src="ui/hero.jpg?v=10" alt="Vui học lớp 1. Hiện có Tuần 7, Tuần 8, Tuần 9 và Tuần 10.">${spk('Chào em! Hiện có Tuần 7, Tuần 8, Tuần 9 và Tuần 10. Bé chọn môn Toán, Tiếng Việt, hoặc English Ms. Huyền nhé!')}</div>
 <div class="grid" style="margin-top:22px">
 <div class="lc vis" data-go="toan" role="button" aria-label="Toán. Ôn từng tuần, có hình và chạm để nghe">${spk('Toán')}<img src="ui/toan.jpg" alt=""></div>
 <div class="lc vis" data-go="tv" role="button" aria-label="Tiếng Việt. Luyện chữ, luyện vần và đọc bài">${spk('Tiếng Việt')}<img src="ui/tv.jpg" alt=""></div>
@@ -206,12 +229,14 @@ const title=mon==='toan'?'Toán':'Tiếng Việt';
 const items=L.map((l,i)=>({l,i})).filter(x=>inferMon(x.l)===mon);
 const w7=items.filter(x=>x.l.tag==='Tuần 7');
 const extra=items.filter(x=>x.l.tag==='Tuần 9');
+const w10=items.filter(x=>x.l.tag==='Tuần 10');
 const w8=mon==='toan'?{t:'Số và phép cộng trong phạm vi 10',s:'Đếm, tính, so sánh và thử thách 10 câu'}:{t:'Vần an, ăn, ân đến am, ăm, âm',s:'Luyện vần, đọc từ, nghe chọn, điền từ'};
 const w8bg=mon==='toan'?'#ff9f43':'#7c4dff';
 app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Về nhà</button><h1 style="color:${mon==='toan'?'var(--co)':'var(--gr)'};margin:0">${title} ${spk(title)}</h1></div>
 <h2 style="margin:24px 0 12px;font-size:26px">📘 Tuần 7</h2><div class="grid">`+w7.map(x=>cardHTML(x.l,x.i)).join('')+`</div>
 <h2 style="margin:24px 0 12px;font-size:26px">📗 Tuần 8</h2><div class="grid"><div class="lc" style="background:${w8bg}" id="go8">${spk('Tuần 8. '+w8.t)}<span class="ill" style="background:rgba(255,255,255,.85);border-radius:24px;width:110px;padding:10px;display:flex;align-items:center;justify-content:center;font-size:64px">📗</span><div><div style="opacity:.9">Tuần 8</div><h3>${w8.t}</h3><div style="font-size:18px">${w8.s}</div></div></div></div>
-`+(extra.length?`<h2 style="margin:24px 0 12px;font-size:26px">📙 Tuần 9</h2><div class="grid">`+extra.map(x=>cardHTML(x.l,x.i)).join('')+`</div>`:'');
+`+(extra.length?`<h2 style="margin:24px 0 12px;font-size:26px">📙 Tuần 9</h2><div class="grid">`+extra.map(x=>cardHTML(x.l,x.i)).join('')+`</div>`:'')
++(w10.length?`<h2 style="margin:24px 0 12px;font-size:26px">📕 Tuần 10</h2><div class="grid">`+w10.map(x=>cardHTML(x.l,x.i)).join('')+`</div>`:'');
 document.getElementById('bk').onclick=home;
 document.querySelectorAll('[data-go]').forEach(c=>c.onclick=()=>lesson(+c.dataset.go));
 document.getElementById('go8').onclick=()=>location.href='tuan8.html?mon='+mon}
@@ -254,7 +279,7 @@ app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Các tuần</bu
 document.getElementById('bk').onclick=englishHome;
 app.querySelectorAll('[data-ch]').forEach(b=>b.onclick=()=>{const g=b.closest('[data-grp]');if(!g||g.dataset.d)return;if(b.dataset.ok==='1'){b.classList.add('done');g.dataset.d=1;good();mark()}else{b.classList.add('wrong');bad();setTimeout(()=>b.classList.remove('wrong'),900)}});
 scrollTo(0,0)}
-function route(){const h=location.hash.replace(/^#/,'');if(h==='toan'||h==='tv')subject(h);else if(h==='english')englishOpen();else home()}
+function route(){const h=location.hash.replace(/^#/,'');const li=L.findIndex(l=>l.id&&l.id===h);if(li>=0){lesson(li);return}if(h==='toan'||h==='tv')subject(h);else if(h==='english')englishOpen();else home()}
 window.addEventListener('hashchange',route);
 function lesson(i){const l=L[i];total=0;done=0;const body=l.build();
 app.innerHTML=`<div class="top"><button class="back" id="bk">⬅ Về nhà</button><div class="prog"><div></div></div></div><h1 style="color:${l.c}">${l.tag||('Bài '+(i+1))}: ${l.t} ${spk(l.t)}</h1>`+body;scrollTo(0,0);
