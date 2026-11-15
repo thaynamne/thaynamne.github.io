@@ -5,245 +5,420 @@ window.LESSON_DATA={title:'Vui học lớp 2',intro:'Chọn môn học, làm t�
 {prompt:'Số 85 gồm mấy chục và mấy đơn vị?',options:['5 chục và 8 đơn vị','8 chục và 15 đơn vị','8 chục và 5 đơn vị'],answer:2,why:'Số 85 có chữ số 8 ở hàng chục và chữ số 5 ở hàng đơn vị.'},
 {prompt:'Trong các số 42, 78, 36, số nào lớn nhất?',options:['78','42','36'],answer:0,why:'So sánh hàng chục: 7 lớn hơn 4 và 3 nên 78 lớn nhất.'},
 {type:'fill',prompt:'Số liền sau của 89 là ___.',answerText:'90',why:'Đếm thêm 1 sau 89 được 90.'},
-{type:'tf',prompt:'Số 76 gồm 7 chục và 6 đơn vị.',options:['Đúng','Sai'],answer:0,why:'Số 76 có chữ số 7 ở hàng chục và chữ số 6 ở hàng đơn vị.'}
+{type:'tf',prompt:'Số 76 gồm 7 chục và 6 đơn vị.',options:['Đúng','Sai'],answer:0,why:'Số 76 có chữ số 7 ở hàng chục và chữ số 6 ở hàng đơn vị.'},
+{prompt:'Số liền sau của 54 là số nào?',options:['53','55','56'],answer:1,why:'Đếm thêm 1 sau 54 được 55.'},
+{prompt:'Số nào bé nhất trong các số 91, 19, 90?',options:['19','90','91'],answer:0,why:'So sánh hàng chục: 1 bé hơn 9 nên 19 là số bé nhất.'},
+{type:'fill',prompt:'Số liền trước của 40 là ___.',answerText:'39',why:'Đếm lùi 1 số trước 40 được 39.'},
+{type:'fill',prompt:'Số 63 gồm 6 chục và ___ đơn vị.',answerText:'3',why:'Số 63 có chữ số 6 ở hàng chục và chữ số 3 ở hàng đơn vị.'},
+{type:'tf',prompt:'Số 98 gồm 9 chục và 8 đơn vị.',options:['Đúng','Sai'],answer:0,why:'Đúng. Số 98 có chữ số 9 ở hàng chục và chữ số 8 ở hàng đơn vị.'}
 ]},
 {title:'Tuần 2 — Các thành phần của phép cộng, phép trừ — Hơn kém nhau bao nhiêu',questions:[
 {prompt:'Trong phép tính 14 + 5 = 19, số 14 được gọi là gì?',options:['Tổng','Số bị trừ','Số hạng'],answer:2,why:'Trong phép cộng, các số được cộng gọi là số hạng, kết quả gọi là tổng.'},
 {prompt:'Lớp em có 26 bạn, lớp bạn có 22 bạn. Lớp em hơn lớp bạn bao nhiêu bạn?',options:['4 bạn','3 bạn','5 bạn'],answer:0,why:'Lấy 26 − 22 = 4 bạn.'},
 {prompt:'Trong phép tính 20 − 6 = 14, số 6 được gọi là gì?',options:['Số bị trừ','Số trừ','Hiệu'],answer:1,why:'Trong phép trừ, số bị lấy đi gọi là số trừ; kết quả gọi là hiệu.'},
 {type:'fill',prompt:'Trong phép tính 15 + 4 = 19, số 19 được gọi là ___.',answerText:'tổng',why:'Trong phép cộng, kết quả của phép tính được gọi là tổng.',accept:['tổng','Tổng']},
-{type:'tf',prompt:'Trong phép tính 20 − 6 = 14, số 20 được gọi là số trừ.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 20 là số bị trừ; số 6 mới là số trừ.'}
+{type:'tf',prompt:'Trong phép tính 20 − 6 = 14, số 20 được gọi là số trừ.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 20 là số bị trừ; số 6 mới là số trừ.'},
+{prompt:'Trong phép tính 9 + 6 = 15, số 15 được gọi là gì?',options:['Số hạng','Tổng','Hiệu'],answer:1,why:'Trong phép cộng, kết quả của phép tính được gọi là tổng.'},
+{prompt:'Bạn Na có 18 cái bút, bạn Tú có 13 cái bút. Na có nhiều hơn Tú bao nhiêu cái bút?',options:['6 cái','4 cái','5 cái'],answer:2,why:'Lấy 18 − 13 = 5 cái bút.'},
+{type:'fill',prompt:'Trong phép tính 30 − 12 = 18, số 18 được gọi là ___.',answerText:'hiệu',why:'Trong phép trừ, kết quả của phép tính được gọi là hiệu.',accept:['hiệu','Hiệu']},
+{type:'fill',prompt:'Lớp 2A có 25 bạn, lớp 2B có 21 bạn. Lớp 2A hơn lớp 2B ___ bạn.',answerText:'4',why:'Lấy 25 − 21 = 4 bạn.'},
+{type:'tf',prompt:'Trong phép tính 11 + 7 = 18, hai số 11 và 7 được gọi là số hạng.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trong phép cộng, các số được cộng gọi là số hạng.'}
 ]},
 {title:'Tuần 3 — Ôn tập phép cộng, phép trừ (không nhớ) trong phạm vi 100',questions:[
 {prompt:'Đặt tính rồi tính: 53 + 24 được bao nhiêu?',options:['77','67','87'],answer:0,why:'Cộng không nhớ: 3 + 4 = 7, 5 + 2 = 7, được 77.'},
 {prompt:'96 − 35 bằng bao nhiêu?',options:['71','61','54'],answer:1,why:'Trừ không nhớ: 6 − 5 = 1, 9 − 3 = 6, được 61.'},
 {prompt:'Điền dấu thích hợp: 45 + 20 ___ 70',options:['>','=','<'],answer:2,why:'45 + 20 = 65, mà 65 bé hơn 70 nên điền dấu <.'},
 {type:'fill',prompt:'Tính: 64 + 25 = ___',answerText:'89',why:'Cộng không nhớ: 4 + 5 = 9, 6 + 2 = 8, được 89.'},
-{type:'tf',prompt:'75 − 32 = 43.',options:['Đúng','Sai'],answer:0,why:'Đúng. 5 − 2 = 3, 7 − 3 = 4, được 43.'}
+{type:'tf',prompt:'75 − 32 = 43.',options:['Đúng','Sai'],answer:0,why:'Đúng. 5 − 2 = 3, 7 − 3 = 4, được 43.'},
+{prompt:'42 + 36 bằng bao nhiêu?',options:['76','78','88'],answer:1,why:'Cộng không nhớ: 2 + 6 = 8, 4 + 3 = 7, được 78.'},
+{prompt:'87 − 52 bằng bao nhiêu?',options:['35','45','34'],answer:0,why:'Trừ không nhớ: 7 − 2 = 5, 8 − 5 = 3, được 35.'},
+{type:'fill',prompt:'Tính: 71 + 18 = ___.',answerText:'89',why:'71 + 18 = 89.'},
+{type:'fill',prompt:'Tính: 59 − 34 = ___.',answerText:'25',why:'59 − 34 = 25.'},
+{type:'tf',prompt:'68 + 21 = 99.',options:['Đúng','Sai'],answer:1,why:'Sai. 68 + 21 = 89, không phải 99.'}
 ]},
 {title:'Tuần 4 — Phép cộng (qua 10) trong phạm vi 20',questions:[
 {prompt:'9 + 5 bằng bao nhiêu?',options:['13','14','15'],answer:1,why:'Tách 5 thành 1 và 4: 9 + 1 = 10, 10 + 4 = 14.'},
 {prompt:'8 + 7 bằng bao nhiêu?',options:['14','16','15'],answer:2,why:'Tách 7 thành 2 và 5: 8 + 2 = 10, 10 + 5 = 15.'},
 {prompt:'Có 9 quả cam, mẹ mua thêm 6 quả. Có tất cả bao nhiêu quả cam?',options:['15 quả','14 quả','16 quả'],answer:0,why:'9 + 6 = 15 quả cam.'},
 {type:'fill',prompt:'Tính: 8 + 6 = ___',answerText:'14',why:'Tách 6 thành 2 và 4: 8 + 2 = 10, 10 + 4 = 14.'},
-{type:'tf',prompt:'9 + 4 = 12.',options:['Đúng','Sai'],answer:1,why:'Sai. 9 + 4 = 13 (tách 4 thành 1 và 3: 9 + 1 = 10, 10 + 3 = 13).'}
+{type:'tf',prompt:'9 + 4 = 12.',options:['Đúng','Sai'],answer:1,why:'Sai. 9 + 4 = 13 (tách 4 thành 1 và 3: 9 + 1 = 10, 10 + 3 = 13).'},
+{prompt:'7 + 6 bằng bao nhiêu?',options:['12','13','14'],answer:1,why:'7 + 6 = 13.'},
+{prompt:'Có 8 bông hoa, cắm thêm 9 bông hoa nữa. Có tất cả bao nhiêu bông hoa?',options:['17 bông','16 bông','15 bông'],answer:0,why:'Lấy 8 + 9 = 17 bông hoa.'},
+{type:'fill',prompt:'Tính: 9 + 8 = ___.',answerText:'17',why:'9 + 8 = 17.'},
+{type:'fill',prompt:'Tính: 7 + 5 = ___.',answerText:'12',why:'7 + 5 = 12.'},
+{type:'tf',prompt:'8 + 8 = 16.',options:['Đúng','Sai'],answer:0,why:'Đúng. 8 + 8 = 16.'}
 ]},
 {title:'Tuần 5 — Bảng cộng (qua 10) — Bài toán về thêm, bớt một số đơn vị',questions:[
 {prompt:'7 + 8 bằng bao nhiêu?',options:['13','17','15'],answer:2,why:'Theo bảng cộng qua 10: 7 + 8 = 15.'},
 {prompt:'Lan có 12 cái kẹo, Lan được cho thêm 5 cái. Lan có bao nhiêu cái kẹo?',options:['17 cái','16 cái','18 cái'],answer:0,why:'Bài toán về thêm: 12 + 5 = 17 cái kẹo.'},
 {prompt:'Trên cây có 15 con chim, bay đi 4 con. Hỏi còn lại mấy con chim trên cây?',options:['10 con','11 con','12 con'],answer:1,why:'Bài toán về bớt: 15 − 4 = 11 con chim.'},
 {type:'fill',prompt:'Tính: 6 + 9 = ___',answerText:'15',why:'Theo bảng cộng qua 10: 6 + 9 = 15.'},
-{type:'tf',prompt:'Lan có 12 cái kẹo, mẹ cho thêm 3 cái. Vậy Lan có tất cả 15 cái kẹo.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 + 3 = 15 cái kẹo.'}
+{type:'tf',prompt:'Lan có 12 cái kẹo, mẹ cho thêm 3 cái. Vậy Lan có tất cả 15 cái kẹo.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 + 3 = 15 cái kẹo.'},
+{prompt:'6 + 7 bằng bao nhiêu?',options:['13','12','14'],answer:0,why:'6 + 7 = 13.'},
+{prompt:'Hà có 14 quyển truyện, mẹ mua thêm 4 quyển. Hà có tất cả bao nhiêu quyển truyện?',options:['17 quyển','19 quyển','18 quyển'],answer:2,why:'Lấy 14 + 4 = 18 quyển truyện.'},
+{type:'fill',prompt:'Tính: 9 + 7 = ___.',answerText:'16',why:'9 + 7 = 16.'},
+{type:'fill',prompt:'Trên cành có 13 con chim, bay đi 3 con. Còn lại ___ con chim.',answerText:'10',why:'Lấy 13 − 3 = 10 con chim.'},
+{type:'tf',prompt:'16 − 5 = 11.',options:['Đúng','Sai'],answer:0,why:'Đúng. 16 − 5 = 11.'}
 ]},
 {title:'Tuần 6 — Phép trừ (qua 10) trong phạm vi 20',questions:[
 {prompt:'13 − 5 bằng bao nhiêu?',options:['8','7','9'],answer:0,why:'Tách: 13 − 3 = 10, 10 − 2 = 8.'},
 {prompt:'17 − 9 bằng bao nhiêu?',options:['7','8','9'],answer:1,why:'Theo bảng trừ qua 10: 17 − 9 = 8.'},
 {prompt:'14 − 6 bằng bao nhiêu?',options:['6','10','8'],answer:2,why:'Tách: 14 − 4 = 10, 10 − 2 = 8.'},
 {type:'fill',prompt:'Tính: 14 − 7 = ___',answerText:'7',why:'Tách: 14 − 4 = 10, 10 − 3 = 7.'},
-{type:'tf',prompt:'15 − 6 = 9.',options:['Đúng','Sai'],answer:0,why:'Đúng. Theo bảng trừ qua 10: 15 − 6 = 9.'}
+{type:'tf',prompt:'15 − 6 = 9.',options:['Đúng','Sai'],answer:0,why:'Đúng. Theo bảng trừ qua 10: 15 − 6 = 9.'},
+{prompt:'12 − 7 bằng bao nhiêu?',options:['6','5','4'],answer:1,why:'12 − 7 = 5.'},
+{prompt:'11 − 4 bằng bao nhiêu?',options:['8','6','7'],answer:2,why:'11 − 4 = 7.'},
+{type:'fill',prompt:'Tính: 16 − 9 = ___.',answerText:'7',why:'16 − 9 = 7.'},
+{type:'fill',prompt:'Tính: 13 − 8 = ___.',answerText:'5',why:'13 − 8 = 5.'},
+{type:'tf',prompt:'12 − 5 = 8.',options:['Đúng','Sai'],answer:1,why:'Sai. 12 − 5 = 7, không phải 8.'}
 ]},
 {title:'Tuần 7 — Bảng trừ (qua 10) — Bài toán về nhiều hơn, ít hơn một số đơn vị',questions:[
 {prompt:'16 − 8 bằng bao nhiêu?',options:['7','8','9'],answer:1,why:'Theo bảng trừ qua 10: 16 − 8 = 8.'},
 {prompt:'An có 15 viên bi, Bình có ít hơn An 6 viên. Bình có bao nhiêu viên bi?',options:['8 viên','21 viên','9 viên'],answer:2,why:'Bài toán về ít hơn: 15 − 6 = 9 viên bi.'},
 {prompt:'Chị có 8 bông hoa, em có nhiều hơn chị 5 bông. Em có bao nhiêu bông hoa?',options:['13 bông','12 bông','14 bông'],answer:0,why:'Bài toán về nhiều hơn: 8 + 5 = 13 bông hoa.'},
 {type:'fill',prompt:'Tính: 17 − 9 = ___',answerText:'8',why:'Theo bảng trừ qua 10: 17 − 9 = 8.'},
-{type:'tf',prompt:'An có 15 viên bi, Bình có 9 viên bi. Vậy An có nhiều hơn Bình 5 viên bi.',options:['Đúng','Sai'],answer:1,why:'Sai. 15 − 9 = 6, An có nhiều hơn Bình 6 viên bi.'}
+{type:'tf',prompt:'An có 15 viên bi, Bình có 9 viên bi. Vậy An có nhiều hơn Bình 5 viên bi.',options:['Đúng','Sai'],answer:1,why:'Sai. 15 − 9 = 6, An có nhiều hơn Bình 6 viên bi.'},
+{prompt:'15 − 7 bằng bao nhiêu?',options:['8','9','7'],answer:0,why:'15 − 7 = 8.'},
+{prompt:'Mẹ có 17 quả trứng, chị có ít hơn mẹ 5 quả. Chị có bao nhiêu quả trứng?',options:['11 quả','12 quả','13 quả'],answer:1,why:'Lấy 17 − 5 = 12 quả trứng.'},
+{type:'fill',prompt:'Tính: 11 − 6 = ___.',answerText:'5',why:'11 − 6 = 5.'},
+{type:'fill',prompt:'Anh có 14 viên kẹo, em có nhiều hơn anh 4 viên. Em có ___ viên kẹo.',answerText:'18',why:'Lấy 14 + 4 = 18 viên kẹo.'},
+{type:'tf',prompt:'12 − 4 = 8.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 − 4 = 8.'}
 ]},
 {title:'Tuần 8 — Luyện tập chung — Làm quen với Ki-lô-gam',questions:[
 {prompt:'Quả dưa hấu nặng 4 kg, nhẹ hơn hay nặng hơn 6 kg?',options:['Nặng hơn','Bằng nhau','Nhẹ hơn'],answer:2,why:'4 kg bé hơn 6 kg nên quả dưa nhẹ hơn 6 kg.'},
 {prompt:'Một bao gạo nặng 10 kg, một bao ngô nặng 7 kg. Cả hai bao nặng bao nhiêu ki-lô-gam?',options:['17 kg','16 kg','18 kg'],answer:0,why:'10 + 7 = 17 kg.'},
 {prompt:'12 − 4 bằng bao nhiêu?',options:['7','8','9'],answer:1,why:'Theo bảng trừ qua 10: 12 − 4 = 8.'},
 {type:'fill',prompt:'Bao gạo nặng 5 kg, bao ngô nặng 3 kg. Cả hai bao nặng ___ kg.',answerText:'8',why:'Cả hai bao nặng: 5 + 3 = 8 kg.'},
-{type:'tf',prompt:'Con mèo nặng 12 kg thì nặng hơn con chó nặng 10 kg.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 kg lớn hơn 10 kg nên con mèo nặng hơn.'}
+{type:'tf',prompt:'Con mèo nặng 12 kg thì nặng hơn con chó nặng 10 kg.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 kg lớn hơn 10 kg nên con mèo nặng hơn.'},
+{prompt:'Con gà nặng 2 kg, con vịt nặng 3 kg. Cả hai con nặng bao nhiêu ki-lô-gam?',options:['6 kg','5 kg','4 kg'],answer:1,why:'Lấy 2 + 3 = 5 kg.'},
+{prompt:'18 − 9 bằng bao nhiêu?',options:['9','8','10'],answer:0,why:'18 − 9 = 9.'},
+{type:'fill',prompt:'Một túi cam nặng 6 kg, một túi táo nặng 4 kg. Cả hai túi nặng ___ kg.',answerText:'10',why:'Lấy 6 + 4 = 10 kg.'},
+{type:'fill',prompt:'Tính: 9 + 6 = ___.',answerText:'15',why:'9 + 6 = 15.'},
+{type:'tf',prompt:'Quả bí nặng 8 kg thì nhẹ hơn quả dưa nặng 5 kg.',options:['Đúng','Sai'],answer:1,why:'Sai. 8 kg nặng hơn 5 kg nên quả bí nặng hơn quả dưa.'}
 ]},
 {title:'Tuần 9 — Ki-lô-gam — Lít',questions:[
 {prompt:'Một chai đựng 2 lít nước, 3 chai như thế đựng bao nhiêu lít nước?',options:['6 lít','5 lít','7 lít'],answer:0,why:'2 + 2 + 2 = 6 lít nước.'},
 {prompt:'Mẹ mua con gà nặng 3 kg và con vịt nặng 2 kg. Cả hai con nặng bao nhiêu ki-lô-gam?',options:['4 kg','5 kg','6 kg'],answer:1,why:'3 + 2 = 5 kg.'},
 {prompt:'Thùng có 18 lít dầu, rót ra 5 lít. Trong thùng còn bao nhiêu lít dầu?',options:['12 lít','14 lít','13 lít'],answer:2,why:'18 − 5 = 13 lít dầu.'},
 {type:'fill',prompt:'Một can đựng 5 lít nước, đổ thêm 4 lít nữa thì can có ___ lít nước.',answerText:'9',why:'Can có: 5 + 4 = 9 lít nước.'},
-{type:'tf',prompt:'Một chai 1 lít đựng được nhiều nước hơn một can 4 lít.',options:['Đúng','Sai'],answer:1,why:'Sai. 1 lít ít hơn 4 lít nên chai đựng được ít nước hơn can.'}
+{type:'tf',prompt:'Một chai 1 lít đựng được nhiều nước hơn một can 4 lít.',options:['Đúng','Sai'],answer:1,why:'Sai. 1 lít ít hơn 4 lít nên chai đựng được ít nước hơn can.'},
+{prompt:'Một can đựng 10 lít nước, đổ ra 3 lít. Can còn bao nhiêu lít nước?',options:['6 lít','7 lít','8 lít'],answer:1,why:'Lấy 10 − 3 = 7 lít nước.'},
+{prompt:'Bao đường nặng 5 kg, bao muối nặng 5 kg. Cả hai bao nặng bao nhiêu ki-lô-gam?',options:['10 kg','9 kg','11 kg'],answer:0,why:'Lấy 5 + 5 = 10 kg.'},
+{type:'fill',prompt:'Một chai đựng 2 lít nước, 2 chai như thế đựng ___ lít nước.',answerText:'4',why:'Lấy 2 + 2 = 4 lít nước.'},
+{type:'fill',prompt:'Thùng có 15 lít dầu, rót thêm 4 lít. Thùng có ___ lít dầu.',answerText:'19',why:'Lấy 15 + 4 = 19 lít dầu.'},
+{type:'tf',prompt:'Con cá nặng 3 kg thì nặng hơn con gà nặng 2 kg.',options:['Đúng','Sai'],answer:0,why:'Đúng. 3 kg nặng hơn 2 kg.'}
 ]},
 {title:'Tuần 10 — Phép cộng (có nhớ) số có hai chữ số với số có một chữ số',questions:[
 {prompt:'46 + 7 bằng bao nhiêu?',options:['43','53','63'],answer:1,why:'6 + 7 = 13, viết 3 nhớ 1; 4 + 1 (nhớ) = 5. Được 53.'},
 {prompt:'58 + 5 bằng bao nhiêu?',options:['53','73','63'],answer:2,why:'8 + 5 = 13, viết 3 nhớ 1; 5 + 1 (nhớ) = 6. Được 63.'},
 {prompt:'Có 37 bạn học sinh, thêm 6 bạn nữa đến lớp. Lớp có bao nhiêu bạn?',options:['43 bạn','42 bạn','44 bạn'],answer:0,why:'37 + 6 = 43 bạn.'},
 {type:'fill',prompt:'Tính: 35 + 8 = ___',answerText:'43',why:'5 + 8 = 13, viết 3 nhớ 1; 3 + 1 (nhớ) = 4. Được 43.'},
-{type:'tf',prompt:'47 + 5 = 52.',options:['Đúng','Sai'],answer:0,why:'Đúng. 7 + 5 = 12, viết 2 nhớ 1; 4 + 1 (nhớ) = 5. Được 52.'}
+{type:'tf',prompt:'47 + 5 = 52.',options:['Đúng','Sai'],answer:0,why:'Đúng. 7 + 5 = 12, viết 2 nhớ 1; 4 + 1 (nhớ) = 5. Được 52.'},
+{prompt:'29 + 4 bằng bao nhiêu?',options:['32','33','34'],answer:1,why:'29 + 4: 9 + 4 = 13, viết 3 nhớ 1, được 33.'},
+{prompt:'Có 54 cái ghế, mang thêm 8 cái ghế nữa. Có tất cả bao nhiêu cái ghế?',options:['61 cái','63 cái','62 cái'],answer:2,why:'Lấy 54 + 8 = 62 cái ghế.'},
+{type:'fill',prompt:'Tính: 67 + 6 = ___.',answerText:'73',why:'67 + 6 = 73.'},
+{type:'fill',prompt:'Tính: 48 + 9 = ___.',answerText:'57',why:'48 + 9 = 57.'},
+{type:'tf',prompt:'36 + 7 = 43.',options:['Đúng','Sai'],answer:0,why:'Đúng. 36 + 7 = 43.'}
 ]},
 {title:'Tuần 11 — Phép cộng (có nhớ) số có hai chữ số với số có hai chữ số',questions:[
 {prompt:'36 + 27 bằng bao nhiêu?',options:['53','63','73'],answer:1,why:'36 + 20 = 56, rồi cộng thêm 7 được 63.'},
 {prompt:'27 + 35 bằng bao nhiêu?',options:['62','52','72'],answer:0,why:'7 + 5 = 12, viết 2 nhớ 1; 2 + 3 + 1 (nhớ) = 6. Được 62.'},
 {prompt:'Mẹ mua 48 quả trứng, bà cho thêm 26 quả. Có tất cả bao nhiêu quả trứng?',options:['64 quả','74 quả','84 quả'],answer:1,why:'48 + 26 = 74 quả trứng.'},
 {type:'fill',prompt:'Tính: 48 + 36 = ___',answerText:'84',why:'8 + 6 = 14, viết 4 nhớ 1; 4 + 3 + 1 (nhớ) = 8. Được 84.'},
-{type:'tf',prompt:'57 + 28 = 75.',options:['Đúng','Sai'],answer:1,why:'Sai. 57 + 28 = 85 (7 + 8 = 15, viết 5 nhớ 1; 5 + 2 + 1 = 8).'}
+{type:'tf',prompt:'57 + 28 = 75.',options:['Đúng','Sai'],answer:1,why:'Sai. 57 + 28 = 85 (7 + 8 = 15, viết 5 nhớ 1; 5 + 2 + 1 = 8).'},
+{prompt:'45 + 38 bằng bao nhiêu?',options:['83','73','93'],answer:0,why:'45 + 38: 5 + 8 = 13, viết 3 nhớ 1; 4 + 3 + 1 = 8, được 83.'},
+{prompt:'Một cửa hàng buổi sáng bán 39 cái bánh, buổi chiều bán 27 cái bánh. Cả ngày cửa hàng bán bao nhiêu cái bánh?',options:['65 cái','66 cái','56 cái'],answer:1,why:'Lấy 39 + 27 = 66 cái bánh.'},
+{type:'fill',prompt:'Tính: 29 + 45 = ___.',answerText:'74',why:'29 + 45 = 74.'},
+{type:'fill',prompt:'Tính: 56 + 27 = ___.',answerText:'83',why:'56 + 27 = 83.'},
+{type:'tf',prompt:'64 + 19 = 73.',options:['Đúng','Sai'],answer:1,why:'Sai. 64 + 19 = 83, không phải 73.'}
 ]},
 {title:'Tuần 12 — Phép trừ (có nhớ) số có hai chữ số với số có một chữ số',questions:[
 {prompt:'53 − 6 bằng bao nhiêu?',options:['47','46','57'],answer:0,why:'13 − 6 = 7 (mượn 1 chục), 4 − 0 = 4. Được 47.'},
 {prompt:'72 − 8 bằng bao nhiêu?',options:['63','64','74'],answer:1,why:'12 − 8 = 4 (mượn 1 chục), 6 − 0 = 6. Được 64.'},
 {prompt:'Có 85 quyển vở, bán đi 9 quyển. Còn lại bao nhiêu quyển vở?',options:['75 quyển','77 quyển','76 quyển'],answer:2,why:'85 − 9 = 76 quyển vở.'},
 {type:'fill',prompt:'Tính: 62 − 7 = ___',answerText:'55',why:'12 − 7 = 5 (mượn 1 chục), còn 5 − 0 = 5. Được 55.'},
-{type:'tf',prompt:'84 − 9 = 75.',options:['Đúng','Sai'],answer:0,why:'Đúng. 14 − 9 = 5 (mượn 1 chục), còn 7 − 0 = 7. Được 75.'}
+{type:'tf',prompt:'84 − 9 = 75.',options:['Đúng','Sai'],answer:0,why:'Đúng. 14 − 9 = 5 (mượn 1 chục), còn 7 − 0 = 7. Được 75.'},
+{prompt:'41 − 5 bằng bao nhiêu?',options:['37','35','36'],answer:2,why:'41 − 5: mượn 1 chục, 11 − 5 = 6, còn 3 chục, được 36.'},
+{prompt:'Có 73 quả bóng, bán đi 8 quả. Còn lại bao nhiêu quả bóng?',options:['65 quả','64 quả','66 quả'],answer:0,why:'Lấy 73 − 8 = 65 quả bóng.'},
+{type:'fill',prompt:'Tính: 94 − 6 = ___.',answerText:'88',why:'94 − 6 = 88.'},
+{type:'fill',prompt:'Tính: 55 − 9 = ___.',answerText:'46',why:'55 − 9 = 46.'},
+{type:'tf',prompt:'63 − 8 = 55.',options:['Đúng','Sai'],answer:0,why:'Đúng. 63 − 8 = 55.'}
 ]},
 {title:'Tuần 13 — Phép trừ (có nhớ) số có hai chữ số với số có hai chữ số',questions:[
 {prompt:'82 − 45 bằng bao nhiêu?',options:['37','47','43'],answer:0,why:'Mượn 1 chục: 12 − 5 = 7, còn 7 − 4 = 3.'},
 {prompt:'64 − 28 bằng bao nhiêu?',options:['35','46','36'],answer:2,why:'14 − 8 = 6 (mượn 1 chục), 5 − 2 = 3. Được 36.'},
 {prompt:'91 − 54 bằng bao nhiêu?',options:['37','36','47'],answer:0,why:'11 − 4 = 7 (mượn 1 chục), 8 − 5 = 3. Được 37.'},
 {type:'fill',prompt:'Tính: 91 − 58 = ___',answerText:'33',why:'11 − 8 = 3 (mượn 1 chục); 8 − 5 = 3. Được 33.'},
-{type:'tf',prompt:'73 − 46 = 37.',options:['Đúng','Sai'],answer:1,why:'Sai. 73 − 46 = 27 (13 − 6 = 7 khi mượn 1 chục; 6 − 4 = 2).'}
+{type:'tf',prompt:'73 − 46 = 37.',options:['Đúng','Sai'],answer:1,why:'Sai. 73 − 46 = 27 (13 − 6 = 7 khi mượn 1 chục; 6 − 4 = 2).'},
+{prompt:'75 − 38 bằng bao nhiêu?',options:['47','37','36'],answer:1,why:'75 − 38 = 37.'},
+{prompt:'Một thùng có 96 quả cam, lấy ra 47 quả. Thùng còn bao nhiêu quả cam?',options:['48 quả','49 quả','59 quả'],answer:1,why:'Lấy 96 − 47 = 49 quả cam.'},
+{type:'fill',prompt:'Tính: 84 − 37 = ___.',answerText:'47',why:'84 − 37 = 47.'},
+{type:'fill',prompt:'Tính: 52 − 26 = ___.',answerText:'26',why:'52 − 26 = 26.'},
+{type:'tf',prompt:'95 − 48 = 47.',options:['Đúng','Sai'],answer:0,why:'Đúng. 95 − 48 = 47.'}
 ]},
 {title:'Tuần 14 — Điểm, đoạn thẳng, đường thẳng — Đường gấp khúc, hình tứ giác',questions:[
 {prompt:'Hình chữ nhật có bao nhiêu góc?',options:['3 góc','4 góc','5 góc'],answer:1,why:'Hình chữ nhật có 4 góc vuông.'},
 {prompt:'Đoạn thẳng AB dài 6 cm, đoạn thẳng CD dài 4 cm. Đoạn thẳng nào dài hơn?',options:['Đoạn thẳng AB','Đoạn thẳng CD','Hai đoạn bằng nhau'],answer:0,why:'6 cm lớn hơn 4 cm nên đoạn thẳng AB dài hơn.'},
 {prompt:'Hình tứ giác có bao nhiêu cạnh?',options:['3 cạnh','4 cạnh','5 cạnh'],answer:1,why:'Hình tứ giác có 4 cạnh và 4 góc.'},
 {type:'fill',prompt:'Hình tam giác có ___ cạnh.',answerText:'3',why:'Hình tam giác có 3 cạnh và 3 góc.'},
-{type:'tf',prompt:'Hình tứ giác có 5 cạnh.',options:['Đúng','Sai'],answer:1,why:'Sai. Hình tứ giác có 4 cạnh.'}
+{type:'tf',prompt:'Hình tứ giác có 5 cạnh.',options:['Đúng','Sai'],answer:1,why:'Sai. Hình tứ giác có 4 cạnh.'},
+{prompt:'Đường gấp khúc gồm 3 đoạn thẳng dài 2 cm, 3 cm và 4 cm. Đường gấp khúc dài bao nhiêu xăng-ti-mét?',options:['8 cm','9 cm','10 cm'],answer:1,why:'Lấy 2 + 3 + 4 = 9 cm.'},
+{prompt:'Đoạn thẳng thứ nhất dài 8 cm, đoạn thẳng thứ hai dài 5 cm. Đoạn thẳng thứ nhất dài hơn đoạn thẳng thứ hai bao nhiêu xăng-ti-mét?',options:['3 cm','2 cm','4 cm'],answer:0,why:'Lấy 8 − 5 = 3 cm.'},
+{type:'fill',prompt:'Hình chữ nhật có ___ cạnh.',answerText:'4',why:'Hình chữ nhật có 4 cạnh.'},
+{type:'fill',prompt:'Đoạn thẳng AB dài 7 cm, đoạn thẳng CD dài 5 cm. Đoạn thẳng AB dài hơn đoạn thẳng CD ___ cm.',answerText:'2',why:'Lấy 7 − 5 = 2 cm.'},
+{type:'tf',prompt:'Đường gấp khúc chỉ gồm đúng 2 đoạn thẳng.',options:['Đúng','Sai'],answer:1,why:'Sai. Đường gấp khúc gồm hai đoạn thẳng trở lên nối với nhau.'}
 ]},
 {title:'Tuần 15 — Thực hành gấp, cắt, ghép hình — Ngày, giờ, giờ, phút',questions:[
 {prompt:'Đồng hồ chỉ 7 giờ. Kim ngắn chỉ số mấy?',options:['Số 7','Số 12','Số 6'],answer:0,why:'Khi đồng hồ chỉ giờ đúng, kim ngắn chỉ đúng số giờ, tức số 7.'},
 {prompt:'Một ngày có bao nhiêu giờ?',options:['12 giờ','24 giờ','60 giờ'],answer:1,why:'Một ngày đêm có 24 giờ.'},
 {prompt:'Em đi học lúc 7 giờ sáng, đó là mấy giờ?',options:['19 giờ','17 giờ','7 giờ'],answer:2,why:'Buổi sáng lúc đến trường là 7 giờ.'},
 {type:'fill',prompt:'Đồng hồ chỉ 9 giờ thì kim ngắn chỉ số ___.',answerText:'9',why:'Khi đồng hồ chỉ giờ đúng, kim ngắn chỉ đúng số giờ, tức số 9.'},
-{type:'tf',prompt:'Kim dài chỉ số 12, kim ngắn chỉ số 8 thì đồng hồ chỉ 8 giờ.',options:['Đúng','Sai'],answer:0,why:'Đúng. Kim dài chỉ số 12 là giờ đúng, kim ngắn chỉ số 8 nên là 8 giờ.'}
+{type:'tf',prompt:'Kim dài chỉ số 12, kim ngắn chỉ số 8 thì đồng hồ chỉ 8 giờ.',options:['Đúng','Sai'],answer:0,why:'Đúng. Kim dài chỉ số 12 là giờ đúng, kim ngắn chỉ số 8 nên là 8 giờ.'},
+{prompt:'Kim ngắn chỉ số 3, kim dài chỉ số 12. Đồng hồ chỉ mấy giờ?',options:['3 giờ','12 giờ','4 giờ'],answer:0,why:'Kim ngắn chỉ số 3 và kim dài chỉ số 12 thì đồng hồ chỉ 3 giờ.'},
+{prompt:'Một giờ có bao nhiêu phút?',options:['30 phút','60 phút','100 phút'],answer:1,why:'Một giờ có 60 phút.'},
+{type:'fill',prompt:'Đồng hồ chỉ 5 giờ thì kim ngắn chỉ số ___.',answerText:'5',why:'Đồng hồ chỉ 5 giờ thì kim ngắn chỉ số 5.'},
+{type:'fill',prompt:'Em tập thể dục lúc 6 giờ sáng, kim ngắn của đồng hồ chỉ số ___.',answerText:'6',why:'Lúc 6 giờ, kim ngắn chỉ số 6.'},
+{type:'tf',prompt:'Kim dài chỉ số 12, kim ngắn chỉ số 10 thì đồng hồ chỉ 12 giờ.',options:['Đúng','Sai'],answer:1,why:'Sai. Kim ngắn chỉ số 10 nên đồng hồ chỉ 10 giờ.'}
 ]},
 {title:'Tuần 16 — Ngày, tháng — Thực hành xem đồng hồ, xem lịch',questions:[
 {prompt:'Một tuần có bao nhiêu ngày?',options:['5 ngày','7 ngày','10 ngày'],answer:1,why:'Một tuần có 7 ngày.'},
 {prompt:'Tháng 1 có bao nhiêu ngày?',options:['30 ngày','28 ngày','31 ngày'],answer:2,why:'Tháng 1 là tháng đủ, có 31 ngày.'},
 {prompt:'Hôm nay là thứ Ba, ngày mai là thứ mấy?',options:['Thứ Tư','Thứ Năm','Thứ Hai'],answer:0,why:'Sau thứ Ba là thứ Tư.'},
 {type:'fill',prompt:'Tháng 1 có ___ ngày.',answerText:'31',why:'Tháng 1 là tháng có 31 ngày.'},
-{type:'tf',prompt:'Một tuần có 8 ngày.',options:['Đúng','Sai'],answer:1,why:'Sai. Một tuần có 7 ngày.'}
+{type:'tf',prompt:'Một tuần có 8 ngày.',options:['Đúng','Sai'],answer:1,why:'Sai. Một tuần có 7 ngày.'},
+{prompt:'Tháng 12 có bao nhiêu ngày?',options:['30 ngày','31 ngày','28 ngày'],answer:1,why:'Tháng 12 có 31 ngày.'},
+{prompt:'Hôm nay là thứ Sáu, ngày mai là thứ mấy?',options:['Thứ Năm','Thứ Bảy','Chủ Nhật'],answer:1,why:'Sau thứ Sáu là thứ Bảy.'},
+{type:'fill',prompt:'Tháng 4 có ___ ngày.',answerText:'30',why:'Tháng 4 có 30 ngày.'},
+{type:'fill',prompt:'Một tuần có 7 ngày: thứ Hai, thứ Ba, thứ Tư, thứ Năm, thứ Sáu, thứ Bảy và ___.',answerText:'Chủ Nhật',why:'Ngày cuối tuần trong lịch là Chủ Nhật.',accept:['Chủ Nhật','chủ nhật']},
+{type:'tf',prompt:'Tháng 2 có 31 ngày.',options:['Đúng','Sai'],answer:1,why:'Sai. Tháng 2 có 28 hoặc 29 ngày.'}
 ]},
 {title:'Tuần 17 — Ôn tập phép cộng, phép trừ trong phạm vi 20 và 100',questions:[
 {prompt:'11 + 8 bằng bao nhiêu?',options:['18','20','19'],answer:2,why:'Ôn phép cộng trong phạm vi 20: 11 + 8 = 19.'},
 {prompt:'45 + 38 bằng bao nhiêu?',options:['83','73','92'],answer:0,why:'5 + 8 = 13, viết 3 nhớ 1; 4 + 3 + 1 (nhớ) = 8. Được 83.'},
 {prompt:'73 − 29 bằng bao nhiêu?',options:['54','44','37'],answer:1,why:'13 − 9 = 4 (mượn 1 chục), 6 − 2 = 4. Được 44.'},
 {type:'fill',prompt:'Tính: 58 + 30 = ___',answerText:'88',why:'8 + 0 = 8, 5 + 3 = 8. Được 88.'},
-{type:'tf',prompt:'96 − 24 = 72.',options:['Đúng','Sai'],answer:0,why:'Đúng. 6 − 4 = 2, 9 − 2 = 7. Được 72.'}
+{type:'tf',prompt:'96 − 24 = 72.',options:['Đúng','Sai'],answer:0,why:'Đúng. 6 − 4 = 2, 9 − 2 = 7. Được 72.'},
+{prompt:'14 + 7 bằng bao nhiêu?',options:['20','21','22'],answer:1,why:'14 + 7 = 21.'},
+{prompt:'88 − 39 bằng bao nhiêu?',options:['49','59','48'],answer:0,why:'88 − 39 = 49.'},
+{type:'fill',prompt:'Tính: 63 + 27 = ___.',answerText:'90',why:'63 + 27 = 90.'},
+{type:'fill',prompt:'Tính: 100 − 45 = ___.',answerText:'55',why:'100 − 45 = 55.'},
+{type:'tf',prompt:'27 + 36 = 63.',options:['Đúng','Sai'],answer:0,why:'Đúng. 27 + 36 = 63.'}
 ]},
 {title:'Tuần 18 — Ôn tập hình phẳng — Ôn tập đo lường — Ôn tập chung học kì 1',questions:[
 {prompt:'Hình vuông có bao nhiêu cạnh bằng nhau?',options:['4 cạnh bằng nhau','2 cạnh bằng nhau','3 cạnh bằng nhau'],answer:0,why:'Hình vuông có 4 cạnh đều bằng nhau.'},
 {prompt:'Can đựng 5 lít, chai đựng 2 lít. Can đựng nhiều hơn chai bao nhiêu lít?',options:['2 lít','3 lít','7 lít'],answer:1,why:'5 − 2 = 3 lít.'},
 {prompt:'34 + 29 bằng bao nhiêu?',options:['53','72','63'],answer:2,why:'4 + 9 = 13, viết 3 nhớ 1; 3 + 2 + 1 (nhớ) = 6. Được 63.'},
 {type:'fill',prompt:'Điền số thích hợp: 1 m = ___ cm.',answerText:'100',why:'1 mét bằng 100 xăng-ti-mét.'},
-{type:'tf',prompt:'Hình vuông có 4 cạnh bằng nhau.',options:['Đúng','Sai'],answer:0,why:'Đúng. Bốn cạnh của hình vuông đều bằng nhau.'}
+{type:'tf',prompt:'Hình vuông có 4 cạnh bằng nhau.',options:['Đúng','Sai'],answer:0,why:'Đúng. Bốn cạnh của hình vuông đều bằng nhau.'},
+{prompt:'Hình tam giác có bao nhiêu góc?',options:['2 góc','3 góc','4 góc'],answer:1,why:'Hình tam giác có 3 góc.'},
+{prompt:'Một sợi dây dài 2 m. Sợi dây đó dài bao nhiêu xăng-ti-mét?',options:['20 cm','200 cm','2 cm'],answer:1,why:'2 m = 200 cm.'},
+{type:'fill',prompt:'Hình chữ nhật có ___ góc.',answerText:'4',why:'Hình chữ nhật có 4 góc.'},
+{type:'fill',prompt:'Tính: 46 + 37 = ___.',answerText:'83',why:'46 + 37 = 83.'},
+{type:'tf',prompt:'1 m = 10 cm.',options:['Đúng','Sai'],answer:1,why:'Sai. 1 m = 100 cm.'}
 ]},
 {title:'Tuần 19 — Phép nhân — Thừa số, tích',questions:[
 {prompt:'2 + 2 + 2 + 2 bằng bao nhiêu?',options:['6','8','10'],answer:1,why:'Bốn số 2 cộng lại: 2 + 2 + 2 + 2 = 8, tức là 2 × 4 = 8.'},
 {prompt:'Trong phép tính 3 × 4 = 12, số 12 được gọi là gì?',options:['Thừa số','Tổng','Tích'],answer:2,why:'Trong phép nhân, các số được nhân là thừa số, kết quả là tích.'},
 {prompt:'Mỗi hộp có 4 chiếc bút, 3 hộp có bao nhiêu chiếc bút?',options:['12 chiếc','10 chiếc','14 chiếc'],answer:0,why:'4 × 3 = 12 chiếc bút.'},
 {type:'fill',prompt:'Điền số thích hợp: 3 + 3 + 3 = 3 × ___',answerText:'3',why:'Số 3 được cộng 3 lần nên 3 + 3 + 3 = 3 × 3.'},
-{type:'tf',prompt:'Trong phép tính 2 × 5 = 10, số 10 được gọi là tích.',options:['Đúng','Sai'],answer:0,why:'Đúng. Kết quả của phép nhân gọi là tích.'}
+{type:'tf',prompt:'Trong phép tính 2 × 5 = 10, số 10 được gọi là tích.',options:['Đúng','Sai'],answer:0,why:'Đúng. Kết quả của phép nhân gọi là tích.'},
+{prompt:'5 + 5 + 5 viết thành phép nhân nào?',options:['5 × 2','5 × 3','3 × 3'],answer:1,why:'Có 3 số 5 cộng lại nên viết thành phép nhân 5 × 3.'},
+{prompt:'Trong phép tính 4 × 3 = 12, số 4 được gọi là gì?',options:['Tích','Thừa số','Tổng'],answer:1,why:'Trong phép nhân, các số được nhân gọi là thừa số.'},
+{type:'fill',prompt:'Điền số thích hợp: 4 + 4 + 4 + 4 = 4 × ___.',answerText:'4',why:'Có 4 số 4 cộng lại nên 4 + 4 + 4 + 4 = 4 × 4.'},
+{type:'fill',prompt:'Mỗi đĩa có 3 quả táo, 2 đĩa như thế có ___ quả táo.',answerText:'6',why:'Lấy 3 × 2 = 6 quả táo.'},
+{type:'tf',prompt:'Trong phép tính 5 × 2 = 10, số 5 và số 2 được gọi là thừa số.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trong phép nhân, các số được nhân gọi là thừa số.'}
 ]},
 {title:'Tuần 20 — Bảng nhân 2 — Bảng nhân 5 — Làm quen với phép chia',questions:[
 {prompt:'5 × 3 bằng bao nhiêu?',options:['8','15','20'],answer:1,why:'5 × 3 là 5 được lấy 3 lần: 5 + 5 + 5 = 15.'},
 {prompt:'2 × 7 bằng bao nhiêu?',options:['14','12','16'],answer:0,why:'2 × 7 là 2 được lấy 7 lần, bằng 14.'},
 {prompt:'Có 12 cái kẹo chia đều cho 2 bạn. Mỗi bạn được mấy cái kẹo?',options:['5 cái','6 cái','7 cái'],answer:1,why:'Làm quen với phép chia: 12 : 2 = 6 cái kẹo.'},
 {type:'fill',prompt:'Tính: 2 × 6 = ___',answerText:'12',why:'Theo bảng nhân 2: 2 × 6 = 12.'},
-{type:'tf',prompt:'5 × 4 = 25.',options:['Đúng','Sai'],answer:1,why:'Sai. Theo bảng nhân 5: 5 × 4 = 20.'}
+{type:'tf',prompt:'5 × 4 = 25.',options:['Đúng','Sai'],answer:1,why:'Sai. Theo bảng nhân 5: 5 × 4 = 20.'},
+{prompt:'2 × 8 bằng bao nhiêu?',options:['14','16','18'],answer:1,why:'2 × 8 = 16.'},
+{prompt:'Có 10 cái bánh chia đều vào 5 đĩa. Mỗi đĩa có mấy cái bánh?',options:['2 cái','5 cái','10 cái'],answer:0,why:'Lấy 10 : 5 = 2 cái bánh.'},
+{type:'fill',prompt:'Tính: 5 × 6 = ___.',answerText:'30',why:'5 × 6 = 30.'},
+{type:'fill',prompt:'Tính: 2 × 9 = ___.',answerText:'18',why:'2 × 9 = 18.'},
+{type:'tf',prompt:'2 × 5 = 10.',options:['Đúng','Sai'],answer:0,why:'Đúng. 2 × 5 = 10.'}
 ]},
 {title:'Tuần 21 — Số bị chia, số chia, thương — Bảng chia 2',questions:[
 {prompt:'Trong phép tính 18 : 3 = 6, số 18 được gọi là gì?',options:['Số bị chia','Số chia','Thương'],answer:0,why:'Trong phép chia, số được chia gọi là số bị chia, kết quả gọi là thương.'},
 {prompt:'14 : 2 bằng bao nhiêu?',options:['6','7','8'],answer:1,why:'Vì 2 × 7 = 14 nên 14 : 2 = 7.'},
 {prompt:'20 : 5 bằng bao nhiêu?',options:['3','5','4'],answer:2,why:'Vì 5 × 4 = 20 nên 20 : 5 = 4.'},
 {type:'fill',prompt:'Tính: 16 : 2 = ___',answerText:'8',why:'Kiểm tra ngược: 8 × 2 = 16 nên 16 : 2 = 8.'},
-{type:'tf',prompt:'Trong phép tính 20 : 5 = 4, số 5 được gọi là thương.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 5 là số chia; số 4 mới là thương.'}
+{type:'tf',prompt:'Trong phép tính 20 : 5 = 4, số 5 được gọi là thương.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 5 là số chia; số 4 mới là thương.'},
+{prompt:'Trong phép tính 12 : 2 = 6, số 6 được gọi là gì?',options:['Số bị chia','Số chia','Thương'],answer:2,why:'Trong phép chia, kết quả được gọi là thương.'},
+{prompt:'18 : 2 bằng bao nhiêu?',options:['8','9','6'],answer:1,why:'18 : 2 = 9.'},
+{type:'fill',prompt:'Tính: 10 : 2 = ___.',answerText:'5',why:'10 : 2 = 5.'},
+{type:'fill',prompt:'Có 8 quả cam chia đều cho 2 bạn. Mỗi bạn được ___ quả cam.',answerText:'4',why:'Lấy 8 : 2 = 4 quả cam.'},
+{type:'tf',prompt:'Trong phép tính 14 : 2 = 7, số 14 được gọi là số bị chia.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trong phép chia, số được chia gọi là số bị chia.'}
 ]},
 {title:'Tuần 22 — Bảng chia 5 — Luyện tập chung phép nhân, phép chia',questions:[
 {prompt:'25 : 5 bằng bao nhiêu?',options:['4','5','6'],answer:1,why:'Vì 5 × 5 = 25 nên 25 : 5 = 5.'},
 {prompt:'10 : 2 bằng bao nhiêu?',options:['4','6','5'],answer:2,why:'Vì 2 × 5 = 10 nên 10 : 2 = 5.'},
 {prompt:'Mỗi bàn có 5 bạn, 4 bàn có bao nhiêu bạn?',options:['20 bạn','18 bạn','22 bạn'],answer:0,why:'5 × 4 = 20 bạn.'},
 {type:'fill',prompt:'Tính: 30 : 5 = ___',answerText:'6',why:'Kiểm tra ngược: 6 × 5 = 30 nên 30 : 5 = 6.'},
-{type:'tf',prompt:'45 : 5 = 9.',options:['Đúng','Sai'],answer:0,why:'Đúng. Vì 9 × 5 = 45 nên 45 : 5 = 9.'}
+{type:'tf',prompt:'45 : 5 = 9.',options:['Đúng','Sai'],answer:0,why:'Đúng. Vì 9 × 5 = 45 nên 45 : 5 = 9.'},
+{prompt:'35 : 5 bằng bao nhiêu?',options:['6','7','8'],answer:1,why:'35 : 5 = 7.'},
+{prompt:'2 × 4 bằng bao nhiêu?',options:['6','8','10'],answer:1,why:'2 × 4 = 8.'},
+{type:'fill',prompt:'Tính: 40 : 5 = ___.',answerText:'8',why:'40 : 5 = 8.'},
+{type:'fill',prompt:'Mỗi hàng có 5 ghế, 3 hàng như thế có ___ ghế.',answerText:'15',why:'Lấy 5 × 3 = 15 ghế.'},
+{type:'tf',prompt:'20 : 5 = 5.',options:['Đúng','Sai'],answer:1,why:'Sai. 20 : 5 = 4, không phải 5.'}
 ]},
 {title:'Tuần 23 — Khối trụ, khối cầu — Luyện tập chung',questions:[
 {prompt:'Vật nào sau đây có dạng khối cầu?',options:['Hộp sữa','Viên gạch','Quả bóng'],answer:2,why:'Quả bóng tròn đều, có dạng khối cầu.'},
 {prompt:'Lon nước ngọt thường có dạng hình gì?',options:['Khối trụ','Khối cầu','Hình vuông'],answer:0,why:'Lon nước có hai mặt đáy tròn, thân cong — đó là khối trụ.'},
 {prompt:'5 × 6 bằng bao nhiêu?',options:['25','30','35'],answer:1,why:'5 × 6 là 5 được lấy 6 lần, bằng 30.'},
 {type:'fill',prompt:'Quả bóng có dạng khối ___.',answerText:'cầu',why:'Quả bóng tròn đều, có dạng khối cầu.',accept:['cầu','Cầu']},
-{type:'tf',prompt:'Hộp sữa có dạng khối cầu.',options:['Đúng','Sai'],answer:1,why:'Sai. Hộp sữa có dạng khối hộp chữ nhật, không phải khối cầu.'}
+{type:'tf',prompt:'Hộp sữa có dạng khối cầu.',options:['Đúng','Sai'],answer:1,why:'Sai. Hộp sữa có dạng khối hộp chữ nhật, không phải khối cầu.'},
+{prompt:'Viên bi có dạng hình gì?',options:['Khối cầu','Khối trụ','Khối hộp chữ nhật'],answer:0,why:'Viên bi tròn nên có dạng khối cầu.'},
+{prompt:'4 × 5 bằng bao nhiêu?',options:['20','25','15'],answer:0,why:'4 × 5 = 20.'},
+{type:'fill',prompt:'Cái lon sữa có dạng khối ___.',answerText:'trụ',why:'Cái lon sữa có dạng khối trụ.',accept:['trụ']},
+{type:'fill',prompt:'Tính: 15 : 5 = ___.',answerText:'3',why:'15 : 5 = 3.'},
+{type:'tf',prompt:'Quả bóng có dạng khối trụ.',options:['Đúng','Sai'],answer:1,why:'Sai. Quả bóng có dạng khối cầu.'}
 ]},
 {title:'Tuần 24 — Đơn vị, chục, trăm, nghìn — Các số tròn trăm, tròn chục',questions:[
 {prompt:'Số 300 đọc là gì?',options:['Ba trăm','Ba mươi','Ba nghìn'],answer:0,why:'Số 300 có 3 trăm nên đọc là ba trăm.'},
 {prompt:'Số tròn chục liền sau 460 là số nào?',options:['450','470','480'],answer:1,why:'Đếm thêm 1 chục sau 460 được 470.'},
 {prompt:'1 nghìn bằng bao nhiêu trăm?',options:['100 trăm','5 trăm','10 trăm'],answer:2,why:'1 nghìn = 10 trăm.'},
 {type:'fill',prompt:'Số 500 gồm ___ trăm.',answerText:'5',why:'Số 500 có chữ số 5 ở hàng trăm nên gồm 5 trăm.'},
-{type:'tf',prompt:'Số 700 đọc là “bảy mươi”.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 700 đọc là “bảy trăm”.'}
+{type:'tf',prompt:'Số 700 đọc là “bảy mươi”.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 700 đọc là “bảy trăm”.'},
+{prompt:'Số 600 gồm mấy trăm?',options:['6 trăm','60 trăm','6 chục'],answer:0,why:'Số 600 gồm 6 trăm.'},
+{prompt:'Số tròn trăm liền trước 800 là số nào?',options:['700','900','750'],answer:0,why:'Đếm lùi theo trăm: trước 800 là 700.'},
+{type:'fill',prompt:'Số 900 gồm ___ trăm.',answerText:'9',why:'Số 900 gồm 9 trăm.'},
+{type:'fill',prompt:'Số tròn chục liền sau 370 là ___.',answerText:'380',why:'Đếm thêm 1 chục sau 370 được 380.'},
+{type:'tf',prompt:'Số 450 là số tròn trăm.',options:['Đúng','Sai'],answer:1,why:'Sai. Số 450 là số tròn chục; số tròn trăm là 400, 500,...'}
 ]},
 {title:'Tuần 25 — So sánh các số tròn trăm, tròn chục — Số có ba chữ số',questions:[
 {prompt:'Số liền sau của 499 là số nào?',options:['498','500','501'],answer:1,why:'Đếm thêm 1 sau 499 được 500.'},
 {prompt:'Số 372 gồm mấy trăm, mấy chục, mấy đơn vị?',options:['3 trăm, 2 chục, 7 đơn vị','7 trăm, 3 chục, 2 đơn vị','3 trăm, 7 chục, 2 đơn vị'],answer:2,why:'Số 372: chữ số 3 ở hàng trăm, 7 ở hàng chục, 2 ở hàng đơn vị.'},
 {prompt:'Điền dấu thích hợp: 500 ___ 450',options:['>','<','='],answer:0,why:'500 lớn hơn 450 nên điền dấu >.'},
 {type:'fill',prompt:'Số liền trước của 300 là ___.',answerText:'299',why:'Đếm lùi 1 số trước 300 được 299.'},
-{type:'tf',prompt:'Số 450 lớn hơn số 540.',options:['Đúng','Sai'],answer:1,why:'Sai. Hàng trăm: 4 nhỏ hơn 5 nên 450 nhỏ hơn 540.'}
+{type:'tf',prompt:'Số 450 lớn hơn số 540.',options:['Đúng','Sai'],answer:1,why:'Sai. Hàng trăm: 4 nhỏ hơn 5 nên 450 nhỏ hơn 540.'},
+{prompt:'Số nào lớn nhất trong các số 620, 260, 602?',options:['620','260','602'],answer:0,why:'So sánh hàng trăm rồi hàng chục: 620 lớn nhất.'},
+{prompt:'Số 519 gồm mấy trăm, mấy chục, mấy đơn vị?',options:['5 trăm, 1 chục, 9 đơn vị','5 trăm, 9 chục, 1 đơn vị','9 trăm, 1 chục, 5 đơn vị'],answer:0,why:'Số 519 có chữ số 5 ở hàng trăm, 1 ở hàng chục, 9 ở hàng đơn vị.'},
+{type:'fill',prompt:'Điền dấu thích hợp: 700 ___ 699.',answerText:'>',why:'700 lớn hơn 699 nên điền dấu >.',accept:['>']},
+{type:'fill',prompt:'Số liền sau của 678 là ___.',answerText:'679',why:'Đếm thêm 1 sau 678 được 679.'},
+{type:'tf',prompt:'Số 386 lớn hơn số 368.',options:['Đúng','Sai'],answer:0,why:'Đúng. Cùng 3 trăm, 8 chục lớn hơn 6 chục nên 386 lớn hơn 368.'}
 ]},
 {title:'Tuần 26 — Viết số thành tổng các trăm, chục, đơn vị — So sánh các số có ba chữ số',questions:[
 {prompt:'Viết số 648 thành tổng các trăm, chục, đơn vị.',options:['600 + 80 + 4','60 + 40 + 8','600 + 40 + 8'],answer:2,why:'648 = 6 trăm + 4 chục + 8 đơn vị = 600 + 40 + 8.'},
 {prompt:'Số nào lớn hơn: 587 hay 578?',options:['587','578','Hai số bằng nhau'],answer:0,why:'Hàng chục: 8 lớn hơn 7 nên 587 lớn hơn 578.'},
 {prompt:'Số bé nhất trong các số 305, 350, 503 là số nào?',options:['350','305','503'],answer:1,why:'Hàng trăm đều là 3 hoặc 5; 305 có hàng trăm là 3 và hàng chục 0, bé nhất.'},
 {type:'fill',prompt:'Điền số thích hợp: 372 = 300 + ___ + 2.',answerText:'70',why:'Số 372 gồm 3 trăm, 7 chục và 2 đơn vị nên 372 = 300 + 70 + 2.'},
-{type:'tf',prompt:'Số 685 = 600 + 80 + 5.',options:['Đúng','Sai'],answer:0,why:'Đúng. 685 gồm 6 trăm, 8 chục và 5 đơn vị.'}
+{type:'tf',prompt:'Số 685 = 600 + 80 + 5.',options:['Đúng','Sai'],answer:0,why:'Đúng. 685 gồm 6 trăm, 8 chục và 5 đơn vị.'},
+{prompt:'Số 726 viết thành tổng nào đúng?',options:['700 + 20 + 6','700 + 60 + 2','70 + 20 + 6'],answer:0,why:'Số 726 gồm 7 trăm, 2 chục, 6 đơn vị nên bằng 700 + 20 + 6.'},
+{prompt:'Số nào bé hơn: 439 hay 493?',options:['439','493','Hai số bằng nhau'],answer:0,why:'Cùng 4 trăm, 3 chục bé hơn 9 chục nên 439 bé hơn.'},
+{type:'fill',prompt:'Điền số thích hợp: 815 = 800 + ___ + 5.',answerText:'10',why:'Số 815 gồm 8 trăm, 1 chục, 5 đơn vị nên số còn thiếu là 10.'},
+{type:'fill',prompt:'Số lớn nhất trong các số 942, 924, 949 là ___.',answerText:'949',why:'So sánh: 949 lớn nhất trong ba số.'},
+{type:'tf',prompt:'Số 257 = 200 + 70 + 5.',options:['Đúng','Sai'],answer:1,why:'Sai. 200 + 70 + 5 = 275, còn 257 = 200 + 50 + 7.'}
 ]},
 {title:'Tuần 27 — Đề-xi-mét, mét, ki-lô-mét — Giới thiệu tiền Việt Nam',questions:[
 {prompt:'1 mét bằng bao nhiêu đề-xi-mét?',options:['10 dm','100 dm','5 dm'],answer:0,why:'1 m = 10 dm.'},
 {prompt:'Đổi: 2 m = … cm. Điền số thích hợp.',options:['20 cm','200 cm','2000 cm'],answer:1,why:'1 m = 100 cm nên 2 m = 200 cm.'},
 {prompt:'Tờ tiền nào có mệnh giá mười nghìn đồng?',options:['Tờ 1.000 đồng','Tờ 500.000 đồng','Tờ 10.000 đồng'],answer:2,why:'Tiền Việt Nam có tờ mệnh giá 10.000 đồng.'},
 {type:'fill',prompt:'Điền số thích hợp: 1 m = ___ dm.',answerText:'10',why:'1 mét bằng 10 đề-xi-mét.'},
-{type:'tf',prompt:'Tờ tiền 1 000 đồng có giá trị lớn hơn tờ tiền 500 đồng.',options:['Đúng','Sai'],answer:0,why:'Đúng. 1 000 đồng lớn hơn 500 đồng.'}
+{type:'tf',prompt:'Tờ tiền 1 000 đồng có giá trị lớn hơn tờ tiền 500 đồng.',options:['Đúng','Sai'],answer:0,why:'Đúng. 1 000 đồng lớn hơn 500 đồng.'},
+{prompt:'1 ki-lô-mét bằng bao nhiêu mét?',options:['100 m','1000 m','10 m'],answer:1,why:'1 km = 1000 m.'},
+{prompt:'Tờ tiền 2 000 đồng và tờ tiền 5 000 đồng, tờ tiền nào có giá trị lớn hơn?',options:['Tờ 2 000 đồng','Tờ 5 000 đồng','Hai tờ bằng nhau'],answer:1,why:'5 000 đồng lớn hơn 2 000 đồng.'},
+{type:'fill',prompt:'Điền số thích hợp: 3 m = ___ dm.',answerText:'30',why:'1 m = 10 dm nên 3 m = 30 dm.'},
+{type:'fill',prompt:'Điền số thích hợp: 1 km = ___ m.',answerText:'1000',why:'1 km = 1000 m.'},
+{type:'tf',prompt:'5 m = 50 dm.',options:['Đúng','Sai'],answer:0,why:'Đúng. 1 m = 10 dm nên 5 m = 50 dm.'}
 ]},
 {title:'Tuần 28 — Thực hành đo độ dài — Phép cộng (không nhớ) trong phạm vi 1000',questions:[
 {prompt:'Một sợi dây dài 1 m, cắt đi 30 cm. Sợi dây còn dài bao nhiêu xăng-ti-mét?',options:['60 cm','70 cm','80 cm'],answer:1,why:'1 m = 100 cm; 100 − 30 = 70 cm.'},
 {prompt:'235 + 142 bằng bao nhiêu?',options:['367','387','377'],answer:2,why:'Cộng không nhớ từng hàng: 5+2=7, 3+4=7, 2+1=3. Được 377.'},
 {prompt:'468 + 21 bằng bao nhiêu?',options:['489','479','499'],answer:0,why:'Cộng không nhớ: 8+1=9, 6+2=8, 4+0=4. Được 489.'},
 {type:'fill',prompt:'Tính: 245 + 132 = ___',answerText:'377',why:'Cộng không nhớ: 5 + 2 = 7, 4 + 3 = 7, 2 + 1 = 3. Được 377.'},
-{type:'tf',prompt:'Đoạn dây dài 2 m thì dài hơn đoạn dây dài 150 cm.',options:['Đúng','Sai'],answer:0,why:'Đúng. 2 m = 200 cm, mà 200 cm dài hơn 150 cm.'}
+{type:'tf',prompt:'Đoạn dây dài 2 m thì dài hơn đoạn dây dài 150 cm.',options:['Đúng','Sai'],answer:0,why:'Đúng. 2 m = 200 cm, mà 200 cm dài hơn 150 cm.'},
+{prompt:'354 + 231 bằng bao nhiêu?',options:['585','575','595'],answer:0,why:'Cộng không nhớ từng hàng: được 585.'},
+{prompt:'Cây bút dài 15 cm, cây thước dài 20 cm. Cây thước dài hơn cây bút bao nhiêu xăng-ti-mét?',options:['5 cm','35 cm','4 cm'],answer:0,why:'Lấy 20 − 15 = 5 cm.'},
+{type:'fill',prompt:'Tính: 623 + 154 = ___.',answerText:'777',why:'623 + 154 = 777.'},
+{type:'fill',prompt:'Điền số thích hợp: 4 m = ___ cm.',answerText:'400',why:'1 m = 100 cm nên 4 m = 400 cm.'},
+{type:'tf',prompt:'127 + 302 = 439.',options:['Đúng','Sai'],answer:1,why:'Sai. 127 + 302 = 429, không phải 439.'}
 ]},
 {title:'Tuần 29 — Phép cộng (có nhớ) trong phạm vi 1000 — Phép trừ (không nhớ) trong phạm vi 1000',questions:[
 {prompt:'376 + 148 bằng bao nhiêu?',options:['514','534','524'],answer:2,why:'6+8=14 viết 4 nhớ 1; 7+4+1=12 viết 2 nhớ 1; 3+1+1=5. Được 524.'},
 {prompt:'657 − 234 bằng bao nhiêu?',options:['423','413','433'],answer:0,why:'Trừ không nhớ từng hàng: 7−4=3, 5−3=2, 6−2=4. Được 423.'},
 {prompt:'Vườn có 542 cây, trồng thêm 175 cây. Vườn có bao nhiêu cây?',options:['707 cây','717 cây','727 cây'],answer:1,why:'542 + 175 = 717 cây.'},
 {type:'fill',prompt:'Tính: 457 + 268 = ___',answerText:'725',why:'7 + 8 = 15 viết 5 nhớ 1; 5 + 6 + 1 = 12 viết 2 nhớ 1; 4 + 2 + 1 = 7. Được 725.'},
-{type:'tf',prompt:'986 − 342 = 644.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trừ không nhớ từng hàng: 6 − 2 = 4, 8 − 4 = 4, 9 − 3 = 6. Được 644.'}
+{type:'tf',prompt:'986 − 342 = 644.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trừ không nhớ từng hàng: 6 − 2 = 4, 8 − 4 = 4, 9 − 3 = 6. Được 644.'},
+{prompt:'589 + 267 bằng bao nhiêu?',options:['746','856','846'],answer:1,why:'589 + 267 = 856.'},
+{prompt:'975 − 423 bằng bao nhiêu?',options:['552','542','562'],answer:0,why:'975 − 423 = 552.'},
+{type:'fill',prompt:'Tính: 638 + 195 = ___.',answerText:'833',why:'638 + 195 = 833.'},
+{type:'fill',prompt:'Tính: 864 − 351 = ___.',answerText:'513',why:'864 − 351 = 513.'},
+{type:'tf',prompt:'356 + 278 = 624.',options:['Đúng','Sai'],answer:1,why:'Sai. 356 + 278 = 634, không phải 624.'}
 ]},
 {title:'Tuần 30 — Phép trừ (có nhớ) trong phạm vi 1000',questions:[
 {prompt:'725 − 348 bằng bao nhiêu?',options:['377','367','387'],answer:0,why:'15−8=7 (mượn); 11−4=7 (mượn tiếp); 6−3=3. Được 377.'},
 {prompt:'913 − 456 bằng bao nhiêu?',options:['447','457','467'],answer:1,why:'13−6=7 (mượn); 10−5=5 (đã cho mượn); 8−4=4. Được 457.'},
 {prompt:'Một cửa hàng có 680 kg gạo, bán đi 295 kg. Cửa hàng còn bao nhiêu ki-lô-gam gạo?',options:['375 kg','395 kg','385 kg'],answer:2,why:'680 − 295 = 385 kg gạo.'},
 {type:'fill',prompt:'Tính: 813 − 457 = ___',answerText:'356',why:'13 − 7 = 6 (mượn); 10 − 5 = 5 (mượn tiếp); 7 − 4 = 3. Được 356.'},
-{type:'tf',prompt:'600 − 275 = 325.',options:['Đúng','Sai'],answer:0,why:'Đúng. 10 − 5 = 5 (mượn); 9 − 7 = 2 (mượn tiếp); 5 − 2 = 3. Được 325.'}
+{type:'tf',prompt:'600 − 275 = 325.',options:['Đúng','Sai'],answer:0,why:'Đúng. 10 − 5 = 5 (mượn); 9 − 7 = 2 (mượn tiếp); 5 − 2 = 3. Được 325.'},
+{prompt:'542 − 167 bằng bao nhiêu?',options:['375','385','475'],answer:0,why:'542 − 167 = 375.'},
+{prompt:'Một kho có 450 kg gạo, bán đi 186 kg. Kho còn bao nhiêu ki-lô-gam gạo?',options:['274 kg','264 kg','254 kg'],answer:1,why:'Lấy 450 − 186 = 264 kg gạo.'},
+{type:'fill',prompt:'Tính: 731 − 284 = ___.',answerText:'447',why:'731 − 284 = 447.'},
+{type:'fill',prompt:'Tính: 900 − 356 = ___.',answerText:'544',why:'900 − 356 = 544.'},
+{type:'tf',prompt:'824 − 439 = 385.',options:['Đúng','Sai'],answer:0,why:'Đúng. 824 − 439 = 385.'}
 ]},
 {title:'Tuần 31 — Thu thập, phân loại, kiểm đếm số liệu — Biểu đồ tranh',questions:[
 {prompt:'Lớp em kiểm đếm được 12 bạn thích đọc sách, 9 bạn thích đá bóng, 8 bạn thích vẽ. Môn nào được thích nhiều nhất?',options:['Đá bóng','Đọc sách','Vẽ'],answer:1,why:'12 lớn hơn 9 và 8 nên đọc sách được thích nhiều nhất.'},
 {prompt:'Biểu đồ tranh cho biết: mỗi hình tròn là 1 quả táo. Một hàng có 7 hình tròn thì có bao nhiêu quả táo?',options:['6 quả','8 quả','7 quả'],answer:2,why:'Mỗi hình tròn ứng với 1 quả táo, 7 hình tròn là 7 quả táo.'},
 {prompt:'Trong lớp có 15 bạn nữ và 13 bạn nam. Lớp có tất cả bao nhiêu bạn?',options:['28 bạn','27 bạn','29 bạn'],answer:0,why:'15 + 13 = 28 bạn.'},
 {type:'fill',prompt:'Lớp đếm được 14 bạn thích bơi và 10 bạn thích hát. Số bạn thích bơi nhiều hơn số bạn thích hát là ___ bạn.',answerText:'4',why:'14 − 10 = 4 bạn.'},
-{type:'tf',prompt:'Biểu đồ tranh dùng hình vẽ để biểu diễn số liệu.',options:['Đúng','Sai'],answer:0,why:'Đúng. Biểu đồ tranh thay số liệu bằng các hình vẽ.'}
+{type:'tf',prompt:'Biểu đồ tranh dùng hình vẽ để biểu diễn số liệu.',options:['Đúng','Sai'],answer:0,why:'Đúng. Biểu đồ tranh thay số liệu bằng các hình vẽ.'},
+{prompt:'Lớp kiểm đếm được: 11 bạn thích mèo, 14 bạn thích chó, 9 bạn thích chim. Con vật nào được nhiều bạn thích nhất?',options:['Chó','Mèo','Chim'],answer:0,why:'14 lớn hơn 11 và 9 nên chó được thích nhiều nhất.'},
+{prompt:'Biểu đồ tranh cho biết: mỗi hình vuông là 1 quyển sách. Một hàng có 6 hình vuông thì có bao nhiêu quyển sách?',options:['6 quyển','5 quyển','7 quyển'],answer:0,why:'Mỗi hình vuông là 1 quyển sách, 6 hình vuông là 6 quyển sách.'},
+{type:'fill',prompt:'Lớp có 16 bạn thích hát và 12 bạn thích nhảy. Số bạn thích hát nhiều hơn số bạn thích nhảy là ___ bạn.',answerText:'4',why:'Lấy 16 − 12 = 4 bạn.'},
+{type:'fill',prompt:'Kiểm đếm được 8 bạn đi xe đạp và 5 bạn đi bộ. Có tất cả ___ bạn được kiểm đếm.',answerText:'13',why:'Lấy 8 + 5 = 13 bạn.'},
+{type:'tf',prompt:'Biểu đồ tranh dùng chữ số để biểu diễn số liệu.',options:['Đúng','Sai'],answer:1,why:'Sai. Biểu đồ tranh dùng hình vẽ để biểu diễn số liệu.'}
 ]},
 {title:'Tuần 32 — Chắc chắn, có thể, không thể — Ôn tập các số trong phạm vi 1000',questions:[
 {prompt:'Ngày mai trời nắng là điều “chắc chắn” hay “có thể”?',options:['Chắc chắn','Không thể','Có thể'],answer:2,why:'Thời tiết ngày mai chưa biết trước nên chỉ là “có thể” nắng.'},
 {prompt:'Số lớn nhất có ba chữ số là số nào?',options:['999','900','1000'],answer:0,why:'Số lớn nhất có ba chữ số là 999.'},
 {prompt:'Số 805 đọc là gì?',options:['Tám trăm năm mươi','Tám trăm linh năm','Tám mươi lăm'],answer:1,why:'805 có 8 trăm, 0 chục, 5 đơn vị, đọc là tám trăm linh năm.'},
 {type:'fill',prompt:'Số lớn nhất có ba chữ số là ___.',answerText:'999',why:'Số lớn nhất có ba chữ số là 999.'},
-{type:'tf',prompt:'Ngày mai chắc chắn trời sẽ mưa.',options:['Đúng','Sai'],answer:1,why:'Sai. Thời tiết ngày mai chưa biết trước nên chỉ nói “có thể” mưa, không nói “chắc chắn”.'}
+{type:'tf',prompt:'Ngày mai chắc chắn trời sẽ mưa.',options:['Đúng','Sai'],answer:1,why:'Sai. Thời tiết ngày mai chưa biết trước nên chỉ nói “có thể” mưa, không nói “chắc chắn”.'},
+{prompt:'Trong hộp có 5 quả bóng đỏ. Em lấy ra 1 quả bóng. Quả bóng lấy ra chắc chắn là màu gì?',options:['Đỏ','Xanh','Vàng'],answer:0,why:'Trong hộp chỉ có bóng đỏ nên quả lấy ra chắc chắn là màu đỏ.'},
+{prompt:'Số bé nhất có ba chữ số là số nào?',options:['100','999','101'],answer:0,why:'Số bé nhất có ba chữ số là 100.'},
+{type:'fill',prompt:'Số có ba chữ số bé nhất là ___.',answerText:'100',why:'Số có ba chữ số bé nhất là 100.'},
+{type:'fill',prompt:'Số 460 đọc là: bốn trăm ___ mươi.',answerText:'sáu',why:'Số 460 có chữ số 6 ở hàng chục nên đọc là bốn trăm sáu mươi.',accept:['sáu']},
+{type:'tf',prompt:'Em tung một đồng xu, mặt ngửa chắc chắn sẽ xuất hiện.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi tung đồng xu, mặt ngửa chỉ có thể xuất hiện, không chắc chắn.'}
 ]},
 {title:'Tuần 33 — Ôn tập phép cộng, phép trừ trong phạm vi 100 và 1000',questions:[
 {prompt:'67 + 25 bằng bao nhiêu?',options:['92','82','102'],answer:0,why:'7+5=12 viết 2 nhớ 1; 6+2+1=9. Được 92.'},
 {prompt:'438 + 257 bằng bao nhiêu?',options:['685','695','705'],answer:1,why:'8+7=15 viết 5 nhớ 1; 3+5+1=9; 4+2=6. Được 695.'},
 {prompt:'824 − 379 bằng bao nhiêu?',options:['435','455','445'],answer:2,why:'14−9=5 (mượn); 11−7=4; 7−3=4. Được 445.'},
 {type:'fill',prompt:'Tính: 324 + 475 = ___',answerText:'799',why:'4 + 5 = 9; 2 + 7 = 9; 3 + 4 = 7. Được 799.'},
-{type:'tf',prompt:'512 − 268 = 244.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 − 8 = 4 (mượn); 10 − 6 = 4 (mượn tiếp); 4 − 2 = 2. Được 244.'}
+{type:'tf',prompt:'512 − 268 = 244.',options:['Đúng','Sai'],answer:0,why:'Đúng. 12 − 8 = 4 (mượn); 10 − 6 = 4 (mượn tiếp); 4 − 2 = 2. Được 244.'},
+{prompt:'93 − 48 bằng bao nhiêu?',options:['55','45','44'],answer:1,why:'93 − 48 = 45.'},
+{prompt:'567 + 328 bằng bao nhiêu?',options:['885','895','995'],answer:1,why:'567 + 328 = 895.'},
+{type:'fill',prompt:'Tính: 76 + 19 = ___.',answerText:'95',why:'76 + 19 = 95.'},
+{type:'fill',prompt:'Tính: 940 − 456 = ___.',answerText:'484',why:'940 − 456 = 484.'},
+{type:'tf',prompt:'285 + 415 = 700.',options:['Đúng','Sai'],answer:0,why:'Đúng. 285 + 415 = 700.'}
 ]},
 {title:'Tuần 34 — Ôn tập phép nhân, phép chia — Ôn tập hình học',questions:[
 {prompt:'2 × 9 bằng bao nhiêu?',options:['16','18','20'],answer:1,why:'2 × 9 là 2 được lấy 9 lần, bằng 18.'},
 {prompt:'30 : 5 bằng bao nhiêu?',options:['5','7','6'],answer:2,why:'Vì 5 × 6 = 30 nên 30 : 5 = 6.'},
 {prompt:'Hình tam giác có bao nhiêu cạnh?',options:['3 cạnh','4 cạnh','5 cạnh'],answer:0,why:'Hình tam giác có 3 cạnh và 3 góc.'},
 {type:'fill',prompt:'Tính: 5 × 7 = ___',answerText:'35',why:'Theo bảng nhân 5: 5 × 7 = 35.'},
-{type:'tf',prompt:'18 : 2 = 8.',options:['Đúng','Sai'],answer:1,why:'Sai. Vì 9 × 2 = 18 nên 18 : 2 = 9.'}
+{type:'tf',prompt:'18 : 2 = 8.',options:['Đúng','Sai'],answer:1,why:'Sai. Vì 9 × 2 = 18 nên 18 : 2 = 9.'},
+{prompt:'5 × 8 bằng bao nhiêu?',options:['35','40','45'],answer:1,why:'5 × 8 = 40.'},
+{prompt:'Hình chữ nhật có bao nhiêu cạnh?',options:['3 cạnh','4 cạnh','5 cạnh'],answer:1,why:'Hình chữ nhật có 4 cạnh.'},
+{type:'fill',prompt:'Tính: 25 : 5 = ___.',answerText:'5',why:'25 : 5 = 5.'},
+{type:'fill',prompt:'Tính: 12 : 2 = ___.',answerText:'6',why:'12 : 2 = 6.'},
+{type:'tf',prompt:'5 × 6 = 25.',options:['Đúng','Sai'],answer:1,why:'Sai. 5 × 6 = 30, không phải 25.'}
 ]},
 {title:'Tuần 35 — Ôn tập đo lường — Ôn tập kiểm đếm số liệu — Ôn tập chung cuối năm',questions:[
 {prompt:'3 m bằng bao nhiêu xăng-ti-mét?',options:['30 cm','3000 cm','300 cm'],answer:2,why:'1 m = 100 cm nên 3 m = 300 cm.'},
 {prompt:'Một tuần lễ em đếm được: thứ Hai mưa, thứ Ba mưa, các ngày còn lại nắng. Có bao nhiêu ngày mưa?',options:['2 ngày','3 ngày','5 ngày'],answer:0,why:'Chỉ thứ Hai và thứ Ba mưa, tức 2 ngày.'},
 {prompt:'51 + 49 bằng bao nhiêu?',options:['90','100','110'],answer:1,why:'1+9=10 viết 0 nhớ 1; 5+4+1=10. Được 100.'},
 {type:'fill',prompt:'Điền số thích hợp: 2 m = ___ cm.',answerText:'200',why:'1 m = 100 cm nên 2 m = 200 cm.'},
-{type:'tf',prompt:'1 km = 100 m.',options:['Đúng','Sai'],answer:1,why:'Sai. 1 km = 1 000 m.'}
+{type:'tf',prompt:'1 km = 100 m.',options:['Đúng','Sai'],answer:1,why:'Sai. 1 km = 1 000 m.'},
+{prompt:'1 m bằng bao nhiêu đề-xi-mét?',options:['10 dm','100 dm','1 dm'],answer:0,why:'1 m = 10 dm.'},
+{prompt:'Trong vườn có 13 cây hoa hồng và 11 cây hoa cúc. Có tất cả bao nhiêu cây hoa?',options:['24 cây','23 cây','25 cây'],answer:0,why:'Lấy 13 + 11 = 24 cây hoa.'},
+{type:'fill',prompt:'Điền số thích hợp: 30 dm = ___ m.',answerText:'3',why:'10 dm = 1 m nên 30 dm = 3 m.'},
+{type:'fill',prompt:'Tính: 68 + 32 = ___.',answerText:'100',why:'68 + 32 = 100.'},
+{type:'tf',prompt:'2 kg nhẹ hơn 5 kg.',options:['Đúng','Sai'],answer:0,why:'Đúng. 2 kg nhẹ hơn 5 kg.'}
 ]},
 ]},
 {name:'📖 Tiếng Việt',desc:'Theo SGK Tiếng Việt 2 Kết nối tri thức, chia theo tuần.',units:[
@@ -251,211 +426,421 @@ window.LESSON_DATA={title:'Vui học lớp 2',intro:'Chọn môn học, làm t�
 {prompt:'Điền dấu câu: “Bạn tên là gì___”',options:['.','?','!'],answer:1,why:'Câu hỏi thường kết thúc bằng dấu hỏi.'},
 {prompt:'Câu nào dùng để giới thiệu về mình?',options:['Em tên là gì?','Hoa ơi, vào lớp đi!','Em tên là Hoa, học lớp 2.'],answer:2,why:'Câu “Em tên là Hoa, học lớp 2.” là câu giới thiệu về bản thân.'},
 {type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Hôm nay em đi học sớm___',answerText:'.',why:'Câu kể lại sự việc kết thúc bằng dấu chấm.',accept:['.']},
-{type:'tf',prompt:'Khi viết tên riêng của bạn, em không cần viết hoa chữ cái đầu.',options:['Đúng','Sai'],answer:1,why:'Sai. Tên riêng của người phải viết hoa chữ cái đầu.'}
+{type:'tf',prompt:'Khi viết tên riêng của bạn, em không cần viết hoa chữ cái đầu.',options:['Đúng','Sai'],answer:1,why:'Sai. Tên riêng của người phải viết hoa chữ cái đầu.'},
+{prompt:'Câu nào là câu giới thiệu về mình?',options:['Em là học sinh lớp 2.','Em đang làm bài tập.','Hôm nay trời đẹp quá!'],answer:0,why:'Câu “Em là học sinh lớp 2.” giới thiệu về bản thân em.'},
+{prompt:'Khi giới thiệu tên mình, em nói thế nào?',options:['Bạn tên là gì?','Tên em là Minh Anh.','Em không biết.'],answer:1,why:'Khi giới thiệu, em nói rõ tên của mình: “Tên em là Minh Anh.”'},
+{prompt:'Từ nào chỉ sự vật?',options:['chạy','quyển vở','đẹp'],answer:1,why:'“Quyển vở” là đồ vật nên là từ chỉ sự vật.'},
+{type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Em tên là gì___',answerText:'?',why:'Câu dùng để hỏi nên kết thúc bằng dấu chấm hỏi.',accept:['?','dấu chấm hỏi']},
+{type:'fill',prompt:'Điền từ còn thiếu: Em là học sinh lớp ___.',answerText:'2',why:'Em đang học lớp 2.',accept:['2','hai']},
+{type:'tf',prompt:'Câu “Em tên là gì?” kết thúc bằng dấu chấm hỏi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu dùng để hỏi kết thúc bằng dấu chấm hỏi.'}
 ]},
 {title:'Tuần 2 — Niềm vui của Bi và Bống — Làm việc thật là vui',questions:[
 {prompt:'Từ nào chỉ hoạt động?',options:['xanh','chạy','bông hoa'],answer:1,why:'“Chạy” là từ chỉ hoạt động.'},
 {prompt:'Từ nào dưới đây chỉ sự vật trong nhà?',options:['cái chổi','quét nhà','sạch sẽ'],answer:0,why:'“Cái chổi” là từ chỉ sự vật — một đồ vật dùng để quét nhà.'},
 {type:'fill',prompt:'Điền từ chỉ hoạt động: Sáng nay, em ___ răng rồi đi học.',answerText:'đánh',why:'“Đánh răng” là hoạt động em làm mỗi sáng.',accept:['đánh']},
-{type:'tf',prompt:'Từ “xinh đẹp” là từ chỉ hoạt động.',options:['Đúng','Sai'],answer:1,why:'Sai. “Xinh đẹp” là từ chỉ đặc điểm; từ chỉ hoạt động là những từ như chạy, nhảy, hát.'}
+{type:'tf',prompt:'Từ “xinh đẹp” là từ chỉ hoạt động.',options:['Đúng','Sai'],answer:1,why:'Sai. “Xinh đẹp” là từ chỉ đặc điểm; từ chỉ hoạt động là những từ như chạy, nhảy, hát.'},
+{prompt:'Trong câu “Em giúp mẹ quét nhà.”, từ nào chỉ hoạt động?',options:['quét','nhà','mẹ'],answer:0,why:'“Quét” là việc em làm nên là từ chỉ hoạt động.'},
+{prompt:'Làm việc nhà giúp bố mẹ, em cảm thấy thế nào?',options:['Buồn bã','Mệt mỏi','Vui vẻ'],answer:2,why:'Giúp được bố mẹ, em cảm thấy vui vẻ.'},
+{prompt:'Trong câu “Em quét sân sạch sẽ.”, từ nào chỉ hoạt động?',options:['sân','quét','sạch sẽ'],answer:1,why:'“Quét” là việc em làm nên là từ chỉ hoạt động.'},
+{type:'fill',prompt:'Điền từ chỉ hoạt động: Em giúp mẹ ___ cơm vào buổi chiều.',answerText:'nấu',why:'“Nấu” là từ chỉ hoạt động nấu ăn.',accept:['nấu']},
+{type:'fill',prompt:'Điền từ còn thiếu: Làm việc thật là ___.',answerText:'vui',why:'Tên bài đọc là “Làm việc thật là vui”.',accept:['vui']},
+{type:'tf',prompt:'Từ “cái bàn” là từ chỉ hoạt động.',options:['Đúng','Sai'],answer:1,why:'Sai. “Cái bàn” là từ chỉ sự vật; từ chỉ hoạt động là “đọc”, “chạy”,...'}
 ]},
 {title:'Tuần 3 — Em có xinh không? — Một giờ học',questions:[
 {prompt:'Từ nào chỉ đặc điểm?',options:['bông hoa','xinh xắn','cười'],answer:1,why:'“Xinh xắn” nêu đặc điểm, vẻ ngoài của người hoặc vật.'},
 {prompt:'Chọn từ thích hợp: “Bạn Hoa học rất ___.”',options:['cái bàn','chạy','giỏi'],answer:2,why:'Cần từ chỉ đặc điểm/kết quả học tập: bạn Hoa học rất giỏi.'},
 {type:'fill',prompt:'Điền từ chỉ đặc điểm: Bông hoa hồng ___ ngát.',answerText:'thơm',why:'“Thơm” nêu đặc điểm mùi hương của bông hoa.',accept:['thơm']},
-{type:'tf',prompt:'Từ “chạy nhảy” là từ chỉ đặc điểm.',options:['Đúng','Sai'],answer:1,why:'Sai. “Chạy nhảy” là từ chỉ hoạt động, không phải từ chỉ đặc điểm.'}
+{type:'tf',prompt:'Từ “chạy nhảy” là từ chỉ đặc điểm.',options:['Đúng','Sai'],answer:1,why:'Sai. “Chạy nhảy” là từ chỉ hoạt động, không phải từ chỉ đặc điểm.'},
+{prompt:'Từ nào chỉ đặc điểm của bông hoa?',options:['đỏ thắm','nở','cánh hoa'],answer:0,why:'“Đỏ thắm” nói về đặc điểm màu sắc của bông hoa.'},
+{prompt:'Trong giờ học, em cần làm gì?',options:['Nói chuyện riêng','Nghe cô giảng bài','Ngủ gật'],answer:1,why:'Trong giờ học, em cần chú ý nghe cô giảng bài.'},
+{prompt:'Chọn từ thích hợp: “Giờ học hôm nay rất ___.”',options:['vui','chạy','bảng'],answer:0,why:'“Vui” là từ chỉ đặc điểm, hợp với câu.'},
+{type:'fill',prompt:'Điền từ chỉ đặc điểm: Bạn Nam học giỏi và ___.',answerText:'chăm chỉ',why:'“Chăm chỉ” là từ chỉ đặc điểm tính nết tốt.',accept:['chăm chỉ','ngoan']},
+{type:'fill',prompt:'Điền từ còn thiếu: Một giờ học trôi qua thật ___.',answerText:'nhanh',why:'Giờ học vui nên trôi qua thật nhanh.',accept:['nhanh','vui']},
+{type:'tf',prompt:'Từ “cao lớn” là từ chỉ hoạt động.',options:['Đúng','Sai'],answer:1,why:'Sai. “Cao lớn” là từ chỉ đặc điểm; từ chỉ hoạt động là “chạy”, “nhảy”,...'}
 ]},
 {title:'Tuần 4 — Cây xấu hổ — Cầu thủ dự bị',questions:[
 {prompt:'“Cây xấu hổ khép lá lại khi có người chạm vào.” Cây xấu hổ làm gì khi bị chạm vào?',options:['Nở hoa','Rụng hết lá','Khép lá lại'],answer:2,why:'Câu văn nói rõ: cây xấu hổ khép lá lại khi có người chạm vào.'},
 {prompt:'Chọn cách viết đúng của từ chỉ quả trên cây:',options:['trái cây','chái cây','trái câyy'],answer:0,why:'Viết đúng là “trái cây” với dấu sắc ở chữ “trái”.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Khi có người chạm vào, cây xấu hổ ___ lá lại.',answerText:'khép',why:'Cây xấu hổ khép lá lại khi có người chạm vào.',accept:['khép']},
-{type:'tf',prompt:'Cầu thủ dự bị được vào sân ngay từ đầu trận đấu.',options:['Đúng','Sai'],answer:1,why:'Sai. Cầu thủ dự bị ngồi ngoài sân và chỉ vào sân khi được thay người.'}
+{type:'tf',prompt:'Cầu thủ dự bị được vào sân ngay từ đầu trận đấu.',options:['Đúng','Sai'],answer:1,why:'Sai. Cầu thủ dự bị ngồi ngoài sân và chỉ vào sân khi được thay người.'},
+{prompt:'Khi đá bóng, cầu thủ dự bị ngồi ở đâu chờ vào sân?',options:['Trên khán đài','Hàng ghế dự bị','Giữa sân bóng'],answer:1,why:'Cầu thủ dự bị ngồi ở hàng ghế dự bị chờ đến lượt vào sân.'},
+{prompt:'Chọn từ viết đúng chính tả:',options:['xấu hổ','sấu hổ','xấu hố'],answer:0,why:'Từ đúng chính tả là “xấu hổ”.'},
+{prompt:'Cây xấu hổ còn được gọi là cây gì?',options:['Cây mắc cỡ','Cây bàng','Cây phượng'],answer:0,why:'Cây xấu hổ còn gọi là cây mắc cỡ (cây trinh nữ).'},
+{type:'fill',prompt:'Điền từ còn thiếu: Cầu thủ ___ bị ngồi ngoài sân chờ đến lượt vào sân.',answerText:'dự',why:'Người chờ vào sân thay người khác gọi là cầu thủ dự bị.',accept:['dự']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cây xấu hổ còn có tên gọi khác là cây mắc ___.',answerText:'cỡ',why:'Cây xấu hổ còn gọi là cây mắc cỡ.',accept:['cỡ']},
+{type:'tf',prompt:'Cầu thủ dự bị là người ghi được nhiều bàn thắng nhất.',options:['Đúng','Sai'],answer:1,why:'Sai. Cầu thủ dự bị là người ngồi chờ, sẵn sàng vào sân thay cho đồng đội.'}
 ]},
 {title:'Tuần 5 — Cô giáo lớp em — Thời khóa biểu',questions:[
 {prompt:'Từ nào gần nghĩa với “chăm chỉ”?',options:['siêng năng','lười biếng','ồn ào'],answer:0,why:'“Chăm chỉ” và “siêng năng” có nghĩa gần giống nhau.'},
 {prompt:'Mỗi ngày, em xem gì để biết hôm nay học những môn nào?',options:['Thời khóa biểu','Thực đơn','Bảng điểm danh'],answer:0,why:'Thời khóa biểu cho biết các môn học trong ngày và trong tuần.'},
 {type:'fill',prompt:'Điền từ gần nghĩa với “chăm chỉ”: Bạn Lan rất ___, luôn hoàn thành bài tập đầy đủ.',answerText:'siêng năng',why:'“Chăm chỉ” và “siêng năng” có nghĩa gần giống nhau.',accept:['siêng năng','chăm chỉ']},
-{type:'tf',prompt:'“Lười biếng” là từ gần nghĩa với “chăm chỉ”.',options:['Đúng','Sai'],answer:1,why:'Sai. “Lười biếng” trái nghĩa với “chăm chỉ”; từ gần nghĩa với “chăm chỉ” là “siêng năng”.'}
+{type:'tf',prompt:'“Lười biếng” là từ gần nghĩa với “chăm chỉ”.',options:['Đúng','Sai'],answer:1,why:'Sai. “Lười biếng” trái nghĩa với “chăm chỉ”; từ gần nghĩa với “chăm chỉ” là “siêng năng”.'},
+{prompt:'Thời khóa biểu cho em biết điều gì?',options:['Hôm nay học những môn nào','Hôm nay ăn món gì','Ngày mai trời mưa hay nắng'],answer:0,why:'Thời khóa biểu ghi các môn học của từng ngày.'},
+{prompt:'Từ nào trái nghĩa với “chăm chỉ”?',options:['siêng năng','lười biếng','cần cù'],answer:1,why:'“Lười biếng” có nghĩa ngược với “chăm chỉ”.'},
+{prompt:'Câu nào thể hiện lòng biết ơn cô giáo?',options:['Em cảm ơn cô đã dạy em.','Em không thích học.','Cô giáo đang viết bảng.'],answer:0,why:'Câu “Em cảm ơn cô đã dạy em.” thể hiện lòng biết ơn.'},
+{type:'fill',prompt:'Điền từ trái nghĩa với “chăm chỉ”: Bạn ấy rất ___, không chịu làm bài tập.',answerText:'lười biếng',why:'Từ trái nghĩa với “chăm chỉ” là “lười biếng”.',accept:['lười biếng']},
+{type:'fill',prompt:'Điền từ còn thiếu: Mỗi sáng, em xem ___ khóa biểu để soạn sách vở.',answerText:'thời',why:'Em xem thời khóa biểu để biết môn học.',accept:['thời']},
+{type:'tf',prompt:'Từ “cần cù” gần nghĩa với “chăm chỉ”.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Cần cù” và “chăm chỉ” đều nói về tính siêng năng.'}
 ]},
 {title:'Tuần 6 — Cái trống trường em — Danh sách học sinh',questions:[
 {prompt:'Khi viết họ và tên của mình, chữ cái đầu tiên phải viết thế nào?',options:['Viết thường','Viết hoa','Viết cách xa'],answer:1,why:'Tên riêng của người phải viết hoa chữ cái đầu.'},
 {prompt:'Chọn từ viết đúng — nơi em học tập mỗi ngày:',options:['xân trường','sân trườn','sân trường'],answer:2,why:'Viết đúng là “sân trường” — vần “ân” và “ương”.'},
 {type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: Bạn ___gọc là lớp trưởng của lớp em.',answerText:'N',why:'Tên riêng “Ngọc” phải viết hoa chữ cái đầu là N.',accept:['N']},
-{type:'tf',prompt:'Khi viết họ và tên của mình, chữ cái đầu của mỗi tiếng đều viết hoa.',options:['Đúng','Sai'],answer:0,why:'Đúng. Họ và tên người phải viết hoa chữ cái đầu của mỗi tiếng.'}
+{type:'tf',prompt:'Khi viết họ và tên của mình, chữ cái đầu của mỗi tiếng đều viết hoa.',options:['Đúng','Sai'],answer:0,why:'Đúng. Họ và tên người phải viết hoa chữ cái đầu của mỗi tiếng.'},
+{prompt:'Tiếng trống trường báo hiệu điều gì?',options:['Đến giờ vào lớp hoặc ra chơi','Đến giờ ăn trưa ở nhà','Trời sắp mưa'],answer:0,why:'Tiếng trống trường báo hiệu giờ vào lớp và giờ ra chơi.'},
+{prompt:'Danh sách học sinh dùng để làm gì?',options:['Vẽ tranh','Ghi tên các bạn trong lớp','Học hát'],answer:1,why:'Danh sách học sinh ghi họ tên các bạn trong lớp.'},
+{prompt:'Chọn cách viết đúng họ và tên:',options:['nguyễn văn an','Nguyễn Văn An','NGUYỄN văn AN'],answer:1,why:'Khi viết họ và tên, chữ cái đầu của mỗi tiếng đều viết hoa.'},
+{type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: Bạn ___inh là học sinh lớp 2.',answerText:'M',why:'Tên riêng “Minh” viết hoa chữ cái đầu là M.',accept:['M']},
+{type:'fill',prompt:'Điền từ còn thiếu: Tiếng ___ trường vang lên báo hiệu giờ vào lớp.',answerText:'trống',why:'Tiếng trống trường báo hiệu giờ vào lớp.',accept:['trống']},
+{type:'tf',prompt:'Khi viết tên riêng của bạn, chỉ cần viết hoa chữ cái đầu của tiếng đầu tiên.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi viết họ và tên, chữ cái đầu của mỗi tiếng đều phải viết hoa.'}
 ]},
 {title:'Tuần 7 — Yêu lắm trường ơi! — Em học vẽ',questions:[
 {prompt:'Câu nào tả ngôi trường của em?',options:['Em đi học.','Hôm nay là thứ Hai.','Trường em có sân rộng và nhiều cây xanh.'],answer:2,why:'Câu có từ ngữ tả đặc điểm (sân rộng, nhiều cây xanh) là câu tả trường.'},
 {prompt:'Trong câu “Em vẽ một bông hoa.”, từ nào chỉ hoạt động?',options:['vẽ','bông hoa','đẹp'],answer:0,why:'“Vẽ” là từ chỉ hoạt động trong câu.'},
 {type:'fill',prompt:'Điền từ tả đặc điểm: Sân trường em rộng và ___.',answerText:'sạch đẹp',why:'Có thể điền từ tả đặc điểm như “sạch đẹp”, “thoáng mát”.',accept:['sạch đẹp','sạch','đẹp','thoáng mát']},
-{type:'tf',prompt:'Câu “Em đến trường.” là câu tả ngôi trường.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu này chỉ kể việc em đến trường, không có từ ngữ tả đặc điểm của ngôi trường.'}
+{type:'tf',prompt:'Câu “Em đến trường.” là câu tả ngôi trường.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu này chỉ kể việc em đến trường, không có từ ngữ tả đặc điểm của ngôi trường.'},
+{prompt:'Từ nào chỉ hoạt động?',options:['hát','tiếng hát','hay'],answer:0,why:'“Hát” là việc làm nên là từ chỉ hoạt động.'},
+{prompt:'Khi học vẽ, em cần đồ dùng nào?',options:['Thước kẻ và vở','Cặp sách và mũ','Bút chì và giấy vẽ'],answer:2,why:'Học vẽ cần bút chì và giấy vẽ.'},
+{prompt:'Câu nào tả ngôi trường?',options:['Trường em có sân rộng và nhiều cây xanh.','Em đi học mỗi ngày.','Bạn Lan đang vẽ tranh.'],answer:0,why:'Câu này tả đặc điểm của ngôi trường.'},
+{type:'fill',prompt:'Điền từ tả đặc điểm: Ngôi trường của em rất ___.',answerText:'đẹp',why:'Từ chỉ đặc điểm hợp với câu là “đẹp”.',accept:['đẹp','xinh','sạch đẹp']},
+{type:'fill',prompt:'Điền từ chỉ hoạt động: Em ___ một ngôi nhà trong giờ học vẽ.',answerText:'vẽ',why:'“Vẽ” là từ chỉ hoạt động.',accept:['vẽ']},
+{type:'tf',prompt:'Câu “Em vẽ một bông hoa.” là câu tả ngôi trường.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu này kể việc em vẽ hoa, không tả ngôi trường.'}
 ]},
 {title:'Tuần 8 — Cuốn sách của em — Khi trang sách mở ra',questions:[
 {prompt:'Đọc sách mang lại cho em điều gì?',options:['Biết thêm nhiều điều hay','Mỏi tay hơn','Rách sách nhanh hơn'],answer:0,why:'Đọc sách giúp em biết thêm nhiều điều hay và bổ ích.'},
 {prompt:'Khi mượn sách của bạn, em cần làm gì?',options:['Gấp góc sách làm dấu','Giữ sách sạch, không vẽ bậy lên sách','Xé trang mình thích'],answer:1,why:'Em cần giữ gìn sách của bạn, đọc xong trả lại nguyên vẹn.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Em giữ gìn sách cẩn thận, không ___ trang sách.',answerText:'xé',why:'Giữ gìn sách là không xé, không làm rách trang sách.',accept:['xé']},
-{type:'tf',prompt:'Đọc sách giúp em biết thêm nhiều điều hay.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sách mang lại cho em nhiều kiến thức và điều hay mới.'}
+{type:'tf',prompt:'Đọc sách giúp em biết thêm nhiều điều hay.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sách mang lại cho em nhiều kiến thức và điều hay mới.'},
+{prompt:'Khi đọc sách, em nên ngồi thế nào?',options:['Nằm sấp đọc sách','Ngồi thẳng, đủ ánh sáng','Đọc trong bóng tối'],answer:1,why:'Ngồi thẳng và đủ ánh sáng giúp mắt không bị mỏi khi đọc sách.'},
+{prompt:'Từ nào chỉ sự vật?',options:['cuốn sách','đọc','hay'],answer:0,why:'“Cuốn sách” là đồ vật nên là từ chỉ sự vật.'},
+{prompt:'Em nên làm gì khi sách bị rách?',options:['Bỏ đi','Báo cô và dán lại cẩn thận','Xé luôn trang rách'],answer:1,why:'Sách rách cần báo cô và dán lại cẩn thận để giữ gìn sách.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em mở từng ___ sách nhẹ nhàng.',answerText:'trang',why:'Em mở từng trang sách nhẹ nhàng để sách không rách.',accept:['trang']},
+{type:'fill',prompt:'Điền từ còn thiếu: Đọc sách giúp em thêm hiểu ___.',answerText:'biết',why:'Đọc sách giúp em thêm hiểu biết.',accept:['biết']},
+{type:'tf',prompt:'Khi mượn sách của bạn, em có thể vẽ bậy lên sách.',options:['Đúng','Sai'],answer:1,why:'Sai. Mượn sách của bạn phải giữ gìn cẩn thận, không vẽ bậy lên sách.'}
 ]},
 {title:'Tuần 9 — Ôn tập giữa học kì 1',questions:[
 {prompt:'Câu nào là câu kể?',options:['Hôm nay em có đi học sớm không?','Hôm nay em đi học sớm.','Ôi, trường đẹp quá!'],answer:1,why:'Câu kể dùng để kể lại sự việc và kết thúc bằng dấu chấm.'},
 {prompt:'Chọn từ viết đúng — đồ dùng để ghi bài:',options:['quyển vỡ','cuển vở','quyển vở'],answer:2,why:'Viết đúng là “quyển vở”.'},
 {type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Bạn có thích đọc sách không___',answerText:'?',why:'Câu dùng để hỏi kết thúc bằng dấu hỏi (dấu chấm hỏi).',accept:['?']},
-{type:'tf',prompt:'Câu kể kết thúc bằng dấu chấm.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu kể dùng để kể lại sự việc và kết thúc bằng dấu chấm.'}
+{type:'tf',prompt:'Câu kể kết thúc bằng dấu chấm.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu kể dùng để kể lại sự việc và kết thúc bằng dấu chấm.'},
+{prompt:'Câu nào là câu hỏi?',options:['Hôm nay em đi học sớm.','Bạn đã làm bài tập chưa?','Em rất thích đọc sách.'],answer:1,why:'Câu “Bạn đã làm bài tập chưa?” dùng để hỏi nên là câu hỏi.'},
+{prompt:'Chọn từ viết đúng — vật em dùng để viết:',options:['búc','bút','bụp'],answer:1,why:'Từ đúng chính tả là “bút”.'},
+{prompt:'Dấu câu nào thường dùng ở cuối câu kể?',options:['Dấu chấm hỏi','Dấu chấm','Dấu phẩy'],answer:1,why:'Câu kể kết thúc bằng dấu chấm.'},
+{type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Em rất thích đi học___',answerText:'.',why:'Câu kể kết thúc bằng dấu chấm.',accept:['.','dấu chấm']},
+{type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: ___ạn Lan là bạn thân của em.',answerText:'B',why:'Đầu câu và tên riêng phải viết hoa chữ B.',accept:['B']},
+{type:'tf',prompt:'Câu hỏi kết thúc bằng dấu chấm hỏi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu dùng để hỏi kết thúc bằng dấu chấm hỏi.'}
 ]},
 {title:'Tuần 10 — Gọi bạn — Tớ nhớ cậu',questions:[
 {prompt:'Khi bạn buồn, em nên nói câu nào?',options:['Kệ bạn đi!','Sao bạn khóc hoài vậy?','Đừng buồn, có tớ ở đây!'],answer:2,why:'Câu nói an ủi, động viên cho thấy em quan tâm đến bạn.'},
 {prompt:'Từ nào gần nghĩa với “vui”?',options:['phấn khởi','buồn bã','tức giận'],answer:0,why:'“Phấn khởi” và “vui” có nghĩa gần giống nhau.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Bạn đừng ___ nữa, có tớ ở đây!',answerText:'buồn',why:'Câu an ủi bạn: “Bạn đừng buồn nữa, có tớ ở đây!”',accept:['buồn','khóc']},
-{type:'tf',prompt:'Khi bạn buồn, em nên bỏ đi chơi chỗ khác.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi bạn buồn, em nên ở bên an ủi, động viên bạn.'}
+{type:'tf',prompt:'Khi bạn buồn, em nên bỏ đi chơi chỗ khác.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi bạn buồn, em nên ở bên an ủi, động viên bạn.'},
+{prompt:'Từ nào gần nghĩa với “nhớ” khi nhớ bạn?',options:['mong nhớ','quên','ghét'],answer:0,why:'“Mong nhớ” gần nghĩa với “nhớ”.'},
+{prompt:'Khi bạn ốm nghỉ học, em nên làm gì?',options:['Không quan tâm','Cười đùa','Hỏi thăm và chúc bạn mau khỏe'],answer:2,why:'Em nên hỏi thăm và chúc bạn mau khỏe.'},
+{prompt:'Câu nào thể hiện tình bạn đẹp?',options:['Tớ luôn ở bên cậu.','Tớ không chơi với cậu nữa.','Cậu tự làm đi.'],answer:0,why:'Câu “Tớ luôn ở bên cậu.” thể hiện tình bạn gắn bó.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Tớ ___ cậu nhiều lắm!',answerText:'nhớ',why:'Tên bài đọc là “Tớ nhớ cậu”.',accept:['nhớ']},
+{type:'fill',prompt:'Điền từ gần nghĩa với “vui”: Hôm nay em rất ___.',answerText:'vui vẻ',why:'“Vui vẻ” gần nghĩa với “vui”.',accept:['vui vẻ','vui']},
+{type:'tf',prompt:'Khi bạn ốm nghỉ học, em không cần hỏi thăm bạn.',options:['Đúng','Sai'],answer:1,why:'Sai. Bạn ốm, em nên hỏi thăm và chúc bạn mau khỏe.'}
 ]},
 {title:'Tuần 11 — Chữ A và những người bạn — Nhím nâu kết bạn',questions:[
 {prompt:'Chữ cái nào đứng đầu bảng chữ cái tiếng Việt?',options:['Chữ A','Chữ B','Chữ Ă'],answer:0,why:'Bảng chữ cái tiếng Việt bắt đầu bằng chữ A.'},
 {prompt:'Muốn kết bạn mới, em có thể nói câu nào?',options:['Tránh ra cho tớ đi!','Chào bạn, mình làm quen nhé!','Bạn đừng chơi với tớ.'],answer:1,why:'Lời chào thân thiện giúp em làm quen và kết bạn mới.'},
 {type:'fill',prompt:'Chữ cái đứng ngay sau chữ A trong bảng chữ cái tiếng Việt là chữ ___.',answerText:'Ă',why:'Bảng chữ cái tiếng Việt: A, Ă, Â, B, C…',accept:['Ă','ă']},
-{type:'tf',prompt:'Bảng chữ cái tiếng Việt bắt đầu bằng chữ B.',options:['Đúng','Sai'],answer:1,why:'Sai. Bảng chữ cái tiếng Việt bắt đầu bằng chữ A.'}
+{type:'tf',prompt:'Bảng chữ cái tiếng Việt bắt đầu bằng chữ B.',options:['Đúng','Sai'],answer:1,why:'Sai. Bảng chữ cái tiếng Việt bắt đầu bằng chữ A.'},
+{prompt:'Chữ cái nào đứng ngay trước chữ C trong bảng chữ cái?',options:['A','B','D'],answer:1,why:'Thứ tự bảng chữ cái: A, B, C nên chữ trước C là B.'},
+{prompt:'Nhím nâu muốn kết bạn, nhím nên làm gì?',options:['Chào hỏi và làm quen với bạn','Trốn đi chỗ khác','Im lặng không nói gì'],answer:0,why:'Muốn kết bạn, cần chào hỏi và làm quen.'},
+{prompt:'Từ nào chỉ con vật?',options:['nhím','chạy','nhỏ'],answer:0,why:'“Nhím” là tên con vật nên là từ chỉ sự vật.'},
+{type:'fill',prompt:'Điền chữ cái còn thiếu: A, B, ___, D.',answerText:'C',why:'Bảng chữ cái theo thứ tự: A, B, C, D.',accept:['C']},
+{type:'fill',prompt:'Điền từ còn thiếu: Muốn có bạn, em cần ___ hỏi và làm quen.',answerText:'chào',why:'Muốn kết bạn, em cần chào hỏi và làm quen.',accept:['chào']},
+{type:'tf',prompt:'Chữ B đứng sau chữ A trong bảng chữ cái tiếng Việt.',options:['Đúng','Sai'],answer:0,why:'Đúng. Bảng chữ cái bắt đầu: A, B, C,...'}
 ]},
 {title:'Tuần 12 — Thả diều — Tớ là lê-gô',questions:[
 {prompt:'Từ nào chỉ đồ chơi?',options:['gió','diều','bầu trời'],answer:1,why:'“Diều” là một đồ chơi — từ chỉ sự vật.'},
 {prompt:'Câu nào đúng chính tả?',options:['Em thã diều ngoài đồng.','Em thả diều ngoài đòng.','Em thả diều ngoài đồng.'],answer:2,why:'Câu đúng: “thả” viết dấu hỏi, “đồng” viết với chữ đ và vần ông.'},
 {type:'fill',prompt:'Điền từ chỉ đồ chơi: Chiều mát, em ra đồng thả ___.',answerText:'diều',why:'“Diều” là đồ chơi em thả lên trời khi có gió.',accept:['diều','con diều']},
-{type:'tf',prompt:'Từ “diều” là từ chỉ đồ chơi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Diều là một đồ chơi quen thuộc của trẻ em.'}
+{type:'tf',prompt:'Từ “diều” là từ chỉ đồ chơi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Diều là một đồ chơi quen thuộc của trẻ em.'},
+{prompt:'Em chơi thả diều ở đâu cho an toàn và vui?',options:['Trên đồng cỏ rộng','Trong lớp học','Trên bàn học'],answer:0,why:'Thả diều nên chơi ở nơi rộng như đồng cỏ.'},
+{prompt:'Chọn từ viết đúng chính tả:',options:['xếp hình','sếp hình','xếp hinh'],answer:0,why:'Từ đúng chính tả là “xếp hình”.'},
+{prompt:'Từ nào chỉ hoạt động?',options:['thả','con diều','cao'],answer:0,why:'“Thả” là việc làm nên là từ chỉ hoạt động.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em ___ hình bằng các viên lê-gô.',answerText:'xếp',why:'Em xếp hình bằng các viên lê-gô.',accept:['xếp']},
+{type:'fill',prompt:'Điền từ còn thiếu: Con diều bay cao trên bầu ___.',answerText:'trời',why:'Con diều bay cao trên bầu trời.',accept:['trời']},
+{type:'tf',prompt:'Thả diều là trò chơi trong nhà.',options:['Đúng','Sai'],answer:1,why:'Sai. Thả diều là trò chơi ngoài trời, cần nơi rộng và có gió.'}
 ]},
 {title:'Tuần 13 — Rồng rắn lên mây — Nặn đồ chơi',questions:[
 {prompt:'“Rồng rắn lên mây” là trò chơi gì của trẻ em Việt Nam?',options:['Trò chơi điện tử','Trò chơi trên máy tính','Trò chơi dân gian'],answer:2,why:'Rồng rắn lên mây là trò chơi dân gian quen thuộc của trẻ em.'},
 {prompt:'Trong câu “Em nặn một con thỏ bằng đất sét.”, từ nào chỉ hoạt động?',options:['nặn','đất sét','mềm'],answer:0,why:'“Nặn” là hoạt động dùng tay tạo hình.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Trò chơi ___ rắn lên mây là trò chơi dân gian của trẻ em Việt Nam.',answerText:'rồng',why:'Tên trò chơi là “rồng rắn lên mây”.',accept:['rồng','Rồng']},
-{type:'tf',prompt:'Trò chơi “rồng rắn lên mây” là trò chơi điện tử.',options:['Đúng','Sai'],answer:1,why:'Sai. “Rồng rắn lên mây” là trò chơi dân gian, trẻ em chơi cùng nhau ở sân.'}
+{type:'tf',prompt:'Trò chơi “rồng rắn lên mây” là trò chơi điện tử.',options:['Đúng','Sai'],answer:1,why:'Sai. “Rồng rắn lên mây” là trò chơi dân gian, trẻ em chơi cùng nhau ở sân.'},
+{prompt:'Khi nặn đồ chơi, em dùng gì?',options:['Đất sét','Giấy báo','Que tính'],answer:0,why:'Em dùng đất sét để nặn đồ chơi.'},
+{prompt:'Trò chơi “rồng rắn lên mây” thường chơi ở đâu?',options:['Trong phòng ngủ','Trên cây','Ngoài sân rộng'],answer:2,why:'Trò chơi này cần nhiều bạn và chơi ở ngoài sân rộng.'},
+{prompt:'Từ nào chỉ hoạt động?',options:['nặn','đất sét','đẹp'],answer:0,why:'“Nặn” là việc làm nên là từ chỉ hoạt động.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em nặn một con ___ bằng đất sét.',answerText:'mèo',why:'Em có thể nặn nhiều con vật bằng đất sét, ví dụ con mèo.',accept:['mèo','thỏ','chó']},
+{type:'fill',prompt:'Điền từ còn thiếu: Trò chơi dân gian thường được chơi ở sân ___.',answerText:'trường',why:'Trò chơi dân gian thường chơi ở sân trường.',accept:['trường','làng']},
+{type:'tf',prompt:'Nặn đồ chơi bằng đất sét là một hoạt động thủ công.',options:['Đúng','Sai'],answer:0,why:'Đúng. Nặn đồ chơi bằng tay với đất sét là hoạt động thủ công.'}
 ]},
 {title:'Tuần 14 — Sự tích hoa tỉ muội — Em mang về yêu thương',questions:[
 {prompt:'Trong gia đình, anh chị em cần đối với nhau thế nào?',options:['Yêu thương, nhường nhịn nhau','Tranh giành đồ chơi','Không nói chuyện với nhau'],answer:0,why:'Anh chị em trong nhà cần yêu thương và nhường nhịn nhau.'},
 {prompt:'Từ nào chỉ đặc điểm tính nết của người?',options:['người chị','hiền lành','ôm'],answer:1,why:'“Hiền lành” nêu đặc điểm, tính nết của con người.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Anh chị em trong nhà phải ___ thương nhau.',answerText:'yêu',why:'Anh chị em trong nhà phải yêu thương, nhường nhịn nhau.',accept:['yêu']},
-{type:'tf',prompt:'Anh chị em nên tranh giành đồ chơi với nhau.',options:['Đúng','Sai'],answer:1,why:'Sai. Anh chị em cần yêu thương và nhường nhịn nhau, không tranh giành.'}
+{type:'tf',prompt:'Anh chị em nên tranh giành đồ chơi với nhau.',options:['Đúng','Sai'],answer:1,why:'Sai. Anh chị em cần yêu thương và nhường nhịn nhau, không tranh giành.'},
+{prompt:'Hoa tỉ muội tượng trưng cho điều gì?',options:['Tình anh chị em gắn bó','Sự giàu sang','Sức mạnh'],answer:0,why:'Hoa tỉ muội tượng trưng cho tình anh chị em gắn bó, yêu thương.'},
+{prompt:'Từ nào chỉ đặc điểm tính nết tốt?',options:['chiếc ghế','chạy','hiếu thảo'],answer:2,why:'“Hiếu thảo” là từ chỉ đặc điểm tính nết tốt.'},
+{prompt:'Câu nào thể hiện yêu thương trong gia đình?',options:['Em nhường đồ chơi cho em nhỏ.','Em giành đồ chơi của em.','Em không nói chuyện với ai.'],answer:0,why:'Nhường đồ chơi cho em thể hiện yêu thương.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Chị nhường phần bánh ngon cho ___.',answerText:'em',why:'Chị nhường phần bánh ngon cho em.',accept:['em']},
+{type:'fill',prompt:'Điền từ còn thiếu: Anh chị em phải đoàn ___ với nhau.',answerText:'kết',why:'Anh chị em phải đoàn kết với nhau.',accept:['kết']},
+{type:'tf',prompt:'Hoa tỉ muội tượng trưng cho sự giàu có.',options:['Đúng','Sai'],answer:1,why:'Sai. Hoa tỉ muội tượng trưng cho tình anh chị em gắn bó, yêu thương nhau.'}
 ]},
 {title:'Tuần 15 — Mẹ — Trò chơi của bố',questions:[
 {prompt:'Câu nào thể hiện tình cảm với mẹ?',options:['Mẹ nấu cơm chưa?','Con yêu mẹ nhiều lắm!','Con đi chơi đây.'],answer:1,why:'Câu “Con yêu mẹ nhiều lắm!” bày tỏ tình cảm yêu thương với mẹ.'},
 {prompt:'Chọn từ viết đúng — cảm giác khi được mẹ ôm vào lòng:',options:['ấm áp p','ấm ápp','ấm áp'],answer:2,why:'Viết đúng là “ấm áp” — cả hai tiếng đều có dấu sắc.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Con ___ mẹ nhiều lắm!',answerText:'yêu',why:'Câu nói bày tỏ tình cảm: “Con yêu mẹ nhiều lắm!”',accept:['yêu']},
-{type:'tf',prompt:'Câu “Con yêu mẹ nhiều lắm!” bày tỏ tình cảm yêu thương với mẹ.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu nói thể hiện rõ tình yêu thương của con với mẹ.'}
+{type:'tf',prompt:'Câu “Con yêu mẹ nhiều lắm!” bày tỏ tình cảm yêu thương với mẹ.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu nói thể hiện rõ tình yêu thương của con với mẹ.'},
+{prompt:'Câu nào kể việc làm của mẹ?',options:['Mẹ nấu cơm cho cả nhà.','Con yêu mẹ nhiều lắm!','Hôm nay trời nắng.'],answer:0,why:'Câu này kể việc mẹ nấu cơm cho cả nhà.'},
+{prompt:'Từ nào chỉ hoạt động của mẹ?',options:['cái nồi','ngon','nấu cơm'],answer:2,why:'“Nấu cơm” là việc mẹ làm nên là từ chỉ hoạt động.'},
+{prompt:'Chọn từ viết đúng — tình cảm con dành cho mẹ:',options:['yêu thương','yêu thươn','yêu thươngg'],answer:0,why:'Từ đúng chính tả là “yêu thương”.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Mẹ đi làm về, em chạy ra ___ mẹ.',answerText:'ôm',why:'Em chạy ra ôm mẹ khi mẹ đi làm về.',accept:['ôm','đón']},
+{type:'fill',prompt:'Điền từ còn thiếu: Bố dạy em chơi ___ vua vào buổi tối.',answerText:'cờ',why:'Bố dạy em chơi cờ vua.',accept:['cờ']},
+{type:'tf',prompt:'Mẹ là người sinh thành và nuôi dưỡng em.',options:['Đúng','Sai'],answer:0,why:'Đúng. Mẹ sinh thành và nuôi dưỡng em khôn lớn.'}
 ]},
 {title:'Tuần 16 — Cánh cửa nhớ bà — Thương ông',questions:[
 {prompt:'Khi ông bà đau chân, em có thể làm gì giúp ông bà?',options:['Chạy đi chơi ngay','Nói thật to cho vui','Lấy ghế mời ông bà ngồi nghỉ'],answer:2,why:'Lấy ghế mời ông bà ngồi là việc làm quan tâm, giúp đỡ ông bà.'},
 {prompt:'Điền dấu câu: “Ông ơi, ông có mệt không___”',options:['?','.','!'],answer:0,why:'Đây là câu hỏi nên kết thúc bằng dấu hỏi.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Khi ông bà mệt, em lấy ghế mời ông bà ___ nghỉ.',answerText:'ngồi',why:'Em lấy ghế mời ông bà ngồi nghỉ cho đỡ mệt.',accept:['ngồi']},
-{type:'tf',prompt:'Em nên chạy nhảy, la hét khi ông bà đang nghỉ ngơi.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi ông bà nghỉ ngơi, em cần giữ yên lặng để ông bà được nghỉ.'}
+{type:'tf',prompt:'Em nên chạy nhảy, la hét khi ông bà đang nghỉ ngơi.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi ông bà nghỉ ngơi, em cần giữ yên lặng để ông bà được nghỉ.'},
+{prompt:'Từ nào gần nghĩa với “thương” trong “thương ông”?',options:['yêu quý','ghét bỏ','xa lánh'],answer:0,why:'“Yêu quý” gần nghĩa với “thương”.'},
+{prompt:'Khi ông đang đọc báo, em nên làm gì?',options:['Bật nhạc thật to','Chạy nhảy quanh ông','Giữ yên lặng để ông đọc'],answer:2,why:'Em nên giữ yên lặng để ông đọc báo.'},
+{prompt:'Câu nào thể hiện lòng kính trọng ông bà?',options:['Em chúc ông bà mạnh khỏe.','Em nói trống không với ông.','Em giành đồ ăn của bà.'],answer:0,why:'Chúc ông bà mạnh khỏe thể hiện lòng kính trọng.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em rót nước mời ___ uống.',answerText:'ông',why:'Em rót nước mời ông (hoặc bà) uống.',accept:['ông','bà']},
+{type:'fill',prompt:'Điền từ còn thiếu: Bà kể ___ cho em nghe trước khi đi ngủ.',answerText:'chuyện',why:'Bà kể chuyện cho em nghe.',accept:['chuyện']},
+{type:'tf',prompt:'Khi ông bà đang mệt, em nên bật nhạc thật to cho vui.',options:['Đúng','Sai'],answer:1,why:'Sai. Ông bà đang mệt cần yên tĩnh nghỉ ngơi, em không nên làm ồn.'}
 ]},
 {title:'Tuần 17 — Ánh sáng của yêu thương — Chơi chong chóng',questions:[
 {prompt:'Việc làm nào thể hiện yêu thương gia đình?',options:['Quây quần bên mâm cơm cùng ông bà, bố mẹ','Xem điện thoại suốt bữa ăn','Cãi nhau với em'],answer:0,why:'Sum họp, quây quần bên gia đình là biểu hiện của yêu thương.'},
 {prompt:'Từ nào gần nghĩa với “yêu thương”?',options:['ghét bỏ','trìu mến','lạnh lùng'],answer:1,why:'“Trìu mến” và “yêu thương” có nghĩa gần giống nhau.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Buổi tối, cả nhà em quây ___ bên mâm cơm.',answerText:'quần',why:'“Quây quần” là sum họp, ở bên nhau đầm ấm.',accept:['quần']},
-{type:'tf',prompt:'Quây quần bên gia đình là việc làm thể hiện yêu thương.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sum họp, quây quần bên người thân là biểu hiện của yêu thương gia đình.'}
+{type:'tf',prompt:'Quây quần bên gia đình là việc làm thể hiện yêu thương.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sum họp, quây quần bên người thân là biểu hiện của yêu thương gia đình.'},
+{prompt:'Chong chóng quay được nhờ gì?',options:['Nhờ pin','Nhờ gió thổi','Nhờ nước'],answer:1,why:'Chong chóng quay nhờ gió thổi.'},
+{prompt:'Từ nào trái nghĩa với “yêu thương”?',options:['ghét bỏ','quý mến','trân trọng'],answer:0,why:'“Ghét bỏ” có nghĩa ngược với “yêu thương”.'},
+{prompt:'Việc làm nào thể hiện yêu thương bố mẹ?',options:['Giúp mẹ quét nhà','Làm bài tập qua loa','Nói dối bố mẹ'],answer:0,why:'Giúp mẹ quét nhà thể hiện yêu thương bố mẹ.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em cầm chong chóng chạy để đón ___.',answerText:'gió',why:'Em chạy để đón gió cho chong chóng quay.',accept:['gió']},
+{type:'fill',prompt:'Điền từ còn thiếu: Gia đình em sống rất hạnh ___.',answerText:'phúc',why:'Gia đình em sống rất hạnh phúc.',accept:['phúc']},
+{type:'tf',prompt:'Chong chóng chỉ quay khi có gió thổi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Không có gió, chong chóng không quay được.'}
 ]},
 {title:'Tuần 18 — Ôn tập và đánh giá cuối học kì 1',questions:[
 {prompt:'Câu nào viết đúng dấu câu?',options:['Em yêu trường em','Em yêu trường em.','em yêu trường em.'],answer:1,why:'Câu kể bắt đầu viết hoa và kết thúc bằng dấu chấm.'},
 {prompt:'Chọn từ viết đúng — từ khen một em bé ngoan:',options:['ngoan ngoản','ngoan ngoẵnn','ngoan ngoãn'],answer:2,why:'Viết đúng là “ngoan ngoãn” với dấu ngã.'},
 {type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: ___m yêu trường em.',answerText:'E',why:'Đầu câu phải viết hoa: “Em yêu trường em.”',accept:['E']},
-{type:'tf',prompt:'Đầu câu không cần viết hoa.',options:['Đúng','Sai'],answer:1,why:'Sai. Đầu câu luôn phải viết hoa chữ cái đầu tiên.'}
+{type:'tf',prompt:'Đầu câu không cần viết hoa.',options:['Đúng','Sai'],answer:1,why:'Sai. Đầu câu luôn phải viết hoa chữ cái đầu tiên.'},
+{prompt:'Câu nào viết đúng?',options:['em đi học.','Em đi học.','Em đi học'],answer:1,why:'Đầu câu viết hoa và cuối câu có dấu chấm mới đúng.'},
+{prompt:'Chọn từ viết đúng — khen bạn học tốt:',options:['học giỏi','học dỏi','học giổi'],answer:0,why:'Từ đúng chính tả là “học giỏi”.'},
+{prompt:'Dấu phẩy dùng để làm gì?',options:['Ngắt ý trong câu','Kết thúc câu','Hỏi một điều gì đó'],answer:0,why:'Dấu phẩy dùng để ngắt ý trong câu.'},
+{type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Bạn có đi chơi không___',answerText:'?',why:'Câu dùng để hỏi kết thúc bằng dấu chấm hỏi.',accept:['?','dấu chấm hỏi']},
+{type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: ___ôm nay em đi học.',answerText:'H',why:'Đầu câu phải viết hoa chữ H.',accept:['H']},
+{type:'tf',prompt:'Cuối câu kể, em viết dấu chấm.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu kể kết thúc bằng dấu chấm.'}
 ]},
 {title:'Tuần 19 — Chuyện bốn mùa — Mùa nước nổi',questions:[
 {prompt:'Một năm có mấy mùa?',options:['2 mùa','12 mùa','4 mùa'],answer:2,why:'Một năm có 4 mùa: xuân, hạ, thu, đông.'},
 {prompt:'Từ nào chỉ thời tiết mùa hè?',options:['nắng nóng','se lạnh','mưa phùn'],answer:0,why:'Mùa hè thường nắng nóng.'},
 {type:'fill',prompt:'Điền mùa còn thiếu: Một năm có bốn mùa: xuân, hạ, ___, đông.',answerText:'thu',why:'Bốn mùa trong năm là xuân, hạ, thu, đông.',accept:['thu']},
-{type:'tf',prompt:'Một năm có 12 mùa.',options:['Đúng','Sai'],answer:1,why:'Sai. Một năm có 4 mùa: xuân, hạ, thu, đông (12 là số tháng trong năm).'}
+{type:'tf',prompt:'Một năm có 12 mùa.',options:['Đúng','Sai'],answer:1,why:'Sai. Một năm có 4 mùa: xuân, hạ, thu, đông (12 là số tháng trong năm).'},
+{prompt:'Mùa nào trong năm lạnh nhất?',options:['Mùa đông','Mùa hè','Mùa xuân'],answer:0,why:'Mùa đông là mùa lạnh nhất trong năm.'},
+{prompt:'Mùa nước nổi thường có ở vùng nào của nước ta?',options:['Vùng núi cao','Sa mạc','Đồng bằng sông Cửu Long'],answer:2,why:'Mùa nước nổi là mùa đặc trưng ở đồng bằng sông Cửu Long.'},
+{prompt:'Từ nào chỉ thời tiết mùa đông?',options:['lạnh giá','nóng nực','oi bức'],answer:0,why:'“Lạnh giá” là từ chỉ thời tiết mùa đông.'},
+{type:'fill',prompt:'Điền mùa còn thiếu: xuân, ___, thu, đông.',answerText:'hạ',why:'Bốn mùa theo thứ tự: xuân, hạ, thu, đông.',accept:['hạ','hè']},
+{type:'fill',prompt:'Điền từ còn thiếu: Mùa hè trời rất ___.',answerText:'nóng',why:'Mùa hè trời rất nóng.',accept:['nóng','nắng']},
+{type:'tf',prompt:'Một năm có năm mùa.',options:['Đúng','Sai'],answer:1,why:'Sai. Một năm có bốn mùa: xuân, hạ, thu, đông.'}
 ]},
 {title:'Tuần 20 — Họa mi hót — Tết đến rồi',questions:[
 {prompt:'Từ nào viết đúng?',options:['nghỉ ngơi','ngỉ ngơi','nghĩ ngơi'],answer:0,why:'Viết đúng là “nghỉ ngơi”.'},
 {prompt:'Đọc đoạn: “Sáng mùng một Tết, em mặc áo mới, chúc Tết ông bà.” Em làm gì vào sáng mùng một Tết?',options:['Mặc áo mới và chúc Tết ông bà','Đi học như thường','Ra đồng gặt lúa'],answer:0,why:'Đoạn văn nói em mặc áo mới, chúc Tết ông bà vào sáng mùng một.'},
 {type:'fill',prompt:'Điền chữ còn thiếu cho đúng chính tả: Sau giờ học, em về nhà ___ ngơi một lúc.',answerText:'nghỉ',why:'Viết đúng chính tả là “nghỉ ngơi” với dấu hỏi.',accept:['nghỉ']},
-{type:'tf',prompt:'Từ “nghỉ ngơi” viết như vậy là đúng chính tả.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Nghỉ ngơi” viết với “ngh” và dấu hỏi ở tiếng “nghỉ”.'}
+{type:'tf',prompt:'Từ “nghỉ ngơi” viết như vậy là đúng chính tả.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Nghỉ ngơi” viết với “ngh” và dấu hỏi ở tiếng “nghỉ”.'},
+{prompt:'Chim họa mi nổi tiếng vì điều gì?',options:['Hót hay','Bay nhanh','Bơi giỏi'],answer:0,why:'Chim họa mi nổi tiếng vì tiếng hót hay.'},
+{prompt:'Ngày Tết, em thường làm gì?',options:['Đi học như thường','Ngủ cả ngày','Chúc Tết ông bà'],answer:2,why:'Ngày Tết, em chúc Tết ông bà và người lớn.'},
+{prompt:'Chọn từ viết đúng:',options:['bánh chưng','bánh trưng','bánh chưngg'],answer:0,why:'Từ đúng chính tả là “bánh chưng”.'},
+{type:'fill',prompt:'Điền chữ còn thiếu cho đúng chính tả: Ngày Tết, nhà em gói bánh ___.',answerText:'chưng',why:'Ngày Tết, nhà em gói bánh chưng.',accept:['chưng']},
+{type:'fill',prompt:'Điền từ còn thiếu: Em chúc ông bà sống lâu, mạnh ___.',answerText:'khỏe',why:'Em chúc ông bà mạnh khỏe.',accept:['khỏe']},
+{type:'tf',prompt:'Ngày Tết, em nên chúc Tết và nói lời hay với người lớn.',options:['Đúng','Sai'],answer:0,why:'Đúng. Ngày Tết, em chúc Tết và nói lời hay, ý đẹp.'}
 ]},
 {title:'Tuần 21 — Giọt nước và biển lớn — Mùa vàng',questions:[
 {prompt:'Giọt nước nhỏ chảy mãi sẽ góp thành gì lớn?',options:['Cái cốc','Biển lớn','Vũng nước nhỏ'],answer:1,why:'Nhiều giọt nước góp lại thành sông, biển lớn — như bài học về sự kiên trì.'},
 {prompt:'Từ nào chỉ sự vật trong thiên nhiên?',options:['chảy','mênh mông','dòng sông'],answer:2,why:'“Dòng sông” là từ chỉ sự vật trong thiên nhiên.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Nhiều giọt nước góp lại thành ___ lớn.',answerText:'biển',why:'Nhiều giọt nước góp lại thành sông, thành biển lớn.',accept:['biển']},
-{type:'tf',prompt:'Một giọt nước nhỏ thì không bao giờ góp được thành biển lớn.',options:['Đúng','Sai'],answer:1,why:'Sai. Rất nhiều giọt nước nhỏ góp lại sẽ thành biển lớn, như bài học về sự kiên trì.'}
+{type:'tf',prompt:'Một giọt nước nhỏ thì không bao giờ góp được thành biển lớn.',options:['Đúng','Sai'],answer:1,why:'Sai. Rất nhiều giọt nước nhỏ góp lại sẽ thành biển lớn, như bài học về sự kiên trì.'},
+{prompt:'Từ nào chỉ sự vật?',options:['biển','chảy','to'],answer:0,why:'“Biển” là sự vật nên là từ chỉ sự vật.'},
+{prompt:'“Mùa vàng” gợi nhớ đến mùa nào ở làng quê?',options:['Mùa lúa chín','Mùa đông lạnh','Mùa mưa bão'],answer:0,why:'“Mùa vàng” là mùa lúa chín vàng ở làng quê.'},
+{prompt:'Nhiều giọt nước nhỏ góp lại sẽ thành gì?',options:['Biển lớn','Giọt mưa','Đám mây'],answer:0,why:'Nhiều giọt nước góp lại thành biển lớn.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Từng giọt nước nhỏ chảy về ___ lớn.',answerText:'biển',why:'Giọt nước chảy về biển lớn.',accept:['biển']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cánh đồng lúa chín vàng vào mùa ___.',answerText:'gặt',why:'Lúa chín vàng vào mùa gặt.',accept:['gặt','thu hoạch']},
+{type:'tf',prompt:'“Mùa vàng” là mùa tuyết rơi trắng xóa khắp cánh đồng.',options:['Đúng','Sai'],answer:1,why:'Sai. “Mùa vàng” là mùa lúa chín vàng, không phải mùa tuyết rơi.'}
 ]},
 {title:'Tuần 22 — Hạt thóc — Lũy tre',questions:[
 {prompt:'Người nông dân gặt lúa khi nào?',options:['Khi lúa mới gieo','Khi trời tối','Khi lúa chín vàng'],answer:2,why:'Lúa chín vàng là lúc nông dân thu hoạch, gặt lúa.'},
 {prompt:'Chọn từ viết đúng — hàng tre xanh ở làng quê:',options:['lũy tre','lủy tre','lũy che'],answer:0,why:'Viết đúng là “lũy tre” — “lũy” dấu ngã, “tre” bắt đầu bằng tr.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Người nông dân gặt lúa khi lúa chín ___.',answerText:'vàng',why:'Lúa chín vàng là lúc nông dân thu hoạch.',accept:['vàng']},
-{type:'tf',prompt:'Lũy tre là hình ảnh quen thuộc của làng quê Việt Nam.',options:['Đúng','Sai'],answer:0,why:'Đúng. Lũy tre xanh thường mọc quanh làng quê Việt Nam.'}
+{type:'tf',prompt:'Lũy tre là hình ảnh quen thuộc của làng quê Việt Nam.',options:['Đúng','Sai'],answer:0,why:'Đúng. Lũy tre xanh thường mọc quanh làng quê Việt Nam.'},
+{prompt:'Hạt thóc là hạt của cây gì?',options:['Cây ngô','Cây tre','Cây lúa'],answer:2,why:'Hạt thóc là hạt của cây lúa.'},
+{prompt:'Lũy tre thường mọc ở đâu?',options:['Quanh làng quê','Giữa biển','Trên núi tuyết'],answer:0,why:'Lũy tre thường mọc quanh làng quê.'},
+{prompt:'Từ nào chỉ hoạt động của người nông dân?',options:['gặt lúa','hạt thóc','vàng óng'],answer:0,why:'“Gặt lúa” là việc làm nên là từ chỉ hoạt động.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Người nông dân phơi ___ dưới nắng cho khô.',answerText:'thóc',why:'Người nông dân phơi thóc dưới nắng.',accept:['thóc','lúa']},
+{type:'fill',prompt:'Điền từ còn thiếu: Lũy ___ xanh rợp bóng mát ở đầu làng.',answerText:'tre',why:'Lũy tre xanh ở đầu làng.',accept:['tre']},
+{type:'tf',prompt:'Hạt thóc do người nông dân trồng và chăm sóc mới có được.',options:['Đúng','Sai'],answer:0,why:'Đúng. Người nông dân trồng, chăm sóc lúa mới có hạt thóc.'}
 ]},
 {title:'Tuần 23 — Vè chim — Khủng long',questions:[
 {prompt:'Con vật nào biết bắt chước tiếng người nói?',options:['Con vẹt','Con gà','Con vịt'],answer:0,why:'Chim vẹt có thể bắt chước tiếng người nói.'},
 {prompt:'Khủng long là loài vật sống ở đâu trong truyện và sách khoa học cho trẻ em?',options:['Dưới đáy biển ngày nay','Trên Trái Đất từ rất lâu về trước','Trên Mặt Trăng'],answer:1,why:'Khủng long đã sống trên Trái Đất từ rất lâu về trước và nay không còn nữa.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Con ___ biết bắt chước tiếng người nói.',answerText:'vẹt',why:'Chim vẹt có thể bắt chước tiếng người nói.',accept:['vẹt','chim vẹt']},
-{type:'tf',prompt:'Khủng long là con vật em có thể gặp ở vườn thú ngày nay.',options:['Đúng','Sai'],answer:1,why:'Sai. Khủng long sống cách đây rất lâu và ngày nay không còn nữa.'}
+{type:'tf',prompt:'Khủng long là con vật em có thể gặp ở vườn thú ngày nay.',options:['Đúng','Sai'],answer:1,why:'Sai. Khủng long sống cách đây rất lâu và ngày nay không còn nữa.'},
+{prompt:'Con vẹt biết làm gì đặc biệt?',options:['Bắt chước tiếng người nói','Bơi dưới nước','Đào hang'],answer:0,why:'Con vẹt biết bắt chước tiếng người nói.'},
+{prompt:'Khủng long sống vào thời gian nào?',options:['Mới năm ngoái','Ngày hôm qua','Rất lâu rồi, nay đã không còn'],answer:2,why:'Khủng long sống từ rất lâu rồi và nay đã không còn nữa.'},
+{prompt:'Từ nào chỉ con vật?',options:['khủng long','to lớn','chạy'],answer:0,why:'“Khủng long” là tên con vật nên là từ chỉ sự vật.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Con ___ có chiếc mỏ cong và biết bắt chước tiếng người.',answerText:'vẹt',why:'Con vẹt biết bắt chước tiếng người nói.',accept:['vẹt']},
+{type:'fill',prompt:'Điền từ còn thiếu: Khủng long là loài vật đã sống từ rất ___.',answerText:'lâu',why:'Khủng long sống từ rất lâu rồi.',accept:['lâu','xa xưa']},
+{type:'tf',prompt:'Con vẹt biết bơi rất giỏi.',options:['Đúng','Sai'],answer:1,why:'Sai. Con vẹt nổi tiếng vì biết bắt chước tiếng người nói.'}
 ]},
 {title:'Tuần 24 — Sự tích cây thì là — Bờ tre đón khách',questions:[
 {prompt:'“Lan tưới cây mỗi sáng. Cây trong vườn xanh tốt.” Ai tưới cây?',options:['Lan','Bạn Nam','Cô giáo'],answer:0,why:'Câu đầu cho biết Lan tưới cây mỗi sáng.'},
 {prompt:'Trong câu trên, cây xanh tốt nhờ điều gì?',options:['Được tưới chăm sóc','Trời tối','Có nhiều đồ chơi'],answer:0,why:'Lan tưới cây đều đặn nên cây được chăm sóc.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Mỗi sáng, Lan ___ cây trong vườn.',answerText:'tưới',why:'Lan tưới cây mỗi sáng để cây xanh tốt.',accept:['tưới']},
-{type:'tf',prompt:'Đọc kĩ bài văn sẽ giúp em trả lời đúng các câu hỏi về bài.',options:['Đúng','Sai'],answer:0,why:'Đúng. Đọc kĩ và nhớ chi tiết trong bài giúp em trả lời đúng câu hỏi.'}
+{type:'tf',prompt:'Đọc kĩ bài văn sẽ giúp em trả lời đúng các câu hỏi về bài.',options:['Đúng','Sai'],answer:0,why:'Đúng. Đọc kĩ và nhớ chi tiết trong bài giúp em trả lời đúng câu hỏi.'},
+{prompt:'Cây cối trong vườn xanh tốt nhờ điều gì?',options:['Được tưới nước, chăm sóc','Không ai ngó tới','Trời không mưa'],answer:0,why:'Cây được tưới nước, chăm sóc nên xanh tốt.'},
+{prompt:'Trong câu “Lan tưới cây mỗi sáng.”, từ nào chỉ hoạt động?',options:['tưới','cây','mỗi sáng'],answer:0,why:'“Tưới” là việc Lan làm nên là từ chỉ hoạt động.'},
+{prompt:'Bờ tre đón khách gợi đến hình ảnh nơi nào?',options:['Làng quê yên bình','Thành phố ồn ào','Bãi biển'],answer:0,why:'Bờ tre là hình ảnh của làng quê yên bình.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Sáng nào Lan cũng ___ nước cho cây.',answerText:'tưới',why:'Lan tưới nước cho cây mỗi sáng.',accept:['tưới']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cây trong vườn ___ tốt nhờ được chăm sóc.',answerText:'xanh',why:'Cây xanh tốt nhờ được chăm sóc.',accept:['xanh']},
+{type:'tf',prompt:'Chăm sóc cây thường xuyên giúp cây xanh tốt.',options:['Đúng','Sai'],answer:0,why:'Đúng. Tưới nước, chăm sóc giúp cây xanh tốt.'}
 ]},
 {title:'Tuần 25 — Tiếng chổi tre — Cỏ non cười rồi',questions:[
 {prompt:'Bác lao công quét sân trường vào lúc nào để sân sạch đẹp?',options:['Lúc nửa đêm','Khi học sinh đang thi','Từ sớm tinh mơ'],answer:2,why:'Các bác lao công thường quét dọn từ rất sớm, trước giờ học.'},
 {prompt:'Trong câu “Bác lao công quét sân từ sớm.”, từ nào chỉ hoạt động?',options:['quét','bác lao công','sớm'],answer:0,why:'“Quét” là từ chỉ hoạt động trong câu.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Bác lao công quét sân trường từ sớm tinh ___.',answerText:'mơ',why:'“Sớm tinh mơ” là lúc trời vừa sáng, rất sớm.',accept:['mơ']},
-{type:'tf',prompt:'Bác lao công quét dọn giúp sân trường sạch đẹp.',options:['Đúng','Sai'],answer:0,why:'Đúng. Nhờ bác lao công quét dọn từ sớm mà sân trường luôn sạch đẹp.'}
+{type:'tf',prompt:'Bác lao công quét dọn giúp sân trường sạch đẹp.',options:['Đúng','Sai'],answer:0,why:'Đúng. Nhờ bác lao công quét dọn từ sớm mà sân trường luôn sạch đẹp.'},
+{prompt:'Từ nào chỉ hoạt động?',options:['cái chổi','sạch','quét'],answer:2,why:'“Quét” là việc làm nên là từ chỉ hoạt động.'},
+{prompt:'Cỏ non thường mọc lên xanh tươi vào mùa nào?',options:['Mùa xuân','Mùa đông','Mùa hè'],answer:0,why:'Mùa xuân ấm áp, cỏ non mọc xanh tươi.'},
+{prompt:'Em nên làm gì để giúp bác lao công?',options:['Giữ sân trường sạch, không vứt rác bừa bãi','Vứt rác ra sân','Chạy nhảy khi bác đang quét'],answer:0,why:'Giữ sân sạch, không vứt rác bừa bãi là giúp bác lao công.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Bác lao công cầm ___ quét sân.',answerText:'chổi',why:'Bác lao công cầm chổi quét sân.',accept:['chổi']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cỏ non mọc xanh sau cơn ___.',answerText:'mưa',why:'Sau cơn mưa, cỏ non mọc xanh.',accept:['mưa']},
+{type:'tf',prompt:'Vứt rác bừa bãi giúp sân trường sạch đẹp.',options:['Đúng','Sai'],answer:1,why:'Sai. Vứt rác bừa bãi làm sân trường bẩn; em cần bỏ rác vào thùng.'}
 ]},
 {title:'Tuần 26 — Những con sao biển — Tạm biệt cánh cam',questions:[
 {prompt:'Con gì sống ở biển, có nhiều cánh tay mềm?',options:['Con bạch tuộc','Con sao biển có 5 cánh','Con ngựa'],answer:0,why:'Sao biển thường có 5 cánh; bạch tuộc sống ở biển và có 8 xúc tu mềm.'},
 {prompt:'Con cam (cánh cam) khi trưởng thành thường bay đến đâu vào buổi tối?',options:['Xuống đáy sông','Nơi có ánh đèn sáng','Vào tổ dưới đất'],answer:1,why:'Nhiều loài côn trùng như cánh cam thường bay về phía ánh sáng đèn vào buổi tối.'},
 {type:'fill',prompt:'Điền số còn thiếu: Sao biển thường có ___ cánh.',answerText:'5',why:'Sao biển thường có 5 cánh.',accept:['5','năm']},
-{type:'tf',prompt:'Sao biển sống ở trên cây.',options:['Đúng','Sai'],answer:1,why:'Sai. Sao biển sống ở biển, dưới nước.'}
+{type:'tf',prompt:'Sao biển sống ở trên cây.',options:['Đúng','Sai'],answer:1,why:'Sai. Sao biển sống ở biển, dưới nước.'},
+{prompt:'Sao biển sống ở đâu?',options:['Trên cây','Trong rừng','Dưới biển'],answer:2,why:'Sao biển là con vật sống dưới biển.'},
+{prompt:'Cánh cam là con gì?',options:['Một loài bọ cánh cứng','Một loài chim','Một loài cá'],answer:0,why:'Cánh cam là một loài bọ cánh cứng.'},
+{prompt:'Từ nào chỉ con vật sống ở biển?',options:['sao biển','cây thông','hòn đá'],answer:0,why:'“Sao biển” là con vật sống ở biển.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Sao biển có nhiều cánh tay ___.',answerText:'mềm',why:'Sao biển có nhiều cánh tay mềm.',accept:['mềm']},
+{type:'fill',prompt:'Điền từ còn thiếu: Buổi tối, cánh cam thường bay đến nơi có ánh ___.',answerText:'đèn',why:'Cánh cam bay đến nơi có ánh đèn vào buổi tối.',accept:['đèn','sáng']},
+{type:'tf',prompt:'Sao biển là con vật sống dưới biển.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sao biển sống ở biển.'}
 ]},
 {title:'Tuần 27 — Ôn tập giữa học kì 2',questions:[
 {prompt:'Câu nào là câu hỏi?',options:['Hôm nay bạn mang sách.','Hôm nay bạn có mang sách không?','Ôi, sách hay quá!'],answer:1,why:'Câu kết thúc bằng dấu hỏi và dùng để hỏi là câu hỏi.'},
 {prompt:'Chọn từ viết đúng — ý nói phải bảo vệ, không làm hư hỏng:',options:['giữ gình','dữ gìn','giữ gìn'],answer:2,why:'Viết đúng là “giữ gìn”.'},
 {type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Hôm nay là thứ mấy___',answerText:'?',why:'Câu dùng để hỏi kết thúc bằng dấu hỏi (dấu chấm hỏi).',accept:['?']},
-{type:'tf',prompt:'Câu hỏi kết thúc bằng dấu chấm.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu hỏi kết thúc bằng dấu hỏi (dấu chấm hỏi), không phải dấu chấm.'}
+{type:'tf',prompt:'Câu hỏi kết thúc bằng dấu chấm.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu hỏi kết thúc bằng dấu hỏi (dấu chấm hỏi), không phải dấu chấm.'},
+{prompt:'Câu nào là câu kể?',options:['Em đang đọc sách.','Bạn có đọc sách không?','Hãy đọc sách đi!'],answer:0,why:'Câu “Em đang đọc sách.” kể về việc em làm nên là câu kể.'},
+{prompt:'Chọn từ viết đúng — việc em làm để sách vở không hỏng:',options:['giữ gìn','dữ gìn','giữ gình'],answer:0,why:'Từ đúng chính tả là “giữ gìn”.'},
+{prompt:'Câu hỏi thường có từ nào sau đây?',options:['Ai, gì, nào','Rồi, và, nhưng','Ơi, nhé, ạ'],answer:0,why:'Câu hỏi thường có các từ để hỏi như: ai, gì, nào,...'},
+{type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Hôm nay em có vui không___',answerText:'?',why:'Câu dùng để hỏi kết thúc bằng dấu chấm hỏi.',accept:['?','dấu chấm hỏi']},
+{type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: ___ớp 2 của em rất vui.',answerText:'L',why:'Tên “Lớp” ở đầu câu viết hoa chữ L.',accept:['L']},
+{type:'tf',prompt:'Câu kể kết thúc bằng dấu chấm hỏi.',options:['Đúng','Sai'],answer:1,why:'Sai. Câu kể kết thúc bằng dấu chấm; câu hỏi mới kết thúc bằng dấu chấm hỏi.'}
 ]},
 {title:'Tuần 28 — Những cách chào độc đáo — Thư viện biết đi',questions:[
 {prompt:'Khi gặp người lớn, em chào thế nào cho lịch sự?',options:['Im lặng đi qua','La thật to','Khoanh tay và nói: “Con chào cô ạ!”'],answer:2,why:'Khoanh tay, chào rõ ràng là cách chào lịch sự của học sinh.'},
 {prompt:'Thư viện là nơi dùng để làm gì?',options:['Đọc và mượn sách','Cất xe đạp','Nấu ăn'],answer:0,why:'Thư viện là nơi mọi người đến đọc và mượn sách.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Khi gặp thầy cô, em khoanh tay và nói: “Con ___ cô ạ!”',answerText:'chào',why:'Lời chào lịch sự: “Con chào cô ạ!”',accept:['chào']},
-{type:'tf',prompt:'Khi gặp người lớn, em nên im lặng đi qua.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi gặp người lớn, em cần chào hỏi lễ phép.'}
+{type:'tf',prompt:'Khi gặp người lớn, em nên im lặng đi qua.',options:['Đúng','Sai'],answer:1,why:'Sai. Khi gặp người lớn, em cần chào hỏi lễ phép.'},
+{prompt:'Khi gặp bạn cùng lớp, em chào thế nào?',options:['Chào bạn!','Con chào cô ạ!','Em chào anh ạ!'],answer:0,why:'Gặp bạn cùng lớp, em nói: “Chào bạn!”'},
+{prompt:'Ở thư viện, em cần giữ thế nào?',options:['Nói chuyện thật to','Chạy nhảy giữa các kệ sách','Yên lặng, giữ gìn sách'],answer:2,why:'Ở thư viện, em cần yên lặng và giữ gìn sách.'},
+{prompt:'“Thư viện biết đi” gợi ý điều gì?',options:['Thư viện được mang đến nhiều nơi cho bạn đọc','Thư viện có chân để đi','Thư viện biết nói chuyện'],answer:0,why:'“Thư viện biết đi” là thư viện được mang đi nhiều nơi phục vụ bạn đọc.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Khi ra về, em nói: “Con chào cô, con ___ ạ!”',answerText:'về',why:'Em chào cô rồi xin phép về.',accept:['về']},
+{type:'fill',prompt:'Điền từ còn thiếu: Em đến thư viện để ___ sách.',answerText:'đọc',why:'Em đến thư viện để đọc (mượn) sách.',accept:['đọc','mượn']},
+{type:'tf',prompt:'Chào hỏi lịch sự thể hiện em là học sinh ngoan.',options:['Đúng','Sai'],answer:0,why:'Đúng. Biết chào hỏi lịch sự là học sinh ngoan.'}
 ]},
 {title:'Tuần 29 — Cảm ơn anh hà mã — Từ chú bồ câu đến in-tơ-nét',questions:[
 {prompt:'Khi được bạn giúp đỡ, em nên nói gì?',options:['Cảm ơn bạn nhé!','Không cần cảm ơn','Giúp nữa đi!'],answer:0,why:'Nói “Cảm ơn bạn nhé!” thể hiện em biết ơn và lịch sự.'},
 {prompt:'Ngày xưa chưa có in-tơ-nét, người ta gửi tin cho nhau bằng cách nào?',options:['Nhắn tin điện thoại','Viết thư, gửi bồ câu đưa thư','Gọi video'],answer:1,why:'Xưa kia người ta viết thư tay và có cả bồ câu đưa thư.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Khi được bạn giúp đỡ, em nói: “___ ơn bạn nhé!”',answerText:'Cảm',why:'Lời cảm ơn: “Cảm ơn bạn nhé!”',accept:['Cảm','cảm']},
-{type:'tf',prompt:'Nói lời cảm ơn khi được giúp đỡ là lịch sự.',options:['Đúng','Sai'],answer:0,why:'Đúng. Biết nói “cảm ơn” khi được giúp đỡ thể hiện em lịch sự và biết ơn.'}
+{type:'tf',prompt:'Nói lời cảm ơn khi được giúp đỡ là lịch sự.',options:['Đúng','Sai'],answer:0,why:'Đúng. Biết nói “cảm ơn” khi được giúp đỡ thể hiện em lịch sự và biết ơn.'},
+{prompt:'Chim bồ câu ngày xưa được người ta dùng để làm gì?',options:['Kéo xe','Canh nhà','Đưa thư, gửi tin'],answer:2,why:'Ngày xưa, chim bồ câu được dùng để đưa thư, gửi tin.'},
+{prompt:'Khi nhận quà từ bạn, em nói gì?',options:['Cảm ơn bạn!','Không nói gì','Đòi thêm quà'],answer:0,why:'Nhận quà, em nói: “Cảm ơn bạn!”'},
+{prompt:'Từ nào gần nghĩa với “cảm ơn”?',options:['biết ơn','xin lỗi','tạm biệt'],answer:0,why:'“Biết ơn” gần nghĩa với “cảm ơn”.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Em nói lời ___ ơn khi được giúp đỡ.',answerText:'cảm',why:'Em nói lời cảm ơn khi được giúp đỡ.',accept:['cảm']},
+{type:'fill',prompt:'Điền từ còn thiếu: Ngày nay, em gửi tin nhanh cho người ở xa bằng ___.',answerText:'in-tơ-nét',why:'Ngày nay có in-tơ-nét nên gửi tin rất nhanh.',accept:['in-tơ-nét','điện thoại']},
+{type:'tf',prompt:'Khi được bạn giúp đỡ, em không cần nói lời nào.',options:['Đúng','Sai'],answer:1,why:'Sai. Được giúp đỡ, em cần nói lời cảm ơn bạn.'}
 ]},
 {title:'Tuần 30 — Mai An Tiêm — Thư gửi bố ngoài đảo',questions:[
 {prompt:'Mai An Tiêm trong truyện đã trồng được cây gì trên đảo?',options:['Cây cam','Cây dưa hấu','Cây lúa'],answer:1,why:'Theo truyện, Mai An Tiêm trồng dưa hấu trên đảo hoang.'},
 {prompt:'Khi viết thư, cuối thư em viết phần nào?',options:['Tên người nhận ở cuối','Dấu chấm hỏi','Lời chào và chữ kí của người viết'],answer:2,why:'Cuối thư thường có lời chào tạm biệt và chữ kí/tên người viết.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Mai An Tiêm đã trồng cây ___ trên đảo.',answerText:'dưa hấu',why:'Theo truyện, Mai An Tiêm trồng dưa hấu trên đảo hoang.',accept:['dưa hấu']},
-{type:'tf',prompt:'Mai An Tiêm trồng cây cam trên đảo hoang.',options:['Đúng','Sai'],answer:1,why:'Sai. Theo truyện, Mai An Tiêm trồng cây dưa hấu trên đảo.'}
+{type:'tf',prompt:'Mai An Tiêm trồng cây cam trên đảo hoang.',options:['Đúng','Sai'],answer:1,why:'Sai. Theo truyện, Mai An Tiêm trồng cây dưa hấu trên đảo.'},
+{prompt:'Mai An Tiêm là người thế nào?',options:['Lười biếng','Tham lam','Chăm chỉ, không ngại khó'],answer:2,why:'Mai An Tiêm chăm chỉ, không ngại khó nên trồng được dưa trên đảo.'},
+{prompt:'Khi viết thư, đầu thư em viết phần nào?',options:['Lời chào và hỏi thăm','Tên người nhận quà','Ngày sinh của em'],answer:0,why:'Đầu thư, em viết lời chào và hỏi thăm người nhận.'},
+{prompt:'Bố của bạn trong bài “Thư gửi bố ngoài đảo” đang làm nhiệm vụ ở đâu?',options:['Ngoài đảo xa','Ở nhà','Ở trường học'],answer:0,why:'Bố đang làm nhiệm vụ ở đảo xa.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Mai An Tiêm gieo hạt ___ trên đảo hoang.',answerText:'dưa',why:'Mai An Tiêm gieo hạt dưa và trồng được dưa hấu.',accept:['dưa','dưa hấu']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cuối thư, em viết tên của ___ để kí tên.',answerText:'mình',why:'Cuối thư, em viết tên của mình để kí tên.',accept:['mình','em']},
+{type:'tf',prompt:'Mai An Tiêm trồng được dưa hấu trên đảo hoang.',options:['Đúng','Sai'],answer:0,why:'Đúng. Nhờ chăm chỉ, Mai An Tiêm trồng được dưa hấu trên đảo hoang.'}
 ]},
 {title:'Tuần 31 — Bóp nát quả cam — Chiếc rễ đa tròn',questions:[
 {prompt:'Trần Quốc Toản trong truyện “Bóp nát quả cam” nổi tiếng với tinh thần gì?',options:['Thích ăn cam','Sợ ra trận','Yêu nước, căm thù giặc'],answer:2,why:'Trần Quốc Toản nổi tiếng vì lòng yêu nước, muốn ra trận đánh giặc.'},
 {prompt:'Từ nào chỉ đặc điểm hình dáng?',options:['tròn xoe','cái rễ','leo'],answer:0,why:'“Tròn xoe” nêu đặc điểm hình dáng của vật.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Trần Quốc Toản nổi tiếng với lòng ___ nước.',answerText:'yêu',why:'Trần Quốc Toản nổi tiếng với lòng yêu nước, căm thù giặc.',accept:['yêu']},
-{type:'tf',prompt:'Trần Quốc Toản là người anh hùng nhỏ tuổi yêu nước.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trần Quốc Toản còn nhỏ tuổi đã có lòng yêu nước, muốn ra trận đánh giặc.'}
+{type:'tf',prompt:'Trần Quốc Toản là người anh hùng nhỏ tuổi yêu nước.',options:['Đúng','Sai'],answer:0,why:'Đúng. Trần Quốc Toản còn nhỏ tuổi đã có lòng yêu nước, muốn ra trận đánh giặc.'},
+{prompt:'Quả cam trong truyện “Bóp nát quả cam” là của ai ban cho Trần Quốc Toản?',options:['Của mẹ mua','Của bạn tặng','Của vua ban'],answer:2,why:'Quả cam là của vua ban cho Trần Quốc Toản.'},
+{prompt:'Chiếc rễ đa trong truyện có hình dáng thế nào?',options:['Tròn','Vuông','Dài nhọn'],answer:0,why:'Chiếc rễ đa có hình tròn.'},
+{prompt:'Việc làm của Trần Quốc Toản thể hiện điều gì?',options:['Lòng yêu nước','Sự tham ăn','Tính lười biếng'],answer:0,why:'Việc làm ấy thể hiện lòng yêu nước của Trần Quốc Toản.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Chiếc rễ đa có hình ___ xoe.',answerText:'tròn',why:'Chiếc rễ đa có hình tròn xoe.',accept:['tròn']},
+{type:'fill',prompt:'Điền từ còn thiếu: Trần Quốc Toản bóp nát quả ___ trong tay.',answerText:'cam',why:'Trần Quốc Toản bóp nát quả cam trong tay.',accept:['cam']},
+{type:'tf',prompt:'Trần Quốc Toản bóp nát quả cam vì muốn ăn cam ngay.',options:['Đúng','Sai'],answer:1,why:'Sai. Chàng bóp nát quả cam vì tức giận khi không được bàn việc nước, thể hiện lòng yêu nước.'}
 ]},
 {title:'Tuần 32 — Đất nước chúng mình — Trên các miền đất nước',questions:[
 {prompt:'Thủ đô của nước Việt Nam là thành phố nào?',options:['Hà Nội','Thành phố Hồ Chí Minh','Đà Nẵng'],answer:0,why:'Thủ đô của Việt Nam là Hà Nội.'},
 {prompt:'Câu nào tả cảnh quê hương?',options:['Em làm bài tập.','Cánh đồng lúa chín vàng trải dài đến chân trời.','Hôm nay thứ mấy?'],answer:1,why:'Câu có hình ảnh cánh đồng lúa chín vàng là câu tả cảnh quê hương.'},
 {type:'fill',prompt:'Điền tên còn thiếu: Thủ đô của nước Việt Nam là ___.',answerText:'Hà Nội',why:'Thủ đô của nước ta là thành phố Hà Nội.',accept:['Hà Nội']},
-{type:'tf',prompt:'Thủ đô của Việt Nam là Thành phố Hồ Chí Minh.',options:['Đúng','Sai'],answer:1,why:'Sai. Thủ đô của Việt Nam là Hà Nội.'}
+{type:'tf',prompt:'Thủ đô của Việt Nam là Thành phố Hồ Chí Minh.',options:['Đúng','Sai'],answer:1,why:'Sai. Thủ đô của Việt Nam là Hà Nội.'},
+{prompt:'Từ nào chỉ sự vật?',options:['cánh đồng','xanh','chạy'],answer:0,why:'“Cánh đồng” là sự vật nên là từ chỉ sự vật.'},
+{prompt:'Câu nào tả cảnh đất nước?',options:['Em đi học.','Bạn Lan hát hay.','Ruộng lúa xanh mênh mông dưới nắng.'],answer:2,why:'Câu này tả cảnh ruộng lúa của đất nước.'},
+{prompt:'Em yêu quê hương, em cần làm gì?',options:['Học giỏi, chăm ngoan','Vứt rác bừa bãi','Phá hoại cây xanh'],answer:0,why:'Học giỏi, chăm ngoan là cách thể hiện tình yêu quê hương.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Đất nước Việt Nam rất tươi ___.',answerText:'đẹp',why:'Đất nước Việt Nam rất tươi đẹp.',accept:['đẹp']},
+{type:'fill',prompt:'Điền từ còn thiếu: Em yêu ___ hương của em.',answerText:'quê',why:'Em yêu quê hương của em.',accept:['quê']},
+{type:'tf',prompt:'Hà Nội là thủ đô của nước Việt Nam.',options:['Đúng','Sai'],answer:0,why:'Đúng. Thủ đô của nước Việt Nam là Hà Nội.'}
 ]},
 {title:'Tuần 33 — Chuyện quả bầu — Khám phá đáy biển ở Trường Sa',questions:[
 {prompt:'Theo truyện “Chuyện quả bầu”, các dân tộc anh em trên đất nước ta cùng sinh ra từ đâu?',options:['Từ nhiều quả khác nhau','Cùng một quả bầu','Từ trên trời rơi xuống'],answer:1,why:'Truyện kể các dân tộc anh em cùng ra đời từ một quả bầu thần kì.'},
 {prompt:'Trường Sa là quần đảo thuộc nước nào?',options:['Trung Quốc','Nhật Bản','Việt Nam'],answer:2,why:'Quần đảo Trường Sa thuộc chủ quyền của Việt Nam.'},
 {type:'fill',prompt:'Điền từ còn thiếu: Theo truyện “Chuyện quả bầu”, các dân tộc anh em cùng sinh ra từ một quả ___.',answerText:'bầu',why:'Truyện kể các dân tộc anh em cùng sinh ra từ một quả bầu.',accept:['bầu']},
-{type:'tf',prompt:'Các dân tộc trên đất nước ta là anh em một nhà.',options:['Đúng','Sai'],answer:0,why:'Đúng. Theo truyện “Chuyện quả bầu”, các dân tộc cùng sinh ra từ một quả bầu nên là anh em một nhà.'}
+{type:'tf',prompt:'Các dân tộc trên đất nước ta là anh em một nhà.',options:['Đúng','Sai'],answer:0,why:'Đúng. Theo truyện “Chuyện quả bầu”, các dân tộc cùng sinh ra từ một quả bầu nên là anh em một nhà.'},
+{prompt:'Dưới đáy biển Trường Sa có gì đẹp?',options:['San hô và nhiều loài cá','Tuyết trắng','Sa mạc cát'],answer:0,why:'Đáy biển Trường Sa có san hô và nhiều loài cá đẹp.'},
+{prompt:'Theo truyện “Chuyện quả bầu”, các dân tộc cùng sinh ra từ một quả bầu nên cần đối xử với nhau thế nào?',options:['Yêu thương nhau như anh em','Tranh giành nhau','Xa lánh nhau'],answer:0,why:'Cùng sinh ra từ một quả bầu nên các dân tộc yêu thương nhau như anh em.'},
+{prompt:'Từ nào chỉ sự vật?',options:['quả bầu','to','mở'],answer:0,why:'“Quả bầu” là sự vật nên là từ chỉ sự vật.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Các dân tộc anh em cùng sinh ra từ một ___ bầu.',answerText:'quả',why:'Các dân tộc cùng sinh ra từ một quả bầu.',accept:['quả']},
+{type:'fill',prompt:'Điền từ còn thiếu: Biển ở Trường Sa có nhiều ___ hô đẹp.',answerText:'san',why:'Biển Trường Sa có nhiều san hô đẹp.',accept:['san']},
+{type:'tf',prompt:'Các dân tộc trên đất nước ta không liên quan gì với nhau.',options:['Đúng','Sai'],answer:1,why:'Sai. Theo truyện “Chuyện quả bầu”, các dân tộc cùng sinh ra từ một quả bầu, là anh em một nhà.'}
 ]},
 {title:'Tuần 34 — Hồ Gươm — Cánh đồng quê em',questions:[
 {prompt:'Hồ Gươm nằm ở thành phố nào?',options:['Huế','Cần Thơ','Hà Nội'],answer:2,why:'Hồ Gươm (Hồ Hoàn Kiếm) nằm ở trung tâm Hà Nội.'},
 {prompt:'Chọn từ viết đúng — nơi trồng lúa rộng mênh mông:',options:['cánh đồng','cánh đòng','cánh đồngg'],answer:0,why:'Viết đúng là “cánh đồng”.'},
 {type:'fill',prompt:'Điền tên còn thiếu: Hồ Gươm nằm ở thủ đô ___.',answerText:'Hà Nội',why:'Hồ Gươm nằm ở trung tâm thủ đô Hà Nội.',accept:['Hà Nội']},
-{type:'tf',prompt:'Hồ Gươm còn được gọi là Hồ Hoàn Kiếm.',options:['Đúng','Sai'],answer:0,why:'Đúng. Hồ Gươm còn có tên gọi khác là Hồ Hoàn Kiếm.'}
+{type:'tf',prompt:'Hồ Gươm còn được gọi là Hồ Hoàn Kiếm.',options:['Đúng','Sai'],answer:0,why:'Đúng. Hồ Gươm còn có tên gọi khác là Hồ Hoàn Kiếm.'},
+{prompt:'Tháp Rùa nằm ở đâu?',options:['Giữa Hồ Gươm','Trên núi cao','Giữa biển khơi'],answer:0,why:'Tháp Rùa nằm giữa Hồ Gươm ở Hà Nội.'},
+{prompt:'Cánh đồng quê em vào mùa lúa chín có màu gì?',options:['Vàng óng','Trắng xóa','Đỏ rực'],answer:0,why:'Lúa chín có màu vàng óng.'},
+{prompt:'Từ nào chỉ hoạt động của người nông dân trên cánh đồng?',options:['gặt lúa','cánh đồng','mênh mông'],answer:0,why:'“Gặt lúa” là việc làm nên là từ chỉ hoạt động.'},
+{type:'fill',prompt:'Điền từ còn thiếu: Tháp ___ nằm giữa Hồ Gươm.',answerText:'Rùa',why:'Tháp Rùa nằm giữa Hồ Gươm.',accept:['Rùa']},
+{type:'fill',prompt:'Điền từ còn thiếu: Cánh đồng lúa chín ___ vào mùa thu.',answerText:'vàng',why:'Cánh đồng lúa chín vàng vào mùa thu.',accept:['vàng','vàng óng']},
+{type:'tf',prompt:'Hồ Gươm nằm ở thủ đô Hà Nội.',options:['Đúng','Sai'],answer:0,why:'Đúng. Hồ Gươm ở trung tâm thủ đô Hà Nội.'}
 ]},
 {title:'Tuần 35 — Ôn tập và đánh giá cuối học kì 2',questions:[
 {prompt:'Câu nào dùng đúng dấu phẩy?',options:['Buổi sáng, em tập thể dục.','Buổi, sáng em tập thể dục.','Buổi sáng em, tập thể dục.'],answer:0,why:'Dấu phẩy ngăn cách bộ phận chỉ thời gian “Buổi sáng” với phần còn lại của câu.'},
 {prompt:'Trong câu “Em học bài rồi đi ngủ.”, từ nào chỉ hoạt động?',options:['bài học','học bài','giỏi'],answer:1,why:'“Học bài” là từ chỉ hoạt động của học sinh.'},
 {type:'fill',prompt:'Điền dấu câu còn thiếu: Buổi sáng___ em tập thể dục.',answerText:',',why:'Dấu phẩy ngăn cách bộ phận chỉ thời gian “Buổi sáng” với phần còn lại của câu.',accept:[',']},
-{type:'tf',prompt:'Dấu phẩy dùng để kết thúc câu.',options:['Đúng','Sai'],answer:1,why:'Sai. Dấu phẩy đặt ở giữa câu; dấu chấm mới dùng để kết thúc câu kể.'}
+{type:'tf',prompt:'Dấu phẩy dùng để kết thúc câu.',options:['Đúng','Sai'],answer:1,why:'Sai. Dấu phẩy đặt ở giữa câu; dấu chấm mới dùng để kết thúc câu kể.'},
+{prompt:'Câu nào là câu hỏi?',options:['Bạn đã ăn cơm chưa?','Em đã ăn cơm rồi.','Em ăn cơm đi!'],answer:0,why:'Câu “Bạn đã ăn cơm chưa?” dùng để hỏi nên là câu hỏi.'},
+{prompt:'Chọn từ viết đúng:',options:['quê hương','quê hươn','quê hươngg'],answer:0,why:'Từ đúng chính tả là “quê hương”.'},
+{prompt:'Trong câu “Em rửa mặt, đánh răng rồi đi học.”, dấu phẩy dùng để làm gì?',options:['Ngắt các ý trong câu','Kết thúc câu','Hỏi một điều gì đó'],answer:0,why:'Dấu phẩy dùng để ngắt các ý trong câu.'},
+{type:'fill',prompt:'Điền dấu câu thích hợp vào cuối câu: Em rất yêu quê hương___',answerText:'.',why:'Câu kể kết thúc bằng dấu chấm.',accept:['.','dấu chấm']},
+{type:'fill',prompt:'Điền chữ cái viết hoa còn thiếu: ___iệt Nam là đất nước của em.',answerText:'V',why:'Tên riêng “Việt Nam” viết hoa chữ V.',accept:['V']},
+{type:'tf',prompt:'Cuối câu hỏi, em viết dấu chấm hỏi.',options:['Đúng','Sai'],answer:0,why:'Đúng. Câu hỏi kết thúc bằng dấu chấm hỏi.'}
 ]},
 ]},
 {name:'🌍 English',desc:'Global Success (bộ sách đi cùng Kết nối tri thức) — luyện theo tiến độ tuần.',units:[
@@ -463,211 +848,421 @@ window.LESSON_DATA={title:'Vui học lớp 2',intro:'Chọn môn học, làm t�
 {prompt:'Khi gặp bạn, em có thể nói câu nào?',options:['Hello!','Good night!','Goodbye!'],answer:0,why:'Hello! là lời chào khi gặp nhau.'},
 {prompt:'“Good morning!” nghĩa là gì?',options:['Chào buổi sáng!','Chào buổi tối!','Tạm biệt!'],answer:0,why:'Good morning dùng để chào vào buổi sáng.'},
 {type:'fill',prompt:'Điền lời chào còn thiếu: “___! My name is Lan.”',answerText:'Hello',why:'“Hello!” là lời chào khi gặp nhau.',accept:['Hello','Hi']},
-{type:'tf',prompt:'“Hello!” là lời chào dùng khi gặp nhau.',options:['Đúng','Sai'],answer:0,why:'Đúng. Hello! dùng để chào khi gặp nhau.'}
+{type:'tf',prompt:'“Hello!” là lời chào dùng khi gặp nhau.',options:['Đúng','Sai'],answer:0,why:'Đúng. Hello! dùng để chào khi gặp nhau.'},
+{prompt:'“Hello” nghĩa là gì?',options:['Xin chào','Tạm biệt','Cảm ơn'],answer:0,why:'“Hello” nghĩa là xin chào.'},
+{prompt:'Khi gặp cô giáo vào buổi sáng, em nói:',options:['Good night!','Goodbye!','Good morning!'],answer:2,why:'Chào buổi sáng là “Good morning!”.'},
+{prompt:'Bạn hỏi “What is your name?”, em trả lời:',options:['My name is Hoa.','I am fine.','Goodbye.'],answer:0,why:'Hỏi tên thì em trả lời: “My name is ...”'},
+{type:'fill',prompt:'Điền lời chào còn thiếu: “___ morning!”',answerText:'Good',why:'Chào buổi sáng là “Good morning!”.',accept:['Good']},
+{type:'fill',prompt:'Điền từ còn thiếu: “Hi! My ___ is Nam.”',answerText:'name',why:'“My name is ...” dùng để nói tên của mình.',accept:['name']},
+{type:'tf',prompt:'“Goodbye” là lời chào dùng khi gặp nhau.',options:['Đúng','Sai'],answer:1,why:'Sai. “Goodbye” là lời tạm biệt khi chia tay; gặp nhau em nói “Hello”.'}
 ]},
 {title:'Tuần 2 — Greetings — Hỏi thăm: How are you?',questions:[
 {prompt:'“How are you?” hỏi điều gì?',options:['Bạn khỏe không?','Bạn tên gì?','Đây là gì?'],answer:0,why:'How are you? nghĩa là Bạn khỏe không?'},
 {prompt:'Trả lời “How are you?” em nói:',options:['I am seven.','I am fine, thank you.','It is a pen.'],answer:1,why:'I am fine, thank you nghĩa là Em khỏe, cảm ơn.'},
 {type:'fill',prompt:'Điền từ còn thiếu: “How are you? — I\'m ___, thank you.”',answerText:'fine',why:'Câu trả lời quen thuộc: “I\'m fine, thank you.” (Tôi khỏe, cảm ơn bạn.)',accept:['fine','good','OK','ok']},
-{type:'tf',prompt:'“How are you?” dùng để hỏi tên của bạn.',options:['Đúng','Sai'],answer:1,why:'Sai. “How are you?” dùng để hỏi thăm sức khỏe; hỏi tên là “What\'s your name?”'}
+{type:'tf',prompt:'“How are you?” dùng để hỏi tên của bạn.',options:['Đúng','Sai'],answer:1,why:'Sai. “How are you?” dùng để hỏi thăm sức khỏe; hỏi tên là “What\'s your name?”'},
+{prompt:'“I am fine” nghĩa là gì?',options:['Em buồn','Em đói','Em khỏe'],answer:2,why:'“I am fine” nghĩa là em khỏe.'},
+{prompt:'Cô hỏi “How are you?”, em đáp:',options:['I am fine, thank you.','My name is Lan.','Goodbye.'],answer:0,why:'Hỏi thăm sức khỏe, em đáp: “I am fine, thank you.”'},
+{prompt:'“Thank you” nghĩa là gì?',options:['Cảm ơn','Xin lỗi','Tạm biệt'],answer:0,why:'“Thank you” nghĩa là cảm ơn.'},
+{type:'fill',prompt:'Điền từ còn thiếu: “How ___ you?”',answerText:'are',why:'Câu hỏi thăm là “How are you?”.',accept:['are']},
+{type:'fill',prompt:'Điền từ còn thiếu: “I am fine, ___ you.”',answerText:'thank',why:'Em đáp: “I am fine, thank you.”',accept:['thank']},
+{type:'tf',prompt:'“How are you?” dùng để hỏi thăm sức khỏe.',options:['Đúng','Sai'],answer:0,why:'Đúng. “How are you?” là câu hỏi thăm sức khỏe.'}
 ]},
 {title:'Tuần 3 — At school — Đồ dùng học tập: book, pen',questions:[
 {prompt:'“Book” nghĩa là gì?',options:['quyển sách','cái bàn','quả bóng'],answer:0,why:'Book nghĩa là quyển sách.'},
 {prompt:'“Pen” nghĩa là gì?',options:['quyển vở','cái thước','cây bút'],answer:2,why:'Pen nghĩa là cây bút.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: This is my ___. (quyển sách)',answerText:'book',why:'“Book” nghĩa là quyển sách.',accept:['book']},
-{type:'tf',prompt:'“Pen” nghĩa là cái bút.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pen là cái bút.'}
+{type:'tf',prompt:'“Pen” nghĩa là cái bút.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pen là cái bút.'},
+{prompt:'Quyển vở trong tiếng Anh là gì?',options:['notebook','pencil','ruler'],answer:0,why:'Quyển vở là “notebook”.'},
+{prompt:'“Pencil” nghĩa là gì?',options:['Thước kẻ','Cục tẩy','Bút chì'],answer:2,why:'“Pencil” nghĩa là bút chì.'},
+{prompt:'Em dùng gì để viết? Chọn từ đúng:',options:['pen','book','bag'],answer:0,why:'Em dùng “pen” (cái bút) để viết.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I write with a ___. (bút chì)',answerText:'pencil',why:'Bút chì là “pencil”.',accept:['pencil']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: This is my school ___. (cặp sách)',answerText:'bag',why:'Cặp sách là “bag”.',accept:['bag']},
+{type:'tf',prompt:'“Ruler” là quyển sách.',options:['Đúng','Sai'],answer:1,why:'Sai. “Ruler” là cái thước kẻ; quyển sách là “book”.'}
 ]},
 {title:'Tuần 4 — In the classroom — Trong lớp học',questions:[
 {prompt:'“Teacher” là ai?',options:['cô giáo / thầy giáo','bạn học','bác bảo vệ'],answer:0,why:'Teacher nghĩa là thầy giáo, cô giáo.'},
 {prompt:'Em ngồi học ở đâu trong lớp? Chọn từ đúng: “desk”.',options:['cái ghế','cái bàn học','bảng đen'],answer:1,why:'Desk nghĩa là cái bàn học.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: My ___ is very nice. (thầy giáo / cô giáo)',answerText:'teacher',why:'“Teacher” nghĩa là thầy giáo, cô giáo.',accept:['teacher']},
-{type:'tf',prompt:'“Teacher” nghĩa là bạn học.',options:['Đúng','Sai'],answer:1,why:'Sai. “Teacher” nghĩa là thầy giáo, cô giáo.'}
+{type:'tf',prompt:'“Teacher” nghĩa là bạn học.',options:['Đúng','Sai'],answer:1,why:'Sai. “Teacher” nghĩa là thầy giáo, cô giáo.'},
+{prompt:'“Class” nghĩa là gì?',options:['Sân trường','Thư viện','Lớp học'],answer:2,why:'“Class” nghĩa là lớp học.'},
+{prompt:'Bảng viết trong lớp, tiếng Anh là “board”. “Board” là gì?',options:['Cái bảng','Cái ghế','Cái cửa'],answer:0,why:'“Board” là cái bảng.'},
+{prompt:'Em ngồi trên gì trong lớp? Chọn từ đúng:',options:['chair','table','door'],answer:0,why:'Em ngồi trên “chair” (cái ghế).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I sit on a ___. (cái ghế)',answerText:'chair',why:'Cái ghế là “chair”.',accept:['chair']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is green. (cái bảng)',answerText:'board',why:'Cái bảng là “board”.',accept:['board']},
+{type:'tf',prompt:'“Desk” là cái bàn học.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Desk” là cái bàn học.'}
 ]},
 {title:'Tuần 5 — Colours — Màu sắc: red, blue, yellow',questions:[
 {prompt:'Chọn màu đỏ trong tiếng Anh.',options:['blue','red','green'],answer:1,why:'Red là màu đỏ.'},
 {prompt:'“Yellow” là màu gì?',options:['màu xanh dương','màu vàng','màu tím'],answer:1,why:'Yellow nghĩa là màu vàng.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The apple is ___. (màu đỏ)',answerText:'red',why:'“Red” là màu đỏ.',accept:['red']},
-{type:'tf',prompt:'“Yellow” là màu xanh dương.',options:['Đúng','Sai'],answer:1,why:'Sai. “Yellow” là màu vàng; màu xanh dương là “blue”.'}
+{type:'tf',prompt:'“Yellow” là màu xanh dương.',options:['Đúng','Sai'],answer:1,why:'Sai. “Yellow” là màu vàng; màu xanh dương là “blue”.'},
+{prompt:'“Blue” là màu gì?',options:['Đỏ','Vàng','Xanh dương'],answer:2,why:'“Blue” là màu xanh dương.'},
+{prompt:'Màu vàng trong tiếng Anh là gì?',options:['yellow','red','blue'],answer:0,why:'Màu vàng là “yellow”.'},
+{prompt:'Quả táo chín thường có màu gì? Chọn từ tiếng Anh:',options:['red','green','black'],answer:0,why:'Quả táo chín thường màu đỏ — “red”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The sun is ___. (màu vàng)',answerText:'yellow',why:'Màu vàng là “yellow”.',accept:['yellow']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The sky is ___. (màu xanh dương)',answerText:'blue',why:'Màu xanh dương là “blue”.',accept:['blue']},
+{type:'tf',prompt:'“Red” là màu đỏ.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Red” là màu đỏ.'}
 ]},
 {title:'Tuần 6 — Colours — Màu sắc quanh em: green, pink, orange',questions:[
 {prompt:'“Green” là màu gì?',options:['màu hồng','màu cam','màu xanh lá'],answer:2,why:'Green nghĩa là màu xanh lá cây.'},
 {prompt:'Quả cam trong tiếng Anh là “orange”. “Orange” còn là màu gì?',options:['màu cam','màu nâu','màu đen'],answer:0,why:'Orange vừa là quả cam, vừa là màu cam.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The leaf is ___. (màu xanh lá)',answerText:'green',why:'“Green” là màu xanh lá cây.',accept:['green']},
-{type:'tf',prompt:'“Pink” là màu hồng.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pink nghĩa là màu hồng.'}
+{type:'tf',prompt:'“Pink” là màu hồng.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pink nghĩa là màu hồng.'},
+{prompt:'“Pink” là màu gì?',options:['Hồng','Xanh lá','Cam'],answer:0,why:'“Pink” là màu hồng.'},
+{prompt:'Màu xanh lá trong tiếng Anh là gì?',options:['pink','orange','green'],answer:2,why:'Màu xanh lá là “green”.'},
+{prompt:'Cỏ thường có màu gì? Chọn từ tiếng Anh:',options:['green','red','white'],answer:0,why:'Cỏ thường màu xanh lá — “green”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The flower is ___. (màu hồng)',answerText:'pink',why:'Màu hồng là “pink”.',accept:['pink']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: An orange is ___. (màu cam)',answerText:'orange',why:'Màu cam là “orange”.',accept:['orange']},
+{type:'tf',prompt:'“Orange” (chỉ màu) là màu xanh lá.',options:['Đúng','Sai'],answer:1,why:'Sai. “Orange” là màu cam; màu xanh lá là “green”.'}
 ]},
 {title:'Tuần 7 — Numbers — Số đếm 1 đến 5',questions:[
 {prompt:'Số “three” là số mấy?',options:['3','2','5'],answer:0,why:'Three nghĩa là số 3.'},
 {prompt:'Đếm: one, two, ___, four. Thiếu số nào?',options:['five','three','ten'],answer:1,why:'Thứ tự đếm: one (1), two (2), three (3), four (4).'},
 {type:'fill',prompt:'Điền số tiếng Anh còn thiếu: one, two, ___, four, five.',answerText:'three',why:'Đếm theo thứ tự: one (1), two (2), three (3), four (4), five (5).',accept:['three']},
-{type:'tf',prompt:'“Five” là số 4.',options:['Đúng','Sai'],answer:1,why:'Sai. “Five” là số 5; số 4 là “four”.'}
+{type:'tf',prompt:'“Five” là số 4.',options:['Đúng','Sai'],answer:1,why:'Sai. “Five” là số 5; số 4 là “four”.'},
+{prompt:'Số “one” là số mấy?',options:['1','2','5'],answer:0,why:'“One” là số 1.'},
+{prompt:'“Four” là số mấy?',options:['3','4','5'],answer:1,why:'“Four” là số 4.'},
+{prompt:'Số nào đứng sau số “two”?',options:['three','one','five'],answer:0,why:'Sau “two” (2) là “three” (3).'},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: ___, two, three, four, five.',answerText:'one',why:'Dãy số bắt đầu bằng “one”.',accept:['one']},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: I have ___ pencils. (5 chiếc bút chì)',answerText:'five',why:'Số 5 là “five”.',accept:['five']},
+{type:'tf',prompt:'“Two” là số 2.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Two” là số 2.'}
 ]},
 {title:'Tuần 8 — Numbers — Số đếm 6 đến 10',questions:[
 {prompt:'Số “eight” là số mấy?',options:['6','8','9'],answer:1,why:'Eight nghĩa là số 8.'},
 {prompt:'“Ten” nghĩa là số nào?',options:['7','9','10'],answer:2,why:'Ten nghĩa là số 10.'},
 {type:'fill',prompt:'Điền số tiếng Anh còn thiếu: six, seven, ___, nine, ten.',answerText:'eight',why:'Đếm theo thứ tự: six (6), seven (7), eight (8), nine (9), ten (10).',accept:['eight']},
-{type:'tf',prompt:'“Ten” là số 10.',options:['Đúng','Sai'],answer:0,why:'Đúng. Ten nghĩa là số 10.'}
+{type:'tf',prompt:'“Ten” là số 10.',options:['Đúng','Sai'],answer:0,why:'Đúng. Ten nghĩa là số 10.'},
+{prompt:'Số “six” là số mấy?',options:['6','7','9'],answer:0,why:'“Six” là số 6.'},
+{prompt:'“Nine” là số mấy?',options:['8','9','10'],answer:1,why:'“Nine” là số 9.'},
+{prompt:'Đếm: six, seven, eight, ___, ten. Thiếu số nào?',options:['nine','five','six'],answer:0,why:'Sau “eight” (8) là “nine” (9).'},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: ___, seven, eight, nine, ten.',answerText:'six',why:'Dãy số bắt đầu bằng “six”.',accept:['six']},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: I am ___ years old. (7 tuổi)',answerText:'seven',why:'Số 7 là “seven”.',accept:['seven']},
+{type:'tf',prompt:'“Seven” là số 8.',options:['Đúng','Sai'],answer:1,why:'Sai. “Seven” là số 7; số 8 là “eight”.'}
 ]},
 {title:'Tuần 9 — Ôn tập giữa học kì 1 — Màu sắc và số đếm',questions:[
 {prompt:'Màu của bầu trời trong tiếng Anh là gì?',options:['pink','black','blue'],answer:2,why:'Blue là màu xanh dương — màu của bầu trời.'},
 {prompt:'Số “five” là số mấy?',options:['5','4','6'],answer:0,why:'Five nghĩa là số 5.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The sky is ___. (màu xanh dương)',answerText:'blue',why:'“Blue” là màu xanh dương — màu của bầu trời.',accept:['blue']},
-{type:'tf',prompt:'“Two” là số 3.',options:['Đúng','Sai'],answer:1,why:'Sai. “Two” là số 2; số 3 là “three”.'}
+{type:'tf',prompt:'“Two” là số 3.',options:['Đúng','Sai'],answer:1,why:'Sai. “Two” là số 2; số 3 là “three”.'},
+{prompt:'“Three” là số mấy?',options:['3','4','2'],answer:0,why:'“Three” là số 3.'},
+{prompt:'Màu đỏ trong tiếng Anh là gì?',options:['blue','green','red'],answer:2,why:'Màu đỏ là “red”.'},
+{prompt:'Em có 2 quả bóng: “I have ___ balls.” Điền số đúng:',options:['two','ten','one'],answer:0,why:'Số 2 là “two”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The banana is ___. (màu vàng)',answerText:'yellow',why:'Màu vàng là “yellow”.',accept:['yellow']},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: one, ___, three, four, five.',answerText:'two',why:'Sau “one” (1) là “two” (2).',accept:['two']},
+{type:'tf',prompt:'“Four” là số 4.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Four” là số 4.'}
 ]},
 {title:'Tuần 10 — My family — Gia đình của em',questions:[
 {prompt:'“Mother” nghĩa là gì?',options:['mẹ','bố','anh trai'],answer:0,why:'Mother nghĩa là mẹ.'},
 {prompt:'“Father” nghĩa là gì?',options:['mẹ','bố','em gái'],answer:1,why:'Father nghĩa là bố.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: This is my ___. (mẹ)',answerText:'mother',why:'“Mother” nghĩa là mẹ.',accept:['mother','mum','mom']},
-{type:'tf',prompt:'“Father” nghĩa là bố.',options:['Đúng','Sai'],answer:0,why:'Đúng. Father nghĩa là bố.'}
+{type:'tf',prompt:'“Father” nghĩa là bố.',options:['Đúng','Sai'],answer:0,why:'Đúng. Father nghĩa là bố.'},
+{prompt:'“Sister” nghĩa là gì?',options:['Anh trai','Bà','Chị gái hoặc em gái'],answer:2,why:'“Sister” là chị gái hoặc em gái.'},
+{prompt:'“Brother” nghĩa là gì?',options:['Anh trai hoặc em trai','Bố','Ông'],answer:0,why:'“Brother” là anh trai hoặc em trai.'},
+{prompt:'Bà trong tiếng Anh là “grandmother”. “Grandmother” là ai?',options:['Bà','Mẹ','Chị'],answer:0,why:'“Grandmother” là bà.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: This is my ___. (bố)',answerText:'father',why:'Bố là “father”.',accept:['father']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I love my ___. (gia đình)',answerText:'family',why:'Gia đình là “family”.',accept:['family']},
+{type:'tf',prompt:'“Mother” nghĩa là bố.',options:['Đúng','Sai'],answer:1,why:'Sai. “Mother” là mẹ; bố là “father”.'}
 ]},
 {title:'Tuần 11 — Pets — Thú cưng: cat, dog',questions:[
 {prompt:'“Cat” là con gì?',options:['con chó','con mèo','con vịt'],answer:1,why:'Cat nghĩa là con mèo.'},
 {prompt:'“Dog” là con gì?',options:['con chim','con chó','con cá'],answer:1,why:'Dog nghĩa là con chó.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I have a small ___. (con chó)',answerText:'dog',why:'“Dog” nghĩa là con chó.',accept:['dog']},
-{type:'tf',prompt:'“Cat” là con mèo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Cat nghĩa là con mèo.'}
+{type:'tf',prompt:'“Cat” là con mèo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Cat nghĩa là con mèo.'},
+{prompt:'“Rabbit” là con gì?',options:['Con thỏ','Con mèo','Con cá'],answer:0,why:'“Rabbit” là con thỏ.'},
+{prompt:'“Woof woof” là tiếng kêu của con gì?',options:['cat','bird','dog'],answer:2,why:'“Woof woof” là tiếng chó sủa — “dog”.'},
+{prompt:'Em cho mèo ăn: “I feed my ___.” Điền từ đúng:',options:['cat','fish','hat'],answer:0,why:'Con mèo là “cat”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: My ___ is small and white. (con mèo)',answerText:'cat',why:'Con mèo là “cat”.',accept:['cat']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ can run fast. (con chó)',answerText:'dog',why:'Con chó là “dog”.',accept:['dog']},
+{type:'tf',prompt:'“Dog” là con chó.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Dog” là con chó.'}
 ]},
 {title:'Tuần 12 — Animals — Con vật quanh em: bird, fish',questions:[
 {prompt:'“Bird” là con gì?',options:['con mèo','con thỏ','con chim'],answer:2,why:'Bird nghĩa là con chim.'},
 {prompt:'Con cá trong tiếng Anh là gì?',options:['fish','bird','duck'],answer:0,why:'Fish nghĩa là con cá.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: A ___ can fly. (con chim)',answerText:'bird',why:'“Bird” nghĩa là con chim, biết bay.',accept:['bird']},
-{type:'tf',prompt:'“Fish” là con cá.',options:['Đúng','Sai'],answer:0,why:'Đúng. Fish nghĩa là con cá.'}
+{type:'tf',prompt:'“Fish” là con cá.',options:['Đúng','Sai'],answer:0,why:'Đúng. Fish nghĩa là con cá.'},
+{prompt:'“Duck” là con gì?',options:['Con chim','Con gà','Con vịt'],answer:2,why:'“Duck” là con vịt.'},
+{prompt:'Con chim bay: “A bird can ___.” Điền từ đúng:',options:['fly','swim','run'],answer:0,why:'Chim bay là “fly”.'},
+{prompt:'Cá sống ở đâu? Chọn từ đúng:',options:['water','tree','house'],answer:0,why:'Cá sống trong “water” (nước).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: A ___ can swim. (con cá)',answerText:'fish',why:'Con cá là “fish”.',accept:['fish']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is in the tree. (con chim)',answerText:'bird',why:'Con chim là “bird”.',accept:['bird']},
+{type:'tf',prompt:'“A bird can fly.” (Con chim biết bay.)',options:['Đúng','Sai'],answer:0,why:'Đúng. Chim biết bay — “fly”.'}
 ]},
 {title:'Tuần 13 — My body — Cơ thể của em',questions:[
 {prompt:'“Eye” là bộ phận nào?',options:['con mắt','cái tai','cái mũi'],answer:0,why:'Eye nghĩa là con mắt.'},
 {prompt:'Em nghe bằng gì? Chọn từ đúng: “ear”.',options:['cái miệng','cái tai','bàn tay'],answer:1,why:'Ear nghĩa là cái tai, dùng để nghe.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I see with my ___. (đôi mắt)',answerText:'eyes',why:'“Eyes” là đôi mắt, dùng để nhìn.',accept:['eyes','eye']},
-{type:'tf',prompt:'“Nose” là cái tai.',options:['Đúng','Sai'],answer:1,why:'Sai. “Nose” là cái mũi; cái tai là “ear”.'}
+{type:'tf',prompt:'“Nose” là cái tai.',options:['Đúng','Sai'],answer:1,why:'Sai. “Nose” là cái mũi; cái tai là “ear”.'},
+{prompt:'“Hand” là bộ phận nào?',options:['Bàn chân','Cái đầu','Bàn tay'],answer:2,why:'“Hand” là bàn tay.'},
+{prompt:'“Head” nghĩa là gì?',options:['Cái đầu','Cái tay','Cái chân'],answer:0,why:'“Head” là cái đầu.'},
+{prompt:'Em ngửi bằng gì? Chọn từ đúng:',options:['nose','eye','ear'],answer:0,why:'Em ngửi bằng “nose” (cái mũi).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I hear with my ___. (đôi tai)',answerText:'ears',why:'Đôi tai là “ears”.',accept:['ears','ear']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I walk with my ___. (đôi chân)',answerText:'legs',why:'Đôi chân là “legs”.',accept:['legs','feet']},
+{type:'tf',prompt:'“Eye” là cái miệng.',options:['Đúng','Sai'],answer:1,why:'Sai. “Eye” là con mắt; cái miệng là “mouth”.'}
 ]},
 {title:'Tuần 14 — Fruits — Trái cây: apple, banana',questions:[
 {prompt:'“Apple” là quả gì?',options:['quả chuối','quả táo','quả cam'],answer:1,why:'Apple nghĩa là quả táo.'},
 {prompt:'Quả chuối trong tiếng Anh là gì?',options:['apple','grape','banana'],answer:2,why:'Banana nghĩa là quả chuối.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I like ___. (quả chuối)',answerText:'banana',why:'“Banana” nghĩa là quả chuối.',accept:['banana','bananas']},
-{type:'tf',prompt:'“Apple” là quả táo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Apple nghĩa là quả táo.'}
+{type:'tf',prompt:'“Apple” là quả táo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Apple nghĩa là quả táo.'},
+{prompt:'“Mango” là quả gì?',options:['Quả xoài','Quả cam','Quả nho'],answer:0,why:'“Mango” là quả xoài.'},
+{prompt:'Quả cam trong tiếng Anh là gì?',options:['apple','banana','orange'],answer:2,why:'Quả cam là “orange”.'},
+{prompt:'Quả nào màu vàng, cong dài? Chọn từ đúng:',options:['banana','apple','orange'],answer:0,why:'Quả chuối — “banana” — màu vàng, cong dài.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I eat an ___ every day. (quả táo)',answerText:'apple',why:'Quả táo là “apple”.',accept:['apple']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is yellow. (quả chuối)',answerText:'banana',why:'Quả chuối là “banana”.',accept:['banana']},
+{type:'tf',prompt:'“Mango” là quả xoài.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Mango” là quả xoài.'}
 ]},
 {title:'Tuần 15 — Food and drinks — Đồ ăn, thức uống: milk, cake',questions:[
 {prompt:'“Milk” nghĩa là gì?',options:['nước cam','cơm','sữa'],answer:2,why:'Milk nghĩa là sữa.'},
 {prompt:'Em ăn sáng với bánh, tiếng Anh là “cake”. “Cake” là gì?',options:['bánh ngọt','súp','kẹo mút'],answer:0,why:'Cake nghĩa là bánh ngọt.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I drink ___ every morning. (sữa)',answerText:'milk',why:'“Milk” nghĩa là sữa.',accept:['milk']},
-{type:'tf',prompt:'“Cake” nghĩa là cơm.',options:['Đúng','Sai'],answer:1,why:'Sai. “Cake” nghĩa là bánh ngọt; cơm là “rice”.'}
+{type:'tf',prompt:'“Cake” nghĩa là cơm.',options:['Đúng','Sai'],answer:1,why:'Sai. “Cake” nghĩa là bánh ngọt; cơm là “rice”.'},
+{prompt:'“Water” nghĩa là gì?',options:['Sữa','Bánh','Nước'],answer:2,why:'“Water” nghĩa là nước.'},
+{prompt:'“Egg” là gì?',options:['Quả trứng','Cái bánh','Ly sữa'],answer:0,why:'“Egg” là quả trứng.'},
+{prompt:'Em uống gì khi khát? Chọn từ đúng:',options:['water','cake','egg'],answer:0,why:'Khi khát, em uống “water” (nước).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I eat a ___ for breakfast. (cái bánh)',answerText:'cake',why:'Cái bánh là “cake”.',accept:['cake']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I drink ___ when I am thirsty. (nước)',answerText:'water',why:'Nước là “water”.',accept:['water']},
+{type:'tf',prompt:'“Milk” là nước lọc.',options:['Đúng','Sai'],answer:1,why:'Sai. “Milk” là sữa; nước là “water”.'}
 ]},
 {title:'Tuần 16 — Clothes — Quần áo: hat, shirt',questions:[
 {prompt:'“Hat” là cái gì?',options:['cái mũ / nón','cái áo','đôi giày'],answer:0,why:'Hat nghĩa là cái mũ, cái nón.'},
 {prompt:'Cái áo trong tiếng Anh là gì?',options:['hat','shirt','sock'],answer:1,why:'Shirt nghĩa là cái áo.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I wear a ___ on my head. (cái mũ)',answerText:'hat',why:'“Hat” nghĩa là cái mũ, đội trên đầu.',accept:['hat']},
-{type:'tf',prompt:'“Shirt” là cái áo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Shirt nghĩa là cái áo.'}
+{type:'tf',prompt:'“Shirt” là cái áo.',options:['Đúng','Sai'],answer:0,why:'Đúng. Shirt nghĩa là cái áo.'},
+{prompt:'“Dress” là cái gì?',options:['Cái váy','Cái mũ','Cái áo'],answer:0,why:'“Dress” là cái váy.'},
+{prompt:'Đôi giày trong tiếng Anh là “shoes”. “Shoes” là gì?',options:['Cái quần','Cái mũ','Đôi giày'],answer:2,why:'“Shoes” là đôi giày.'},
+{prompt:'Trời lạnh, em mặc áo khoác: chọn từ đúng “coat”. “Coat” là gì?',options:['Áo khoác','Cái váy','Cái áo'],answer:0,why:'“Coat” là áo khoác.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I wear a ___ to school. (cái áo)',answerText:'shirt',why:'Cái áo là “shirt”.',accept:['shirt']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: My ___ are new. (đôi giày)',answerText:'shoes',why:'Đôi giày là “shoes”.',accept:['shoes']},
+{type:'tf',prompt:'“Hat” là cái mũ.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Hat” là cái mũ.'}
 ]},
 {title:'Tuần 17 — Weather — Thời tiết: sunny, rainy',questions:[
 {prompt:'“Sunny” tả thời tiết thế nào?',options:['mưa','nắng','gió lạnh'],answer:1,why:'Sunny nghĩa là trời nắng.'},
 {prompt:'Trời mưa trong tiếng Anh là “rainy”. Khi mưa em cần gì?',options:['kính râm','quạt','áo mưa / ô'],answer:2,why:'Rainy là trời mưa, em cần áo mưa hoặc ô.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: It is ___ today. (trời nắng)',answerText:'sunny',why:'“Sunny” nghĩa là trời nắng.',accept:['sunny']},
-{type:'tf',prompt:'“Rainy” nghĩa là trời nắng.',options:['Đúng','Sai'],answer:1,why:'Sai. “Rainy” nghĩa là trời mưa; trời nắng là “sunny”.'}
+{type:'tf',prompt:'“Rainy” nghĩa là trời nắng.',options:['Đúng','Sai'],answer:1,why:'Sai. “Rainy” nghĩa là trời mưa; trời nắng là “sunny”.'},
+{prompt:'“Cloudy” tả thời tiết thế nào?',options:['Nắng to','Mưa to','Nhiều mây'],answer:2,why:'“Cloudy” là trời nhiều mây.'},
+{prompt:'Trời nắng, khi ra ngoài em cần gì?',options:['Cái mũ','Cái ô che mưa','Áo mưa'],answer:0,why:'Trời nắng, em đội mũ để che nắng.'},
+{prompt:'“It is rainy.” nghĩa là gì?',options:['Trời mưa','Trời nắng','Trời lạnh'],answer:0,why:'“It is rainy” nghĩa là trời mưa.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: It is ___ today. (trời mưa)',answerText:'rainy',why:'Trời mưa là “rainy”.',accept:['rainy']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is in the sky. (mặt trời)',answerText:'sun',why:'Mặt trời là “sun”.',accept:['sun']},
+{type:'tf',prompt:'“Sunny” nghĩa là trời nắng.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Sunny” là trời nắng.'}
 ]},
 {title:'Tuần 18 — Ôn tập cuối học kì 1 — Chào hỏi và tạm biệt',questions:[
 {prompt:'Khi tạm biệt, em nói:',options:['Goodbye!','Thank you!','Good morning!'],answer:0,why:'Goodbye! dùng khi tạm biệt.'},
 {prompt:'Trước khi ra về, cô giáo nói “Goodbye, class!”. Em đáp lại thế nào?',options:['Good morning!','Hello!','Goodbye, teacher!'],answer:2,why:'Khi tạm biệt, em đáp Goodbye, teacher!'},
 {type:'fill',prompt:'Điền lời chào còn thiếu: When I leave, I say: “___!” (tạm biệt)',answerText:'Goodbye',why:'“Goodbye!” dùng để nói tạm biệt khi ra về.',accept:['Goodbye','Bye']},
-{type:'tf',prompt:'“Good morning!” là lời chào buổi sáng.',options:['Đúng','Sai'],answer:0,why:'Đúng. Good morning! là lời chào dùng vào buổi sáng.'}
+{type:'tf',prompt:'“Good morning!” là lời chào buổi sáng.',options:['Đúng','Sai'],answer:0,why:'Đúng. Good morning! là lời chào dùng vào buổi sáng.'},
+{prompt:'Buổi tối trước khi đi ngủ, em nói:',options:['Good morning!','Hello!','Good night!'],answer:2,why:'Trước khi ngủ, em nói “Good night!”.'},
+{prompt:'“See you again” nghĩa là gì?',options:['Hẹn gặp lại bạn','Chào buổi sáng','Cảm ơn bạn'],answer:0,why:'“See you again” là hẹn gặp lại bạn.'},
+{prompt:'Khi gặp bạn vào buổi chiều, em nói:',options:['Good afternoon!','Good night!','Goodbye!'],answer:0,why:'Chào buổi chiều là “Good afternoon!”.'},
+{type:'fill',prompt:'Điền lời chào còn thiếu: “Good ___!” (chào nhau vào buổi tối)',answerText:'evening',why:'Chào buổi tối là “Good evening!”.',accept:['evening']},
+{type:'fill',prompt:'Điền từ còn thiếu: “Bye! See you ___!”',answerText:'again',why:'“See you again!” là hẹn gặp lại.',accept:['again','tomorrow']},
+{type:'tf',prompt:'“Good night” là lời chào buổi sáng.',options:['Đúng','Sai'],answer:1,why:'Sai. “Good night” là lời chúc ngủ ngon; chào buổi sáng là “Good morning”.'}
 ]},
 {title:'Tuần 19 — Toys — Đồ chơi: ball, kite',questions:[
 {prompt:'“Ball” nghĩa là gì?',options:['quả bóng','con diều','búp bê'],answer:0,why:'Ball nghĩa là quả bóng.'},
 {prompt:'Con diều trong tiếng Anh là gì?',options:['ball','kite','car'],answer:1,why:'Kite nghĩa là con diều.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I play with a ___. (quả bóng)',answerText:'ball',why:'“Ball” nghĩa là quả bóng.',accept:['ball']},
-{type:'tf',prompt:'“Kite” là con búp bê.',options:['Đúng','Sai'],answer:1,why:'Sai. “Kite” là con diều; búp bê là “doll”.'}
+{type:'tf',prompt:'“Kite” là con búp bê.',options:['Đúng','Sai'],answer:1,why:'Sai. “Kite” là con diều; búp bê là “doll”.'},
+{prompt:'“Doll” là đồ chơi gì?',options:['Búp bê','Quả bóng','Con diều'],answer:0,why:'“Doll” là búp bê.'},
+{prompt:'“I have a toy ___.” (ô tô đồ chơi) Điền từ đúng:',options:['car','doll','ball'],answer:0,why:'Ô tô là “car”.'},
+{prompt:'Em thả diều ở đâu? Chọn từ tiếng Anh chỉ nơi rộng rãi:',options:['park','bed','desk'],answer:0,why:'Em thả diều ở “park” (công viên).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I fly a ___ in the park. (con diều)',answerText:'kite',why:'Con diều là “kite”.',accept:['kite']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: My ___ is big and red. (quả bóng)',answerText:'ball',why:'Quả bóng là “ball”.',accept:['ball']},
+{type:'tf',prompt:'“Ball” là quả bóng.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Ball” là quả bóng.'}
 ]},
 {title:'Tuần 20 — At home — Trong nhà: bed, door',questions:[
 {prompt:'“Bed” là cái gì?',options:['cái cửa','cái giường','cái tủ'],answer:1,why:'Bed nghĩa là cái giường.'},
 {prompt:'Cái cửa trong tiếng Anh là gì?',options:['bed','chair','door'],answer:2,why:'Door nghĩa là cái cửa.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I sleep on my ___. (cái giường)',answerText:'bed',why:'“Bed” nghĩa là cái giường, nơi em ngủ.',accept:['bed']},
-{type:'tf',prompt:'“Door” là cái cửa.',options:['Đúng','Sai'],answer:0,why:'Đúng. Door nghĩa là cái cửa.'}
+{type:'tf',prompt:'“Door” là cái cửa.',options:['Đúng','Sai'],answer:0,why:'Đúng. Door nghĩa là cái cửa.'},
+{prompt:'“Chair” ở trong nhà là cái gì?',options:['Cái bàn','Cái giường','Cái ghế'],answer:2,why:'“Chair” là cái ghế.'},
+{prompt:'“Table” nghĩa là gì?',options:['Cái bàn','Cái cửa','Cái tủ'],answer:0,why:'“Table” là cái bàn.'},
+{prompt:'Em mở gì để vào nhà? Chọn từ đúng:',options:['door','bed','chair'],answer:0,why:'Em mở “door” (cái cửa) để vào nhà.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I open the ___ to go out. (cái cửa)',answerText:'door',why:'Cái cửa là “door”.',accept:['door']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I sit on a ___ at home. (cái ghế)',answerText:'chair',why:'Cái ghế là “chair”.',accept:['chair']},
+{type:'tf',prompt:'“Bed” là cái bàn.',options:['Đúng','Sai'],answer:1,why:'Sai. “Bed” là cái giường; cái bàn là “table”.'}
 ]},
 {title:'Tuần 21 — Actions — Hành động em làm được: run, swim',questions:[
 {prompt:'“Run” nghĩa là hành động gì?',options:['bơi','ngủ','chạy'],answer:2,why:'Run nghĩa là chạy.'},
 {prompt:'“I can swim.” nghĩa là gì?',options:['Em biết bơi.','Em biết hát.','Em biết vẽ.'],answer:0,why:'Swim là bơi, can là có thể/biết làm.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I can ___. (chạy)',answerText:'run',why:'“Run” nghĩa là chạy.',accept:['run']},
-{type:'tf',prompt:'“Swim” nghĩa là ngủ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Swim” nghĩa là bơi; ngủ là “sleep”.'}
+{type:'tf',prompt:'“Swim” nghĩa là ngủ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Swim” nghĩa là bơi; ngủ là “sleep”.'},
+{prompt:'“Jump” nghĩa là hành động gì?',options:['Nhảy lên','Ngồi xuống','Nằm ngủ'],answer:0,why:'“Jump” là nhảy lên.'},
+{prompt:'“I can run.” nghĩa là gì?',options:['Em biết bơi','Em biết hát','Em biết chạy'],answer:2,why:'“I can run” là em biết chạy.'},
+{prompt:'Cá làm gì trong nước? Chọn từ đúng:',options:['swim','run','fly'],answer:0,why:'Cá bơi — “swim” — trong nước.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The dog can ___. (chạy)',answerText:'run',why:'Chạy là “run”.',accept:['run']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I ___ in the pool. (bơi)',answerText:'swim',why:'Bơi là “swim”.',accept:['swim']},
+{type:'tf',prompt:'“Run” nghĩa là chạy.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Run” là chạy.'}
 ]},
 {title:'Tuần 22 — Actions — Sing, dance, read',questions:[
 {prompt:'“Sing” nghĩa là gì?',options:['hát','nhảy múa','đọc sách'],answer:0,why:'Sing nghĩa là hát.'},
 {prompt:'Em đọc sách trong tiếng Anh: “I ___ a book.” Điền từ đúng.',options:['swim','read','run'],answer:1,why:'Read a book nghĩa là đọc sách.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I can ___ a song. (hát)',answerText:'sing',why:'“Sing” nghĩa là hát.',accept:['sing']},
-{type:'tf',prompt:'“Read” nghĩa là đọc sách.',options:['Đúng','Sai'],answer:0,why:'Đúng. Read nghĩa là đọc.'}
+{type:'tf',prompt:'“Read” nghĩa là đọc sách.',options:['Đúng','Sai'],answer:0,why:'Đúng. Read nghĩa là đọc.'},
+{prompt:'“Dance” nghĩa là gì?',options:['Đọc sách','Viết bài','Nhảy múa'],answer:2,why:'“Dance” là nhảy múa.'},
+{prompt:'Em viết bài: “I ___ in my notebook.” Điền từ đúng:',options:['write','sing','dance'],answer:0,why:'Viết là “write”.'},
+{prompt:'“I can dance.” nghĩa là gì?',options:['Em biết nhảy múa','Em biết đọc','Em biết bơi'],answer:0,why:'“I can dance” là em biết nhảy múa.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I ___ a book every day. (đọc)',answerText:'read',why:'Đọc là “read”.',accept:['read']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: She can ___ very well. (nhảy múa)',answerText:'dance',why:'Nhảy múa là “dance”.',accept:['dance']},
+{type:'tf',prompt:'“Sing” nghĩa là nhảy múa.',options:['Đúng','Sai'],answer:1,why:'Sai. “Sing” là hát; nhảy múa là “dance”.'}
 ]},
 {title:'Tuần 23 — Nature — Thiên nhiên: sun, tree, flower',questions:[
 {prompt:'“Sun” là gì trên bầu trời?',options:['mặt trăng','mặt trời','ngôi sao'],answer:1,why:'Sun nghĩa là mặt trời.'},
 {prompt:'“Flower” nghĩa là gì?',options:['cái cây','đám mây','bông hoa'],answer:2,why:'Flower nghĩa là bông hoa.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is yellow and hot. (mặt trời)',answerText:'sun',why:'“Sun” nghĩa là mặt trời.',accept:['sun']},
-{type:'tf',prompt:'“Moon” là mặt trời.',options:['Đúng','Sai'],answer:1,why:'Sai. “Moon” là mặt trăng; mặt trời là “sun”.'}
+{type:'tf',prompt:'“Moon” là mặt trời.',options:['Đúng','Sai'],answer:1,why:'Sai. “Moon” là mặt trăng; mặt trời là “sun”.'},
+{prompt:'“Tree” nghĩa là gì?',options:['Cái cây','Bông hoa','Đám mây'],answer:0,why:'“Tree” là cái cây.'},
+{prompt:'“Cloud” là gì trên bầu trời?',options:['Mặt trăng','Ngôi sao','Đám mây'],answer:2,why:'“Cloud” là đám mây.'},
+{prompt:'Ban đêm, em thấy gì trên trời? Chọn từ đúng:',options:['moon','sun','flower'],answer:0,why:'Ban đêm em thấy “moon” (mặt trăng).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is green and tall. (cái cây)',answerText:'tree',why:'Cái cây là “tree”.',accept:['tree']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I love the red ___. (bông hoa)',answerText:'flower',why:'Bông hoa là “flower”.',accept:['flower']},
+{type:'tf',prompt:'“Flower” là bông hoa.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Flower” là bông hoa.'}
 ]},
 {title:'Tuần 24 — Days of the week — Các ngày trong tuần',questions:[
 {prompt:'“Monday” là thứ mấy?',options:['Thứ Sáu','Chủ Nhật','Thứ Hai'],answer:2,why:'Monday là Thứ Hai, ngày đầu tuần học.'},
 {prompt:'Ngày Chủ Nhật trong tiếng Anh là gì?',options:['Sunday','Monday','Friday'],answer:0,why:'Sunday nghĩa là Chủ Nhật.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: Today is ___. (Thứ Hai)',answerText:'Monday',why:'“Monday” là Thứ Hai.',accept:['Monday']},
-{type:'tf',prompt:'“Sunday” là Chủ Nhật.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sunday nghĩa là Chủ Nhật.'}
+{type:'tf',prompt:'“Sunday” là Chủ Nhật.',options:['Đúng','Sai'],answer:0,why:'Đúng. Sunday nghĩa là Chủ Nhật.'},
+{prompt:'“Tuesday” là thứ mấy?',options:['Thứ Ba','Thứ Hai','Thứ Tư'],answer:0,why:'“Tuesday” là thứ Ba.'},
+{prompt:'Thứ Bảy trong tiếng Anh là gì?',options:['Sunday','Friday','Saturday'],answer:2,why:'Thứ Bảy là “Saturday”.'},
+{prompt:'Sau Monday là ngày nào?',options:['Tuesday','Sunday','Friday'],answer:0,why:'Sau Monday (thứ Hai) là Tuesday (thứ Ba).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: Today is ___. (Thứ Tư)',answerText:'Wednesday',why:'Thứ Tư là “Wednesday”.',accept:['Wednesday','wednesday']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I go to school on ___. (Thứ Sáu)',answerText:'Friday',why:'Thứ Sáu là “Friday”.',accept:['Friday','friday']},
+{type:'tf',prompt:'“Monday” là Chủ Nhật.',options:['Đúng','Sai'],answer:1,why:'Sai. “Monday” là thứ Hai; Chủ Nhật là “Sunday”.'}
 ]},
 {title:'Tuần 25 — Feelings — Cảm xúc: happy, sad',questions:[
 {prompt:'“Happy” tả cảm xúc gì?',options:['vui vẻ','buồn','mệt'],answer:0,why:'Happy nghĩa là vui vẻ.'},
 {prompt:'Khi đói bụng, tiếng Anh là “hungry”. “Hungry” nghĩa là gì?',options:['no','đói','khát'],answer:1,why:'Hungry nghĩa là đói bụng.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I am ___ today. (vui vẻ)',answerText:'happy',why:'“Happy” nghĩa là vui vẻ.',accept:['happy']},
-{type:'tf',prompt:'“Sad” nghĩa là vui vẻ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Sad” nghĩa là buồn; vui vẻ là “happy”.'}
+{type:'tf',prompt:'“Sad” nghĩa là vui vẻ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Sad” nghĩa là buồn; vui vẻ là “happy”.'},
+{prompt:'“Sad” tả cảm xúc gì?',options:['Vui','Đói','Buồn'],answer:2,why:'“Sad” là buồn.'},
+{prompt:'Khi khát nước, tiếng Anh là “thirsty”. “Thirsty” nghĩa là gì?',options:['Khát nước','No bụng','Buồn ngủ'],answer:0,why:'“Thirsty” là khát nước.'},
+{prompt:'Em được điểm tốt, em cảm thấy: “I am ___.” Điền từ đúng:',options:['happy','sad','hungry'],answer:0,why:'Được điểm tốt, em vui — “happy”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I am ___ because I miss my friend. (buồn)',answerText:'sad',why:'Buồn là “sad”.',accept:['sad']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I am ___! I want some bread. (đói bụng)',answerText:'hungry',why:'Đói bụng là “hungry”.',accept:['hungry']},
+{type:'tf',prompt:'“Happy” nghĩa là vui vẻ.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Happy” là vui vẻ.'}
 ]},
 {title:'Tuần 26 — Transport — Phương tiện: bike, bus, car',questions:[
 {prompt:'“Bike” là phương tiện gì?',options:['xe buýt','xe đạp','ô tô'],answer:1,why:'Bike nghĩa là xe đạp.'},
 {prompt:'Em đi xe buýt đến trường: “I go to school by ___.”',options:['bike','foot','bus'],answer:2,why:'Bus nghĩa là xe buýt.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I go to school by ___. (xe đạp)',answerText:'bike',why:'“Bike” nghĩa là xe đạp.',accept:['bike','bicycle']},
-{type:'tf',prompt:'“Bus” là xe buýt.',options:['Đúng','Sai'],answer:0,why:'Đúng. Bus nghĩa là xe buýt.'}
+{type:'tf',prompt:'“Bus” là xe buýt.',options:['Đúng','Sai'],answer:0,why:'Đúng. Bus nghĩa là xe buýt.'},
+{prompt:'“Car” là phương tiện gì?',options:['Xe đạp','Tàu hỏa','Ô tô'],answer:2,why:'“Car” là ô tô.'},
+{prompt:'Em đi tàu: “I go by ___.” Điền từ đúng:',options:['train','bike','bus'],answer:0,why:'Tàu hỏa là “train”.'},
+{prompt:'Phương tiện nào chạy trên đường ray?',options:['train','car','bike'],answer:0,why:'Tàu hỏa — “train” — chạy trên đường ray.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I go to school by ___. (xe buýt)',answerText:'bus',why:'Xe buýt là “bus”.',accept:['bus']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: My father drives a ___. (ô tô)',answerText:'car',why:'Ô tô là “car”.',accept:['car']},
+{type:'tf',prompt:'“Bike” là ô tô.',options:['Đúng','Sai'],answer:1,why:'Sai. “Bike” là xe đạp; ô tô là “car”.'}
 ]},
 {title:'Tuần 27 — Ôn tập giữa học kì 2',questions:[
 {prompt:'“Thank you!” nghĩa là gì?',options:['Xin lỗi!','Tạm biệt!','Cảm ơn bạn!'],answer:2,why:'Thank you dùng để nói cảm ơn.'},
 {prompt:'Số “nine” là số mấy?',options:['9','8','10'],answer:0,why:'Nine nghĩa là số 9.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: “___ you very much!” (Cảm ơn bạn nhiều!)',answerText:'Thank',why:'“Thank you very much!” nghĩa là “Cảm ơn bạn nhiều!”',accept:['Thank']},
-{type:'tf',prompt:'“Sorry” nghĩa là cảm ơn.',options:['Đúng','Sai'],answer:1,why:'Sai. “Sorry” nghĩa là xin lỗi; cảm ơn là “thank you”.'}
+{type:'tf',prompt:'“Sorry” nghĩa là cảm ơn.',options:['Đúng','Sai'],answer:1,why:'Sai. “Sorry” nghĩa là xin lỗi; cảm ơn là “thank you”.'},
+{prompt:'“Hello” dùng khi nào?',options:['Khi gặp nhau','Khi chia tay','Khi đi ngủ'],answer:0,why:'“Hello” dùng để chào khi gặp nhau.'},
+{prompt:'“Red” là màu gì?',options:['Đỏ','Xanh','Vàng'],answer:0,why:'“Red” là màu đỏ.'},
+{prompt:'Khi làm phiền bạn, em nói:',options:['Sorry!','Thank you!','Hello!'],answer:0,why:'Khi làm phiền bạn, em nói “Sorry!” (xin lỗi).'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: “I am ___, thank you.” (khỏe)',answerText:'fine',why:'“I am fine” là em khỏe.',accept:['fine']},
+{type:'fill',prompt:'Điền số tiếng Anh còn thiếu: five, six, ___, eight.',answerText:'seven',why:'Sau “six” (6) là “seven” (7).',accept:['seven']},
+{type:'tf',prompt:'“Thank you” nghĩa là cảm ơn.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Thank you” là cảm ơn.'}
 ]},
 {title:'Tuần 28 — Places — Nơi chốn: park, zoo',questions:[
 {prompt:'“Park” là nơi nào?',options:['công viên','vườn thú','trường học'],answer:0,why:'Park nghĩa là công viên.'},
 {prompt:'Nơi có nhiều con vật để xem là “zoo”. “Zoo” nghĩa là gì?',options:['công viên','vườn thú / sở thú','thư viện'],answer:1,why:'Zoo nghĩa là vườn thú.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I play in the ___. (công viên)',answerText:'park',why:'“Park” nghĩa là công viên.',accept:['park']},
-{type:'tf',prompt:'“Zoo” là vườn thú.',options:['Đúng','Sai'],answer:0,why:'Đúng. Zoo nghĩa là vườn thú.'}
+{type:'tf',prompt:'“Zoo” là vườn thú.',options:['Đúng','Sai'],answer:0,why:'Đúng. Zoo nghĩa là vườn thú.'},
+{prompt:'“School” là nơi nào?',options:['Công viên','Chợ','Trường học'],answer:2,why:'“School” là trường học.'},
+{prompt:'Em đi xem thú ở đâu? Chọn từ đúng:',options:['zoo','park','home'],answer:0,why:'Xem thú ở “zoo” (vườn thú).'},
+{prompt:'“Home” nghĩa là gì?',options:['Nhà','Trường','Vườn thú'],answer:0,why:'“Home” là nhà.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I see animals in the ___. (vườn thú)',answerText:'zoo',why:'Vườn thú là “zoo”.',accept:['zoo']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I am at ___ now. (nhà)',answerText:'home',why:'Nhà là “home”.',accept:['home']},
+{type:'tf',prompt:'“Park” là vườn thú.',options:['Đúng','Sai'],answer:1,why:'Sai. “Park” là công viên; vườn thú là “zoo”.'}
 ]},
 {title:'Tuần 29 — At the zoo — Con vật ở vườn thú',questions:[
 {prompt:'“Elephant” là con gì?',options:['con khỉ','con voi','con hổ'],answer:1,why:'Elephant nghĩa là con voi.'},
 {prompt:'Con khỉ trong tiếng Anh là gì?',options:['tiger','lion','monkey'],answer:2,why:'Monkey nghĩa là con khỉ.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is big and grey. (con voi)',answerText:'elephant',why:'“Elephant” nghĩa là con voi.',accept:['elephant']},
-{type:'tf',prompt:'“Monkey” là con hổ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Monkey” là con khỉ; con hổ là “tiger”.'}
+{type:'tf',prompt:'“Monkey” là con hổ.',options:['Đúng','Sai'],answer:1,why:'Sai. “Monkey” là con khỉ; con hổ là “tiger”.'},
+{prompt:'“Tiger” là con gì?',options:['Con hổ','Con khỉ','Con voi'],answer:0,why:'“Tiger” là con hổ.'},
+{prompt:'Con gấu trong tiếng Anh là “bear”. “Bear” là con gì?',options:['Con hổ','Con voi','Con gấu'],answer:2,why:'“Bear” là con gấu.'},
+{prompt:'Con vật nào có vòi dài? Chọn từ đúng:',options:['elephant','monkey','tiger'],answer:0,why:'Con voi — “elephant” — có vòi dài.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ likes bananas. (con khỉ)',answerText:'monkey',why:'Con khỉ là “monkey”.',accept:['monkey']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is big and strong. (con hổ)',answerText:'tiger',why:'Con hổ là “tiger”.',accept:['tiger']},
+{type:'tf',prompt:'“Elephant” là con voi.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Elephant” là con voi.'}
 ]},
 {title:'Tuần 30 — Farm animals — Con vật ở nông trại',questions:[
 {prompt:'“Cow” là con gì ở nông trại?',options:['con lợn','con gà','con bò'],answer:2,why:'Cow nghĩa là con bò.'},
 {prompt:'Con vịt trong tiếng Anh là gì?',options:['duck','pig','goat'],answer:0,why:'Duck nghĩa là con vịt.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ gives milk. (con bò)',answerText:'cow',why:'“Cow” nghĩa là con bò, cho sữa.',accept:['cow']},
-{type:'tf',prompt:'“Pig” là con lợn.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pig nghĩa là con lợn (con heo).'}
+{type:'tf',prompt:'“Pig” là con lợn.',options:['Đúng','Sai'],answer:0,why:'Đúng. Pig nghĩa là con lợn (con heo).'},
+{prompt:'“Chicken” là con gì ở nông trại?',options:['Con vịt','Con lợn','Con gà'],answer:2,why:'“Chicken” là con gà.'},
+{prompt:'Con cừu trong tiếng Anh là “sheep”. “Sheep” là con gì?',options:['Con cừu','Con bò','Con gà'],answer:0,why:'“Sheep” là con cừu.'},
+{prompt:'Con vật nào cho em trứng? Chọn từ đúng:',options:['chicken','cow','pig'],answer:0,why:'Gà — “chicken” — cho em trứng.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ says “quack quack”. (con vịt)',answerText:'duck',why:'Con vịt là “duck”.',accept:['duck']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The ___ is pink and fat. (con lợn)',answerText:'pig',why:'Con lợn là “pig”.',accept:['pig']},
+{type:'tf',prompt:'“Cow” là con gà.',options:['Đúng','Sai'],answer:1,why:'Sai. “Cow” là con bò; con gà là “chicken”.'}
 ]},
 {title:'Tuần 31 — Fruits and vegetables — Trái cây và rau củ',questions:[
 {prompt:'“Orange” (quả) là quả gì?',options:['quả cam','quả nho','quả dưa hấu'],answer:0,why:'Orange (quả) nghĩa là quả cam.'},
 {prompt:'Quả nho trong tiếng Anh là gì?',options:['orange','grapes','lemon'],answer:1,why:'Grapes nghĩa là quả nho.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: An ___ is orange. (quả cam)',answerText:'orange',why:'“Orange” (quả) nghĩa là quả cam.',accept:['orange']},
-{type:'tf',prompt:'“Banana” là quả chuối.',options:['Đúng','Sai'],answer:0,why:'Đúng. Banana nghĩa là quả chuối.'}
+{type:'tf',prompt:'“Banana” là quả chuối.',options:['Đúng','Sai'],answer:0,why:'Đúng. Banana nghĩa là quả chuối.'},
+{prompt:'“Carrot” là củ gì?',options:['Quả cam','Quả táo','Củ cà rốt'],answer:2,why:'“Carrot” là củ cà rốt.'},
+{prompt:'Quả dưa hấu trong tiếng Anh là “watermelon”. “Watermelon” là quả gì?',options:['Dưa hấu','Dưa chuột','Nho'],answer:0,why:'“Watermelon” là quả dưa hấu.'},
+{prompt:'“Cabbage” là rau gì?',options:['Bắp cải','Cà rốt','Khoai tây'],answer:0,why:'“Cabbage” là bắp cải.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I like ___. (quả nho)',answerText:'grapes',why:'Quả nho là “grapes”.',accept:['grapes','grape']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: The rabbit likes a ___. (củ cà rốt)',answerText:'carrot',why:'Củ cà rốt là “carrot”.',accept:['carrot']},
+{type:'tf',prompt:'“Carrot” là củ cà rốt.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Carrot” là củ cà rốt.'}
 ]},
 {title:'Tuần 32 — Sports and games — Thể thao: football',questions:[
 {prompt:'“Football” là môn thể thao nào?',options:['cầu lông','bóng đá','bơi lội'],answer:1,why:'Football nghĩa là bóng đá.'},
 {prompt:'Em dùng vợt đánh cầu lông: môn đó là “badminton”. “Badminton” là gì?',options:['bóng bàn','đá cầu','cầu lông'],answer:2,why:'Badminton nghĩa là môn cầu lông.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I play ___ with my friends. (bóng đá)',answerText:'football',why:'“Football” nghĩa là bóng đá.',accept:['football']},
-{type:'tf',prompt:'“Football” là môn bơi lội.',options:['Đúng','Sai'],answer:1,why:'Sai. “Football” là môn bóng đá; bơi lội là “swimming”.'}
+{type:'tf',prompt:'“Football” là môn bơi lội.',options:['Đúng','Sai'],answer:1,why:'Sai. “Football” là môn bóng đá; bơi lội là “swimming”.'},
+{prompt:'“Swimming” là môn thể thao nào?',options:['Bóng đá','Cầu lông','Bơi lội'],answer:2,why:'“Swimming” là môn bơi lội.'},
+{prompt:'Em chạy thi, môn đó là “running”. “Running” là gì?',options:['Chạy','Nhảy dây','Đá cầu'],answer:0,why:'“Running” là chạy.'},
+{prompt:'Môn nào chơi bằng chân và quả bóng?',options:['football','swimming','badminton'],answer:0,why:'Bóng đá — “football” — chơi bằng chân và quả bóng.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I can play ___ with a racket. (cầu lông)',answerText:'badminton',why:'Cầu lông là “badminton”.',accept:['badminton']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I go ___ in the pool. (bơi lội)',answerText:'swimming',why:'Bơi lội là “swimming”.',accept:['swimming']},
+{type:'tf',prompt:'“Badminton” là môn bóng đá.',options:['Đúng','Sai'],answer:1,why:'Sai. “Badminton” là môn cầu lông; bóng đá là “football”.'}
 ]},
 {title:'Tuần 33 — Seasons and weather — Mùa và thời tiết',questions:[
 {prompt:'“Hot” tả thời tiết thế nào?',options:['lạnh','mát','nóng'],answer:2,why:'Hot nghĩa là nóng.'},
 {prompt:'Mùa xuân trong tiếng Anh là gì?',options:['spring','summer','winter'],answer:0,why:'Spring nghĩa là mùa xuân.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: It is ___ in summer. (nóng)',answerText:'hot',why:'“Hot” nghĩa là nóng.',accept:['hot']},
-{type:'tf',prompt:'“Cold” nghĩa là lạnh.',options:['Đúng','Sai'],answer:0,why:'Đúng. Cold nghĩa là lạnh.'}
+{type:'tf',prompt:'“Cold” nghĩa là lạnh.',options:['Đúng','Sai'],answer:0,why:'Đúng. Cold nghĩa là lạnh.'},
+{prompt:'“Winter” là mùa nào?',options:['Mùa đông','Mùa xuân','Mùa hè'],answer:0,why:'“Winter” là mùa đông.'},
+{prompt:'Mùa hè trong tiếng Anh là gì?',options:['winter','spring','summer'],answer:2,why:'Mùa hè là “summer”.'},
+{prompt:'Mùa đông trời thế nào? Chọn từ đúng:',options:['cold','hot','sunny'],answer:0,why:'Mùa đông trời lạnh — “cold”.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: It is ___ in winter. (lạnh)',answerText:'cold',why:'Lạnh là “cold”.',accept:['cold']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: ___ is the first season of the year. (Mùa xuân)',answerText:'Spring',why:'Mùa xuân là “spring”.',accept:['Spring','spring']},
+{type:'tf',prompt:'“Summer” là mùa đông.',options:['Đúng','Sai'],answer:1,why:'Sai. “Summer” là mùa hè; mùa đông là “winter”.'}
 ]},
 {title:'Tuần 34 — In class — Hoạt động trong lớp',questions:[
 {prompt:'“Listen” nghĩa là hành động gì?',options:['lắng nghe','nói','viết'],answer:0,why:'Listen nghĩa là lắng nghe.'},
 {prompt:'Cô giáo bảo mở sách: “___ your book.” Điền từ đúng.',options:['Close','Open','Eat'],answer:1,why:'Open your book nghĩa là Mở sách ra.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: Please ___ to the teacher. (lắng nghe)',answerText:'listen',why:'“Listen” nghĩa là lắng nghe.',accept:['listen']},
-{type:'tf',prompt:'“Write” nghĩa là lắng nghe.',options:['Đúng','Sai'],answer:1,why:'Sai. “Write” nghĩa là viết; lắng nghe là “listen”.'}
+{type:'tf',prompt:'“Write” nghĩa là lắng nghe.',options:['Đúng','Sai'],answer:1,why:'Sai. “Write” nghĩa là viết; lắng nghe là “listen”.'},
+{prompt:'“Stand up” nghĩa là gì?',options:['Ngồi xuống','Im lặng','Đứng lên'],answer:2,why:'“Stand up” là đứng lên.'},
+{prompt:'Cô bảo ngồi xuống: “___ down.” Điền từ đúng:',options:['Sit','Stand','Open'],answer:0,why:'Ngồi xuống là “Sit down”.'},
+{prompt:'“Close your book” nghĩa là gì?',options:['Gấp sách lại','Mở sách ra','Đọc sách'],answer:0,why:'“Close your book” là gấp sách lại.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: Please ___ your book. (mở)',answerText:'open',why:'Mở là “open”.',accept:['open']},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I ___ with a pen. (viết)',answerText:'write',why:'Viết là “write”.',accept:['write']},
+{type:'tf',prompt:'“Listen” nghĩa là lắng nghe.',options:['Đúng','Sai'],answer:0,why:'Đúng. “Listen” là lắng nghe.'}
 ]},
 {title:'Tuần 35 — Ôn tập và đánh giá cuối học kì 2',questions:[
 {prompt:'“School” nghĩa là gì?',options:['bệnh viện','trường học','chợ'],answer:1,why:'School nghĩa là trường học.'},
 {prompt:'Câu nào chào bạn vào buổi chiều?',options:['Good night!','Goodbye!','Good afternoon!'],answer:2,why:'Good afternoon là lời chào buổi chiều.'},
 {type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: I go to ___ every day. (trường học)',answerText:'school',why:'“School” nghĩa là trường học.',accept:['school']},
-{type:'tf',prompt:'“School” là trường học.',options:['Đúng','Sai'],answer:0,why:'Đúng. School nghĩa là trường học.'}
+{type:'tf',prompt:'“School” là trường học.',options:['Đúng','Sai'],answer:0,why:'Đúng. School nghĩa là trường học.'},
+{prompt:'“Friend” nghĩa là gì?',options:['Bạn bè','Thầy giáo','Trường học'],answer:0,why:'“Friend” là bạn bè.'},
+{prompt:'Câu nào hỏi thăm sức khỏe?',options:['What is your name?','Goodbye!','How are you?'],answer:2,why:'“How are you?” là câu hỏi thăm sức khỏe.'},
+{prompt:'“I love my school.” nghĩa là gì?',options:['Em yêu trường của em','Em ghét trường','Em đi ngủ'],answer:0,why:'“I love my school” là em yêu trường của em.'},
+{type:'fill',prompt:'Điền từ tiếng Anh còn thiếu: This is my ___. (bạn của em)',answerText:'friend',why:'Bạn là “friend”.',accept:['friend']},
+{type:'fill',prompt:'Điền lời chào còn thiếu: “Good ___!” (chào buổi sáng)',answerText:'morning',why:'Chào buổi sáng là “Good morning!”.',accept:['morning']},
+{type:'tf',prompt:'“Goodbye” nghĩa là xin chào.',options:['Đúng','Sai'],answer:1,why:'Sai. “Goodbye” là tạm biệt; xin chào là “Hello”.'}
 ]},
 ]},
 ]};
