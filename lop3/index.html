@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../assets/game-art/game-art.css">
 <style>
 .game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(135deg,#2f7de4,#3db85a);border-radius:22px;padding:16px 18px;margin:0 0 14px;box-shadow:0 6px 0 rgba(0,0,0,.12);font-family:'Nunito','Be Vietnam Pro',sans-serif}
-.game-card .gb{font-size:13px;font-weight:900;opacity:.95}
+.game-card .gb{display:inline-block;background:#ffd43b;color:#5b3a00;font-size:19px;font-weight:900;letter-spacing:1px;padding:10px 22px;border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.25);margin-bottom:8px}.game-card:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.12)}
 .game-card h2{font-size:22px;margin:4px 0 2px;font-family:'Be Vietnam Pro',sans-serif}
 .game-card p{margin:0;font-weight:800;font-size:15px;opacity:.95}
 </style>
@@ -25,9 +25,9 @@
   if(!hero) return;
   document.querySelectorAll('.game-card').forEach(function(el){ el.remove(); });
   var cards=[
-    {href:'game-dat-tinh/', img:'../assets/game-art/banner-dat-tinh-lop3.webp', gb:'GAME · TOÁN 3', h:'Đặt tính cộng, trừ, nhân, chia', p:'Điền số vào đặt tính theo SGK Kết nối tri thức →'},
-    {href:'game-chia/', img:'../assets/game-art/banner-chia.webp', gb:'GAME · PHÉP CHIA · TUẦN 11 & 15', h:'Điền số vào phép chia đặt tính', p:'Bài 26 & 37 SGK Toán 3 KNTT · Chia – Nhân – Trừ – Hạ, từng chữ số một →'},
-    {href:'game-chinh-ta/', img:'../assets/game-art/banner-chinh-ta.webp', gb:'GAME · CHÍNH TẢ', h:'Chính tả lớp 3', p:'Điền chữ, điền từ, điền dấu — luyện chính tả vui vẻ →'}
+    {href:'game-dat-tinh/', img:'../assets/game-art/banner-dat-tinh-lop3.webp', gb:'🎮 GAME · TOÁN 3', h:'Đặt tính cộng, trừ, nhân, chia', p:'Điền số vào đặt tính theo SGK Kết nối tri thức →'},
+    {href:'game-chia/', img:'../assets/game-art/banner-chia.webp', gb:'🎮 GAME · PHÉP CHIA · TUẦN 11 & 15', h:'Điền số vào phép chia đặt tính', p:'Bài 26 & 37 SGK Toán 3 KNTT · Chia – Nhân – Trừ – Hạ, từng chữ số một →'},
+    {href:'game-chinh-ta/', img:'../assets/game-art/banner-chinh-ta.webp', gb:'🎮 GAME · CHÍNH TẢ', h:'Chính tả lớp 3', p:'Điền chữ, điền từ, điền dấu — luyện chính tả vui vẻ →'}
   ];
   var last=hero;
   cards.forEach(function(c){
